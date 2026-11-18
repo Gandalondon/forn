@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Forn</title>
+<style>
+/* Forn's app screen: the rings, with tonight's cards on top. Ported from Stepback prototype 2 (18 Nov).
+   Runs offline in the app's WebView: Instrument Sans and three.js are bundled next to this file. */
+@font-face { font-family: "Instrument Sans"; src: url("instrument_sans.ttf"); font-weight: 400 700; }
+:root {
+  --ink: #1A1A1A;
+  --ink-soft: #3A3A3A;
+  --font: "Instrument Sans", system-ui, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; margin: 0; background: #FFFFFF; font-family: var(--font); color: var(--ink); overflow: hidden; }
+button { font-family: var(--font); }
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; }
+.icon-btn { position: fixed; top: 16px; right: 12px; width: 48px; height: 48px; border: 0; border-radius: 24px; background: transparent; color: var(--ink); display: grid; place-items: center; z-index: 2; }
+.tally { position: fixed; left: 24px; right: 24px; bottom: 24px; margin: 0; font-size: 17px; line-height: 24px; color: var(--ink-soft); pointer-events: none; text-wrap: pretty; z-index: 1; transition: opacity 300ms ease; }
+.tally strong { display: block; margin-bottom: 16px; font-size: 32px; line-height: 40px; font-weight: 600; color: var(--ink); letter-spacing: 0.2px; }
+body.carded .tally { opacity: 0; }
+
+/* Cards: white, on the 3D view under a dim scrim. A plain stack: the next card is just there. */
+#cards { position: fixed; inset: 0; z-index: 4; background: rgba(26,26,26,0.5); padding: 96px 24px 24px; display: flex; flex-direction: column; transition: opacity 300ms ease; }
+#cards.gone { opacity: 0; pointer-events: none; }
+#cards[hidden] { display: none; }
+.deck { position: relative; flex: 1; }
+.card { position: absolute; inset: 0; border-radius: 32px; background: #FFFFFF; color: var(--ink); padding: 32px 24px 24px; display: flex; flex-direction: column; touch-action: none; user-select: none; will-change: transform; }
+.card h2 { margin: 0; font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; }
+.card p { margin: 16px 0 0; font-size: 17px; line-height: 24px; color: var(--ink-soft); text-wrap: pretty; }
+.card .grow { flex: 1; }
+.pips { display: flex; gap: 8px; justify-content: center; height: 8px; margin-top: 24px; }
+.pips i { width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.32); }
+.pips i.now { background: #FFFFFF; }
+
+/* A reopened find: same card, same scrim. */
+.peek { position: fixed; inset: 0; z-index: 5; padding: 96px 24px 24px; background: rgba(26,26,26,0.5); display: none; }
+.peek.on { display: block; }
+.peek .card { position: relative; inset: auto; height: 100%; touch-action: auto; }
+.pill { height: 64px; width: 100%; border-radius: 999px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 17px/24px var(--font); }
+.pill + .pill { margin-top: 16px; }
+
+/* How it works: a full page with a back arrow, as Relay's settings. */
+.page { position: fixed; inset: 0; z-index: 6; background: #FFFFFF; color: var(--ink); overflow-y: auto; padding: 16px 24px 48px; display: none; }
+.page.on { display: block; }
+.page .head { display: flex; align-items: center; gap: 4px; margin: 0 0 0 -12px; }
+.page .back { width: 48px; height: 48px; border: 0; border-radius: 24px; background: transparent; color: var(--ink); display: grid; place-items: center; }
+.page h2 { margin: 0; font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: 0.2px; }
+.page section { margin-top: 24px; }
+.page h3 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 600; }
+.page p { margin: 8px 0 0; font-size: 17px; line-height: 24px; color: var(--ink-soft); text-wrap: pretty; }
+.page .pills { margin-top: 16px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none !important; } }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<button type="button" class="icon-btn" id="how" aria-label="How it works"><svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></button>
+<p class="tally" id="tally"></p>
+
+<div class="peek" id="peek" role="dialog" aria-label="A find">
+  <article class="card"><h2 id="peekFact"></h2><p id="peekMeta"></p><div class="grow"></div><button type="button" class="pill" id="peekClose">Close</button></article>
+</div>
+
+<div id="cards" role="dialog" aria-label="Tonight's finds" hidden>
+  <div class="deck" id="deck"></div>
+  <div class="pips" id="pips" aria-hidden="true"></div>
+</div>
+
+<div class="page" id="sheet" role="dialog" aria-label="How it works">
+  <div class="head"><button type="button" class="back" id="sheetClose" aria-label="Back"><svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="m274-450 227 227q9 9 9 21t-9 21q-9 9-21 9t-21-9L181-459q-5-5-7-10t-2-11q0-6 2-11t7-10l278-278q9-9 21-9t21 9q9 9 9 21t-9 21L274-510h496q13 0 21.5 8.5T800-480q0 13-8.5 21.5T770-450H274Z"/></svg></button><h2>How it works</h2></div>
+  <section><h3>Go about your day</h3><p>Forn notices the places you pass: near, under or over. At 9pm it tells you the best of them. Up to five, fewer on a quiet day.</p></section>
+  <section><h3>Swipe</h3><p>Right if it's interesting, left if it's not for you. Only you see your answers.</p></section>
+  <section><h3>Keep</h3><p>Every right swipe stays as a black ball. Tap one to read it again. The rest turns to dust. One ring for each day, today on the outside.</p></section>
+  <section><h3>What it needs</h3><p>Your location, all the time, so it knows what you passed with your phone in your pocket. Notifications, for 9pm.</p></section>
+  <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone.</p></section>
+  <section><h3>Testing</h3><p id="testInfo"></p>
+    <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="tellBtn">Tell me now</button></div>
+  </section>
+  <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
+</div>
+
+<script>
+// Test aid: if the page breaks, say so on screen instead of showing a blank white page.
+window.onerror = (m, s, l) => { const t = document.getElementById("tally"); if (t) t.innerHTML = "<strong>Something broke</strong>" + String(m).replace(/</g, "&lt;") + " (line " + l + ")"; };
+</script>
+<script src="three.js"></script>
+<script>
+/* ---------- Data from the phone ---------- */
+// Forn (the app) gives: today's day key, the finds told so far (with answers) and tonight's unanswered cards.
+// Opened in a browser without the app, it shows example data so the page can be checked.
+const N = window.Forn || {
+  state: () => JSON.stringify({ today: '2026-11-18', cards: ['a', 'b'], recording: false, saved: '',
+    passed: [{ id: 'a', place: 'Raynes Park station', at: Date.now() - 3600e3 }],
+    finds: [
+      { id: 'a', fact: "In 1889 a guidebook writer called a Norfolk halt possibly the least important station in England, except Raynes Park.", place: 'Raynes Park station', day: '2026-11-18', at: Date.now() - 3600e3, verdict: '' },
+      { id: 'b', fact: 'Raynes Park was never a park.', place: 'Raynes Park', day: '2026-11-18', at: Date.now() - 3000e3, verdict: '' },
+      { id: 'c', fact: '50 million years ago, SW20 was a warm sea.', place: 'SW20', day: '2026-11-17', at: null, verdict: 'yes' },
+    ] }),
+  verdict: () => {}, tellNow: () => {}, record: () => '',
+};
+let S = JSON.parse(N.state());
+const DAY = 864e5;
+const dayDate = key => { const [y, m, d] = key.split('-').map(Number); return new Date(y, m - 1, d); };
+const dayIndex = key => Math.round((dayDate(S.today) - dayDate(key)) / DAY);
+const fmtDate = (key, at) => {
+  const d = dayDate(key).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+  return at ? d + ', ' + new Date(at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : d;
+};
+
+/* ---------- Cards ---------- */
+const deck = document.getElementById('deck'), pips = document.getElementById('pips'), cardsEl = document.getElementById('cards');
+let CARDS = [], idx = 0, hold = false;
+function renderPips() { pips.innerHTML = CARDS.length > 1 ? CARDS.map((_, i) => `<i class="${i === idx ? 'now' : ''}"></i>`).join('') : ''; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function renderDeck() {
+  renderPips(); deck.innerHTML = '';
+  for (let i = Math.min(idx + 1, CARDS.length - 1); i >= idx; i--) {
+    const f = CARDS[i], el = document.createElement('article');
+    el.className = 'card';
+    el.innerHTML = `<h2>${esc(f.fact)}</h2><p>${esc(f.place)}${f.at ? ', ' + new Date(f.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : ''}</p>`;
+    el.setAttribute('aria-label', 'Swipe right if it is interesting, left if not');
+    deck.appendChild(el);
+    if (i === idx) wire(el);
+  }
+}
+function wire(el) {
+  let x0 = null, dx = 0;
+  el.addEventListener('pointerdown', e => { x0 = e.clientX; el.setPointerCapture(e.pointerId); el.style.transition = 'none'; });
+  el.addEventListener('pointermove', e => { if (x0 == null) return; dx = e.clientX - x0; el.style.transform = `translateX(${dx}px) rotate(${dx / 24}deg)`; });
+  const up = () => {
+    if (x0 == null) return; x0 = null;
+    if (Math.abs(dx) > 96) decide(el, dx > 0 ? 'yes' : 'no');
+    else { el.style.transition = 'transform 200ms ease'; el.style.transform = ''; }
+    dx = 0;
+  };
+  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+}
+function decide(el, v) {
+  el.style.transition = 'transform 280ms ease, opacity 280ms ease';
+  el.style.transform = `translateX(${v === 'yes' ? 480 : -480}px) rotate(${v === 'yes' ? 16 : -16}deg)`;
+  el.style.opacity = '0';
+  const f = CARDS[idx]; f.verdict = v; N.verdict(f.id, v);
+  setTimeout(() => { idx++; if (idx >= CARDS.length) finish(); else renderDeck(); }, 300);
+}
+function finish() {
+  renderPips();
+  setTimeout(() => {
+    cardsEl.classList.add('gone'); document.body.classList.remove('carded'); hold = false;
+    S = JSON.parse(N.state()); build(true);
+    setTimeout(() => { cardsEl.hidden = true; }, 300);
+  }, 300);
+}
+function openCards() {
+  CARDS = S.cards.map(id => S.finds.find(f => f.id === id)).filter(Boolean);
+  if (!CARDS.length) { cardsEl.hidden = true; document.body.classList.remove('carded'); hold = false; return false; }
+  idx = 0; cardsEl.hidden = false; cardsEl.classList.remove('gone'); document.body.classList.add('carded');
+  renderDeck(); hold = true; return true;
+}
+
+/* ---------- Rings ---------- */
+// Distance from the centre is when you found it: today the outer ring, the past at the core. Angle means nothing.
+// Kept finds are flat black balls; Not for me bursts into dust where its ball sat.
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
+const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 4000);
+const SPH = new THREE.SphereGeometry(1, 40, 28);
+const MAT_YES = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
+const controls = new THREE.OrbitControls(camera, canvas);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.5; controls.enablePan = false;
+let idleT = null, group = null, balls = [], bursts = [], reveal = [], openAt = 0, pull = null, nDays = 1, freeK = 1;
+controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); });
+controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoRotate = true, 4000); });
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const R_BALL = 0.16, PARTS = 420, STEP = 0.42;
+const centre = new THREE.Vector3();
+function ringR(day) { return 0.5 + (nDays - 1 - day) * STEP; }
+function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+function seedOf(s) { let h = 7; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 2147483646; return h + 1; }
+// Ring weight: 0 day (dotted hairline), 1 week (Monday), 2 month (the 1st), 3 year (1 January).
+function rankOf(d) { const t = dayDate(S.today); t.setDate(t.getDate() - d); return t.getMonth() === 0 && t.getDate() === 1 ? 3 : t.getDate() === 1 ? 2 : t.getDay() === 1 ? 1 : 0; }
+const RING_COL = [0xC8C8C8, 0xA8A8A8, 0x6A6A6A, 0x1A1A1A], RING_W = [0, 0.015, 0.035, 0.08];
+function ringLoop(R, rank) {
+  const segs = Math.min(1024, Math.max(96, Math.round(R * 6))), pts = [];
+  for (let i = 0; i <= segs; i++) { const a = i / segs * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R)); }
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), rank === 0 ? new THREE.LineDashedMaterial({ color: RING_COL[0], dashSize: 0.03, gapSize: 0.07 }) : new THREE.LineBasicMaterial({ color: RING_COL[rank] }));
+  if (rank === 0) line.computeLineDistances();
+  return line;
+}
+function guides() {
+  for (let d = 0; d < nDays; d++) {
+    let rank = rankOf(d);
+    if (rank === 1 && [-2, -1, 1, 2].some(k => d + k >= 0 && d + k < nDays && rankOf(d + k) >= 2)) rank = 0;
+    const g = new THREE.Group(), R = ringR(d);
+    g.add(ringLoop(R, rank));
+    if (rank) {
+      const m = new THREE.Mesh(new THREE.RingGeometry(R - RING_W[rank] / 2, R + RING_W[rank] / 2, Math.min(1024, Math.max(96, Math.round(R * 6)))), new THREE.MeshBasicMaterial({ color: RING_COL[rank], side: THREE.DoubleSide }));
+      m.rotation.x = -Math.PI / 2; m.userData.ring = true; g.add(m);
+    }
+    g.userData.day = d; group.add(g); reveal.push(g);
+  }
+}
+function placeFor(f, i, n) {
+  const R = ringR(f.d);
+  if (f.d === 0) { const th = 0.6 + (i - (n - 1) / 2) * (0.6 / R); return new THREE.Vector3(Math.cos(th) * R, 0, Math.sin(th) * R); } // today: evenly along a short arc
+  const r = rng(seedOf(f.id)), th = r() * Math.PI * 2, RR = R + (r() - 0.5) * 0.1;
+  return new THREE.Vector3(Math.cos(th) * RR, (r() - 0.5) * 0.08, Math.sin(th) * RR);
+}
+function makeBurst(pos, r, settled) {
+  const start = new Float32Array(PARTS * 3), end = new Float32Array(PARTS * 3);
+  for (let i = 0; i < PARTS; i++) {
+    const u = r() * 2 - 1, th = r() * Math.PI * 2, s = Math.sqrt(1 - u * u), d = 0.2 + Math.pow(r(), 0.7) * 0.6;
+    start.set([pos.x, pos.y, pos.z], i * 3);
+    end.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3);
+  }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(settled ? end.slice() : start.slice(), 3));
+  const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x8A8A8A, size: 0.022, transparent: true, opacity: settled ? 0.55 : 0 }));
+  group.add(pts);
+  return { pts, start, end, settled };
+}
+function endPull() {
+  if (!pull) return; pull = null;
+  reveal.forEach(o => { o.visible = true; });
+  controls.target.copy(centre); controls.autoRotate = true;
+}
+function fit(reach) {
+  const t = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), vf = Math.atan(t * freeK), hf = Math.atan(t * camera.aspect);
+  return reach * 1.15 / Math.sin(Math.min(vf, hf));
+}
+
+function build(animate) {
+  if (group) { scene.remove(group); group.traverse(o => { if (o.isPoints || o.isLine || o.userData.ring) { o.geometry.dispose(); o.material.dispose(); } }); }
+  group = new THREE.Group(); scene.add(group); balls = []; bursts = []; reveal = []; pull = null;
+  const finds = S.finds.map(f => ({ ...f, d: Math.max(0, dayIndex(f.day)) }));
+  nDays = Math.max(1, ...finds.map(f => f.d + 1));
+  guides();
+  const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
+  let maxR = ringR(0);
+  finds.forEach(f => {
+    const ti = today.indexOf(f), pos = placeFor(f, ti, today.length);
+    maxR = Math.max(maxR, pos.length());
+    if (f.d === 0) { focus.add(pos.clone().divideScalar(today.length)); todayPos.push(pos); }
+    // Today's answers play out live once the cards are swiped away; older dust is already settled.
+    const live = f.d === 0 && animate && !reduce;
+    const r = rng(seedOf(f.id + 'dust'));
+    if (f.verdict === 'no' && !hold) {
+      const b = makeBurst(pos, r, !live); b.pts.userData.day = f.d; reveal.push(b.pts);
+      if (live) { const m = new THREE.Mesh(SPH, MAT_YES); m.scale.setScalar(R_BALL); m.position.copy(pos); group.add(m); b.ball = m; }
+      bursts.push(b);
+    } else {
+      const m = new THREE.Mesh(SPH, MAT_YES); m.scale.setScalar(R_BALL); m.position.copy(pos);
+      m.userData = { f, day: f.d }; group.add(m); balls.push(m); reveal.push(m);
+    }
+  });
+  const kept = finds.filter(f => f.verdict !== 'no').length;
+  const weekday = dayDate(S.today).toLocaleDateString('en-GB', { weekday: 'long' });
+  document.getElementById('tally').innerHTML = !finds.length
+    ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
+    : `<strong>${nDays === 1 ? weekday : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
+  resize();
+  const spread = Math.max(0, ...todayPos.map(p => p.distanceTo(focus)));
+  const far = fit(Math.max(1.3, maxR + 0.5)), near = fit(Math.max(0.9, spread + 0.8));
+  const dir = new THREE.Vector3(1, 1.3, 1).normalize();
+  const live = (animate || hold) && !reduce && today.length > 0 && far > near * 1.05;
+  const from = live ? focus : centre;
+  controls.target.copy(from); controls.minDistance = 1.5; controls.maxDistance = far * 1.6;
+  camera.far = far * 4; camera.updateProjectionMatrix();
+  camera.position.copy(from).add(dir.clone().multiplyScalar(live ? near : far)); controls.update();
+  controls.autoRotate = !live && !hold;
+  openAt = performance.now();
+  pull = live ? { from: near, to: far, t0: from.clone(), at: 2.8, dur: 2.6 } : null;
+  if (pull) reveal.forEach(o => { o.visible = o.userData.day === 0; });
+}
+
+/* Tap a black ball: its card comes back, with the date and time. */
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let downAt = null;
+canvas.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; });
+canvas.addEventListener('pointerup', e => {
+  if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 6) return;
+  const r = canvas.getBoundingClientRect();
+  ptr.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObjects(balls)[0];
+  if (!hit) return;
+  const f = hit.object.userData.f;
+  document.getElementById('peekFact').textContent = f.fact;
+  document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
+  document.getElementById('peek').classList.add('on');
+  controls.autoRotate = false; endPull();
+});
+document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); controls.autoRotate = true; });
+
+function resize() {
+  const w = innerWidth, h = innerHeight; if (!w) return;
+  renderer.setSize(w, h, false); camera.aspect = w / h;
+  const top = 72, bottom = document.getElementById('tally').getBoundingClientRect().top - 24, freeH = Math.max(160, bottom - top);
+  freeK = freeH / h;
+  camera.setViewOffset(w, h, 0, h / 2 - (top + bottom) / 2, w, h);
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize);
+
+function tick(now) {
+  requestAnimationFrame(tick);
+  if (hold) openAt = now; // nothing plays until the cards are gone
+  const t = (now - openAt) / 1000;
+  bursts.forEach(b => {
+    if (b.settled) return;
+    const k = Math.max(0, Math.min(1, (t - 0.9) / 1.6)), e = 1 - Math.pow(1 - k, 4);
+    if (b.ball) { b.ball.scale.setScalar(R_BALL * Math.max(0, 1 - k * 4)); if (k >= 0.25) b.ball.visible = false; }
+    const a = b.pts.geometry.attributes.position.array;
+    for (let i = 0; i < a.length; i++) a[i] = b.start[i] + (b.end[i] - b.start[i]) * e;
+    b.pts.geometry.attributes.position.needsUpdate = true;
+    b.pts.material.opacity = k > 0 ? 0.55 : 0;
+    if (k >= 1) b.settled = true;
+  });
+  if (pull && !hold) {
+    const k = Math.max(0, Math.min(1, (t - pull.at) / pull.dur)), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    const off = new THREE.Vector3().copy(camera.position).sub(controls.target).normalize();
+    controls.target.lerpVectors(pull.t0, centre, e);
+    camera.position.copy(controls.target).addScaledVector(off, pull.from * Math.pow(pull.to / pull.from, e));
+    reveal.forEach(o => { o.visible = o.userData.day <= e * nDays; });
+    if (k >= 1) endPull();
+  }
+  controls.update(); renderer.render(scene, camera);
+}
+
+/* ---------- How it works, and the test aids ---------- */
+const sheet = document.getElementById('sheet');
+function renderTest() {
+  const p = S.passed || [];
+  document.getElementById('testInfo').textContent = (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}. ` : '') +
+    (p.length ? 'Passed today: ' + p.map(x => x.place + (x.at ? ' at ' + new Date(x.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : '')).join(', ') + '.' : 'Nothing passed yet today.');
+  document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
+}
+document.getElementById('how').addEventListener('click', () => { S = JSON.parse(N.state()); renderTest(); sheet.scrollTop = 0; sheet.classList.add('on'); });
+document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
+document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
+document.getElementById('tellBtn').addEventListener('click', () => { N.tellNow(); sheet.classList.remove('on'); window.forn.refresh(); });
+
+/* Called by the app: on open, on return, and from Android's back button. */
+window.forn = {
+  refresh() {
+    if (!cardsEl.hidden && hold) return; // mid-swipe: leave it
+    S = JSON.parse(N.state());
+    if (!openCards()) build(false); else build(false);
+  },
+  back() {
+    if (document.getElementById('peek').classList.contains('on')) { document.getElementById('peekClose').click(); return true; }
+    if (sheet.classList.contains('on')) { sheet.classList.remove('on'); return true; }
+    return false;
+  },
+};
+openCards(); build(false);
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

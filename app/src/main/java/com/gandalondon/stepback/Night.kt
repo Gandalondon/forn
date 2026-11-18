@@ -34,34 +34,37 @@ object Night {
     )
 
     /**
-     * Pick tonight's line: the most interesting place passed today that hasn't been told before.
+     * Tonight's finds: up to five of the most interesting places passed today, by score, never told before.
      * Answers don't steer what you're told (decided 18 Nov): Interesting or Not for me only decides
      * ball or dust in the rings, so the picture keeps both.
      */
-    fun pick(c: Context, day: String): Spot? {
+    fun pick(c: Context, day: String): List<Spot> {
         val told = Store(c).told
         return Store(c).passed(day)
             .filter { it !in told }
             .mapNotNull { Spots.byId(c, it) }
-            .maxByOrNull { it.score }
+            .sortedByDescending { it.score }
+            .take(5)
     }
 
     fun run(c: Context) {
         val now = LocalDateTime.now()
         // If the alarm slipped past midnight, it still belongs to yesterday.
         val date = if (now.hour < 12) LocalDate.now().minusDays(1) else LocalDate.now()
-        val spot = pick(c, Day.endingOn(date))
-        TestLog.add(c, "tonight's line: " + (spot?.id ?: "nothing to tell"))
-        if (spot != null) {
-            Store(c).tell(spot.id)
-            notify(c, spot)
-            Fences.register(c) // Drop the fence for a fact that's been told.
+        val day = Day.endingOn(date)
+        val spots = pick(c, day)
+        TestLog.add(c, "tonight: " + (if (spots.isEmpty()) "nothing to tell" else spots.joinToString(", ") { it.id }))
+        if (spots.isNotEmpty()) {
+            val store = Store(c)
+            spots.asReversed().forEach { store.tell(it.id, day) } // best ends up newest
+            notify(c, spots.first(), spots.size)
+            Fences.register(c) // Drop the fences for facts that have been told.
         }
         schedule(c)
     }
 
     @SuppressLint("MissingPermission")
-    private fun notify(c: Context, spot: Spot) {
+    private fun notify(c: Context, spot: Spot, count: Int) {
         val nm = NotificationManagerCompat.from(c)
         if (!nm.areNotificationsEnabled()) return
         c.getSystemService(NotificationManager::class.java).createNotificationChannel(
@@ -81,7 +84,7 @@ object Night {
             NotificationCompat.Builder(c, CHANNEL)
                 .setSmallIcon(R.drawable.ic_ring)
                 .setContentTitle(spot.line)
-                .setStyle(NotificationCompat.BigTextStyle().bigText(spot.line))
+                .setStyle(NotificationCompat.BigTextStyle().bigText(spot.line + if (count > 1) " And ${count - 1} more." else ""))
                 .setContentIntent(open)
                 .setAutoCancel(true)
                 .build(),

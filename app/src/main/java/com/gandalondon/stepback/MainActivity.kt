@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
+import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -31,6 +32,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Crash.install(this)
+        // Android's back: close an open page or card in the rings first, otherwise leave the app.
+        onBackPressedDispatcher.addCallback(this) {
+            val w = web
+            if (w == null) { isEnabled = false; onBackPressedDispatcher.onBackPressed(); isEnabled = true; return@addCallback }
+            w.view.evaluateJavascript("(window.forn&&forn.back())?1:0") { r ->
+                if (r != "1") { isEnabled = false; onBackPressedDispatcher.onBackPressed(); isEnabled = true }
+            }
+        }
         // White app: dark status and navigation icons.
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT),
@@ -48,6 +57,7 @@ class MainActivity : ComponentActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         openSpot = intent.getStringExtra(Night.EXTRA_SPOT) ?: openSpot
+        web?.refresh()
         tick++
     }
 
@@ -56,10 +66,16 @@ class MainActivity : ComponentActivity() {
         refresh()
     }
 
+    private var web: Web? = null
+
     private fun refresh() {
         if (Fences.hasLocation(this) && Fences.hasBackground(this)) {
             Fences.register(this)
             Night.schedule(this)
+        }
+        // Set up: from here the app is the rings (Web), with tonight's cards on top.
+        if (Fences.hasLocation(this) && Fences.hasBackground(this) && hasNotifications() && Crash.last(this) == null) {
+            web?.refresh() ?: Web(this).also { web = it; setContentView(it.build()) }
         }
         tick++
     }

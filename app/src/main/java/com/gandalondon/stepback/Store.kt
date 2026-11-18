@@ -28,8 +28,12 @@ class Store(c: Context) {
     /** Newest first. */
     val history: List<String> get() = p.getString("history", "")!!.split(",").filter { it.isNotBlank() }
 
-    fun tell(id: String) {
+    /** Which day a fact was told for (a Stepback day key). Older facts without one count as today. */
+    fun toldDay(id: String): String = p.getString("told_day_$id", null) ?: Day.key()
+
+    fun tell(id: String, day: String = Day.key()) {
         p.edit()
+            .putString("told_day_$id", day)
             .putStringSet("told", told + id)
             .putString("history", (listOf(id) + history.filter { it != id }).joinToString(","))
             .apply()
@@ -40,6 +44,11 @@ class Store(c: Context) {
 
     fun setVerdict(id: String, v: String) {
         p.edit().apply { if (verdict(id) == v) remove("v_$id") else putString("v_$id", v) }.apply()
+    }
+
+    /** Set an answer outright (swipes); null clears it. */
+    fun putVerdict(id: String, v: String?) {
+        p.edit().apply { if (v == null) remove("v_$id") else putString("v_$id", v) }.apply()
     }
 
     fun withVerdict(v: String): List<String> = history.filter { verdict(it) == v }
