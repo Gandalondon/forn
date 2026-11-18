@@ -54,7 +54,7 @@ Next additions: an age for the thing itself (for the rings later) and the time p
 - The tree grows, it never squeezes: rings stay the same distance apart forever, so years become a bigger tree. Pinch out for the whole, in for a day.
 - Ring weights: day a dotted hairline, Monday a step heavier, the 1st of the month heavier, 1 January darkest. Each is one solid band. A Monday within two days of a month ring stays a day ring.
 - Kept finds are flat black balls, no outline, no highlight. Not for me bursts into grey dust where its ball sat.
-- Tap a ball: its card comes back with the date and time.
+- Tap a ball: its card comes back with the date and time, and a Tell me more button. That opens Android's share menu with a ready-made question about the place ("Tell me more about X in the UK. I learned that: ... What else is worth knowing about it, and about what's nearby?"), for an AI app, a search or notes. No setup, no AI connection, no internet permission. Only on reopened cards, so the evening stays quick.
 - On open: start on today's finds, play the bursts, then pull back to the whole; the slow spin starts after.
 - Zoom stops before a ball fills the screen. The title and text sit over the rings with no panel.
 - Parked: tree trunk (height as the age of the thing), solar system, onion, stepped cone.

@@ -61,7 +61,7 @@ body.carded .tally { opacity: 0; }
 <p class="tally" id="tally"></p>
 
 <div class="peek" id="peek" role="dialog" aria-label="A find">
-  <article class="card"><h2 id="peekFact"></h2><p id="peekMeta"></p><div class="grow"></div><button type="button" class="pill" id="peekClose">Close</button></article>
+  <article class="card"><h2 id="peekFact"></h2><p id="peekMeta"></p><div class="grow"></div><button type="button" class="pill" id="peekMore">Tell me more</button><button type="button" class="pill" id="peekClose">Close</button></article>
 </div>
 
 <div id="cards" role="dialog" aria-label="Tonight's finds" hidden>
@@ -75,7 +75,8 @@ body.carded .tally { opacity: 0; }
   <section><h3>Swipe</h3><p>Right if it's interesting, left if it's not for you. Only you see your answers.</p></section>
   <section><h3>Keep</h3><p>Every right swipe stays as a black ball. Tap one to read it again. The rest turns to dust. One ring for each day, today on the outside.</p></section>
   <section><h3>What it needs</h3><p>Your location, all the time, so it knows what you passed with your phone in your pocket. Notifications, for 9pm.</p></section>
-  <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone.</p></section>
+  <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
+  <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
   <section><h3>Testing</h3><p id="testInfo"></p>
     <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="tellBtn">Tell me now</button></div>
   </section>
@@ -100,7 +101,7 @@ const N = window.Forn || {
       { id: 'b', fact: 'Raynes Park was never a park.', place: 'Raynes Park', day: '2026-11-18', at: Date.now() - 3000e3, verdict: '' },
       { id: 'c', fact: '50 million years ago, SW20 was a warm sea.', place: 'SW20', day: '2026-11-17', at: null, verdict: 'yes' },
     ] }),
-  verdict: () => {}, tellNow: () => {}, record: () => '',
+  verdict: () => {}, tellNow: () => {}, record: () => '', share: t => console.log('share:', t),
 };
 let S = JSON.parse(N.state());
 const DAY = 864e5;
@@ -316,10 +317,17 @@ canvas.addEventListener('pointerup', e => {
   const hit = ray.intersectObjects(balls)[0];
   if (!hit) return;
   const f = hit.object.userData.f;
+  peekFind = f;
   document.getElementById('peekFact').textContent = f.fact;
   document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
   document.getElementById('peek').classList.add('on');
   controls.autoRotate = false; endPull();
+});
+// Tell me more: a ready-made question, handed to whatever app you pick (Android's share menu).
+let peekFind = null;
+document.getElementById('peekMore').addEventListener('click', () => {
+  if (!peekFind) return;
+  N.share(`Tell me more about ${peekFind.place} in the UK. I learned that: ${peekFind.fact} What else is worth knowing about it, and about what's nearby?`);
 });
 document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); controls.autoRotate = true; });
 

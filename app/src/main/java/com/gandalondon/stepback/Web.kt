@@ -94,6 +94,13 @@ class Web(private val a: MainActivity) {
         @JavascriptInterface
         fun tellNow() = Night.run(a)
 
+        /** Tell me more: hand a question to the app you pick (an AI, a search, notes). */
+        @JavascriptInterface
+        fun share(text: String) = main.post {
+            val send = Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text)
+            a.startActivity(Intent.createChooser(send, "Tell me more"))
+        }
+
         /** Test aid: start or stop recording a walk. */
         @JavascriptInterface
         fun record(): String {
