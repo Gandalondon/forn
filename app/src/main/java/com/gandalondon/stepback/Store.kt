@@ -35,11 +35,17 @@ class Store(c: Context) {
             .apply()
     }
 
-    /** Private Well I never taps. Not tapping is the only negative. */
-    val wellINever: Set<String> get() = p.getStringSet("win", emptySet())!!.toSet()
+    /** Private verdict per fact: Interesting or Not for me. Tap again to undo. */
+    fun verdict(id: String): String? = p.getString("v_$id", null)
 
-    fun toggleWellINever(id: String) {
-        val now = wellINever
-        p.edit().putStringSet("win", if (id in now) now - id else now + id).apply()
+    fun setVerdict(id: String, v: String) {
+        p.edit().apply { if (verdict(id) == v) remove("v_$id") else putString("v_$id", v) }.apply()
+    }
+
+    fun withVerdict(v: String): List<String> = history.filter { verdict(it) == v }
+
+    companion object {
+        const val YES = "yes"
+        const val NO = "no"
     }
 }

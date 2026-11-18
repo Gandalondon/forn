@@ -3,9 +3,10 @@ package com.gandalondon.stepback
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,8 +37,9 @@ data class Palette(val bg: Color, val fg: Color, val muted: Color)
 val DarkPalette = Palette(Ink, Paper, Color(0xFFA8A8A8))
 val LightPalette = Palette(Paper, Ink, Color(0xFF6B6B6B))
 
+// Always black (decided 18 Nov), whatever the system setting.
 @Composable
-fun palette() = if (isSystemInDarkTheme()) DarkPalette else LightPalette
+fun palette() = DarkPalette
 
 // Urbanist (SIL Open Font License), bundled.
 val Urbanist = FontFamily(
@@ -58,32 +60,36 @@ object Type {
     val Button = Body.copy(fontWeight = FontWeight.SemiBold)
 }
 
-/** Big text at the bottom, quiet text under it, one button. Every screen is this. */
+/** One choice button. */
+data class Choice(val label: String, val filled: Boolean = false, val onClick: () -> Unit)
+
+/** Big text at the top so it can grow, quiet text under it, buttons at the bottom. Every screen is this. */
 @Composable
-fun Page(big: String, small: String?, button: String?, filled: Boolean = false, onClick: () -> Unit = {}) {
+fun Page(big: String, small: String?, vararg choices: Choice) {
     val p = palette()
     Column(
         Modifier.fillMaxSize().background(p.bg).systemBarsPadding()
-            .padding(start = 24.dp, end = 24.dp, top = 32.dp, bottom = 24.dp),
+            .padding(start = 24.dp, end = 24.dp, top = 48.dp, bottom = 24.dp),
     ) {
-        Spacer(Modifier.weight(1f))
         Text(big, style = Type.Fact, color = p.fg)
         if (small != null) {
             Spacer(Modifier.height(16.dp))
             Text(small, style = Type.Body, color = p.muted)
         }
-        if (button != null) {
-            Spacer(Modifier.height(48.dp))
-            Pill(button, p, filled, onClick)
+        Spacer(Modifier.weight(1f))
+        if (choices.isNotEmpty()) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                choices.forEach { c -> Pill(c.label, p, c.filled, Modifier.weight(1f), c.onClick) }
+            }
         }
     }
 }
 
 @Composable
-private fun Pill(label: String, p: Palette, filled: Boolean, onClick: () -> Unit) {
+private fun Pill(label: String, p: Palette, filled: Boolean, modifier: Modifier, onClick: () -> Unit) {
     val shape = RoundedCornerShape(50)
     Box(
-        Modifier.fillMaxWidth().height(64.dp).clip(shape)
+        modifier.height(64.dp).clip(shape)
             .then(if (filled) Modifier.background(p.fg) else Modifier.border(1.dp, p.fg, shape))
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center,

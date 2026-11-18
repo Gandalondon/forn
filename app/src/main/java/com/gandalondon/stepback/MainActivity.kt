@@ -68,36 +68,40 @@ class MainActivity : ComponentActivity() {
             !Fences.hasLocation(this) -> Page(
                 hello,
                 "Stepback notes the old places you pass. At 9pm, one line about the best one. Your location never leaves your phone.",
-                "Allow location",
-            ) {
-                askLocation.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
-            }
+                Choice("Allow location") {
+                    askLocation.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+                },
+            )
 
             !Fences.hasBackground(this) -> Page(
                 hello,
                 "To notice places while your phone's in your pocket, pick Allow all the time on the next screen.",
-                "Allow all the time",
-            ) {
-                // After two refusals Android stops asking, so go straight to settings.
-                if (backgroundAsks++ < 2) askOne.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                else openAppSettings()
-            }
+                Choice("Allow all the time") {
+                    // After two refusals Android stops asking, so go straight to settings.
+                    if (backgroundAsks++ < 2) askOne.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                    else openAppSettings()
+                },
+            )
 
-            !hasNotifications() -> Page(hello, "One quiet line at 9pm. Nothing else, ever.", "Allow the 9pm line") {
-                if (Build.VERSION.SDK_INT >= 33) askOne.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
+            !hasNotifications() -> Page(
+                hello, "One quiet line at 9pm. Nothing else, ever.",
+                Choice("Allow the 9pm line") {
+                    if (Build.VERSION.SDK_INT >= 33) askOne.launch(Manifest.permission.POST_NOTIFICATIONS)
+                },
+            )
 
             else -> {
                 val spot = (openSpot ?: store.history.firstOrNull())?.let { Spots.byId(this, it) }
                 if (spot == null) {
                     val n = store.passed(Day.key()).size
-                    Page(hello, if (n == 0) "Nothing yet today." else "So far today: $n ${if (n == 1) "place" else "places"}.", null)
+                    Page(hello, if (n == 0) "Nothing yet today." else "So far today: $n ${if (n == 1) "place" else "places"}.")
                 } else {
-                    val liked = spot.id in store.wellINever
-                    Page(spot.fact, spot.place, "Well I never", filled = liked) {
-                        store.toggleWellINever(spot.id)
-                        tick++
-                    }
+                    val verdict = store.verdict(spot.id)
+                    Page(
+                        spot.fact, spot.place,
+                        Choice("Interesting", filled = verdict == Store.YES) { store.setVerdict(spot.id, Store.YES); tick++ },
+                        Choice("Not for me", filled = verdict == Store.NO) { store.setVerdict(spot.id, Store.NO); tick++ },
+                    )
                 }
             }
         }

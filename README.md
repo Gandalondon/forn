@@ -2,7 +2,7 @@
 
 Live your day. Find out tonight.
 
-Stepback quietly notes the interesting places you pass. At 9pm, one line about the best of them. Tap it for the fact, and tap Well I never if it landed.
+Stepback quietly notes the interesting places you pass. At 9pm, one line about the best of them. Tap it for the fact, then Interesting or Not for me.
 
 This is the v1 test: does a normal day produce a good 9pm line? It knows a hand-picked set of spots (home, the Heathrow run, Aberdeen and Portlethen, a few walks), in `app/src/main/assets/spots.json`.
 
@@ -16,7 +16,7 @@ On first open: Allow location, then Allow all the time, then the 9pm line.
 
 - Android geofences around each spot. When you cross one, Stepback notes the spot id for today. No GPS track, no internet permission: nothing leaves the phone.
 - At 9pm (give or take a few minutes) it picks the best spot passed that day and posts one line. Quiet day, no ping. Each fact once.
-- Well I never is a private tap. It tilts future picks towards that kind of fact.
+- Interesting and Not for me are private taps. They tilt future picks towards or away from that type of fact (Roman, prehistory, geology...). Types fade, never vanish.
 - A day runs 9pm to 9pm, so a place passed at 10pm counts towards tomorrow.
 
 ## Signing
