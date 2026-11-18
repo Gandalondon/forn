@@ -83,16 +83,9 @@ body.carded .tally { opacity: 0; }
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
   <section><h3>Testing</h3><p id="testInfo"></p>
-    <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="tellBtn">Tell me now</button></div>
+    <div class="pills"><button type="button" class="pill" id="walkBtn"></button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
-  <section><h3>Try it out</h3><p>Example finds around your real ones, to see how the rings could grow.</p>
-    <p class="lbl">How far back</p><div class="seg" data-k="span"><button data-v="30">1 month</button><button data-v="120">4 months</button><button data-v="365">1 year</button><button data-v="1461">4 years</button></div>
-    <p class="lbl">Kept</p><div class="seg" data-k="kept"><button data-v="0">0%</button><button data-v="20">20%</button><button data-v="50">50%</button><button data-v="80">80%</button><button data-v="100">100%</button></div>
-    <p class="lbl">How busy</p><div class="seg" data-k="busy"><button data-v="quiet">Quiet</button><button data-v="normal">Normal</button><button data-v="busy">Busy</button></div>
-    <p class="lbl">Empty days</p><div class="seg" data-k="empty"><button data-v="full">Full ring</button><button data-v="thin">Thin ring</button><button data-v="none">No ring</button></div>
-    <div class="pills"><button type="button" class="pill" id="demoBtn">Show</button><button type="button" class="pill" id="demoOff" hidden>Back to my rings</button></div>
-  </section>
 </div>
 
 <script>
@@ -264,7 +257,7 @@ function fit(reach) {
   return reach * 1.15 / Math.sin(Math.min(vf, hf));
 }
 
-/* Try it out (18 Nov): example finds around your real ones, to see how the rings could grow. */
+/* Try it out removed 18 Nov (Scotland test): demo stays off. */
 let demo = false, DEMO = null;
 const OPT = { span: 120, kept: 50, busy: 'normal', empty: 'full' };
 const POOL = ['Stane Street', 'Leadenhall Market', 'Chanctonbury Ring', 'Box Hill', 'Richmond Park', 'Kingston', 'Wimbledon Common',
@@ -399,29 +392,12 @@ function tick(now) {
 const sheet = document.getElementById('sheet');
 function renderTest() {
   const p = S.passed || [];
-  document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}. ` : '') +
-    (p.length ? 'Passed today: ' + p.map(x => x.place + (x.at ? ' at ' + new Date(x.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : '')).join(', ') + '.' : 'Nothing passed yet today.');
+  document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}.` : '');  // no list of today's passes: 9pm stays a surprise
   document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
 }
 document.getElementById('how').addEventListener('click', () => { S = JSON.parse(N.state()); renderTest(); sheet.scrollTop = 0; sheet.classList.add('on'); });
 document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
 document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
-function renderSeg() {
-  document.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(String(OPT[s.dataset.k]) === b.dataset.v))));
-  document.getElementById('demoOff').hidden = !demo;
-}
-document.querySelectorAll('.seg').forEach(s => s.addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  const v = b.dataset.v; OPT[s.dataset.k] = isNaN(+v) ? v : +v; renderSeg();
-}));
-document.getElementById('demoBtn').addEventListener('click', () => {
-  demo = true; DEMO = null; sheet.classList.remove('on'); renderSeg(); S = JSON.parse(N.state()); build(true);
-});
-document.getElementById('demoOff').addEventListener('click', () => {
-  demo = false; DEMO = null; sheet.classList.remove('on'); renderSeg(); S = JSON.parse(N.state()); build(true);
-});
-renderSeg();
-document.getElementById('tellBtn').addEventListener('click', () => { N.tellNow(); sheet.classList.remove('on'); window.forn.refresh(); });
 
 /* Called by the app: on open, on return, and from Android's back button. */
 window.forn = {
