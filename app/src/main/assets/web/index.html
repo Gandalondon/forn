@@ -83,7 +83,7 @@ body.carded .tally { opacity: 0; }
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
   <section><h3>Testing</h3><p id="testInfo"></p>
-    <div class="pills"><button type="button" class="pill" id="walkBtn"></button></div>
+    <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="sixBtn"></button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
 </div>
@@ -259,7 +259,7 @@ function fit(reach) {
 
 /* Try it out removed 18 Nov (Scotland test): demo stays off. */
 let demo = false, DEMO = null;
-const OPT = { span: 120, kept: 50, busy: 'normal', empty: 'full' };
+const OPT = { span: 182, kept: 50, busy: 'normal', empty: 'full' };
 const POOL = ['Stane Street', 'Leadenhall Market', 'Chanctonbury Ring', 'Box Hill', 'Richmond Park', 'Kingston', 'Wimbledon Common',
   'Merton Priory', 'Leith Hill', 'Southwark', 'Ranmore Common', 'Cannon Hill Common', 'Beverley Brook', 'Portlethen Moss', 'Aberdeen harbour'];
 function keyFor(d) { const t = dayDate(S.today); t.setDate(t.getDate() - d); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
@@ -275,7 +275,7 @@ function demoFinds() {
   }
   return out;
 }
-const spanName = d => ({ 30: 'One month', 120: 'Four months', 365: 'One year', 1461: 'Four years' }[d]);
+const spanName = d => ({ 182: 'Six months', 30: 'One month', 120: 'Four months', 365: 'One year', 1461: 'Four years' }[d]);
 
 function build(animate) {
   if (group) { scene.remove(group); group.traverse(o => { if (o.isPoints || o.isLine || o.userData.ring) { o.geometry.dispose(); o.material.dispose(); } }); }
@@ -308,7 +308,7 @@ function build(animate) {
   const kept = finds.filter(f => f.verdict !== 'no').length;
   const weekday = dayDate(S.today).toLocaleDateString('en-GB', { weekday: 'long' });
   document.getElementById('tally').innerHTML = demo
-    ? `<strong>${spanName(OPT.span)}</strong>Example finds: ${OPT.kept}% kept, ${OPT.busy} days, ${OPT.empty === 'full' ? 'full' : OPT.empty === 'thin' ? 'thin' : 'no'} rings for empty days. ${kept} kept, the rest is dust.`
+    ? `<strong>${spanName(OPT.span)}</strong>An example of six months. Turn it off in How it works.`
     : !finds.length
     ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
     : `<strong>${nDays === 1 ? weekday : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
@@ -339,6 +339,7 @@ canvas.addEventListener('pointerup', e => {
   const hit = ray.intersectObjects(balls)[0];
   if (!hit) return;
   const f = hit.object.userData.f;
+  if (String(f.id).startsWith('demo-')) return; // example finds are for show only
   peekFind = f;
   document.getElementById('peekFact').textContent = f.fact;
   document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
@@ -394,9 +395,15 @@ function renderTest() {
   const p = S.passed || [];
   document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}.` : '');  // no list of today's passes: 9pm stays a surprise
   document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
+  document.getElementById('sixBtn').textContent = demo ? 'Back to my rings' : 'Show six months';
 }
 document.getElementById('how').addEventListener('click', () => { S = JSON.parse(N.state()); renderTest(); sheet.scrollTop = 0; sheet.classList.add('on'); });
 document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
+// Show six months (18 Nov, for showing Tony's dad): example finds drawn around your real ones, in memory only.
+// Nothing is saved, so your own rings and answers are never touched; closing the app also turns it off.
+document.getElementById('sixBtn').addEventListener('click', () => {
+  demo = !demo; DEMO = null; sheet.classList.remove('on'); S = JSON.parse(N.state()); build(false);
+});
 document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
 
 /* Called by the app: on open, on return, and from Android's back button. */
