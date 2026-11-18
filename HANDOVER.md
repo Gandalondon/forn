@@ -55,6 +55,12 @@ Findings:
   - One font: Instrument Sans everywhere, facts in SemiBold. Urbanist dropped (its lowercase t read as a cross).
   - Info opens a full How it works page with a back arrow, Relay's settings pattern. Sections 24px apart and 24px below the header. Icons are Material Symbols Rounded at one weight (400), back arrow included.
   - Icon options for the info button: canvas Stepback info icon options (https://claude.ai/artifact/PcpSx2Q2HRjvGMx7LYwXb7), boards 1 to 8: info, help, question mark, lightbulb, book, compass, history, more. Tony to pick.
+- 18 Nov, 12:25, after Tony's 4-year screenshots:
+  - The tree grows, it doesn't squeeze: rings stay 0.42 apart forever, so 4 years is simply a much bigger tree. The overview reads as a cross-section; zoomed in, any part reads like one month and balls are tappable. The pull-back zooms evenly (geometric), so long spans don't rush.
+  - Ring weight: day a dotted hairline, Monday a step heavier, the 1st of the month heavier, 1 January darkest and thickest. Tap-a-ring-to-zoom dropped: pinch does it.
+  - Zoom limit: never so close that a ball fills the screen. The tally sits on a white panel, so the 3D stops above the text rather than running under it.
+  - Trunk heights now in fixed bands, stacked like strata with no empty gaps: modern (under 500 years), medieval, Roman, prehistoric, geology. Within a band, older sits lower. If banded 1 month still doesn't click, drop the trunk and keep flat rings.
+  - Info icon: Tony picked info (board 1) for now.
 - Onboarding stays plain black; grey text is a snowy near-white.
 - Browser prototype: artifact Stepback prototype (https://claude.ai/artifact/UtGTrfpegNVjiLqVrod4SE), with After 1 day, 1 week and 1 month toggles. Week and month use example data.
 - The phone build stays the v1 single fact for the test; the new flow goes into the app after Thursday.
