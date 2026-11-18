@@ -69,7 +69,8 @@ Findings:
 ## Raynes Park test walk (18 Nov, afternoon)
 
 - Build 5 (12:30) adds four Raynes Park spots for Tony's walk to the post office (1a Amity Grove): rp-never-a-park (Rayne's three farm "parks", score 8), rp-station (the 1889 guidebook joke, 8), rp-apostles (twelve roads, not named after apostles, old cricket ground, 7), beverley-brook (Beaver's Ley, Beferithi in 693, 8, 1.3km "near" fence). Facts checked against Hidden London, LAMAS vol. 34, Wikipedia/Wikishire, Merton Council.
-- Build 5 is the Thursday build: no more app pushes before the flight.
+- Build 6: app icon ring sized like Rinse and Hlid (38 across in the 108 grid), stroke 4, centred. Build 7: whole v1 app white with Instrument Sans (Urbanist removed), plus a crash recorder that shows the last crash's stack trace on the next open (test aid; remove later). Build 7 is the Thursday build: no more app pushes before the flight.
+- Permission flow note: after Allow all the time, the home screen keeps the same headline (Go about your day. Find out tonight.) with Nothing yet today. under it, which read as stuck. Give it its own headline after the test.
 - Signing secrets still not set: the GitHub Actions secrets API is blocked from Claude's sessions, so Tony sets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD in the repo's Settings > Secrets after the test (Claude makes the keystore and gives him the two values). Until then every new build means uninstall then reinstall.
 - v1 still tells one fact at 9pm (the best passed that day, never repeated). The five-card evening is the post-test build. Watch: does a short local walk give anything worth a ping, and how often will the same streets have something new?
 
