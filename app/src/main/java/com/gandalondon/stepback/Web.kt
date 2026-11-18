@@ -109,6 +109,26 @@ class Web(private val a: MainActivity) {
         }
     }
 
+    /**
+     * Test aid (18 Nov): go over the recorded route and count every zone it went through, in case Android's
+     * geofencing missed one (likely in a car, through a tight zone). Uses the time of the first fix inside.
+     */
+    private fun crossCheck(fixes: List<DoubleArray>) {
+        if (fixes.isEmpty()) return
+        val store = Store(a)
+        val d = FloatArray(1)
+        Spots.all(a).forEach { s ->
+            val hit = fixes.firstOrNull { f ->
+                s.points.any { pt -> android.location.Location.distanceBetween(f[0], f[1], pt.lat, pt.lng, d); d[0] <= pt.radius }
+            } ?: return@forEach
+            val at = hit[4].toLong()
+            val day = Day.key(java.time.LocalDateTime.ofInstant(java.time.Instant.ofEpochMilli(at), java.time.ZoneId.systemDefault()))
+            val already = s.id in store.passed(day)
+            store.addPassedAt(day, s.id, at)
+            TestLog.add(a, "route went through ${s.id}" + if (already) " (zone had already fired)" else " (zone had NOT fired)")
+        }
+    }
+
     private fun toggleWalk() {
         val i = Intent(a, TrackService::class.java)
         if (!TrackService.recording) {
@@ -118,6 +138,7 @@ class Web(private val a: MainActivity) {
             saved = ""
         } else {
             TestLog.add(a, "walk stopped")
+            crossCheck(TrackService.fixes())
             val gpx = TrackService.endTrace(a)
             val log = TestLog.export(a)
             a.stopService(i)

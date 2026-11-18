@@ -19,6 +19,13 @@ class Store(c: Context) {
         e.apply()
     }
 
+    /** A pass found afterwards from a recorded route, with the time of the first fix inside the zone. */
+    fun addPassedAt(day: String, id: String, at: Long) {
+        val e = p.edit().putStringSet("passed_$day", passed(day) + id)
+        if (!p.contains("at_${day}_$id")) e.putLong("at_${day}_$id", at)
+        e.apply()
+    }
+
     fun passedAt(day: String, id: String): Long? =
         if (p.contains("at_${day}_$id")) p.getLong("at_${day}_$id", 0) else null
 

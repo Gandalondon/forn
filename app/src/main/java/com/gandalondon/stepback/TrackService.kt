@@ -36,6 +36,9 @@ class TrackService : Service(), LocationListener {
         private var started = 0L
         private var appDir: File? = null
 
+        /** Copy of the fixes so far: lat, lon, alt, accuracy, time. */
+        fun fixes(): List<DoubleArray> = synchronized(points) { points.toList() }
+
         fun startTrace(name: String) = synchronized(points) {
             points.clear(); traceName = name; started = System.currentTimeMillis(); recording = true
         }
