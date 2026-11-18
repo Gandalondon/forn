@@ -80,7 +80,8 @@ Findings:
 
 - Log the time of each pass ("what was I doing at 9:30?"). Built: stored, not shown.
 - The strata view places each find where it was found, on a very simplified modern map (no street names or buildings), pinch, zoom and 3D. Spot coordinates are enough; no tracking needed. For after the test.
-- Facts are tagged by type (Roman, prehistory, Pictish, geology and so on). Built: Interesting adds 1.5 to that type, Not for me takes 2 off, no answer takes 0.5 off. Types fade, they never vanish, so a great Roman fact can still win on a quiet day. Any data pulled in later needs the same type tags.
+- Facts are tagged by type (Roman, prehistory, Pictish, geology and so on). Any data pulled in later needs the same type tags.
+- No personalisation (decided 18 Nov, build 11): the app always picks the most interesting places by score, and answers never steer what you're told. Interesting or Not for me only decides ball or dust in the rings; otherwise the dust would die out as the app learned your taste. Answers are still stored. Supersedes the type weighting (+1.5 / -2 / -0.5) and the lighter/darker interest idea for the strata.
 - Strata view (later): every fact told stays in the block. Interest shows as weight: tapped types are dark and dense, ignored ones are light and thin. Height stays time (newest on top), so interest never moves a layer.
 - Daily or weekly alerts: held. It's a setting, and settings were ruled out. Let the test show the natural frequency first.
 

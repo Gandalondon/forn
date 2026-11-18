@@ -33,21 +33,17 @@ object Night {
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
     )
 
-    /** Pick tonight's line. Interesting pulls a type up, Not for me pushes it down hard, silence nudges it down. Types fade, never vanish. */
+    /**
+     * Pick tonight's line: the most interesting place passed today that hasn't been told before.
+     * Answers don't steer what you're told (decided 18 Nov): Interesting or Not for me only decides
+     * ball or dust in the rings, so the picture keeps both.
+     */
     fun pick(c: Context, day: String): Spot? {
-        val store = Store(c)
-        val told = store.told
-        val kind = { id: String -> Spots.byId(c, id)?.kind }
-        val liked = store.withVerdict(Store.YES).mapNotNull(kind)
-        val nope = store.withVerdict(Store.NO).mapNotNull(kind)
-        // Told but no answer (ignoring last night's, which you may not have seen yet).
-        val shrugged = store.history.drop(1).filter { store.verdict(it) == null }.mapNotNull(kind)
-        return store.passed(day)
+        val told = Store(c).told
+        return Store(c).passed(day)
             .filter { it !in told }
             .mapNotNull { Spots.byId(c, it) }
-            .maxByOrNull { s ->
-                s.score + 1.5 * liked.count { it == s.kind } - 2.0 * nope.count { it == s.kind } - 0.5 * shrugged.count { it == s.kind }
-            }
+            .maxByOrNull { it.score }
     }
 
     fun run(c: Context) {
