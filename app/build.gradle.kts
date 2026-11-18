@@ -59,4 +59,6 @@ dependencies {
 
     // Geofencing. Nothing leaves the phone: no network permission at all.
     implementation("com.google.android.gms:play-services-location:21.3.0")
+    // Play services pulls in an old Fragment; the permission prompts need 1.3+.
+    implementation("androidx.fragment:fragment-ktx:1.8.5")
 }
