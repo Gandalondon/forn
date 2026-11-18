@@ -64,6 +64,25 @@ class MainActivity : ComponentActivity() {
         tick++
     }
 
+    private var saved: String? = null
+
+    private fun toggleWalk() {
+        val i = Intent(this, TrackService::class.java)
+        if (!TrackService.recording) {
+            startForegroundService(i)
+            TrackService.startTrace("Forn walk")
+            TestLog.add(this, "walk started")
+            saved = null
+        } else {
+            TestLog.add(this, "walk stopped")
+            val gpx = TrackService.endTrace(this)
+            val log = TestLog.export(this)
+            stopService(i)
+            saved = listOf(gpx, log).filter { it.isNotBlank() }.joinToString(" and ")
+        }
+        tick++
+    }
+
     private fun hasNotifications() = Build.VERSION.SDK_INT < 33 ||
         ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
 
@@ -118,9 +137,11 @@ class MainActivity : ComponentActivity() {
                     val n = store.passed(Day.key()).size
                     // Set up and waiting: say so plainly.
                     Page(
-                        "Enjoy your day.",
-                        if (n == 0) "You're all set. Forn will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.",
+                        if (TrackService.recording) "Recording your walk." else "Enjoy your day.",
+                        saved?.let { if (it.isBlank()) "Nothing was recorded." else "Saved to $it." } ?: if (n == 0) "You're all set. Forn will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.",
                         // Test aid (18 Nov): run tonight's 9pm line now, notification and all. Remove after testing.
+                        // Test aids (18 Nov): Record walk saves a GPX track and the zone log to Downloads/Forn.
+                        Choice(if (TrackService.recording) "Stop and save" else "Record walk") { toggleWalk() },
                         *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this); tick++ }) else emptyArray()),
                     )
                 } else {

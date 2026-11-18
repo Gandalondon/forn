@@ -51,6 +51,7 @@ object Night {
         // If the alarm slipped past midnight, it still belongs to yesterday.
         val date = if (now.hour < 12) LocalDate.now().minusDays(1) else LocalDate.now()
         val spot = pick(c, Day.endingOn(date))
+        TestLog.add(c, "tonight's line: " + (spot?.id ?: "nothing to tell"))
         if (spot != null) {
             Store(c).tell(spot.id)
             notify(c, spot)
