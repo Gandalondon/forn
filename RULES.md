@@ -61,7 +61,7 @@ Next additions: an age for the thing itself (for the rings later) and the time p
 
 ## Look
 
-- White app. Off black #1A1A1A, never pure black.
+- White app. Off black #1A1A1A, never pure black. No colour: colour by period (modern, medieval, Roman, prehistoric, geology) was considered on 18 Nov and parked, as it answers no question anyone asks and there's no filter.
 - One font: Instrument Sans. Facts and titles SemiBold, body Regular.
 - Icons: Material Symbols Rounded, one weight. Info icon top right opens How it works, a full page with a back arrow (Relay's pattern), sections 24px apart.
 - Cards: white, rounded, a plain stack: the next card sits underneath, no fade, scale or bounce. Progress dots under the card.
