@@ -113,3 +113,4 @@ Findings:
 - Tone: understandable sentences, not clipped AI punchlines. First copy draft is in the 18 Nov chat (v2, plain sentences).
 - Steps are real text in the page (search, screen readers); reduced motion gives plain slides; the type shows before the 3D loads. Keep balls out from behind the letters.
 - No domain yet: may go up on gandalondon.com to share with a friend.
+- Opening screen (18 Nov idea): the word FORN alone, filling the whole window, set in Instrument Sans inside an SVG that stretches to the viewport (no outlining needed). Use the font's width axis: condensed and stretched tall on phones, normal width stretched wide on desktop. First scroll or swipe goes into the rings. To compare: FORN in caps (a solid block; a wordmark exception to the no-caps rule) against Forn in sentence case, and maybe the O as the app's ring (probably one idea too many).
