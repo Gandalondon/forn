@@ -1,6 +1,6 @@
 # Stepback handover
 
-Master handover for Stepback. Mirrors the Google Doc "Stepback handover" in Drive > Claude. Rules: "App idea rules", in the same folder.
+Master handover for Stepback. The current rulebook (data, facts, picks, rings, look) is RULES.md: read it first. Mirrors the Google Doc "Stepback handover" in Drive > Claude. Rules: "App idea rules", in the same folder.
 
 ## State (Wed 18 Nov 2026, morning)
 
