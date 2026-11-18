@@ -47,6 +47,14 @@ Findings:
   - Layout toggles: A Solar system, B Tree rings, D Stepped cone (new, beside B), C Onion. D is B's rings with each older day a step lower: an open pit, today the top rim. From above it reads as tree rings, from the side as strata (newest on top). Steps 0.55 apart, camera at about 20 degrees so both read. To compare B and D.
   - Opening shot fixed: opens on today framed with room for the bursts (it was so close the balls were blobs), today's balls evenly spaced so they never touch, and the whole is framed in the space between the icon and the tally with a margin (it was cropped at the sides and ran under the text). Animation rules unchanged: bursts, then pull back, past appears day by day, spin starts after.
   - App opens on the 3D view, not on black: today's cards sit on top under the same dim scrim as a reopened card; swipe them away and the 3D view is all that's left. While the cards are up, the view waits framed on today. Cog swapped for an info icon (Material Symbols info), black, top right: it explains how it works.
+- 18 Nov, 12:10, prototype 2 again:
+  - Layouts cut to two: Tree rings (flat) and Tree trunk (new). Solar system, stepped cone and onion dropped. Spans: 1 day, 1 week, 1 month, 4 years.
+  - Both: distance from the centre is when you found it (today the outer ring, the past at the core), and a thick ring marks each new year, like a tree. That replaces the year toggle idea: you pinch and zoom instead.
+  - Tree trunk: height is how old the thing itself is, on a log scale (10 years ago at the top, 100 million at the base): recent history on top, geology at the base. Each day is a faint upright cylinder of dust, so it reads from any angle. Every fact now needs an age for the thing (example ages in the prototype; spots.json will need the same field).
+  - Card stack is plain: the next card sits underneath, solid white, no fade, scale or bounce.
+  - One font: Instrument Sans everywhere, facts in SemiBold. Urbanist dropped (its lowercase t read as a cross).
+  - Info opens a full How it works page with a back arrow, Relay's settings pattern. Sections 24px apart and 24px below the header. Icons are Material Symbols Rounded at one weight (400), back arrow included.
+  - Icon options for the info button: canvas Stepback info icon options (https://claude.ai/artifact/PcpSx2Q2HRjvGMx7LYwXb7), boards 1 to 8: info, help, question mark, lightbulb, book, compass, history, more. Tony to pick.
 - Onboarding stays plain black; grey text is a snowy near-white.
 - Browser prototype: artifact Stepback prototype (https://claude.ai/artifact/UtGTrfpegNVjiLqVrod4SE), with After 1 day, 1 week and 1 month toggles. Week and month use example data.
 - The phone build stays the v1 single fact for the test; the new flow goes into the app after Thursday.
