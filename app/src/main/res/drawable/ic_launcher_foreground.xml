@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ring sized like Rinse and Hlid (38 across in the 108 grid), stroke 4, centred (18 Nov). -->
+<!-- Off-black ring on white (18 Nov). Ring sized like Rinse and Hlid (38 across in the 108 grid), stroke 4, centred (18 Nov). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:fillColor="#FFFFFFFF"
+    <path android:fillColor="#FF1A1A1A"
         android:pathData="M54,35a19,19 0,1 0,0 38a19,19 0,1 0,0 -38zM54,39a15,15 0,1 1,0 30a15,15 0,1 1,0 -30z"
         android:fillType="evenOdd" />
 </vector>

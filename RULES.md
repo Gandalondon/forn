@@ -65,7 +65,7 @@ Next additions: an age for the thing itself (for the rings later) and the time p
 - One font: Instrument Sans. Facts and titles SemiBold, body Regular.
 - Icons: Material Symbols Rounded, one weight. Info icon top right opens How it works, a full page with a back arrow (Relay's pattern), sections 24px apart.
 - Cards: white, rounded, a plain stack: the next card sits underneath, no fade, scale or bounce. Progress dots under the card.
-- App icon: a white ring on off black, 38 across in the 108 grid, stroke 4, centred, sized like Rinse and Hlid.
+- App icon: an off-black ring on white, 38 across in the 108 grid, stroke 4, centred, sized like Rinse and Hlid.
 
 ## Setup
 
