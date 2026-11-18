@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
     )
 
     @androidx.compose.runtime.Composable
-    private fun Screen(@Suppress("UNUSED_PARAMETER") tick: Int) {
+    private fun Screen(@Suppress("UNUSED_PARAMETER") version: Int) {
         val hello = "Go about your day. Find out tonight."
         val store = Store(this)
         when {
