@@ -13,6 +13,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -37,7 +38,10 @@ class MainActivity : ComponentActivity() {
         )
         openSpot = intent.getStringExtra(Night.EXTRA_SPOT)
         setContent {
-            Screen(tick) // tick changes whenever state on the phone may have changed
+            // tick changes whenever state on the phone may have changed (a permission granted, an answer tapped).
+            // key() rebuilds the screen on every change: Compose was skipping Screen because it never read tick,
+            // so setup only moved on after a restart (fixed 18 Nov).
+            key(tick) { Screen(tick) }
         }
     }
 
