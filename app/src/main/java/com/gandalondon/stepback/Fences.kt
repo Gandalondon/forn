@@ -21,6 +21,13 @@ object Fences {
     private fun granted(c: Context, perm: String) =
         ContextCompat.checkSelfPermission(c, perm) == PackageManager.PERMISSION_GRANTED
 
+    private fun status(c: Context, s: String) {
+        TestLog.add(c, s)
+        c.getSharedPreferences("stepback", Context.MODE_PRIVATE).edit().putString("fence_status", s).apply()
+    }
+
+    fun status(c: Context): String = c.getSharedPreferences("stepback", Context.MODE_PRIVATE).getString("fence_status", "Zones not registered yet.")!!
+
     fun spotId(requestId: String) = requestId.substringBefore(SEP)
 
     private fun intent(c: Context): PendingIntent = PendingIntent.getBroadcast(
@@ -45,7 +52,7 @@ object Fences {
         }.take(100) // Android's limit per app.
         val client = LocationServices.getGeofencingClient(c)
         client.removeGeofences(intent(c)).addOnCompleteListener {
-            if (fences.isEmpty()) return@addOnCompleteListener
+            if (fences.isEmpty()) { status(c, "No zones left to watch: every fact has been told."); return@addOnCompleteListener }
             client.addGeofences(
                 GeofencingRequest.Builder()
                     // Fires straight away if you're already inside one.
@@ -54,6 +61,18 @@ object Fences {
                     .build(),
                 intent(c),
             )
+                // Test aid (18 Nov): say whether Android accepted the zones, and why not if it didn't.
+                .addOnSuccessListener { status(c, "Watching ${fences.size} zones.") }
+                .addOnFailureListener { e ->
+                    val code = (e as? com.google.android.gms.common.api.ApiException)?.statusCode
+                    val why = when (code) {
+                        1000 -> "Android's zone service is off. Turn on Google Location Accuracy in Settings > Location > Location services."
+                        1001 -> "Too many zones."
+                        1004 -> "Location permission isn't set to Allow all the time."
+                        else -> e.message ?: "unknown"
+                    }
+                    status(c, "Zones not working: $why (code $code)")
+                }
         }
     }
 }

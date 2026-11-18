@@ -84,7 +84,7 @@ class Web(private val a: MainActivity) {
             }
             return JSONObject()
                 .put("today", today).put("finds", finds).put("cards", cards).put("passed", passed)
-                .put("recording", TrackService.recording).put("saved", saved)
+                .put("recording", TrackService.recording).put("saved", saved).put("fences", Fences.status(a))
                 .toString()
         }
 
@@ -104,7 +104,11 @@ class Web(private val a: MainActivity) {
         /** Test aid: start or stop recording a walk. */
         @JavascriptInterface
         fun record(): String {
-            main.post { toggleWalk() }
+            // Run on the main thread but wait for it, so the page reads the new state straight after (a second
+            // tap used to stop the walk, because the label hadn't changed yet).
+            val done = java.util.concurrent.CountDownLatch(1)
+            main.post { try { toggleWalk() } finally { done.countDown() } }
+            done.await(3, java.util.concurrent.TimeUnit.SECONDS)
             return ""
         }
     }

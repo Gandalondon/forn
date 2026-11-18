@@ -399,7 +399,7 @@ function tick(now) {
 const sheet = document.getElementById('sheet');
 function renderTest() {
   const p = S.passed || [];
-  document.getElementById('testInfo').textContent = (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}. ` : '') +
+  document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}. ` : '') +
     (p.length ? 'Passed today: ' + p.map(x => x.place + (x.at ? ' at ' + new Date(x.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : '')).join(', ') + '.' : 'Nothing passed yet today.');
   document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
 }
