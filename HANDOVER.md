@@ -61,6 +61,7 @@ Findings:
   - Zoom limit: never so close that a ball fills the screen. The tally sits on a white panel, so the 3D stops above the text rather than running under it.
   - Trunk heights now in fixed bands, stacked like strata with no empty gaps: modern (under 500 years), medieval, Roman, prehistoric, geology. Within a band, older sits lower. If banded 1 month still doesn't click, drop the trunk and keep flat rings.
   - Info icon: Tony picked info (board 1) for now.
+- 18 Nov, 12:30: the flat disc is the direction ("that crazy disc", zoom in and out). Tree trunk parked: liked as a concept, too hard to navigate; its toggle is removed, the banded code stays in the prototype. Heavier rings are now one solid band each (they had been parallel lines that split apart up close), and a Monday within two days of a month ring stays a plain day ring so heavy rings never crowd.
 - Onboarding stays plain black; grey text is a snowy near-white.
 - Browser prototype: artifact Stepback prototype (https://claude.ai/artifact/UtGTrfpegNVjiLqVrod4SE), with After 1 day, 1 week and 1 month toggles. Week and month use example data.
 - The phone build stays the v1 single fact for the test; the new flow goes into the app after Thursday.
