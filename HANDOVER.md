@@ -5,7 +5,9 @@ Master handover for Stepback. Mirrors the Google Doc "Stepback handover" in Driv
 ## State (Wed 18 Nov 2026, morning)
 
 - Data check: done, passed (below).
-- v1 test app: code written (this repo), not yet built. Waiting on: repo Gandalondon/stepback being created, the first push, and the signing secrets.
+- v1 test app: built green (release Stepback 3, 18 Nov). Install through Obtainium.
+- Signing secrets NOT set yet, so each build has a one-off key: an update means uninstall then reinstall, which wipes what it found. Don't push app changes before Thursday's flight unless it's broken (use [skip ci] for docs). Set SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD after the test; the keystore made on 18 Nov lives only in that chat's workspace, so make a new one if it's gone.
+- Name: Stepback for now. Tony likes Munin (memory; Odin's raven that flies out by day and reports back in the evening). TBC after the test. If it's Munin, the narrow-lanes driving app needs a new name. Renaming the repo is fine (GitHub redirects; re-add in Obtainium).
 - Goal: APK on Tony's Pixel through Obtainium before the flight on Thursday 19 Nov.
 
 ## v1 test (what's in)
