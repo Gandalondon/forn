@@ -30,6 +30,16 @@ Findings:
 - A 100m geofence misses landscape facts seen from a car or plane. v1 uses 0.4 to 3.5km radii, and the copy says near, under or passed.
 - The open data (Historic England NHLE, HES Canmore, both OGL) is register text. Lines still need writing, so v1 is hand-curated. Scaling this is the real open problem.
 
+## Direction change, 18 Nov (after the v1 build)
+
+- Evening flow: 9pm notification (one line), tap it, then up to five cards from the day (never padded; a home day may be one card), picked by interest with at most one per type and spread across the day. Each card shows the fact, then place and time under it.
+- Cards: white, rounded, inset on a black stage. Swipe right for Interesting, left for Not for me, plus the two buttons (Not for me left, Interesting right). Sniff-style snackbar after each: Thanks. More like this. / Fewer like this., with Undo, 4 seconds.
+- The strata is the payoff after every session, an art-installation feel: today's layers drop in and settle, then it slowly turns. Pinch, zoom, rotate; text surfaces from the layers as you zoom in (Tony to send a game reference: zooming into a DNA strand where text comes out). Silent; sound maybe later as an option.
+- Strata encoding: newest on top, hairline gap between days; thickness and brightness from your answer (Interesting thick and bright, no answer middle, Not for me thin and faint); texture by type (lines for Roman, medieval and buildings, dots for prehistory, rings for Pictish, grain for geology, pebbles for landscape); a bright cluster marks where on a simplified UK footprint each was found (no streets or names).
+- Onboarding stays plain black; grey text is a snowy near-white.
+- Browser prototype: artifact Stepback prototype (https://claude.ai/artifact/UtGTrfpegNVjiLqVrod4SE), with After 1 day, 1 week and 1 month toggles. Week and month use example data.
+- The phone build stays the v1 single fact for the test; the new flow goes into the app after Thursday.
+
 ## Ideas from Tony, 18 Nov
 
 - Log the time of each pass ("what was I doing at 9:30?"). Built: stored, not shown.
