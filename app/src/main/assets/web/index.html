@@ -376,7 +376,7 @@ function tick(now) {
   const t = (now - openAt) / 1000;
   bursts.forEach(b => {
     if (b.settled) return;
-    const k = Math.max(0, Math.min(1, (t - 0.9) / 1.6)), e = 1 - Math.pow(1 - k, 4);
+    const k = Math.max(0, Math.min(1, (t - 0.7) / 1.0)), e = 1 - Math.pow(1 - k, 4); // quicker burst (18 Nov)
     if (b.ball) { b.ball.scale.setScalar(R_BALL * Math.max(0, 1 - k * 4)); if (k >= 0.25) b.ball.visible = false; }
     const a = b.pts.geometry.attributes.position.array;
     for (let i = 0; i < a.length; i++) a[i] = b.start[i] + (b.end[i] - b.start[i]) * e;
