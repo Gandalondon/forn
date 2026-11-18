@@ -58,7 +58,7 @@ Findings:
 - 18 Nov, 12:25, after Tony's 4-year screenshots:
   - The tree grows, it doesn't squeeze: rings stay 0.42 apart forever, so 4 years is simply a much bigger tree. The overview reads as a cross-section; zoomed in, any part reads like one month and balls are tappable. The pull-back zooms evenly (geometric), so long spans don't rush.
   - Ring weight: day a dotted hairline, Monday a step heavier, the 1st of the month heavier, 1 January darkest and thickest. Tap-a-ring-to-zoom dropped: pinch does it.
-  - Zoom limit: never so close that a ball fills the screen. The tally sits on a white panel, so the 3D stops above the text rather than running under it.
+  - Zoom limit: never so close that a ball fills the screen. The tally has no panel: the rings run under the text, which Tony likes as a happy accident (white panel tried and removed, 18 Nov).
   - Trunk heights now in fixed bands, stacked like strata with no empty gaps: modern (under 500 years), medieval, Roman, prehistoric, geology. Within a band, older sits lower. If banded 1 month still doesn't click, drop the trunk and keep flat rings.
   - Info icon: Tony picked info (board 1) for now.
 - 18 Nov, 12:30: the flat disc is the direction ("that crazy disc", zoom in and out). Tree trunk parked: liked as a concept, too hard to navigate; its toggle is removed, the banded code stays in the prototype. Heavier rings are now one solid band each (they had been parallel lines that split apart up close), and a Monday within two days of a month ring stays a plain day ring so heavy rings never crowd.
