@@ -113,7 +113,12 @@ class MainActivity : ComponentActivity() {
                 if (spot == null) {
                     val n = store.passed(Day.key()).size
                     // Set up and waiting: say so plainly.
-                    Page("Enjoy your day.", if (n == 0) "You're all set. Stepback will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.")
+                    Page(
+                        "Enjoy your day.",
+                        if (n == 0) "You're all set. Stepback will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.",
+                        // Test aid (18 Nov): run tonight's 9pm line now, notification and all. Remove after testing.
+                        *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this); tick++ }) else emptyArray()),
+                    )
                 } else {
                     val verdict = store.verdict(spot.id)
                     Page(
