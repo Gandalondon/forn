@@ -52,6 +52,11 @@ body.carded .tally { opacity: 0; }
 .page h3 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 600; }
 .page p { margin: 8px 0 0; font-size: 17px; line-height: 24px; color: var(--ink-soft); text-wrap: pretty; }
 .page .pills { margin-top: 16px; }
+.page .lbl { margin-top: 16px; color: var(--ink); font-size: 15px; line-height: 20px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.seg button { height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 15px/1 var(--font); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #FFFFFF; }
+.pill[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) { .card { transition: none !important; } }
 </style>
 </head>
@@ -81,7 +86,13 @@ body.carded .tally { opacity: 0; }
     <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="tellBtn">Tell me now</button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
-  <section><div class="pills"><button type="button" class="pill" id="demoBtn">Show me 4 months</button></div></section>
+  <section><h3>Try it out</h3><p>Example finds around your real ones, to see how the rings could grow.</p>
+    <p class="lbl">How far back</p><div class="seg" data-k="span"><button data-v="30">1 month</button><button data-v="120">4 months</button><button data-v="365">1 year</button><button data-v="1461">4 years</button></div>
+    <p class="lbl">Kept</p><div class="seg" data-k="kept"><button data-v="0">0%</button><button data-v="20">20%</button><button data-v="50">50%</button><button data-v="80">80%</button><button data-v="100">100%</button></div>
+    <p class="lbl">How busy</p><div class="seg" data-k="busy"><button data-v="quiet">Quiet</button><button data-v="normal">Normal</button><button data-v="busy">Busy</button></div>
+    <p class="lbl">Empty days</p><div class="seg" data-k="empty"><button data-v="full">Full ring</button><button data-v="thin">Thin ring</button><button data-v="none">No ring</button></div>
+    <div class="pills"><button type="button" class="pill" id="demoBtn">Show</button><button type="button" class="pill" id="demoOff" hidden>Back to my rings</button></div>
+  </section>
 </div>
 
 <script>
@@ -180,7 +191,18 @@ controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoR
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const R_BALL = 0.16, PARTS = 420, STEP = 0.42;
 const centre = new THREE.Vector3();
-function ringR(day) { return 0.5 + (nDays - 1 - day) * STEP; }
+// Ring radii: oldest day at the core, today outside. A day with a find gets a full ring width; an empty day gets
+// a full, thin or no ring (Try it out decides; the real app uses full for now).
+let RR = [], HAS = new Set(), emptyMode = 'full';
+function ringR(day) { return RR[day] ?? 0.5; }
+function layoutRings() {
+  RR = new Array(nDays); let r = 0.5;
+  for (let d = nDays - 1; d >= 0; d--) {
+    RR[d] = r;
+    const w = HAS.has(d) || d === 0 ? STEP : emptyMode === 'thin' ? STEP * 0.35 : emptyMode === 'none' ? 0 : STEP;
+    r += w;
+  }
+}
 function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
 // A well-mixed hash (FNV-1a plus a final scramble), so ids that differ by one character land far apart.
 // The old one gave neighbouring days almost the same angle, so finds lined up in streaks (fixed 18 Nov).
@@ -203,6 +225,7 @@ function ringLoop(R, rank) {
 function guides() {
   for (let d = 0; d < nDays; d++) {
     let rank = rankOf(d);
+    if (emptyMode === 'none' && !HAS.has(d) && d !== 0 && rank < 2) continue; // no ring for an empty day; month and year rings stay
     if (rank === 1 && [-2, -1, 1, 2].some(k => d + k >= 0 && d + k < nDays && rankOf(d + k) >= 2)) rank = 0;
     const g = new THREE.Group(), R = ringR(d);
     g.add(ringLoop(R, rank));
@@ -241,29 +264,35 @@ function fit(reach) {
   return reach * 1.15 / Math.sin(Math.min(vf, hf));
 }
 
-/* Demo (18 Nov): four months of example finds around your real ones, to show someone how the rings fill up. */
+/* Try it out (18 Nov): example finds around your real ones, to see how the rings could grow. */
 let demo = false, DEMO = null;
+const OPT = { span: 120, kept: 50, busy: 'normal', empty: 'full' };
 const POOL = ['Stane Street', 'Leadenhall Market', 'Chanctonbury Ring', 'Box Hill', 'Richmond Park', 'Kingston', 'Wimbledon Common',
   'Merton Priory', 'Leith Hill', 'Southwark', 'Ranmore Common', 'Cannon Hill Common', 'Beverley Brook', 'Portlethen Moss', 'Aberdeen harbour'];
 function keyFor(d) { const t = dayDate(S.today); t.setDate(t.getDate() - d); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
 function demoFinds() {
   const r = rng(7), out = [];
-  for (let d = 120; d >= 1; d--) {
-    const n = r() < 0.3 ? 0 : 1 + Math.floor(r() * (r() < 0.2 ? 4 : 2));
+  const pDay = { quiet: 0.2, normal: 0.55, busy: 0.9 }[OPT.busy], most = { quiet: 1, normal: 2, busy: 5 }[OPT.busy];
+  for (let d = OPT.span; d >= 1; d--) {
+    const n = r() < pDay ? 1 + Math.floor(r() * most) : 0;
     for (let i = 0; i < n; i++) {
-      const place = POOL[Math.floor(r() * POOL.length)], v = r();
-      out.push({ id: 'demo-' + d + '-' + i, place, fact: place + ': an example find, to show how the rings fill up.', day: keyFor(d), at: null, verdict: v < 0.5 ? 'yes' : v < 0.75 ? 'no' : '' });
+      const place = POOL[Math.floor(r() * POOL.length)];
+      out.push({ id: 'demo-' + d + '-' + i, place, fact: place + ': an example find, to show how the rings fill up.', day: keyFor(d), at: null, verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
     }
   }
   return out;
 }
+const spanName = d => ({ 30: 'One month', 120: 'Four months', 365: 'One year', 1461: 'Four years' }[d]);
 
 function build(animate) {
   if (group) { scene.remove(group); group.traverse(o => { if (o.isPoints || o.isLine || o.userData.ring) { o.geometry.dispose(); o.material.dispose(); } }); }
   group = new THREE.Group(); scene.add(group); balls = []; bursts = []; reveal = []; pull = null;
   if (demo && !DEMO) DEMO = demoFinds();
   const finds = (demo ? S.finds.concat(DEMO) : S.finds).map(f => ({ ...f, d: Math.max(0, dayIndex(f.day)) }));
-  nDays = Math.max(1, ...finds.map(f => f.d + 1));
+  nDays = Math.max(1, demo ? OPT.span + 1 : 1, ...finds.map(f => f.d + 1));
+  emptyMode = demo ? OPT.empty : 'full';
+  HAS = new Set(finds.map(f => f.d));
+  layoutRings();
   guides();
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
   let maxR = ringR(0);
@@ -286,7 +315,7 @@ function build(animate) {
   const kept = finds.filter(f => f.verdict !== 'no').length;
   const weekday = dayDate(S.today).toLocaleDateString('en-GB', { weekday: 'long' });
   document.getElementById('tally').innerHTML = demo
-    ? `<strong>Four months</strong>Example finds, to show how it fills up. ${kept} kept, the rest is dust. Tap a ball to read it again.`
+    ? `<strong>${spanName(OPT.span)}</strong>Example finds: ${OPT.kept}% kept, ${OPT.busy} days, ${OPT.empty === 'full' ? 'full' : OPT.empty === 'thin' ? 'thin' : 'no'} rings for empty days. ${kept} kept, the rest is dust.`
     : !finds.length
     ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
     : `<strong>${nDays === 1 ? weekday : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
@@ -377,10 +406,21 @@ function renderTest() {
 document.getElementById('how').addEventListener('click', () => { S = JSON.parse(N.state()); renderTest(); sheet.scrollTop = 0; sheet.classList.add('on'); });
 document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
 document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
+function renderSeg() {
+  document.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(String(OPT[s.dataset.k]) === b.dataset.v))));
+  document.getElementById('demoOff').hidden = !demo;
+}
+document.querySelectorAll('.seg').forEach(s => s.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const v = b.dataset.v; OPT[s.dataset.k] = isNaN(+v) ? v : +v; renderSeg();
+}));
 document.getElementById('demoBtn').addEventListener('click', () => {
-  demo = !demo; document.getElementById('demoBtn').textContent = demo ? 'Back to my rings' : 'Show me 4 months';
-  sheet.classList.remove('on'); S = JSON.parse(N.state()); build(true);
+  demo = true; DEMO = null; sheet.classList.remove('on'); renderSeg(); S = JSON.parse(N.state()); build(true);
 });
+document.getElementById('demoOff').addEventListener('click', () => {
+  demo = false; DEMO = null; sheet.classList.remove('on'); renderSeg(); S = JSON.parse(N.state()); build(true);
+});
+renderSeg();
 document.getElementById('tellBtn').addEventListener('click', () => { N.tellNow(); sheet.classList.remove('on'); window.forn.refresh(); });
 
 /* Called by the app: on open, on return, and from Android's back button. */
