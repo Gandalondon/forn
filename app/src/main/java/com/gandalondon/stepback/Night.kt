@@ -38,10 +38,12 @@ object Night {
         val store = Store(c)
         val told = store.told
         val liked = store.wellINever.mapNotNull { Spots.byId(c, it)?.kind }
+        // Told but never tapped (ignoring last night's, which you may not have seen yet): that kind fades.
+        val shrugged = store.history.drop(1).filter { it !in store.wellINever }.mapNotNull { Spots.byId(c, it)?.kind }
         return store.passed(day)
             .filter { it !in told }
             .mapNotNull { Spots.byId(c, it) }
-            .maxByOrNull { s -> s.score + 1.5 * liked.count { it == s.kind } }
+            .maxByOrNull { s -> s.score + 1.5 * liked.count { it == s.kind } - 1.0 * shrugged.count { it == s.kind } }
     }
 
     fun run(c: Context) {

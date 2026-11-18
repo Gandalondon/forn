@@ -32,6 +32,7 @@ Findings:
 
 - Log the time of each pass ("what was I doing at 9:30?"). Built: stored, not shown.
 - The strata view places each find where it was found, on a very simplified modern map (no street names or buildings), pinch, zoom and 3D. Spot coordinates are enough; no tracking needed. For after the test.
+- Facts are tagged by type (Roman, prehistory, Pictish, geology and so on). Built: each Well I never adds 1.5 to that type, each fact told and not tapped takes 1 off. Types fade, they never vanish, so a great Roman fact can still win on a quiet day. Any data pulled in later needs the same type tags.
 - Daily or weekly alerts: held. It's a setting, and settings were ruled out. Let the test show the natural frequency first.
 
 ## Build and install
