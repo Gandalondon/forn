@@ -66,6 +66,13 @@ Findings:
 - Browser prototype: artifact Stepback prototype (https://claude.ai/artifact/UtGTrfpegNVjiLqVrod4SE), with After 1 day, 1 week and 1 month toggles. Week and month use example data.
 - The phone build stays the v1 single fact for the test; the new flow goes into the app after Thursday.
 
+## Raynes Park test walk (18 Nov, afternoon)
+
+- Build 5 (12:30) adds four Raynes Park spots for Tony's walk to the post office (1a Amity Grove): rp-never-a-park (Rayne's three farm "parks", score 8), rp-station (the 1889 guidebook joke, 8), rp-apostles (twelve roads, not named after apostles, old cricket ground, 7), beverley-brook (Beaver's Ley, Beferithi in 693, 8, 1.3km "near" fence). Facts checked against Hidden London, LAMAS vol. 34, Wikipedia/Wikishire, Merton Council.
+- Build 5 is the Thursday build: no more app pushes before the flight.
+- Signing secrets still not set: the GitHub Actions secrets API is blocked from Claude's sessions, so Tony sets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD in the repo's Settings > Secrets after the test (Claude makes the keystore and gives him the two values). Until then every new build means uninstall then reinstall.
+- v1 still tells one fact at 9pm (the best passed that day, never repeated). The five-card evening is the post-test build. Watch: does a short local walk give anything worth a ping, and how often will the same streets have something new?
+
 ## Ideas from Tony, 18 Nov
 
 - Log the time of each pass ("what was I doing at 9:30?"). Built: stored, not shown.
