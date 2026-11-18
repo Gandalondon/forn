@@ -22,6 +22,7 @@ class MainActivity : ComponentActivity() {
     private var tick by mutableIntStateOf(0)
     private var openSpot by mutableStateOf<String?>(null)
     private var backgroundAsks = 0
+    private var notifyAsks = 0
 
     private val askLocation = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { refresh() }
     private val askOne = registerForActivityResult(ActivityResultContracts.RequestPermission()) { refresh() }
@@ -68,7 +69,6 @@ class MainActivity : ComponentActivity() {
 
     @androidx.compose.runtime.Composable
     private fun Screen(@Suppress("UNUSED_PARAMETER") version: Int) {
-        val hello = "Go about your day. Find out tonight."
         val store = Store(this)
         val crash = Crash.last(this)
         when {
@@ -79,28 +79,32 @@ class MainActivity : ComponentActivity() {
                 Choice("Carry on") { Crash.clear(this); tick++ },
             )
 
+            // Setup: one ask per screen, each with its own headline, so it's clear you've moved on.
             !Fences.hasLocation(this) -> Page(
-                hello,
-                "Stepback notes the old places you pass. At 9pm, one line about the best one. Your location never leaves your phone.",
+                "Go about your day. Find out tonight.",
+                "Stepback notices the old places you pass. At 9pm, it tells you the best of them. Your location never leaves your phone.",
                 Choice("Allow location") {
                     askLocation.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 },
             )
 
             !Fences.hasBackground(this) -> Page(
-                hello,
-                "To notice places while your phone's in your pocket, pick Allow all the time on the next screen.",
+                "Now pick Allow all the time.",
+                "So it notices places with your phone in your pocket. Android opens the location setting: choose Allow all the time, then come back.",
                 Choice("Allow all the time") {
-                    // After two refusals Android stops asking, so go straight to settings.
+                    // After two refusals Android stops asking, so go straight to the app's settings.
                     if (backgroundAsks++ < 2) askOne.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                     else openAppSettings()
                 },
             )
 
             !hasNotifications() -> Page(
-                hello, "One quiet line at 9pm. Nothing else, ever.",
-                Choice("Allow the 9pm line") {
-                    if (Build.VERSION.SDK_INT >= 33) askOne.launch(Manifest.permission.POST_NOTIFICATIONS)
+                "One quiet moment at 9pm.",
+                "A notification with the best place you passed today. Nothing else, ever.",
+                Choice("Allow notifications") {
+                    // Same as above: once Android stops asking, the button opens the app's settings instead of doing nothing.
+                    if (Build.VERSION.SDK_INT >= 33 && notifyAsks++ < 2) askOne.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    else openAppSettings()
                 },
             )
 
@@ -108,7 +112,8 @@ class MainActivity : ComponentActivity() {
                 val spot = (openSpot ?: store.history.firstOrNull())?.let { Spots.byId(this, it) }
                 if (spot == null) {
                     val n = store.passed(Day.key()).size
-                    Page(hello, if (n == 0) "Nothing yet today." else "So far today: $n ${if (n == 1) "place" else "places"}.")
+                    // Set up and waiting: say so plainly.
+                    Page("Enjoy your day.", if (n == 0) "You're all set. Stepback will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.")
                 } else {
                     val verdict = store.verdict(spot.id)
                     Page(
