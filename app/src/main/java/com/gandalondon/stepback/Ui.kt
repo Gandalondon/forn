@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.font.FontVariation
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.unit.dp
@@ -37,24 +39,25 @@ data class Palette(val bg: Color, val fg: Color, val muted: Color)
 val DarkPalette = Palette(Ink, Paper, Color(0xFFA8A8A8))
 val LightPalette = Palette(Paper, Ink, Color(0xFF6B6B6B))
 
-// Always black (decided 18 Nov), whatever the system setting.
+// Always white (18 Nov, matching the white 3D view and cards), whatever the system setting.
 @Composable
-fun palette() = DarkPalette
+fun palette() = LightPalette
 
-// Urbanist (SIL Open Font License), bundled.
-val Urbanist = FontFamily(
-    Font(R.font.urbanist_regular, FontWeight.Normal),
-    Font(R.font.urbanist_semibold, FontWeight.SemiBold),
+// Instrument Sans (SIL Open Font License), bundled as one variable font. Urbanist dropped 18 Nov.
+@OptIn(ExperimentalTextApi::class)
+val Instrument = FontFamily(
+    Font(R.font.instrument_sans, weight = FontWeight.Normal, variationSettings = FontVariation.Settings(FontVariation.weight(400))),
+    Font(R.font.instrument_sans, weight = FontWeight.SemiBold, variationSettings = FontVariation.Settings(FontVariation.weight(600))),
 )
 
 object Type {
     val Fact = TextStyle(
-        fontFamily = Urbanist, fontSize = 34.sp, lineHeight = 40.sp,
+        fontFamily = Instrument, fontSize = 34.sp, lineHeight = 40.sp,
         fontWeight = FontWeight.SemiBold, letterSpacing = 0.2.sp,
         lineBreak = LineBreak.Heading, // balanced lines, no widows
     )
     val Body = TextStyle(
-        fontFamily = Urbanist, fontSize = 17.sp, lineHeight = 24.sp,
+        fontFamily = Instrument, fontSize = 17.sp, lineHeight = 24.sp,
         letterSpacing = 0.sp, lineBreak = LineBreak.Paragraph,
     )
     val Button = Body.copy(fontWeight = FontWeight.SemiBold)

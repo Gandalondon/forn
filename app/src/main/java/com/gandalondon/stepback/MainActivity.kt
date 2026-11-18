@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -27,7 +28,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        Crash.install(this)
+        // White app: dark status and navigation icons.
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.light(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.light(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT),
+        )
         openSpot = intent.getStringExtra(Night.EXTRA_SPOT)
         setContent {
             Screen(tick) // tick changes whenever state on the phone may have changed
@@ -64,7 +70,15 @@ class MainActivity : ComponentActivity() {
     private fun Screen(@Suppress("UNUSED_PARAMETER") version: Int) {
         val hello = "Go about your day. Find out tonight."
         val store = Store(this)
+        val crash = Crash.last(this)
         when {
+            // Test aid: if the app crashed, show what happened so Tony can screenshot it.
+            crash != null -> Page(
+                "Stepback crashed last time.",
+                crash.take(700),
+                Choice("Carry on") { Crash.clear(this); tick++ },
+            )
+
             !Fences.hasLocation(this) -> Page(
                 hello,
                 "Stepback notes the old places you pass. At 9pm, one line about the best one. Your location never leaves your phone.",
