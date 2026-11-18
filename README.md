@@ -8,7 +8,7 @@ This is the v1 test: does a normal day produce a good 9pm line? It knows a hand-
 
 ## Install on the Pixel
 
-Add this repo to Obtainium (`https://github.com/Gandalondon/stepback`), like Relay and Hlid. It picks up `Stepback.apk` from each release.
+Add this repo to Obtainium (`https://github.com/Gandalondon/forn`), like Relay and Hlid. It picks up `Stepback.apk` from each release.
 
 On first open: Allow location, then Allow all the time, then the 9pm line.
 

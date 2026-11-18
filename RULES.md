@@ -1,6 +1,6 @@
 # Forn rules
 
-The app is called Forn (Old Norse for ancient), from 18 Nov. The repo, package id (com.gandalondon.stepback) and APK file keep the Stepback name so updates keep installing over the top.
+The app is called Forn (Old Norse for ancient), from 18 Nov. The GitHub repo is Gandalondon/forn (renamed 18 Nov). The package id (com.gandalondon.stepback), APK file and signing key alias keep the Stepback name so updates keep installing over the top: never change them.
 
 How Stepback works: what it knows, what it tells you, and how it looks. Decisions and history live in HANDOVER.md. This file is the current rulebook: update it whenever a rule changes.
 

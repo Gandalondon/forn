@@ -1,6 +1,6 @@
 # Stepback handover
 
-Name: the app is now Forn (Old Norse for ancient), chosen 18 Nov over Hring (said aloud it sounds like herring), Jord (the J), Askr and Munin. App name and in-app copy changed in build 12; the GitHub repo and package id stay stepback for now (Tony may rename the repo later).
+Name: the app is now Forn (Old Norse for ancient), chosen 18 Nov over Hring (said aloud it sounds like herring), Jord (the J), Askr and Munin. App name and in-app copy changed in build 12; the GitHub repo was renamed to Gandalondon/forn on 18 Nov (21:25); the package id, APK name and key alias stay stepback for good, so updates install over the top.
 
 Master handover for Stepback. The content pipeline plan (sources, stages, review loop with Tony, order) is PIPELINE.md. The current rulebook (data, facts, picks, rings, look) is RULES.md: read it first. Mirrors the Google Doc "Stepback handover" in Drive > Claude. Rules: "App idea rules", in the same folder.
 
