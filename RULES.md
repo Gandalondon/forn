@@ -67,6 +67,14 @@ Next additions: an age for the thing itself (for the rings later) and the time p
 - Cards: white, rounded, a plain stack: the next card sits underneath, no fade, scale or bounce. Progress dots under the card.
 - App icon: an off-black ring on white, 38 across in the 108 grid, stroke 4, centred, sized like Rinse and Hlid.
 
+## Brand (18 Nov)
+
+- Two marks, never locked up together. The ring is the fixed symbol: app icon, notification, favicon. The word FORN is elastic: Instrument Sans, one weight, off-black or white, always filling whatever space it's given edge to edge, square, wide or tall. It's never wrong for being narrow or wide.
+- Width before stretch: narrow or widen the letters with the font's width axis first, then stretch the rest, so tall versions look designed, not broken.
+- Never inside a containing shape: the space it fills is its shape.
+- Past a limit (very tall and thin, or a tiny strip) it gives way to the ring.
+- The story: everyone's rings differ, and the word takes the shape of wherever it lives. Precedent: the Whitney Museum's responsive W.
+
 ## Setup
 
 One ask per screen, each with its own headline:
