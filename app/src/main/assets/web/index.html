@@ -80,6 +80,7 @@ body.carded .tally { opacity: 0; }
     <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="tellBtn">Tell me now</button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
+  <section><div class="pills"><button type="button" class="pill" id="demoBtn">Show me 4 months</button></div></section>
 </div>
 
 <script>
@@ -232,10 +233,28 @@ function fit(reach) {
   return reach * 1.15 / Math.sin(Math.min(vf, hf));
 }
 
+/* Demo (18 Nov): four months of example finds around your real ones, to show someone how the rings fill up. */
+let demo = false, DEMO = null;
+const POOL = ['Stane Street', 'Leadenhall Market', 'Chanctonbury Ring', 'Box Hill', 'Richmond Park', 'Kingston', 'Wimbledon Common',
+  'Merton Priory', 'Leith Hill', 'Southwark', 'Ranmore Common', 'Cannon Hill Common', 'Beverley Brook', 'Portlethen Moss', 'Aberdeen harbour'];
+function keyFor(d) { const t = dayDate(S.today); t.setDate(t.getDate() - d); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
+function demoFinds() {
+  const r = rng(7), out = [];
+  for (let d = 120; d >= 1; d--) {
+    const n = r() < 0.3 ? 0 : 1 + Math.floor(r() * (r() < 0.2 ? 4 : 2));
+    for (let i = 0; i < n; i++) {
+      const place = POOL[Math.floor(r() * POOL.length)], v = r();
+      out.push({ id: 'demo-' + d + '-' + i, place, fact: place + ': an example find, to show how the rings fill up.', day: keyFor(d), at: null, verdict: v < 0.5 ? 'yes' : v < 0.75 ? 'no' : '' });
+    }
+  }
+  return out;
+}
+
 function build(animate) {
   if (group) { scene.remove(group); group.traverse(o => { if (o.isPoints || o.isLine || o.userData.ring) { o.geometry.dispose(); o.material.dispose(); } }); }
   group = new THREE.Group(); scene.add(group); balls = []; bursts = []; reveal = []; pull = null;
-  const finds = S.finds.map(f => ({ ...f, d: Math.max(0, dayIndex(f.day)) }));
+  if (demo && !DEMO) DEMO = demoFinds();
+  const finds = (demo ? S.finds.concat(DEMO) : S.finds).map(f => ({ ...f, d: Math.max(0, dayIndex(f.day)) }));
   nDays = Math.max(1, ...finds.map(f => f.d + 1));
   guides();
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
@@ -258,7 +277,9 @@ function build(animate) {
   });
   const kept = finds.filter(f => f.verdict !== 'no').length;
   const weekday = dayDate(S.today).toLocaleDateString('en-GB', { weekday: 'long' });
-  document.getElementById('tally').innerHTML = !finds.length
+  document.getElementById('tally').innerHTML = demo
+    ? `<strong>Four months</strong>Example finds, to show how it fills up. ${kept} kept, the rest is dust. Tap a ball to read it again.`
+    : !finds.length
     ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
     : `<strong>${nDays === 1 ? weekday : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
   resize();
@@ -341,6 +362,10 @@ function renderTest() {
 document.getElementById('how').addEventListener('click', () => { S = JSON.parse(N.state()); renderTest(); sheet.scrollTop = 0; sheet.classList.add('on'); });
 document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
 document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
+document.getElementById('demoBtn').addEventListener('click', () => {
+  demo = !demo; document.getElementById('demoBtn').textContent = demo ? 'Back to my rings' : 'Show me 4 months';
+  sheet.classList.remove('on'); S = JSON.parse(N.state()); build(true);
+});
 document.getElementById('tellBtn').addEventListener('click', () => { N.tellNow(); sheet.classList.remove('on'); window.forn.refresh(); });
 
 /* Called by the app: on open, on return, and from Android's back button. */
