@@ -103,3 +103,13 @@ Findings:
 2. Install through Obtainium and grant location (all the time) and notifications. At home today the SW20 fence should fire at once, and tonight's 9pm line should be the London Clay.
 3. Thursday: Heathrow, Aberdeen and Portlethen. The 9pm line in Portlethen is the real test.
 4. After the test: font comparison (Urbanist, Manrope, Outfit), screens, and the 3D strata prototype in the browser.
+
+## Landing page (agreed 18 Nov, build once Tony's Mac is connected)
+
+- The most minimal of his sites: the full-screen 3D rings are the page (no phone mock-ups), with one big, bold line of text at a time over them.
+- Not a normal scroll: back and next arrows, and scroll or swipe also steps forward or back (the page takes over the scroll). Text cuts between steps, no text animation: the camera carries the motion.
+- Steps act out a day: notice, 9pm, zoom into a ball and a real card opens, a ball bursts to dust, pull back to years of rings, then Forn and the download (or coming soon).
+- Footer: copyright Tony and Privacy, which opens as a card like the app.
+- Tone: understandable sentences, not clipped AI punchlines. First copy draft is in the 18 Nov chat (v2, plain sentences).
+- Steps are real text in the page (search, screen readers); reduced motion gives plain slides; the type shows before the 3D loads. Keep balls out from behind the letters.
+- No domain yet: may go up on gandalondon.com to share with a friend.
