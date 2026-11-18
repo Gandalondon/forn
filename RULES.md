@@ -22,8 +22,7 @@ Go about your day. Stepback quietly notes the old places you pass. In the evenin
 - The pick is the most interesting place passed that day, by score, among those never told before. Each fact is told once, ever.
 - Answers never steer the pick (decided 18 Nov). Interesting or Not for me only decides ball or dust in the rings. Otherwise the dust would die out as the app learned your taste.
 - Quiet day, no notification. Never padded.
-- v1 (on the phone now): one line at 9pm, tap it to open the fact.
-- Next (after the Aberdeen test): up to five cards in the evening, most interesting first, never padded; a home day may be one card.
+- Up to five finds each evening, most interesting first, never padded; a home day may be one card. The notification is the best one's line ("And 2 more."). The cards wait on top of the rings until answered; until noon, last night's finds still count as today's ring.
 - Repeat routes run dry by design: walk to the post office twice and the second day only pings if there's something new. Stepback is weekly-ish, busier on days you move around.
 
 ## The facts (spots.json)
@@ -79,8 +78,7 @@ One ask per screen, each with its own headline:
 
 ## Test aids (remove before anyone else uses it)
 
-- Tell me now: runs tonight's line early.
-- The count of places passed on Enjoy your day.
+- On the How it works page, a Testing section: places passed today with times, Tell me now (runs tonight's finds early) and Record walk (GPX track and zone log to Downloads/Forn).
 - Crash recorder: shows the last crash on the next open.
 
 ## Builds
