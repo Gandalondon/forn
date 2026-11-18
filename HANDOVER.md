@@ -1,5 +1,7 @@
 # Stepback handover
 
+Name: the app is now Forn (Old Norse for ancient), chosen 18 Nov over Hring (said aloud it sounds like herring), Jord (the J), Askr and Munin. App name and in-app copy changed in build 12; the GitHub repo and package id stay stepback for now (Tony may rename the repo later).
+
 Master handover for Stepback. The current rulebook (data, facts, picks, rings, look) is RULES.md: read it first. Mirrors the Google Doc "Stepback handover" in Drive > Claude. Rules: "App idea rules", in the same folder.
 
 ## State (Wed 18 Nov 2026, morning)

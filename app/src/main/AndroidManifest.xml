@@ -12,7 +12,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
-        android:label="Stepback"
+        android:label="Forn"
         android:theme="@style/Theme.Stepback">
 
         <activity
