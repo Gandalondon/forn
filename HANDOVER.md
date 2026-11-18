@@ -115,3 +115,11 @@ Findings:
 - No domain yet: may go up on gandalondon.com to share with a friend.
 - Opening screen (18 Nov idea): the word FORN alone, filling the whole window, set in Instrument Sans inside an SVG that stretches to the viewport (no outlining needed). Use the font's width axis: condensed and stretched tall on phones, normal width stretched wide on desktop. First scroll or swipe goes into the rings. To compare: FORN in caps (a solid block; a wordmark exception to the no-caps rule) against Forn in sentence case, and maybe the O as the app's ring (probably one idea too many).
 - Folio page idea (18 Nov): show the elastic wordmark in one frame that slowly morphs through real formats (app-sized square, phone screen, wide billboard, tall banner), the word refitting as it goes. No toggle, no labels. On desktop it can also refit live when the window is resized. Export the same morph as the portfolio GIF (like Relay's logo loop).
+
+## Test results, 18 Nov afternoon (Raynes Park drive and Cannon Hill dog walk)
+
+- Zones work. Android caught five places across a short drive (15:40 to 15:58) and a 4.1km, 71-minute dog walk (16:33 to 17:44): beverley-brook, rp-never-a-park, rp-station (even the tight 250m zone, from the car), cannon-hill, stane-street. Each fired within seconds of entering, with Android's position at 1 to 25m accuracy (one at 127m).
+- The route check on Stop and save found nothing the zones had missed. Against the GPX, the Raynes Park zones the walk didn't enter were 300 to 900m away, so no near misses.
+- The first recording (15:40) stopped after two seconds: the double-tap bug, fixed in build 22.
+- Content lesson: two short local trips used up every local fact in one day. From tomorrow, home days are silent until new places are added. Density of facts per area is the real constraint, as the data check predicted.
+- Tonight's cards: the five passed today (four score 8, Stane Street 7), unless Tell me now runs first.
