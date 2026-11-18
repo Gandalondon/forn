@@ -27,7 +27,7 @@ Nothing from memory. Every fact keeps the source it was checked against.
 
 ## The review loop (Tony)
 
-- Batches of 20, picked at random from a finished area. A simple review page: read the card, keep or reject. On reject, tap one reason: Dull, Wrong, Confusing, Too long, Knew it, Other.
+- Batches of 20, picked at random from a finished area. A simple review page: read the card, keep or reject. An HTML page, one card at a time (as in the app, with place and source under it). Keep is one tap. Reject is multi-select (decided 18 Nov): any of Dull, Wrong, Confusing, Too long, Knew it, plus an optional note (most useful on Wrong), then Next. Twenty cards, then a done screen; answers come back to Claude.
 - Takes about five minutes. Tony never sees the whole set.
 - After each batch Claude looks for the pattern behind the rejects: by source, kind, score, length, how it was written (e.g. "rejects are all listed buildings scored 6" or "anything over 30 words"). Then changes the filter or the writing rules, and rewrites the affected spots across the area, not just the 20.
 - Aim: under 1 reject in 5 before an area ships. Track the reject rate per batch so the trend is visible.
