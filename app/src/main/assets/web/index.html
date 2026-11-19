@@ -183,7 +183,7 @@ let panR = 2, idleT = null, group = null, balls = [], bursts = [], reveal = [], 
 controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); });
 controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoRotate = true, 4000); });
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const R_BALL = 0.16, PARTS = 420, STEP = 0.42;
+const R_BALL = 0.12, PARTS = 420, STEP = 0.48; // 19 Nov: smaller balls, wider rings, so neighbouring days never cover each other at the tilt
 const centre = new THREE.Vector3();
 // Ring radii: oldest day at the core, today outside. A day with a find gets a full ring width; an empty day gets
 // a full, thin or no ring (Try it out decides; the real app uses full for now).
@@ -261,7 +261,7 @@ function guides() {
 // (midnight at the top), so a regular commute shows as a lane through the years. A small seeded nudge stops ruler-
 // straight lines, and balls too close on the same ring are pushed apart so they never overlap. No time (examples,
 // old data): a seeded angle. Positions only; nothing stored changes.
-const TAU = Math.PI * 2, GAP = 0.42; // GAP: centre to centre along the ring, a little over a ball's width
+const TAU = Math.PI * 2, GAP = 0.34; // GAP: centre to centre along the ring, a little over a ball's width
 function placeDay(list) {
   const R = ringR(list[0].d), out = new Map();
   const items = list.map(f => {
@@ -271,12 +271,24 @@ function placeDay(list) {
     else th = r() * TAU;
     return { f, th: ((th % TAU) + TAU) % TAU, y: (r() - 0.5) * 0.08 };
   }).sort((a, b) => a.th - b.th);
-  const g = GAP / R;
-  if (items.length * g >= TAU) items.forEach((it, i) => { it.th = items[0].th + i * TAU / items.length; }); // too many: share the ring evenly
-  else for (let pass = 0; pass < 3; pass++) for (let i = 0; i < items.length; i++) {   // nudge forward until clear
-    const a = items[i], b = items[(i + 1) % items.length];
-    const gapAB = ((b.th - a.th) % TAU + TAU) % TAU || (items.length > 1 ? 0 : TAU);
-    if (items.length > 1 && gapAB < g) b.th = a.th + g;
+  const g = GAP / R, n = items.length;
+  if (n * g >= TAU) items.forEach((it, i) => { it.th = items[0].th + i * TAU / n; }); // too many: share the ring evenly
+  else if (n > 1) {
+    // Fan clusters out from their middle (19 Nov): balls passed close in time spread evenly either side of that
+    // time, a gap apart, keeping their order. Start after the widest empty stretch so no cluster straddles the cut.
+    let cut = 0, widest = -1;
+    for (let i = 0; i < n; i++) { const gap = (i + 1 < n ? items[i + 1].th : items[0].th + TAU) - items[i].th; if (gap > widest) { widest = gap; cut = i + 1; } }
+    const seq = items.slice(cut).concat(items.slice(0, cut).map(it => ({ ...it, th: it.th + TAU, orig: it })));
+    const want = seq.map(it => it.th);
+    let blocks = seq.map((_, i) => ({ a: i, b: i }));
+    const centre = bl => { let m = 0; for (let i = bl.a; i <= bl.b; i++) m += want[i]; return m / (bl.b - bl.a + 1); };
+    const lo = bl => centre(bl) - (bl.b - bl.a) * g / 2, hi = bl => centre(bl) + (bl.b - bl.a) * g / 2;
+    for (let merged = true; merged;) {
+      merged = false;
+      for (let i = 0; i + 1 < blocks.length; i++) if (hi(blocks[i]) + g > lo(blocks[i + 1])) { blocks.splice(i, 2, { a: blocks[i].a, b: blocks[i + 1].b }); merged = true; break; }
+    }
+    if (blocks.length > 1 && hi(blocks[blocks.length - 1]) + g > lo(blocks[0]) + TAU) blocks = [{ a: 0, b: n - 1 }]; // touching across the cut: one fan
+    blocks.forEach(bl => { const s0 = lo(bl); for (let i = bl.a; i <= bl.b; i++) (seq[i].orig || seq[i]).th = s0 + (i - bl.a) * g; });
   }
   items.forEach(it => out.set(it.f.id, new THREE.Vector3(Math.cos(it.th) * R, it.f.d === 0 ? 0 : it.y, Math.sin(it.th) * R)));
   return out;
