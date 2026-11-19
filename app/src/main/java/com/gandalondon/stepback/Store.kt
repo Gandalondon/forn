@@ -36,7 +36,15 @@ class Store(c: Context) {
     val history: List<String> get() = p.getString("history", "")!!.split(",").filter { it.isNotBlank() }
 
     /** Which day a fact was told for (a Stepback day key). Older facts without one count as today. */
-    fun toldDay(id: String): String = p.getString("told_day_$id", null) ?: Day.key()
+    /**
+     * The evening a find was told. Finds told before told_day existed (the v1 app) have none, and used to fall back
+     * to Day.key(), so they floated onto today's ring every day (19 Nov, from Tony's exported data: sw20-clay).
+     * Now: the earliest day it was passed, else today. Reads only; nothing stored changes.
+     */
+    fun toldDay(id: String): String = p.getString("told_day_$id", null)
+        ?: p.all.keys.filter { it.startsWith("passed_") && passed(it.removePrefix("passed_")).contains(id) }
+            .map { it.removePrefix("passed_") }.minOrNull()
+        ?: Day.key()
 
     fun tell(id: String, day: String = Day.key()) {
         p.edit()
