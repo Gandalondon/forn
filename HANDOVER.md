@@ -141,3 +141,10 @@ Findings:
 - 19 Nov 23:10: reopened cards swipe through the tapped day's kept finds in time order without closing (right = earlier, left = later; stops at the day's last card, tap another ring to change day); dots under the card show that day's kept finds; the rings glide to each ball behind the scrim. Tony's call after "tap 10 buttons to read today's 5" felt irritating. Dust has no card, so isn't in the run.
 - 19 Nov 23:05: finds without a told_day (only sw20-clay, told by the v1 app) are hidden from the rings at Tony's request; still in "told" so never repeated. Nothing deleted from the phone.
 - 19 Nov 23:20: five Portlethen spots added for Tony's local walks (Findon / Finnan haddie, Port Leviathan whales legend, the vanished Portlethen castle at Mains of Portlethen, the 1639 Covenanter army on the Causey Mounth, Downies near-derelict then petitioning the planners). Sources in spots.json. Castle and Causey points are approximate (700-800m zones); Findon, Old Portlethen and Downies from Wikipedia coordinates.
+
+## Open at end of 19 Nov session (build 46)
+- NEXT: content pilot from PIPELINE.md (SW20 and London first, then Tony's 20-fact review loop). Only ~6 untold spots left near Portlethen plus a few in Surrey/London, so the app runs dry within days without it. Bar: "whoa" facts, not merely amusing.
+- Tony is around Portlethen on 20 Nov: after that, ask for a Send my data export (it lands in his Drive as "Forn data") and check whether the approximate castle and Causey Mounth zones fired in sensible places.
+- Not built yet: bigger tap area on balls (nearest ball within a fingertip, for the zoomed-out view); stop zones re-registering on every app open (noisy repeat "passed" log lines, harmless).
+- Landing page (gandalondon.com/forn, ganda repo public/forn) still draws today on the outside; match the app (today in the centre, clock-face angles, solid grey dust is done) next time it's touched.
+- Decided and kept: Not for me stays (quality signal for the pipeline plus the dust); alternative parked: dust from places passed but not told.
