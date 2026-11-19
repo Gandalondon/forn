@@ -177,8 +177,8 @@ const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 4000);
 const SPH = new THREE.SphereGeometry(1, 40, 28);
 const MAT_YES = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
 const controls = new THREE.OrbitControls(camera, canvas);
-controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.5; controls.enablePan = false;
-let idleT = null, group = null, balls = [], bursts = [], reveal = [], openAt = 0, pull = null, nDays = 1, freeK = 1;
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.5; controls.enablePan = true; controls.screenSpacePanning = false; // two fingers move across the rings (19 Nov), kept within the disc
+let panR = 2, idleT = null, group = null, balls = [], bursts = [], reveal = [], openAt = 0, pull = null, nDays = 1, freeK = 1;
 controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); });
 controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoRotate = true, 4000); });
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -284,7 +284,8 @@ function makeBurst(pos, r, settled) {
   for (let i = 0; i < PARTS; i++) seed.set([r() * 6.283, 0.25 + r() * 0.5, 0.02 + r() * 0.04, r() * 6.283], i * 4);
   const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(settled ? end.slice() : start.slice(), 3));
   geo.setAttribute('seed', new THREE.BufferAttribute(seed, 4));
-  const pts = new THREE.Points(geo, driftMat(new THREE.PointsMaterial({ color: 0x8A8A8A, size: 0.022, map: DOT, alphaTest: 0.01, transparent: true, opacity: settled ? 0.55 : 0 })));
+  const pts = new THREE.Points(geo, driftMat(new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022, map: DOT, alphaTest: 0.5 })));
+  pts.visible = settled; // solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov)
   group.add(pts);
   return { pts, start, end, settled };
 }
@@ -359,6 +360,7 @@ function build(animate) {
   const dir = new THREE.Vector3(1, 1.3, 1).normalize();
   const live = (animate || hold) && !reduce && today.length > 0 && far > near * 1.05;
   const from = live ? focus : centre;
+  panR = maxR + 0.3;
   controls.target.copy(from); controls.minDistance = 1.5; controls.maxDistance = far * 1.6;
   camera.far = far * 4; camera.updateProjectionMatrix();
   camera.position.copy(from).add(dir.clone().multiplyScalar(live ? near : far)); controls.update();
@@ -416,7 +418,7 @@ function tick(now) {
     const a = b.pts.geometry.attributes.position.array;
     for (let i = 0; i < a.length; i++) a[i] = b.start[i] + (b.end[i] - b.start[i]) * e;
     b.pts.geometry.attributes.position.needsUpdate = true;
-    b.pts.material.opacity = k > 0 ? 0.55 : 0;
+    b.pts.visible = k > 0;
     if (k >= 1) b.settled = true;
   });
   if (pull && !hold) {
@@ -427,7 +429,10 @@ function tick(now) {
     reveal.forEach(o => { o.visible = o.userData.day <= e * nDays; });
     if (k >= 1) endPull();
   }
-  DRIFT_T.value = performance.now() / 1000; controls.update(); lod(); renderer.render(scene, camera);
+  DRIFT_T.value = performance.now() / 1000; controls.update();
+  const off = new THREE.Vector3().subVectors(controls.target, centre); off.y = 0; // keep the pan inside the rings
+  if (off.length() > panR) { const back = off.clone().setLength(off.length() - panR); controls.target.sub(back); camera.position.sub(back); }
+  lod(); renderer.render(scene, camera);
 }
 
 /* ---------- How it works, and the test aids ---------- */
