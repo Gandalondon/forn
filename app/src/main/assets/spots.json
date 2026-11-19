@@ -1,263 +1,343 @@
 [
-  {
-    "id": "sw20-clay",
-    "kind": "geology",
-    "score": 7,
-    "place": "SW20",
-    "points": [
-      [
-        51.409,
-        -0.226,
-        2500
-      ]
-    ],
-    "line": "Did you know, today you were on the floor of a warm sea?",
-    "fact": "50 million years ago, SW20 was a warm sea full of crocodiles, turtles and sea snakes. You live on its mud: the London Clay.",
-    "source": "London Clay Formation, Early Eocene (BGS; londonclayfossils.com)"
-  },
-  {
-    "id": "cannon-hill",
-    "kind": "medieval",
-    "score": 8,
-    "place": "Cannon Hill Common",
-    "points": [
-      [
-        51.401,
-        -0.22,
-        450
-      ]
-    ],
-    "line": "Did you know, Cannon Hill has nothing to do with cannons?",
-    "fact": "Cannon Hill was never about cannons. The canons of Merton Priory owned it, and called it Canondownhyll.",
-    "source": "Merton Heritage Service photo archive; St John Fisher parish history"
-  },
-  {
-    "id": "stane-street",
-    "kind": "roman",
-    "score": 7,
-    "place": "Stane Street",
-    "points": [
-      [
-        51.395,
-        -0.205,
-        700
-      ],
-      [
-        51.418,
-        -0.178,
-        500
-      ]
-    ],
-    "line": "Did you know, today you were on a Roman road?",
-    "fact": "The A24 through Morden follows Stane Street, the Roman road from London to Chichester.",
-    "source": "Merton Historical Society, Stane Street"
-  },
-  {
-    "id": "heathrow-camp",
-    "kind": "prehistory",
-    "score": 9,
-    "place": "Heathrow",
-    "points": [
-      [
-        51.4775,
-        -0.44,
-        2000
-      ]
-    ],
-    "line": "Did you know, Heathrow's north runway sits on an Iron Age village?",
-    "fact": "Under Heathrow's north runway: an Iron Age village of 11 roundhouses and a small temple, dug up in 1944 just before the tarmac went down.",
-    "source": "London Museum; Grimes, Proc. Prehistoric Society 59 (1993)"
-  },
-  {
-    "id": "heathrow-cursus",
-    "kind": "prehistory",
-    "score": 8,
-    "place": "Heathrow Terminal 5",
-    "points": [
-      [
-        51.472,
-        -0.488,
-        1500
-      ]
-    ],
-    "line": "Did you know, Terminal 5 is built on a Stone Age monument?",
-    "fact": "Terminal 5 sits on the Stanwell Cursus, a Neolithic ceremonial monument. Bronze Age farmers ran their fields around it, never across it.",
-    "source": "Framework Archaeology, Heathrow Terminal 5 Excavations"
-  },
-  {
-    "id": "dyce-stones",
-    "kind": "pictish",
-    "score": 9,
-    "place": "Dyce",
-    "points": [
-      [
-        57.2292,
-        -2.2087,
-        3500
-      ]
-    ],
-    "line": "Did you know, you landed next to Pictish stones?",
-    "fact": "Just north of Aberdeen's runway, in a ruined chapel, stand Pictish stones carved around AD 600. One shows a swimming beast.",
-    "source": "Historic Environment Scotland, Dyce Symbol Stones"
-  },
-  {
-    "id": "tyrebagger",
-    "kind": "prehistory",
-    "score": 7,
-    "place": "Tyrebagger",
-    "points": [
-      [
-        57.2095,
-        -2.2342,
-        3000
-      ]
-    ],
-    "line": "Did you know, a stone circle looks down on Aberdeen airport?",
-    "fact": "On the hill above Aberdeen airport is a complete stone circle, over 4,000 years old. Its big stone lies on its side on purpose, all 24 tons of it.",
-    "source": "Aberdeenshire HER MAB21589; Canmore 19513"
-  },
-  {
-    "id": "cairnwell",
-    "kind": "prehistory",
-    "score": 9,
-    "place": "Portlethen",
-    "points": [
-      [
-        57.0684,
-        -2.1566,
-        1200
-      ]
-    ],
-    "line": "Did you know, Portlethen moved a prehistoric monument for an industrial estate?",
-    "fact": "In 1995 Portlethen dug up a prehistoric ring cairn, stone by stone, and rebuilt it 175m away to make room for an industrial estate.",
-    "source": "Canmore 37212; Proc Soc Antiq Scot 127 (1997)"
-  },
-  {
-    "id": "portlethen-moss",
-    "kind": "landscape",
-    "score": 5,
-    "place": "Portlethen Moss",
-    "points": [
-      [
-        57.0575,
-        -2.1475,
-        1500
-      ]
-    ],
-    "line": "Did you know, much of Portlethen is built on a bog?",
-    "fact": "Much of Portlethen is built over Portlethen Moss, a bog that once made the road south from Aberdeen near impossible.",
-    "source": "Portlethen Moss"
-  },
-  {
-    "id": "leadenhall",
-    "kind": "roman",
-    "score": 9,
-    "place": "Leadenhall Market",
-    "points": [
-      [
-        51.5128,
-        -0.0835,
-        400
-      ]
-    ],
-    "line": "Did you know, today you passed the biggest Roman building north of the Alps?",
-    "fact": "Under Leadenhall Market lies Roman London's basilica, the largest north of the Alps. One of its piers survives in a barber's basement.",
-    "source": "Leadenhall Market history; Historic UK"
-  },
-  {
-    "id": "chanctonbury",
-    "kind": "roman",
-    "score": 8,
-    "place": "Chanctonbury Ring",
-    "points": [
-      [
-        50.8967,
-        -0.3817,
-        600
-      ]
-    ],
-    "line": "Did you know, Chanctonbury's trees stand on two Roman temples?",
-    "fact": "Under Chanctonbury's beeches lie two Roman temples. The trees were planted in 1760 by a 16-year-old.",
-    "source": "South Downs National Park; Chanctonbury excavations 1909, 1977, 1988-91"
-  },
-  {
-    "id": "ranmore",
-    "kind": "building",
-    "score": 4,
-    "place": "Ranmore Common",
-    "points": [
-      [
-        51.2418,
-        -0.3601,
-        600
-      ]
-    ],
-    "line": "Did you know, the church in the woods at Ranmore was built for one family?",
-    "fact": "St Barnabas, the church on the North Downs Way, was built in 1859 as the estate church of George Cubitt, son of the builder Thomas Cubitt.",
-    "source": "Historic England list entry, Church of St Barnabas"
-  },
-  {
-    "id": "rp-never-a-park",
-    "kind": "landscape",
-    "score": 8,
-    "place": "Raynes Park",
-    "points": [
-      [
-        51.407,
-        -0.229,
-        600
-      ]
-    ],
-    "line": "Did you know, Raynes Park was never a park?",
-    "fact": "Raynes Park was never a park. Edward Rayne farmed here from 1822 and split his land into three 'parks': one for sheep and cows, one for peas, turnips and swedes, one for hay.",
-    "source": "Hidden London, Raynes Park"
-  },
-  {
-    "id": "rp-station",
-    "kind": "building",
-    "score": 8,
-    "place": "Raynes Park station",
-    "points": [
-      [
-        51.4094,
-        -0.2299,
-        250
-      ]
-    ],
-    "line": "Did you know, a Victorian guidebook mocked your station?",
-    "fact": "In 1889 a guidebook writer called a Norfolk halt possibly the least important station in England, except Raynes Park. It had opened in 1871, on Edward Rayne's old farmland.",
-    "source": "LAMAS Transactions vol. 34, Railway development in south-west London"
-  },
-  {
-    "id": "rp-apostles",
-    "kind": "building",
-    "score": 7,
-    "place": "The Apostles",
-    "points": [
-      [
-        51.4068,
-        -0.2235,
-        300
-      ]
-    ],
-    "line": "Did you know, the Apostles aren't named after the Apostles?",
-    "fact": "The twelve terraced roads south of the railway are known locally as the Apostles. None is named after one. They were laid out over a Victorian cricket ground.",
-    "source": "Raynes Park, Wikipedia; Wikishire"
-  },
-  {
-    "id": "beverley-brook",
-    "kind": "landscape",
-    "score": 8,
-    "place": "Beverley Brook",
-    "points": [
-      [
-        51.4045,
-        -0.245,
-        1300
-      ]
-    ],
-    "line": "Did you know, you were near a brook named after beavers?",
-    "fact": "Beverley Brook, just west of Raynes Park, is Beaver's Ley: a place where beavers live. It was written down as Beferithi in 693. Beavers were gone from Britain by Tudor times.",
-    "source": "Merton Council, Beverley Brook Walk; London's Lost Rivers"
-  }
+ {
+  "id": "sw20-clay",
+  "kind": "geology",
+  "score": 7,
+  "place": "SW20",
+  "points": [
+   [
+    51.409,
+    -0.226,
+    2500
+   ]
+  ],
+  "line": "Did you know, today you were on the floor of a warm sea?",
+  "fact": "50 million years ago, SW20 was a warm sea full of crocodiles, turtles and sea snakes. You live on its mud: the London Clay.",
+  "source": "London Clay Formation, Early Eocene (BGS; londonclayfossils.com)"
+ },
+ {
+  "id": "cannon-hill",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Cannon Hill Common",
+  "points": [
+   [
+    51.401,
+    -0.22,
+    450
+   ]
+  ],
+  "line": "Did you know, Cannon Hill has nothing to do with cannons?",
+  "fact": "Cannon Hill was never about cannons. The canons of Merton Priory owned it, and called it Canondownhyll.",
+  "source": "Merton Heritage Service photo archive; St John Fisher parish history"
+ },
+ {
+  "id": "stane-street",
+  "kind": "roman",
+  "score": 7,
+  "place": "Stane Street",
+  "points": [
+   [
+    51.395,
+    -0.205,
+    700
+   ],
+   [
+    51.418,
+    -0.178,
+    500
+   ]
+  ],
+  "line": "Did you know, today you were on a Roman road?",
+  "fact": "The A24 through Morden follows Stane Street, the Roman road from London to Chichester.",
+  "source": "Merton Historical Society, Stane Street"
+ },
+ {
+  "id": "heathrow-camp",
+  "kind": "prehistory",
+  "score": 9,
+  "place": "Heathrow",
+  "points": [
+   [
+    51.4775,
+    -0.44,
+    2000
+   ]
+  ],
+  "line": "Did you know, Heathrow's north runway sits on an Iron Age village?",
+  "fact": "Under Heathrow's north runway: an Iron Age village of 11 roundhouses and a small temple, dug up in 1944 just before the tarmac went down.",
+  "source": "London Museum; Grimes, Proc. Prehistoric Society 59 (1993)"
+ },
+ {
+  "id": "heathrow-cursus",
+  "kind": "prehistory",
+  "score": 8,
+  "place": "Heathrow Terminal 5",
+  "points": [
+   [
+    51.472,
+    -0.488,
+    1500
+   ]
+  ],
+  "line": "Did you know, Terminal 5 is built on a Stone Age monument?",
+  "fact": "Terminal 5 sits on the Stanwell Cursus, a Neolithic ceremonial monument. Bronze Age farmers ran their fields around it, never across it.",
+  "source": "Framework Archaeology, Heathrow Terminal 5 Excavations"
+ },
+ {
+  "id": "dyce-stones",
+  "kind": "pictish",
+  "score": 9,
+  "place": "Dyce",
+  "points": [
+   [
+    57.2292,
+    -2.2087,
+    3500
+   ]
+  ],
+  "line": "Did you know, you landed next to Pictish stones?",
+  "fact": "Just north of Aberdeen's runway, in a ruined chapel, stand Pictish stones carved around AD 600. One shows a swimming beast.",
+  "source": "Historic Environment Scotland, Dyce Symbol Stones"
+ },
+ {
+  "id": "tyrebagger",
+  "kind": "prehistory",
+  "score": 7,
+  "place": "Tyrebagger",
+  "points": [
+   [
+    57.2095,
+    -2.2342,
+    3000
+   ]
+  ],
+  "line": "Did you know, a stone circle looks down on Aberdeen airport?",
+  "fact": "On the hill above Aberdeen airport is a complete stone circle, over 4,000 years old. Its big stone lies on its side on purpose, all 24 tons of it.",
+  "source": "Aberdeenshire HER MAB21589; Canmore 19513"
+ },
+ {
+  "id": "cairnwell",
+  "kind": "prehistory",
+  "score": 9,
+  "place": "Portlethen",
+  "points": [
+   [
+    57.0684,
+    -2.1566,
+    1200
+   ]
+  ],
+  "line": "Did you know, Portlethen moved a prehistoric monument for an industrial estate?",
+  "fact": "In 1995 Portlethen dug up a prehistoric ring cairn, stone by stone, and rebuilt it 175m away to make room for an industrial estate.",
+  "source": "Canmore 37212; Proc Soc Antiq Scot 127 (1997)"
+ },
+ {
+  "id": "portlethen-moss",
+  "kind": "landscape",
+  "score": 5,
+  "place": "Portlethen Moss",
+  "points": [
+   [
+    57.0575,
+    -2.1475,
+    1500
+   ]
+  ],
+  "line": "Did you know, much of Portlethen is built on a bog?",
+  "fact": "Much of Portlethen is built over Portlethen Moss, a bog that once made the road south from Aberdeen near impossible.",
+  "source": "Portlethen Moss"
+ },
+ {
+  "id": "leadenhall",
+  "kind": "roman",
+  "score": 9,
+  "place": "Leadenhall Market",
+  "points": [
+   [
+    51.5128,
+    -0.0835,
+    400
+   ]
+  ],
+  "line": "Did you know, today you passed the biggest Roman building north of the Alps?",
+  "fact": "Under Leadenhall Market lies Roman London's basilica, the largest north of the Alps. One of its piers survives in a barber's basement.",
+  "source": "Leadenhall Market history; Historic UK"
+ },
+ {
+  "id": "chanctonbury",
+  "kind": "roman",
+  "score": 8,
+  "place": "Chanctonbury Ring",
+  "points": [
+   [
+    50.8967,
+    -0.3817,
+    600
+   ]
+  ],
+  "line": "Did you know, Chanctonbury's trees stand on two Roman temples?",
+  "fact": "Under Chanctonbury's beeches lie two Roman temples. The trees were planted in 1760 by a 16-year-old.",
+  "source": "South Downs National Park; Chanctonbury excavations 1909, 1977, 1988-91"
+ },
+ {
+  "id": "ranmore",
+  "kind": "building",
+  "score": 4,
+  "place": "Ranmore Common",
+  "points": [
+   [
+    51.2418,
+    -0.3601,
+    600
+   ]
+  ],
+  "line": "Did you know, the church in the woods at Ranmore was built for one family?",
+  "fact": "St Barnabas, the church on the North Downs Way, was built in 1859 as the estate church of George Cubitt, son of the builder Thomas Cubitt.",
+  "source": "Historic England list entry, Church of St Barnabas"
+ },
+ {
+  "id": "rp-never-a-park",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Raynes Park",
+  "points": [
+   [
+    51.407,
+    -0.229,
+    600
+   ]
+  ],
+  "line": "Did you know, Raynes Park was never a park?",
+  "fact": "Raynes Park was never a park. Edward Rayne farmed here from 1822 and split his land into three 'parks': one for sheep and cows, one for peas, turnips and swedes, one for hay.",
+  "source": "Hidden London, Raynes Park"
+ },
+ {
+  "id": "rp-station",
+  "kind": "building",
+  "score": 8,
+  "place": "Raynes Park station",
+  "points": [
+   [
+    51.4094,
+    -0.2299,
+    250
+   ]
+  ],
+  "line": "Did you know, a Victorian guidebook mocked your station?",
+  "fact": "In 1889 a guidebook writer called a Norfolk halt possibly the least important station in England, except Raynes Park. It had opened in 1871, on Edward Rayne's old farmland.",
+  "source": "LAMAS Transactions vol. 34, Railway development in south-west London"
+ },
+ {
+  "id": "rp-apostles",
+  "kind": "building",
+  "score": 7,
+  "place": "The Apostles",
+  "points": [
+   [
+    51.4068,
+    -0.2235,
+    300
+   ]
+  ],
+  "line": "Did you know, the Apostles aren't named after the Apostles?",
+  "fact": "The twelve terraced roads south of the railway are known locally as the Apostles. None is named after one. They were laid out over a Victorian cricket ground.",
+  "source": "Raynes Park, Wikipedia; Wikishire"
+ },
+ {
+  "id": "beverley-brook",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Beverley Brook",
+  "points": [
+   [
+    51.4045,
+    -0.245,
+    1300
+   ]
+  ],
+  "line": "Did you know, you were near a brook named after beavers?",
+  "fact": "Beverley Brook, just west of Raynes Park, is Beaver's Ley: a place where beavers live. It was written down as Beferithi in 693. Beavers were gone from Britain by Tudor times.",
+  "source": "Merton Council, Beverley Brook Walk; London's Lost Rivers"
+ },
+ {
+  "id": "findon-haddie",
+  "kind": "fishing",
+  "score": 9,
+  "place": "Findon",
+  "points": [
+   [
+    57.0689,
+    -2.1022,
+    600
+   ]
+  ],
+  "line": "Did you know, the Finnan haddie is named after the village just north of Portlethen?",
+  "fact": "Findon, on the cliffs just north of Portlethen, gave its name to the Finnan haddie. Victorian gazetteers say its fishers were the first to cure the famous smoked haddock.",
+  "source": "Groome, Ordnance Gazetteer of Scotland (1882-4); Bartholomew, Gazetteer of the British Isles (1887); Wikipedia: Findon, Aberdeenshire"
+ },
+ {
+  "id": "port-leviathan",
+  "kind": "fishing",
+  "score": 8,
+  "place": "Old Portlethen",
+  "points": [
+   [
+    57.0569,
+    -2.1132,
+    700
+   ]
+  ],
+  "line": "Did you know, Portlethen might be named after whales?",
+  "fact": "An old writer claimed Portlethen's real name was Port Leviathan, after the whales that came ashore here. Locals still tell it that way.",
+  "source": "Henderson, History of the Parish of Banchory-Devenick, ch. 13 (citing the Book of Bon-Accord); Press and Journal, Old Portlethen gallery (2025)"
+ },
+ {
+  "id": "portlethen-castle",
+  "kind": "building",
+  "score": 7,
+  "place": "Mains of Portlethen",
+  "points": [
+   [
+    57.0585,
+    -2.118,
+    700
+   ]
+  ],
+  "line": "Did you know, Portlethen once had a castle that simply vanished?",
+  "fact": "A 1600s castle, built by the laird Robert Buchan, stood where Mains of Portlethen farm is now. Nobody knows why it disappeared. Bits of its walls are inside the farmhouse.",
+  "source": "Wikipedia: Portlethen Village (Castle)"
+ },
+ {
+  "id": "causey-army",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Causey Mounth",
+  "points": [
+   [
+    57.056,
+    -2.145,
+    800
+   ]
+  ],
+  "line": "Did you know, a 9,000-strong army once marched through Portlethen?",
+  "fact": "In 1639 the Earl Marischal and Montrose led a Covenanter army of 9,000 men along the Causey Mounth past Portlethen, the only road south from Aberdeen across the bog.",
+  "source": "Wikipedia: Portlethen Village and Downies (Causey Mounth)"
+ },
+ {
+  "id": "downies-petition",
+  "kind": "fishing",
+  "score": 7,
+  "place": "Downies",
+  "points": [
+   [
+    57.033,
+    -2.117,
+    600
+   ]
+  ],
+  "line": "Did you know, Downies nearly vanished, then fought the planners?",
+  "fact": "In the 1920s Downies was a near-derelict fishing village: a few whitewashed houses among ruins. When the new town came in the 1970s, all but six residents signed a petition against it.",
+  "source": "Peter Anson via old-portlethen.co.uk (1920s to 1940s); Press and Journal, Old Portlethen gallery (2025)"
+ }
 ]
