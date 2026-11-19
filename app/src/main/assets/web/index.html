@@ -255,9 +255,12 @@ function guides() {
 }
 function placeFor(f, i, n) {
   const R = ringR(f.d);
-  if (f.d === 0) { const th = 0.6 + (i - (n - 1) / 2) * (0.6 / R); return new THREE.Vector3(Math.cos(th) * R, 0, Math.sin(th) * R); } // today: evenly along a short arc
-  const r = rng(seedOf(f.id)), th = r() * Math.PI * 2, RR = R + (r() - 0.5) * 0.1;
-  return new THREE.Vector3(Math.cos(th) * RR, (r() - 0.5) * 0.08, Math.sin(th) * RR);
+  // Evenly spaced round the day's ring, the gap shrinking to fit so balls never overlap (19 Nov: past six finds
+  // the fixed step wrapped round and the last ball landed on the first). Today starts on a short arc; past days at a seeded angle.
+  const step = Math.min(0.6 / R, (Math.PI * 2) / Math.max(1, n));
+  if (f.d === 0) { const th = 0.6 + (i - (n - 1) / 2) * step; return new THREE.Vector3(Math.cos(th) * R, 0, Math.sin(th) * R); }
+  const r0 = rng(seedOf('day' + f.d)), th = r0() * Math.PI * 2 + i * step, r = rng(seedOf(f.id));
+  return new THREE.Vector3(Math.cos(th) * R, (r() - 0.5) * 0.08, Math.sin(th) * R);
 }
 // Drift (18 Nov): every speck floats slowly like dust in still air. Done on the graphics chip (vertex shader),
 // so a year of dust costs the same as still dust. One shared clock; each speck has its own phase, speed and reach.
@@ -331,8 +334,9 @@ function build(animate) {
   guides();
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
   let maxR = ringR(0);
+  const byDay = new Map(); finds.forEach(f => { if (!byDay.has(f.d)) byDay.set(f.d, []); byDay.get(f.d).push(f); });
   finds.forEach(f => {
-    const ti = today.indexOf(f), pos = placeFor(f, ti, today.length);
+    const same = byDay.get(f.d), pos = placeFor(f, same.indexOf(f), same.length);
     maxR = Math.max(maxR, pos.length());
     if (f.d === 0) { focus.add(pos.clone().divideScalar(today.length)); todayPos.push(pos); }
     // Today's answers play out live once the cards are swiped away; older dust is already settled.
