@@ -41,6 +41,8 @@ class Store(c: Context) {
      * to Day.key(), so they floated onto today's ring every day (19 Nov, from Tony's exported data: sw20-clay).
      * Now: the earliest day it was passed, else today. Reads only; nothing stored changes.
      */
+    fun hasToldDay(id: String) = p.contains("told_day_$id")
+
     fun toldDay(id: String): String = p.getString("told_day_$id", null)
         ?: p.all.keys.filter { it.startsWith("passed_") && passed(it.removePrefix("passed_")).contains(id) }
             .map { it.removePrefix("passed_") }.minOrNull()

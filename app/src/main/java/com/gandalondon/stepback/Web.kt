@@ -67,6 +67,7 @@ class Web(private val a: MainActivity) {
             val finds = JSONArray()
             val cards = JSONArray()
             store.history.forEach { id ->
+                if (!store.hasToldDay(id)) return@forEach // told by the v1 app before dates were kept (sw20-clay): hidden, as Tony asked 19 Nov; stays told so it never repeats
                 val s = Spots.byId(a, id) ?: return@forEach
                 val day = store.toldDay(id)
                 val v = store.verdict(id)
