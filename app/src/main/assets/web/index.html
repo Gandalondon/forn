@@ -79,7 +79,7 @@ body.carded .tally { opacity: 0; }
   <div class="head"><button type="button" class="back" id="sheetClose" aria-label="Back"><svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="m274-450 227 227q9 9 9 21t-9 21q-9 9-21 9t-21-9L181-459q-5-5-7-10t-2-11q0-6 2-11t7-10l278-278q9-9 21-9t21 9q9 9 9 21t-9 21L274-510h496q13 0 21.5 8.5T800-480q0 13-8.5 21.5T770-450H274Z"/></svg></button><h2>How it works</h2></div>
   <section><h3>Go about your day</h3><p>Forn notices the places you pass: near, under or over. At 9pm it tells you the best of them. Up to five, fewer on a quiet day.</p></section>
   <section><h3>Swipe</h3><p>Right if it's interesting, left if it's not for you. Only you see your answers.</p></section>
-  <section><h3>Keep</h3><p>Every right swipe stays as a black ball. Tap one to read it again. The rest turns to dust. One ring for each day, today on the outside.</p></section>
+  <section><h3>Keep</h3><p>Every right swipe stays as a black ball. Tap one to read it again. The rest turns to dust. One ring for each day, today in the middle.</p></section>
   <section><h3>What it needs</h3><p>Your location, all the time, so it knows what you passed with your phone in your pocket. Notifications, for 9pm.</p></section>
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
@@ -190,10 +190,12 @@ const centre = new THREE.Vector3();
 let RR = [], HAS = new Set(), emptyMode = 'full', todayWait = false;
 function ringR(day) { return RR[day] ?? 0.5; }
 function layoutRings() {
+  // Today in the centre, older days ripple outwards (19 Nov; was newest outside like a real tree). So the app always
+  // opens on the same spot and today's balls sit close together. Before 9pm today takes no ring, so yesterday is the middle.
   RR = new Array(nDays); let r = 0.5;
-  for (let d = nDays - 1; d >= 0; d--) {
+  for (let d = 0; d < nDays; d++) {
     RR[d] = r;
-    const w = HAS.has(d) || d === 0 ? STEP : emptyMode === 'thin' ? STEP * 0.35 : emptyMode === 'none' ? 0 : STEP;
+    const w = d === 0 && todayWait ? 0 : HAS.has(d) || d === 0 ? STEP : emptyMode === 'thin' ? STEP * 0.35 : emptyMode === 'none' ? 0 : STEP;
     r += w;
   }
 }
@@ -255,14 +257,29 @@ function guides() {
     g.userData.day = d; group.add(g); reveal.push(g);
   }
 }
-function placeFor(f, i, n) {
-  const R = ringR(f.d);
-  // Evenly spaced round the day's ring, the gap shrinking to fit so balls never overlap (19 Nov: past six finds
-  // the fixed step wrapped round and the last ball landed on the first). Today starts on a short arc; past days at a seeded angle.
-  const step = Math.min(0.6 / R, (Math.PI * 2) / Math.max(1, n));
-  if (f.d === 0) { const th = 0.6 + (i - (n - 1) / 2) * step; return new THREE.Vector3(Math.cos(th) * R, 0, Math.sin(th) * R); }
-  const r0 = rng(seedOf('day' + f.d)), th = r0() * Math.PI * 2 + i * step, r = rng(seedOf(f.id));
-  return new THREE.Vector3(Math.cos(th) * R, (r() - 0.5) * 0.08, Math.sin(th) * R);
+// Where a ball sits on its day's ring (19 Nov): its angle is the time you passed the place, like a clock face
+// (midnight at the top), so a regular commute shows as a lane through the years. A small seeded nudge stops ruler-
+// straight lines, and balls too close on the same ring are pushed apart so they never overlap. No time (examples,
+// old data): a seeded angle. Positions only; nothing stored changes.
+const TAU = Math.PI * 2, GAP = 0.42; // GAP: centre to centre along the ring, a little over a ball's width
+function placeDay(list) {
+  const R = ringR(list[0].d), out = new Map();
+  const items = list.map(f => {
+    const r = rng(seedOf(f.id + 'at'));
+    let th;
+    if (f.at) { const t = new Date(f.at); th = ((t.getHours() * 60 + t.getMinutes()) / 1440) * TAU - Math.PI / 2 + (r() - 0.5) * 0.12; }
+    else th = r() * TAU;
+    return { f, th: ((th % TAU) + TAU) % TAU, y: (r() - 0.5) * 0.08 };
+  }).sort((a, b) => a.th - b.th);
+  const g = GAP / R;
+  if (items.length * g >= TAU) items.forEach((it, i) => { it.th = items[0].th + i * TAU / items.length; }); // too many: share the ring evenly
+  else for (let pass = 0; pass < 3; pass++) for (let i = 0; i < items.length; i++) {   // nudge forward until clear
+    const a = items[i], b = items[(i + 1) % items.length];
+    const gapAB = ((b.th - a.th) % TAU + TAU) % TAU || (items.length > 1 ? 0 : TAU);
+    if (items.length > 1 && gapAB < g) b.th = a.th + g;
+  }
+  items.forEach(it => out.set(it.f.id, new THREE.Vector3(Math.cos(it.th) * R, it.f.d === 0 ? 0 : it.y, Math.sin(it.th) * R)));
+  return out;
 }
 // Drift (18 Nov): every speck floats slowly like dust in still air. Done on the graphics chip (vertex shader),
 // so a year of dust costs the same as still dust. One shared clock; each speck has its own phase, speed and reach.
@@ -310,6 +327,11 @@ const OPT = { span: 182, kept: 50, busy: 'normal', empty: 'full' };
 const POOL = ['Stane Street', 'Leadenhall Market', 'Chanctonbury Ring', 'Box Hill', 'Richmond Park', 'Kingston', 'Wimbledon Common',
   'Merton Priory', 'Leith Hill', 'Southwark', 'Ranmore Common', 'Cannon Hill Common', 'Beverley Brook', 'Portlethen Moss', 'Aberdeen harbour'];
 function keyFor(d) { const t = dayDate(S.today); t.setDate(t.getDate() - d); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); }
+// Example times (19 Nov): mostly a morning and an evening commute plus a lunchtime walk, so the clock-face angles show lanes.
+function demoAt(d, r) {
+  const t = dayDate(keyFor(d)), k = r(), h = k < 0.4 ? 8 + r() * 1.2 : k < 0.75 ? 17.5 + r() * 1.5 : k < 0.9 ? 12.5 + r() : 7 + r() * 15;
+  t.setHours(Math.floor(h), Math.floor((h % 1) * 60)); return t.getTime();
+}
 function demoFinds() {
   const r = rng(7), out = [];
   const pDay = { quiet: 0.2, normal: 0.55, busy: 0.9 }[OPT.busy], most = { quiet: 1, normal: 2, busy: 5 }[OPT.busy];
@@ -317,7 +339,7 @@ function demoFinds() {
     const n = r() < pDay ? 1 + Math.floor(r() * most) : 0;
     for (let i = 0; i < n; i++) {
       const place = POOL[Math.floor(r() * POOL.length)];
-      out.push({ id: 'demo-' + d + '-' + i, place, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', day: keyFor(d), at: null, verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
+      out.push({ id: 'demo-' + d + '-' + i, place, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', day: keyFor(d), at: demoAt(d, r), verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
     }
   }
   return out;
@@ -336,10 +358,11 @@ function build(animate) {
   layoutRings();
   guides();
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
-  let maxR = ringR(0);
+  let maxR = Math.max(0.5, ...RR.filter(x => x != null));
   const byDay = new Map(); finds.forEach(f => { if (!byDay.has(f.d)) byDay.set(f.d, []); byDay.get(f.d).push(f); });
+  const POS = new Map(); byDay.forEach(list => placeDay(list).forEach((v, k) => POS.set(k, v)));
   finds.forEach(f => {
-    const same = byDay.get(f.d), pos = placeFor(f, same.indexOf(f), same.length);
+    const pos = POS.get(f.id);
     maxR = Math.max(maxR, pos.length());
     if (f.d === 0) { focus.add(pos.clone().divideScalar(today.length)); todayPos.push(pos); }
     // Today's answers play out live once the cards are swiped away; older dust is already settled.
