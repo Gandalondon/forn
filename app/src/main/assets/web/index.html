@@ -84,7 +84,7 @@ body.carded .tally { opacity: 0; }
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
   <section><h3>Testing</h3><p id="testInfo"></p>
-    <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="sixBtn"></button></div>
+    <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="sixBtn"></button><button type="button" class="pill" id="dataBtn">Send my data</button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Icons: Material Symbols (Apache 2.0).</p></section>
 </div>
@@ -187,7 +187,7 @@ const R_BALL = 0.16, PARTS = 420, STEP = 0.42;
 const centre = new THREE.Vector3();
 // Ring radii: oldest day at the core, today outside. A day with a find gets a full ring width; an empty day gets
 // a full, thin or no ring (Try it out decides; the real app uses full for now).
-let RR = [], HAS = new Set(), emptyMode = 'full';
+let RR = [], HAS = new Set(), emptyMode = 'full', todayWait = false;
 function ringR(day) { return RR[day] ?? 0.5; }
 function layoutRings() {
   RR = new Array(nDays); let r = 0.5;
@@ -245,6 +245,7 @@ function guides() {
   for (let d = 0; d < nDays; d++) {
     let rank = rankOf(d);
     if (emptyMode === 'none' && !HAS.has(d) && d !== 0 && rank < 2) continue; // no ring for an empty day; month and year rings stay
+    if (d === 0 && todayWait) continue; // today's ring only appears once tonight's finds land (19 Nov)
     const g = new THREE.Group(), R = ringR(d);
     g.add(ringLoop(R, rank, d === 0));
     if (rank) {
@@ -331,6 +332,7 @@ function build(animate) {
   nDays = Math.max(1, demo ? OPT.span + 1 : 1, ...finds.map(f => f.d + 1));
   emptyMode = demo ? OPT.empty : 'full';
   HAS = new Set(finds.map(f => f.d));
+  todayWait = !demo && finds.length > 0 && !HAS.has(0);
   layoutRings();
   guides();
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
@@ -358,7 +360,7 @@ function build(animate) {
     ? `<strong>${spanName(OPT.span)}</strong>An example of six months. Turn it off in How it works.`
     : !finds.length
     ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
-    : `<strong>${nDays === 1 ? weekday : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
+    : `<strong>${nDays === 1 ? weekday : todayWait && nDays === 2 ? dayDate(keyFor(1)).toLocaleDateString('en-GB', { weekday: 'long' }) : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
   resize();
   const spread = Math.max(0, ...todayPos.map(p => p.distanceTo(focus)));
   const far = fit(Math.max(1.3, maxR + 0.5)), near = fit(Math.max(0.9, spread + 0.8));
@@ -452,6 +454,7 @@ document.getElementById('how').addEventListener('click', () => { S = JSON.parse(
 document.getElementById('sheetClose').addEventListener('click', () => sheet.classList.remove('on'));
 // Show six months (18 Nov, for showing Tony's dad): example finds drawn around your real ones, in memory only.
 // Nothing is saved, so your own rings and answers are never touched; closing the app also turns it off.
+document.getElementById('dataBtn').addEventListener('click', () => { if (N.exportData) N.exportData(); });
 document.getElementById('sixBtn').addEventListener('click', () => {
   demo = !demo; DEMO = null; sheet.classList.remove('on'); S = JSON.parse(N.state()); build(false);
 });

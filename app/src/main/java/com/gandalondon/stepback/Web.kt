@@ -101,6 +101,41 @@ class Web(private val a: MainActivity) {
             a.startActivity(Intent.createChooser(send, "Tell me more"))
         }
 
+        /**
+         * Send my data (19 Nov): everything the app keeps, as one JSON file in Downloads/Forn, then the share menu
+         * so Tony can email it to himself and hand it to Claude. Finds, verdicts, places passed and when, zone status,
+         * crash notes and the last of the events log. No recorded GPX routes.
+         */
+        @JavascriptInterface
+        fun exportData() = main.post {
+            runCatching {
+                fun dump(name: String) = JSONObject().also { o ->
+                    a.getSharedPreferences(name, android.content.Context.MODE_PRIVATE).all.forEach { (k, v) ->
+                        o.put(k, if (v is Set<*>) JSONArray(v.toList()) else v ?: JSONObject.NULL)
+                    }
+                }
+                val log = TestLog.read(a).lines().takeLast(800).joinToString("\n")
+                val json = JSONObject()
+                    .put("exported", LocalDateTime.now().toString())
+                    .put("app", a.packageManager.getPackageInfo(a.packageName, 0).versionName)
+                    .put("state", JSONObject(state()))
+                    .put("store", dump("stepback")).put("crash", dump("stepback_crash"))
+                    .put("events", log)
+                val name = "forn-data-" + LocalDateTime.now().toString().take(16).replace(":", "") + ".json"
+                val cv = android.content.ContentValues().apply {
+                    put(android.provider.MediaStore.Downloads.DISPLAY_NAME, name)
+                    put(android.provider.MediaStore.Downloads.MIME_TYPE, "application/json")
+                    put(android.provider.MediaStore.Downloads.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS + "/Forn")
+                }
+                val uri = a.contentResolver.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv)!!
+                a.contentResolver.openOutputStream(uri)!!.use { it.write(json.toString(2).toByteArray()) }
+                val send = Intent(Intent.ACTION_SEND).setType("application/json")
+                    .putExtra(Intent.EXTRA_STREAM, uri).putExtra(Intent.EXTRA_SUBJECT, "Forn data")
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                a.startActivity(Intent.createChooser(send, "Send my data"))
+            }.onFailure { TestLog.add(a, "Export failed: ${it.message}") }
+        }
+
         /** Test aid: start or stop recording a walk. */
         @JavascriptInterface
         fun record(): String {
