@@ -18,7 +18,7 @@ html, body { height: 100%; margin: 0; background: #FFFFFF; font-family: var(--fo
 button { font-family: var(--font); }
 #gl { position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; }
 .icon-btn { position: fixed; top: 16px; right: 12px; width: 48px; height: 48px; border: 0; border-radius: 24px; background: transparent; color: var(--ink); display: grid; place-items: center; z-index: 2; }
-.tally { position: fixed; left: 24px; right: 24px; bottom: 24px; margin: 0; font-size: 17px; line-height: 24px; color: #E5E5E5; mix-blend-mode: difference; pointer-events: none; text-wrap: pretty; z-index: 1; /* difference: reads as ink (#1A1A1A) on white, light grey where a ball bleeds under it */ transition: opacity 300ms ease; }
+.tally { position: fixed; left: 24px; right: 24px; bottom: 24px; margin: 0; font-size: 17px; line-height: 24px; color: var(--ink); pointer-events: none; text-wrap: pretty; z-index: 1; /* plain ink: where a ball sits under it, the text bleeds into the black (Tony, 19 Nov) */ transition: opacity 300ms ease; }
 .tally strong { display: block; margin-bottom: 16px; font-size: 32px; line-height: 40px; font-weight: 600; color: inherit; letter-spacing: 0.2px; }
 body.carded .tally { opacity: 0; }
 
