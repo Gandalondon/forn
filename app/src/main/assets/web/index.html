@@ -37,8 +37,8 @@ body.carded .tally { opacity: 0; }
 
 /* A reopened find: same card, same scrim. */
 .peek { position: fixed; inset: 0; z-index: 5; padding: 96px 24px 24px; background: rgba(26,26,26,0.5); display: none; }
-.peek.on { display: block; }
-.peek .card { position: relative; inset: auto; height: 100%; touch-action: auto; }
+.peek.on { display: flex; flex-direction: column; }
+.peek .card { position: relative; inset: auto; flex: 1; touch-action: pan-y; }
 .pill { height: 64px; width: 100%; border-radius: 999px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 17px/24px var(--font); }
 .pill + .pill { margin-top: 16px; }
 
@@ -68,6 +68,7 @@ body.carded .tally { opacity: 0; }
 
 <div class="peek" id="peek" role="dialog" aria-label="A find">
   <article class="card"><h2 id="peekFact"></h2><p id="peekMeta"></p><div class="grow"></div><button type="button" class="pill" id="peekMore">Tell me more</button><button type="button" class="pill" id="peekClose">Close</button></article>
+  <div class="pips" id="peekPips" aria-hidden="true"></div>
 </div>
 
 <div id="cards" role="dialog" aria-label="Tonight's finds" hidden>
@@ -423,21 +424,41 @@ canvas.addEventListener('pointerup', e => {
   ray.setFromCamera(ptr, camera);
   const hit = ray.intersectObjects(balls)[0];
   if (!hit) return;
-  const f = hit.object.userData.f;
+  showPeek(hit.object.userData.f, false);
+  controls.autoRotate = false; endPull();
+});
+// Reopened cards (19 Nov): swipe to step through every kept find in time order without closing. Right for earlier,
+// left for later, like paging photos. The rings glide to each ball behind the scrim; dots show the day's finds.
+let glide = null;
+function keptInOrder() { return balls.map(m => m.userData.f).sort((a, b) => b.d - a.d || (a.at || 0) - (b.at || 0)); }
+function showPeek(f, move) {
   peekFind = f;
   document.getElementById('peekFact').textContent = f.fact;
   document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
   document.getElementById('peekMore').hidden = String(f.id).startsWith('demo-'); // example finds open a placeholder card, nothing to ask about
+  const day = keptInOrder().filter(g => g.d === f.d);
+  document.getElementById('peekPips').innerHTML = day.length > 1 ? day.map(g => `<i${g === f ? ' class="now"' : ''}></i>`).join('') : '';
   document.getElementById('peek').classList.add('on');
-  controls.autoRotate = false; endPull();
-});
+  if (move) { const m = balls.find(b => b.userData.f === f); if (m) glide = m.position.clone(); }
+}
+(() => {
+  const card = document.querySelector('#peek .card'); let sx = null, sy = 0;
+  card.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; sx = e.clientX; sy = e.clientY; });
+  card.addEventListener('pointerup', e => {
+    if (sx === null) return; const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    const list = keptInOrder(), i = list.indexOf(peekFind), j = i + (dx > 0 ? -1 : 1);
+    if (i >= 0 && j >= 0 && j < list.length) showPeek(list[j], true);
+  });
+  card.addEventListener('pointercancel', () => { sx = null; });
+})();
 // Tell me more: a ready-made question, handed to whatever app you pick (Android's share menu).
 let peekFind = null;
 document.getElementById('peekMore').addEventListener('click', () => {
   if (!peekFind) return;
   N.share(`Tell me more about ${peekFind.place} in the UK. I learned that: ${peekFind.fact} What else is worth knowing about it, and about what's nearby?`);
 });
-document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); controls.autoRotate = true; });
+document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); glide = null; controls.autoRotate = true; });
 
 function resize() {
   const w = innerWidth, h = innerHeight; if (!w) return;
@@ -451,6 +472,11 @@ addEventListener('resize', resize);
 
 function tick(now) {
   requestAnimationFrame(tick);
+  if (glide) { // ease the view to the ball of the card you swiped to
+    const step = glide.clone().sub(controls.target).multiplyScalar(0.12);
+    controls.target.add(step); camera.position.add(step);
+    if (step.lengthSq() < 1e-8) glide = null;
+  }
   if (hold) openAt = now; // nothing plays until the cards are gone
   const t = (now - openAt) / 1000;
   bursts.forEach(b => {
