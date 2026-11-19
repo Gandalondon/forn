@@ -57,6 +57,7 @@ body.carded .tally { opacity: 0; }
 .seg button { height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 15px/1 var(--font); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: #FFFFFF; }
 .pill[hidden] { display: none; }
+.pill[hidden] + .pill { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { .card { transition: none !important; } }
 </style>
 </head>
@@ -315,7 +316,7 @@ function demoFinds() {
     const n = r() < pDay ? 1 + Math.floor(r() * most) : 0;
     for (let i = 0; i < n; i++) {
       const place = POOL[Math.floor(r() * POOL.length)];
-      out.push({ id: 'demo-' + d + '-' + i, place, fact: place + ': an example find, to show how the rings fill up.', day: keyFor(d), at: null, verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
+      out.push({ id: 'demo-' + d + '-' + i, place, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', day: keyFor(d), at: null, verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
     }
   }
   return out;
@@ -386,10 +387,10 @@ canvas.addEventListener('pointerup', e => {
   const hit = ray.intersectObjects(balls)[0];
   if (!hit) return;
   const f = hit.object.userData.f;
-  if (String(f.id).startsWith('demo-')) return; // example finds are for show only
   peekFind = f;
   document.getElementById('peekFact').textContent = f.fact;
   document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
+  document.getElementById('peekMore').hidden = String(f.id).startsWith('demo-'); // example finds open a placeholder card, nothing to ask about
   document.getElementById('peek').classList.add('on');
   controls.autoRotate = false; endPull();
 });
