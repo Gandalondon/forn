@@ -86,7 +86,7 @@ Each spot has:
 
 - White app. Off black #1A1A1A, never pure black. No colour: colour by period (modern, medieval, Roman, prehistoric, geology) was considered on 18 Nov and parked, as it answers no question anyone asks and there's no filter.
 - One font: Instrument Sans. Facts and titles SemiBold, body Regular.
-- Icons: drawn on a 24 grid, 2px round-capped stroke, shown at 28px in ink (21 Nov: Hlid's notes-page icon replaced the Material info icon so both apps match; the back arrow stays the standard Material Symbols arrow, same as Hlid). The notes icon top right opens How it works, a full page with a back arrow (Relay's pattern), sections 24px apart.
+- Icons: drawn on a 24 grid, 1.5 round-capped stroke (matches the Material back arrow's weight; set 21 Nov, same in Hlid), shown at 28px in ink (21 Nov: Hlid's notes-page icon replaced the Material info icon so both apps match; the back arrow stays the standard Material Symbols arrow, same as Hlid). The notes icon top right opens How it works, a full page with a back arrow (Relay's pattern), sections 24px apart.
 - Cards: white, rounded, a plain stack: the next card sits underneath, no fade, scale or bounce. Progress dots under the card.
 - App icon: an off-black ring on white, 38 across in the 108 grid, stroke 4, centred, sized like Rinse and Hlid.
 
