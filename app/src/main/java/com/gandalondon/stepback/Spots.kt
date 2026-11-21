@@ -16,7 +16,26 @@ data class Spot(
     val line: String,
     val fact: String,
     val source: String,
-)
+    /** When the thing in the fact happened (rough; negative is BC). Feeds the nightly mix. */
+    val year: Int = 0,
+    /** One word from a fixed list (RULES.md). Feeds the nightly mix. */
+    val topic: String = "",
+) {
+    /** Era from year, for the nightly mix: no two of the same era or topic unless they're clearly better. */
+    val era: String get() = when {
+        year < 43 -> "prehistory"
+        year < 410 -> "roman"
+        year < 1066 -> "saxon"
+        year < 1485 -> "medieval"
+        year < 1603 -> "tudor"
+        year < 1714 -> "stuart"
+        year < 1837 -> "georgian"
+        year < 1901 -> "victorian"
+        year < 1945 -> "early-20c"
+        year < 2000 -> "late-20c"
+        else -> "21c"
+    }
+}
 
 object Spots {
     @Volatile private var cache: List<Spot>? = null
@@ -43,6 +62,8 @@ object Spots {
                 line = o.getString("line"),
                 fact = o.getString("fact"),
                 source = o.getString("source"),
+                year = o.optInt("year", 0),
+                topic = o.optString("topic", ""),
             )
         }
     }

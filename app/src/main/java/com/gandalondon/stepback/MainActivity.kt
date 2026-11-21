@@ -158,7 +158,7 @@ class MainActivity : ComponentActivity() {
                         // Test aid (18 Nov): run tonight's 9pm line now, notification and all. Remove after testing.
                         // Test aids (18 Nov): Record walk saves a GPX track and the zone log to Downloads/Forn.
                         Choice(if (TrackService.recording) "Stop and save" else "Record walk") { toggleWalk() },
-                        *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this); tick++ }) else emptyArray()),
+                        *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this) { tick++ } }) else emptyArray()),
                     )
                 } else {
                     val verdict = store.verdict(spot.id)

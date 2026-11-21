@@ -11,8 +11,15 @@ class PassedReceiver : BroadcastReceiver() {
     override fun onReceive(c: Context, intent: Intent) {
         val event = GeofencingEvent.fromIntent(intent) ?: return
         if (event.hasError()) return
+        val fences = event.triggeringGeofences.orEmpty()
+        // Left the area the nearest zones were picked for: pick again around here (only 100 zones fit at once).
+        if (fences.any { it.requestId == Fences.REFRESH }) {
+            TestLog.add(c, "left the watched area, picking the nearest zones again")
+            Fences.register(c)
+        }
         if (event.geofenceTransition != Geofence.GEOFENCE_TRANSITION_ENTER) return
-        val ids = event.triggeringGeofences.orEmpty().map { Fences.spotId(it.requestId) }
+        val ids = fences.filter { it.requestId != Fences.REFRESH }.map { Fences.spotId(it.requestId) }
+        if (ids.isEmpty()) return
         Store(c).addPassed(Day.key(), ids)
         val l = event.triggeringLocation
         TestLog.add(c, "passed " + ids.joinToString(", ") + (if (l != null) "  at %.5f, %.5f (±%.0fm)".format(java.util.Locale.UK, l.latitude, l.longitude, l.accuracy) else ""))
@@ -20,7 +27,11 @@ class PassedReceiver : BroadcastReceiver() {
 }
 
 class NightReceiver : BroadcastReceiver() {
-    override fun onReceive(c: Context, intent: Intent) = Night.run(c)
+    override fun onReceive(c: Context, intent: Intent) {
+        // Asking where you are takes a moment, so keep the receiver alive until tonight's finds are told.
+        val pending = goAsync()
+        Night.run(c) { pending.finish() }
+    }
 }
 
 /** Geofences and alarms don't survive a restart or an update. Put them back. */

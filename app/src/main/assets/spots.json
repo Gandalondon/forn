@@ -13,7 +13,9 @@
   ],
   "line": "Did you know, today you were on the floor of a warm sea?",
   "fact": "50 million years ago, SW20 was a warm sea full of crocodiles, turtles and sea snakes. You live on its mud: the London Clay.",
-  "source": "London Clay Formation, Early Eocene (BGS; londonclayfossils.com)"
+  "source": "London Clay Formation, Early Eocene (BGS; londonclayfossils.com)",
+  "year": -50000000,
+  "topic": "nature"
  },
  {
   "id": "cannon-hill",
@@ -29,7 +31,9 @@
   ],
   "line": "Did you know, Cannon Hill has nothing to do with cannons?",
   "fact": "Cannon Hill was never about cannons. The canons of Merton Priory owned it, and called it Canondownhyll.",
-  "source": "Merton Heritage Service photo archive; St John Fisher parish history"
+  "source": "Merton Heritage Service photo archive; St John Fisher parish history",
+  "year": 1200,
+  "topic": "names"
  },
  {
   "id": "stane-street",
@@ -50,7 +54,9 @@
   ],
   "line": "Did you know, today you were on a Roman road?",
   "fact": "The A24 through Morden follows Stane Street, the Roman road from London to Chichester.",
-  "source": "Merton Historical Society, Stane Street"
+  "source": "Merton Historical Society, Stane Street",
+  "year": 60,
+  "topic": "ancient"
  },
  {
   "id": "heathrow-camp",
@@ -66,7 +72,9 @@
   ],
   "line": "Did you know, Heathrow's north runway sits on an Iron Age village?",
   "fact": "Under Heathrow's north runway: an Iron Age village of 11 roundhouses and a small temple, dug up in 1944 just before the tarmac went down.",
-  "source": "London Museum; Grimes, Proc. Prehistoric Society 59 (1993)"
+  "source": "London Museum; Grimes, Proc. Prehistoric Society 59 (1993)",
+  "year": -400,
+  "topic": "ancient"
  },
  {
   "id": "heathrow-cursus",
@@ -82,7 +90,9 @@
   ],
   "line": "Did you know, Terminal 5 is built on a Stone Age monument?",
   "fact": "Terminal 5 sits on the Stanwell Cursus, a Neolithic ceremonial monument. Bronze Age farmers ran their fields around it, never across it.",
-  "source": "Framework Archaeology, Heathrow Terminal 5 Excavations"
+  "source": "Framework Archaeology, Heathrow Terminal 5 Excavations",
+  "year": -3500,
+  "topic": "ancient"
  },
  {
   "id": "dyce-stones",
@@ -98,7 +108,9 @@
   ],
   "line": "Did you know, you landed next to Pictish stones?",
   "fact": "Just north of Aberdeen's runway, in a ruined chapel, stand Pictish stones carved around AD 600. One shows a swimming beast.",
-  "source": "Historic Environment Scotland, Dyce Symbol Stones"
+  "source": "Historic Environment Scotland, Dyce Symbol Stones",
+  "year": 600,
+  "topic": "ancient"
  },
  {
   "id": "tyrebagger",
@@ -114,7 +126,9 @@
   ],
   "line": "Did you know, a stone circle looks down on Aberdeen airport?",
   "fact": "On the hill above Aberdeen airport is a complete stone circle, over 4,000 years old. Its big stone lies on its side on purpose, all 24 tons of it.",
-  "source": "Aberdeenshire HER MAB21589; Canmore 19513"
+  "source": "Aberdeenshire HER MAB21589; Canmore 19513",
+  "year": -2500,
+  "topic": "ancient"
  },
  {
   "id": "cairnwell",
@@ -130,7 +144,9 @@
   ],
   "line": "Did you know, Portlethen moved a prehistoric monument for an industrial estate?",
   "fact": "In 1995 Portlethen dug up a prehistoric ring cairn, stone by stone, and rebuilt it 175m away to make room for an industrial estate.",
-  "source": "Canmore 37212; Proc Soc Antiq Scot 127 (1997)"
+  "source": "Canmore 37212; Proc Soc Antiq Scot 127 (1997)",
+  "year": -2000,
+  "topic": "ancient"
  },
  {
   "id": "portlethen-moss",
@@ -146,7 +162,9 @@
   ],
   "line": "Did you know, much of Portlethen is built on a bog?",
   "fact": "Much of Portlethen is built over Portlethen Moss, a bog that once made the road south from Aberdeen near impossible.",
-  "source": "Portlethen Moss"
+  "source": "Portlethen Moss",
+  "year": -8000,
+  "topic": "nature"
  },
  {
   "id": "leadenhall",
@@ -162,7 +180,9 @@
   ],
   "line": "Did you know, today you passed the biggest Roman building north of the Alps?",
   "fact": "Under Leadenhall Market lies Roman London's basilica, the largest north of the Alps. One of its piers survives in a barber's basement.",
-  "source": "Leadenhall Market history; Historic UK"
+  "source": "Leadenhall Market history; Historic UK",
+  "year": 100,
+  "topic": "ancient"
  },
  {
   "id": "chanctonbury",
@@ -178,7 +198,9 @@
   ],
   "line": "Did you know, Chanctonbury's trees stand on two Roman temples?",
   "fact": "Under Chanctonbury's beeches lie two Roman temples. The trees were planted in 1760 by a 16-year-old.",
-  "source": "South Downs National Park; Chanctonbury excavations 1909, 1977, 1988-91"
+  "source": "South Downs National Park; Chanctonbury excavations 1909, 1977, 1988-91",
+  "year": 150,
+  "topic": "religion"
  },
  {
   "id": "ranmore",
@@ -194,7 +216,9 @@
   ],
   "line": "Did you know, the church in the woods at Ranmore was built for one family?",
   "fact": "St Barnabas, the church on the North Downs Way, was built in 1859 as the estate church of George Cubitt, son of the builder Thomas Cubitt.",
-  "source": "Historic England list entry, Church of St Barnabas"
+  "source": "Historic England list entry, Church of St Barnabas",
+  "year": 1859,
+  "topic": "buildings"
  },
  {
   "id": "rp-never-a-park",
@@ -210,7 +234,9 @@
   ],
   "line": "Did you know, Raynes Park was never a park?",
   "fact": "Raynes Park was never a park. Edward Rayne farmed here from 1822 and split his land into three 'parks': one for sheep and cows, one for peas, turnips and swedes, one for hay.",
-  "source": "Hidden London, Raynes Park"
+  "source": "Hidden London, Raynes Park",
+  "year": 1900,
+  "topic": "names"
  },
  {
   "id": "rp-station",
@@ -226,7 +252,9 @@
   ],
   "line": "Did you know, a Victorian guidebook mocked your station?",
   "fact": "In 1889 a guidebook writer called a Norfolk halt possibly the least important station in England, except Raynes Park. It had opened in 1871, on Edward Rayne's old farmland.",
-  "source": "LAMAS Transactions vol. 34, Railway development in south-west London"
+  "source": "LAMAS Transactions vol. 34, Railway development in south-west London",
+  "year": 1871,
+  "topic": "transport"
  },
  {
   "id": "rp-apostles",
@@ -242,7 +270,9 @@
   ],
   "line": "Did you know, the Apostles aren't named after the Apostles?",
   "fact": "The twelve terraced roads south of the railway are known locally as the Apostles. None is named after one. They were laid out over a Victorian cricket ground.",
-  "source": "Raynes Park, Wikipedia; Wikishire"
+  "source": "Raynes Park, Wikipedia; Wikishire",
+  "year": 1910,
+  "topic": "buildings"
  },
  {
   "id": "beverley-brook",
@@ -258,7 +288,9 @@
   ],
   "line": "Did you know, you were near a brook named after beavers?",
   "fact": "Beverley Brook, just west of Raynes Park, is Beaver's Ley: a place where beavers live. It was written down as Beferithi in 693. Beavers were gone from Britain by Tudor times.",
-  "source": "Merton Council, Beverley Brook Walk; London's Lost Rivers"
+  "source": "Merton Council, Beverley Brook Walk; London's Lost Rivers",
+  "year": 693,
+  "topic": "nature"
  },
  {
   "id": "findon-haddie",
@@ -274,7 +306,9 @@
   ],
   "line": "Did you know, the Finnan haddie is named after the village just north of Portlethen?",
   "fact": "Findon, on the cliffs just north of Portlethen, gave its name to the Finnan haddie. Victorian gazetteers say its fishers were the first to cure the famous smoked haddock.",
-  "source": "Groome, Ordnance Gazetteer of Scotland (1882-4); Bartholomew, Gazetteer of the British Isles (1887); Wikipedia: Findon, Aberdeenshire"
+  "source": "Groome, Ordnance Gazetteer of Scotland (1882-4); Bartholomew, Gazetteer of the British Isles (1887); Wikipedia: Findon, Aberdeenshire",
+  "year": 1800,
+  "topic": "everyday"
  },
  {
   "id": "port-leviathan",
@@ -290,7 +324,9 @@
   ],
   "line": "Did you know, Portlethen might be named after whales?",
   "fact": "An old writer claimed Portlethen's real name was Port Leviathan, after the whales that came ashore here. Locals still tell it that way.",
-  "source": "Henderson, History of the Parish of Banchory-Devenick, ch. 13 (citing the Book of Bon-Accord); Press and Journal, Old Portlethen gallery (2025)"
+  "source": "Henderson, History of the Parish of Banchory-Devenick, ch. 13 (citing the Book of Bon-Accord); Press and Journal, Old Portlethen gallery (2025)",
+  "year": 1800,
+  "topic": "traditions"
  },
  {
   "id": "portlethen-castle",
@@ -306,7 +342,9 @@
   ],
   "line": "Did you know, Portlethen once had a castle that simply vanished?",
   "fact": "A 1600s castle, built by the laird Robert Buchan, stood where Mains of Portlethen farm is now. Nobody knows why it disappeared. Bits of its walls are inside the farmhouse.",
-  "source": "Wikipedia: Portlethen Village (Castle)"
+  "source": "Wikipedia: Portlethen Village (Castle)",
+  "year": 1500,
+  "topic": "buildings"
  },
  {
   "id": "causey-army",
@@ -322,7 +360,9 @@
   ],
   "line": "Did you know, a 9,000-strong army once marched through Portlethen?",
   "fact": "In 1639 the Earl Marischal and Montrose led a Covenanter army of 9,000 men along the Causey Mounth past Portlethen, the only road south from Aberdeen across the bog.",
-  "source": "Wikipedia: Portlethen Village and Downies (Causey Mounth)"
+  "source": "Wikipedia: Portlethen Village and Downies (Causey Mounth)",
+  "year": 1639,
+  "topic": "war"
  },
  {
   "id": "downies-petition",
@@ -338,6 +378,2564 @@
   ],
   "line": "Did you know, Downies nearly vanished, then fought the planners?",
   "fact": "In the 1920s Downies was a near-derelict fishing village: a few whitewashed houses among ruins. When the new town came in the 1970s, all but six residents signed a petition against it.",
-  "source": "Peter Anson via old-portlethen.co.uk (1920s to 1940s); Press and Journal, Old Portlethen gallery (2025)"
+  "source": "Peter Anson via old-portlethen.co.uk (1920s to 1940s); Press and Journal, Old Portlethen gallery (2025)",
+  "year": 1900,
+  "topic": "work"
+ },
+ {
+  "id": "laddie-station",
+  "kind": "modern",
+  "score": 9,
+  "place": "Wimbledon station",
+  "points": [
+   [
+    51.4232,
+    -0.2043,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a stuffed dog collected money at Wimbledon station until 1990?",
+  "fact": "Laddie the dog collected money at Wimbledon station from 1949, with a box on his back. When he died he was stuffed and put back on the platform in a glass case, still collecting, until 1990.",
+  "source": "Wikipedia: Wimbledon station",
+  "year": 1960,
+  "topic": "animals"
+ },
+ {
+  "id": "merton-statute",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Merton Priory",
+  "points": [
+   [
+    51.4142,
+    -0.1812,
+    400.0
+   ]
+  ],
+  "line": "Did you know, England's first recorded statute was passed where Sainsbury's is now?",
+  "fact": "In 1236 Henry III held a parliament at Merton Priory and passed England's first recorded statute, a written law. The priory is long gone, and a Sainsbury's stands on the site.",
+  "source": "Wikipedia: Merton Priory",
+  "year": 1236,
+  "topic": "law"
+ },
+ {
+  "id": "mosque-chimney",
+  "kind": "building",
+  "score": 9,
+  "place": "Baitul Futuh, Morden",
+  "points": [
+   [
+    51.3961,
+    -0.1989,
+    350.0
+   ]
+  ],
+  "line": "Did you know, the minaret of Morden's mosque was a dairy chimney?",
+  "fact": "Baitul Futuh in Morden, one of the largest mosque complexes in Europe, stands on an old Express Dairies depot. Its 35m minaret is the dairy's chimney, converted.",
+  "source": "Wikipedia: Baitul Futuh Mosque",
+  "year": 2003,
+  "topic": "religion"
+ },
+ {
+  "id": "john-innes-compost",
+  "kind": "modern",
+  "score": 9,
+  "place": "Merton Park",
+  "points": [
+   [
+    51.4092,
+    -0.208,
+    400.0
+   ]
+  ],
+  "line": "Did you know, John Innes compost was invented in Merton Park?",
+  "fact": "John Innes compost was invented in Merton Park, at the John Innes Horticultural Institution, a plant research centre. Its scientists published the recipe in 1938.",
+  "source": "Wikipedia: Merton Park",
+  "year": 1938,
+  "topic": "science"
+ },
+ {
+  "id": "ophelia-hogsmill",
+  "kind": "landscape",
+  "score": 9,
+  "place": "Old Malden",
+  "points": [
+   [
+    51.3823,
+    -0.2612,
+    500.0
+   ]
+  ],
+  "line": "Did you know, the river in Millais's famous painting Ophelia is the Hogsmill in Old Malden?",
+  "fact": "Millais's painting Ophelia shows Hamlet's Ophelia drowning in a river. He painted the riverbank in 1852 along the Hogsmill, beside Church Road in Old Malden.",
+  "source": "Wikipedia: Old Malden; Ophelia (Millais)",
+  "year": 1852,
+  "topic": "art"
+ },
+ {
+  "id": "morden-tunnel",
+  "kind": "modern",
+  "score": 8,
+  "place": "Morden station",
+  "points": [
+   [
+    51.4022,
+    -0.1948,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the longest tunnel on the Underground starts at Morden?",
+  "fact": "Just north of Morden station, the Northern line goes into the longest tunnel on the London Underground. It runs 27.8km, all the way to East Finchley.",
+  "source": "Wikipedia: Morden tube station",
+  "year": 1926,
+  "topic": "transport"
+ },
+ {
+  "id": "wimbledon-nz",
+  "kind": "modern",
+  "score": 8,
+  "place": "Wimbledon Common",
+  "points": [
+   [
+    51.4297,
+    -0.2383,
+    900.0
+   ]
+  ],
+  "line": "Did you know, a place in New Zealand is called Wimbledon because of one gunshot?",
+  "fact": "In the 1880s someone in New Zealand shot a bullock from very far away. Onlookers said it was worthy of the rifle championships then held at Wimbledon, so the place was named Wimbledon.",
+  "source": "Wikipedia: Wimbledon, London",
+  "year": 1880,
+  "topic": "names"
+ },
+ {
+  "id": "caesars-camp",
+  "kind": "prehistory",
+  "score": 8,
+  "place": "Wimbledon Common",
+  "points": [
+   [
+    51.4256,
+    -0.2409,
+    400.0
+   ]
+  ],
+  "line": "Did you know, a golf course on Wimbledon Common hides an Iron Age hill fort?",
+  "fact": "Under a golf course on Wimbledon Common lies Caesar's Camp, an Iron Age hill fort more than 2,000 years old. In 1875 the landowner had it flattened.",
+  "source": "Wikipedia: Wimbledon Common",
+  "year": -300,
+  "topic": "ancient"
+ },
+ {
+  "id": "henman-hill",
+  "kind": "modern",
+  "score": 8,
+  "place": "Henman Hill",
+  "points": [
+   [
+    51.4356,
+    -0.216,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Henman Hill's real name comes from New Zealand's highest mountain?",
+  "fact": "The grass bank called Henman Hill is officially Aorangi Terrace. A New Zealand rugby club played here until 1981 and named its ground Aorangi, the Māori name for New Zealand's highest mountain.",
+  "source": "Wikipedia: Henman Hill",
+  "year": 1981,
+  "topic": "sport"
+ },
+ {
+  "id": "gore-worple-road",
+  "kind": "modern",
+  "score": 8,
+  "place": "Worple Road",
+  "points": [
+   [
+    51.4161,
+    -0.2141,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the first Wimbledon champion said tennis would never be a great game?",
+  "fact": "The first Wimbledon championship was played in 1877, on Worple Road. The winner, Spencer Gore, said: \"Lawn tennis will never rank among our great games.\"",
+  "source": "Wikipedia: All England Lawn Tennis and Croquet Club",
+  "year": 1877,
+  "topic": "sport"
+ },
+ {
+  "id": "tuvalu-house",
+  "kind": "modern",
+  "score": 8,
+  "place": "Worple Road",
+  "points": [
+   [
+    51.412,
+    -0.2245,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Tuvalu is represented in the UK from a house on Worple Road?",
+  "fact": "Tuvalu, a small Pacific island nation, has no ambassador in the UK. Its honorary consul works from Tuvalu House, 230 Worple Road, and campaigns from there about rising sea levels.",
+  "source": "Wikipedia: Tuvalu House",
+  "year": 2000,
+  "topic": "politics"
+ },
+ {
+  "id": "nuncio-racehorse",
+  "kind": "building",
+  "score": 8,
+  "place": "54 Parkside",
+  "points": [
+   [
+    51.4361,
+    -0.2239,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the Vatican's embassy in Wimbledon was named after a 200-to-1 racehorse?",
+  "fact": "54 Parkside is home to the Pope's ambassador to Britain. An earlier owner named it Winkfield Lodge after Winkfield's Pride, a 200-to-1 horse that won him £20,000.",
+  "source": "Wikipedia: 54 Parkside",
+  "year": 1900,
+  "topic": "names"
+ },
+ {
+  "id": "merton-park-footbridge",
+  "kind": "building",
+  "score": 8,
+  "place": "Merton Park tram stop",
+  "points": [
+   [
+    51.4134,
+    -0.2006,
+    300.0
+   ]
+  ],
+  "line": "Did you know, part of Merton Park's railway footbridge is now at Corfe Castle?",
+  "fact": "When the railway at Merton Park closed in 1997, part of its footbridge was moved to Corfe Castle station on the Swanage Railway.",
+  "source": "Wikipedia: Merton Park railway station",
+  "year": 1997,
+  "topic": "transport"
+ },
+ {
+  "id": "carry-on-sergeant",
+  "kind": "modern",
+  "score": 8,
+  "place": "Kingston Road, Merton Park",
+  "points": [
+   [
+    51.4117,
+    -0.2084,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the first Carry On film was shot on Kingston Road?",
+  "fact": "The first Carry On film, Carry On Sergeant, was shot at Merton Park Studios in 1958. The studio's old office, Long Lodge, still stands on Kingston Road.",
+  "source": "Wikipedia: Merton Park Studios",
+  "year": 1958,
+  "topic": "film"
+ },
+ {
+  "id": "north-koreans-malden",
+  "kind": "modern",
+  "score": 8,
+  "place": "New Malden",
+  "points": [
+   [
+    51.4005,
+    -0.2557,
+    600.0
+   ]
+  ],
+  "line": "Did you know, New Malden has the largest group of North Koreans in Europe?",
+  "fact": "In 2014 around 20,000 Koreans lived in and around New Malden, about 600 of them from North Korea. That makes it the largest group of North Koreans in Europe.",
+  "source": "Wikipedia: New Malden",
+  "year": 2014,
+  "topic": "people"
+ },
+ {
+  "id": "kingston-bypass",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Kingston Bypass",
+  "points": [
+   [
+    51.394,
+    -0.2564,
+    1500.0
+   ]
+  ],
+  "line": "Did you know, the A3 at Shannon Corner was the country's first dual carriageway across open fields?",
+  "fact": "The Kingston Bypass, the stretch of A3 past Shannon Corner, was the country's first dual carriageway purpose-built across green fields. Houses followed it, all the way to Chessington.",
+  "source": "Wikipedia: Motspur Park",
+  "year": 1927,
+  "topic": "transport"
+ },
+ {
+  "id": "torch-motspur",
+  "kind": "modern",
+  "score": 8,
+  "place": "Motspur Park",
+  "points": [
+   [
+    51.3958,
+    -0.2397,
+    500.0
+   ]
+  ],
+  "line": "Did you know, the last runner of the 1948 Olympic torch trained in secret at Motspur Park?",
+  "fact": "In 1948 the runner chosen to carry the Olympic torch into Wembley and light the flame trained for it in secret, at the BBC sports ground in Motspur Park.",
+  "source": "Wikipedia: Motspur Park",
+  "year": 1948,
+  "topic": "sport"
+ },
+ {
+  "id": "bazalgette-tomb",
+  "kind": "building",
+  "score": 8,
+  "place": "St Mary's, Wimbledon",
+  "points": [
+   [
+    51.4287,
+    -0.2102,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the engineer who built London's sewers lies in a second-hand tomb?",
+  "fact": "Sir Joseph Bazalgette, who built London's sewers, lies at St Mary's, Wimbledon, in a tomb made for someone else. The churchyard was full, so he bought an old one, abandoned for 84 years.",
+  "source": "Wikipedia: Bazalgette Mausoleum",
+  "year": 1891,
+  "topic": "people"
+ },
+ {
+  "id": "laetitia",
+  "kind": "building",
+  "score": 8,
+  "place": "New Wimbledon Theatre",
+  "points": [
+   [
+    51.4194,
+    -0.2016,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the gold statue on Wimbledon's theatre was taken down in case it guided German bombers?",
+  "fact": "The gold statue on top of the New Wimbledon Theatre was taken down in the Second World War, as people thought German bombers could use it to find their way. It went back up in 1991.",
+  "source": "Wikipedia: New Wimbledon Theatre",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "hartley-fireproof",
+  "kind": "building",
+  "score": 8,
+  "place": "Putney Heath",
+  "points": [
+   [
+    51.4477,
+    -0.2253,
+    400.0
+   ]
+  ],
+  "line": "Did you know, George III watched a house on Putney Heath being set on fire, again and again?",
+  "fact": "David Hartley invented fireproof plates and built a fireproof house on Putney Heath. Its lower floor was set on fire again and again, with George III and Queen Charlotte watching.",
+  "source": "Wikipedia: Wimbledon Common",
+  "year": 1774,
+  "topic": "invention"
+ },
+ {
+  "id": "putney-duel",
+  "kind": "modern",
+  "score": 8,
+  "place": "Putney Heath",
+  "points": [
+   [
+    51.4477,
+    -0.2253,
+    500.0
+   ]
+  ],
+  "line": "Did you know, two Cabinet ministers fought a duel on Putney Heath?",
+  "fact": "In September 1809 two Cabinet ministers, George Canning and Lord Castlereagh, fought a duel on Putney Heath, near where the Telegraph pub is now.",
+  "source": "Wikipedia: Wimbledon Common",
+  "year": 1809,
+  "topic": "politics"
+ },
+ {
+  "id": "tutankhamun-putney",
+  "kind": "modern",
+  "score": 8,
+  "place": "Putney Vale Cemetery",
+  "points": [
+   [
+    51.4403,
+    -0.2439,
+    500.0
+   ]
+  ],
+  "line": "Did you know, the man who found Tutankhamun's tomb is buried in Putney Vale?",
+  "fact": "Howard Carter, the archaeologist who found Tutankhamun's tomb in Egypt, is buried at Putney Vale Cemetery.",
+  "source": "Wikipedia: Putney Vale Cemetery",
+  "year": 1939,
+  "topic": "people"
+ },
+ {
+  "id": "old-malden-merton-college",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Old Malden",
+  "points": [
+   [
+    51.3823,
+    -0.2612,
+    500.0
+   ]
+  ],
+  "line": "Did you know, Merton College, Oxford, started out in Old Malden?",
+  "fact": "Merton College, Oxford, began in Old Malden. Walter de Merton founded it in 1264 at the manor house by St John's church, and it later moved to Oxford.",
+  "source": "Wikipedia: Old Malden",
+  "year": 1264,
+  "topic": "books"
+ },
+ {
+  "id": "old-rectory",
+  "kind": "building",
+  "score": 7,
+  "place": "Old Rectory, Wimbledon",
+  "points": [
+   [
+    51.4292,
+    -0.2109,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Henry VIII was too ill to go on and stopped in Wimbledon?",
+  "fact": "In December 1546, near the end of his life, Henry VIII was too ill to get back to Whitehall. He stopped at Wimbledon's Old Rectory and stayed three days.",
+  "source": "Wikipedia: Wimbledon Manor House",
+  "year": 1546,
+  "topic": "royals"
+ },
+ {
+  "id": "windmill-scouting",
+  "kind": "building",
+  "score": 7,
+  "place": "Wimbledon Windmill",
+  "points": [
+   [
+    51.4376,
+    -0.232,
+    400.0
+   ]
+  ],
+  "line": "Did you know, part of Scouting for Boys was written at Wimbledon Windmill?",
+  "fact": "In 1902 Robert Baden-Powell stayed in the house at Wimbledon Windmill and wrote parts of Scouting for Boys there.",
+  "source": "Wikipedia: Wimbledon Windmill",
+  "year": 1902,
+  "topic": "books"
+ },
+ {
+  "id": "wimbledon-pro-colour",
+  "kind": "modern",
+  "score": 7,
+  "place": "All England Club",
+  "points": [
+   [
+    51.4342,
+    -0.2144,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the BBC put on a tennis tournament at Wimbledon to mark colour TV?",
+  "fact": "In 1967 the BBC put on a tennis tournament at Wimbledon to celebrate colour TV. It was the first time since 1930 that professional men could play there.",
+  "source": "Wikipedia: Wimbledon Pro",
+  "year": 1967,
+  "topic": "sport"
+ },
+ {
+  "id": "centre-court-bombs",
+  "kind": "modern",
+  "score": 7,
+  "place": "Centre Court",
+  "points": [
+   [
+    51.4342,
+    -0.2144,
+    400.0
+   ]
+  ],
+  "line": "Did you know, German bombs destroyed 1,200 seats on Centre Court?",
+  "fact": "At 5:20pm on 11 October 1940, five German bombs hit the All England Club and demolished 1,200 seats on Centre Court.",
+  "source": "Wikipedia: All England Lawn Tennis and Croquet Club",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "morden-boom",
+  "kind": "modern",
+  "score": 7,
+  "place": "Morden",
+  "points": [
+   [
+    51.4015,
+    -0.1949,
+    1200.0
+   ]
+  ],
+  "line": "Did you know, Morden's population grew ninefold in ten years?",
+  "fact": "Morden had 512 people in 1801 and still only 960 in 1901. Then the Underground arrived in 1926, and the parish went from 1,355 people in 1921 to 12,618 in 1931.",
+  "source": "Wikipedia: Morden",
+  "year": 1926,
+  "topic": "everyday"
+ },
+ {
+  "id": "parking-meters",
+  "kind": "modern",
+  "score": 7,
+  "place": "Shannon Corner",
+  "points": [
+   [
+    51.394,
+    -0.2564,
+    600.0
+   ]
+  ],
+  "line": "Did you know, Britain's first parking meters were made in New Malden?",
+  "fact": "Britain's first parking meters were made in New Malden, by the Venner timeswitch company near Shannon Corner.",
+  "source": "Wikipedia: Motspur Park; New Malden",
+  "year": 1958,
+  "topic": "invention"
+ },
+ {
+  "id": "motspur-adams",
+  "kind": "modern",
+  "score": 7,
+  "place": "Motspur Park",
+  "points": [
+   [
+    51.3958,
+    -0.2397,
+    500.0
+   ]
+  ],
+  "line": "Did you know, Douglas Adams turned Motspur into a word?",
+  "fact": "According to Douglas Adams, a motspur is the fourth wheel of a supermarket trolley: the one that looks just like the other three but makes the trolley completely uncontrollable.",
+  "source": "Wikipedia: Motspur Park",
+  "year": 1983,
+  "topic": "comedy"
+ },
+ {
+  "id": "ghanapathy-temple",
+  "kind": "building",
+  "score": 7,
+  "place": "Shree Ghanapathy Temple",
+  "points": [
+   [
+    51.4233,
+    -0.1892,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Europe's first fully consecrated Hindu temple is in Wimbledon?",
+  "fact": "Shree Ghanapathy Temple in Wimbledon, dedicated to Ganesha, became the first fully consecrated Hindu temple in Europe in 1981.",
+  "source": "Wikipedia: Shree Ghanapathy Temple, Wimbledon",
+  "year": 1981,
+  "topic": "religion"
+ },
+ {
+  "id": "selassie-cannizaro",
+  "kind": "modern",
+  "score": 7,
+  "place": "Cannizaro Park",
+  "points": [
+   [
+    51.4246,
+    -0.2313,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Ethiopia's exiled emperor stayed in Wimbledon?",
+  "fact": "Haile Selassie, emperor of Ethiopia, stayed in Wimbledon in 1936 after Italy invaded his country and he was forced into exile.",
+  "source": "Wikipedia: Bust of Haile Selassie; Cannizaro Park",
+  "year": 1936,
+  "topic": "politics"
+ },
+ {
+  "id": "surrey-iron-railway",
+  "kind": "modern",
+  "score": 7,
+  "place": "Merton Abbey",
+  "points": [
+   [
+    51.4141,
+    -0.1819,
+    500.0
+   ]
+  ],
+  "line": "Did you know, a horse-drawn railway ran through Merton in 1803?",
+  "fact": "In 1803 a railway pulled by horses opened through Merton, carrying goods from the factories by the Wandle to the Thames. It ran where Christchurch Road is now.",
+  "source": "Wikipedia: Merton, London",
+  "year": 1803,
+  "topic": "transport"
+ },
+ {
+  "id": "snuff-mills",
+  "kind": "building",
+  "score": 7,
+  "place": "Morden Hall Park",
+  "points": [
+   [
+    51.4023,
+    -0.1881,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the watermills in Morden Hall Park ground tobacco into snuff?",
+  "fact": "The two old watermills in Morden Hall Park were used to grind tobacco into snuff, the powdered tobacco people sniffed.",
+  "source": "Wikipedia: Morden Hall Park",
+  "year": 1800,
+  "topic": "work"
+ },
+ {
+  "id": "rogers-house",
+  "kind": "building",
+  "score": 7,
+  "place": "22 Parkside",
+  "points": [
+   [
+    51.4267,
+    -0.2221,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a yellow steel house on Parkside inspired the Pompidou Centre?",
+  "fact": "22 Parkside is a yellow steel and glass house Richard Rogers designed for his parents in 1967. He said it inspired his later buildings, including the Pompidou Centre.",
+  "source": "Wikipedia: 22 Parkside",
+  "year": 1967,
+  "topic": "design"
+ },
+ {
+  "id": "black-buddha",
+  "kind": "building",
+  "score": 6,
+  "place": "Wat Buddhapadipa",
+  "points": [
+   [
+    51.4307,
+    -0.2206,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a 700-year-old Buddha sits in a Wimbledon street?",
+  "fact": "Wat Buddhapadipa, a Thai temple on Calonne Road, holds a bronze Buddha nearly 700 years old. It was a gift to the King of Thailand in 1966, for this temple.",
+  "source": "Wikipedia: Wat Buddhapadipa",
+  "year": 1966,
+  "topic": "religion"
+ },
+ {
+  "id": "alfred-roman-legs",
+  "kind": "roman",
+  "score": 9,
+  "place": "Trinity Church Square, Southwark",
+  "points": [
+   [
+    51.49889,
+    -0.09361,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the statue of Alfred the Great in Southwark stands on Roman legs?",
+  "fact": "The legs of Southwark's Alfred the Great are Roman, from about AD 100. The top half was added around 1800, which makes it probably London's oldest outdoor statue.",
+  "source": "Wikipedia: Statue of Alfred the Great, Southwark",
+  "year": 100,
+  "topic": "art"
+ },
+ {
+  "id": "first-atm",
+  "kind": "modern",
+  "score": 9,
+  "place": "Barclays, Enfield",
+  "points": [
+   [
+    51.6523,
+    -0.08196,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the world's first cash machine was in Enfield?",
+  "fact": "The world's first cash machine opened at Barclays in Enfield in June 1967. You used a paper voucher bought in advance, and could take out £10 at most.",
+  "source": "Wikipedia: Barclays Bank, Enfield",
+  "year": 1967,
+  "topic": "invention"
+ },
+ {
+  "id": "grendels-gate",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Barnet Gate",
+  "points": [
+   [
+    51.643083,
+    -0.24057,
+    500.0
+   ]
+  ],
+  "line": "Did you know, Barnet Gate was once named after the monster in Beowulf?",
+  "fact": "To the Anglo-Saxons, Barnet Gate was Grendel's Gate, after the monster in the poem Beowulf. A charter from about 975 uses the name.",
+  "source": "Wikipedia: Barnet Gate",
+  "year": 975,
+  "topic": "names"
+ },
+ {
+  "id": "foyles-mein-kampf",
+  "kind": "modern",
+  "score": 9,
+  "place": "Foyles, Charing Cross Road",
+  "points": [
+   [
+    51.51478,
+    -0.13004,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Foyles protected its roof in the Blitz with copies of Mein Kampf?",
+  "fact": "In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.",
+  "source": "Wikipedia: Foyles Building",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "newton-maypole",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Mary le Strand",
+  "points": [
+   [
+    51.5121,
+    -0.1171,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the Strand's maypole ended up holding Isaac Newton's telescope?",
+  "fact": "A famous maypole stood where St Mary le Strand is now. In 1717 Isaac Newton bought it to hold up a telescope, then the largest in the world.",
+  "source": "Wikipedia: Maypole in the Strand",
+  "year": 1717,
+  "topic": "science"
+ },
+ {
+  "id": "bumper-harris",
+  "kind": "modern",
+  "score": 9,
+  "place": "Earl's Court station",
+  "points": [
+   [
+    51.4913,
+    -0.1947,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a one-legged man rode the Underground's first escalators to show they were safe?",
+  "fact": "The Underground's first escalators opened at Earl's Court in 1911. A one-legged engineer, Bumper Harris, rode them on the first day to reassure passengers.",
+  "source": "Wikipedia: Earl's Court tube station",
+  "year": 1911,
+  "topic": "transport"
+ },
+ {
+  "id": "whittington-longhouse",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Bell Wharf Lane",
+  "points": [
+   [
+    51.51,
+    -0.092,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Dick Whittington gave London a toilet with 128 seats?",
+  "fact": "Dick Whittington paid for a public toilet by the Thames with 128 seats, 64 for men and 64 for women. The tide washed it out twice a day.",
+  "source": "Wikipedia: Whittington's Longhouse",
+  "year": 1420,
+  "topic": "everyday"
+ },
+ {
+  "id": "holborn-power",
+  "kind": "modern",
+  "score": 8,
+  "place": "Holborn Viaduct",
+  "points": [
+   [
+    51.51719722,
+    -0.10506944,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the world's first coal-fired public power station was on Holborn Viaduct?",
+  "fact": "The world's first coal-fired power station for public use was at 57 Holborn Viaduct, built by Thomas Edison's company. New York got its own afterwards.",
+  "source": "Wikipedia: Holborn Viaduct power station",
+  "year": 1882,
+  "topic": "invention"
+ },
+ {
+  "id": "craigs-court-tunnels",
+  "kind": "modern",
+  "score": 8,
+  "place": "Craig's Court, Whitehall",
+  "points": [
+   [
+    51.5067,
+    -0.1266,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a telephone exchange off Whitehall hides a way into secret tunnels?",
+  "fact": "The BT telephone exchange in Craig's Court, off Whitehall, holds one of the entrances to the secret government tunnels under central London.",
+  "source": "Wikipedia: Craig's Court",
+  "year": 1950,
+  "topic": "secrets"
+ },
+ {
+  "id": "first-tube-baby",
+  "kind": "modern",
+  "score": 8,
+  "place": "Elephant & Castle station",
+  "points": [
+   [
+    51.4944,
+    -0.0997,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the first baby born on the Underground arrived at Elephant & Castle?",
+  "fact": "In May 1924 a girl was born at Elephant & Castle, the first baby born on the Underground. The railway's chairman, Lord Ashfield, became her godfather, and she got his name as a middle name.",
+  "source": "Wikipedia: Elephant & Castle tube station",
+  "year": 1924,
+  "topic": "transport"
+ },
+ {
+  "id": "lords-pavilion-women",
+  "kind": "modern",
+  "score": 8,
+  "place": "Lord's",
+  "points": [
+   [
+    51.529,
+    -0.1739,
+    300.0
+   ]
+  ],
+  "line": "Did you know, until 1999 the Queen was the only woman allowed in the Lord's Pavilion during play?",
+  "fact": "Until 1999, women weren't allowed in the Lord's Pavilion during play. The one exception was the Queen, the club's patron.",
+  "source": "Wikipedia: Lord's Pavilion",
+  "year": 1999,
+  "topic": "sport"
+ },
+ {
+  "id": "bomber-command-roof",
+  "kind": "modern",
+  "score": 8,
+  "place": "Green Park",
+  "points": [
+   [
+    51.50333,
+    -0.14889,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the Bomber Command Memorial's roof is made from a crashed bomber?",
+  "fact": "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.",
+  "source": "Wikipedia: RAF Bomber Command Memorial",
+  "year": 1944,
+  "topic": "war"
+ },
+ {
+  "id": "ruislip-tower",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Ruislip Woods",
+  "points": [
+   [
+    51.593,
+    -0.431,
+    1500.0
+   ]
+  ],
+  "line": "Did you know, wood from Ruislip helped build the Tower of London?",
+  "fact": "Timber from Ruislip Woods went into the Tower of London in 1339, Windsor Castle in 1344 and the Palace of Westminster in 1346.",
+  "source": "Wikipedia: Ruislip Woods",
+  "year": 1339,
+  "topic": "buildings"
+ },
+ {
+  "id": "down-street-barn",
+  "kind": "modern",
+  "score": 8,
+  "place": "Down Street, Mayfair",
+  "points": [
+   [
+    51.50465,
+    -0.14791,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Churchill hid in a closed tube station he called the Barn?",
+  "fact": "Down Street station closed in 1932. In the war Churchill and his cabinet sheltered there until the Cabinet War Rooms were ready, and he called it the Barn.",
+  "source": "Wikipedia: Down Street tube station",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "ilford-dickin",
+  "kind": "modern",
+  "score": 8,
+  "place": "Ilford Animal Cemetery",
+  "points": [
+   [
+    51.5875,
+    0.04583,
+    400.0
+   ]
+  ],
+  "line": "Did you know, a fifth of all animal war heroes with the Dickin Medal are buried in Ilford?",
+  "fact": "Thirteen animals awarded the Dickin Medal, the animals' medal for bravery, are buried at Ilford Animal Cemetery. That's a fifth of every animal ever given it.",
+  "source": "Wikipedia: Ilford Animal Cemetery",
+  "year": 1945,
+  "topic": "animals"
+ },
+ {
+  "id": "regent-street-cinema",
+  "kind": "building",
+  "score": 8,
+  "place": "Regent Street Cinema",
+  "points": [
+   [
+    51.51684,
+    -0.14272,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Britain's first moving pictures were shown on Regent Street?",
+  "fact": "In February 1896, the Regent Street Cinema showed a short film by the Lumière brothers. It was the first motion picture ever shown in the UK.",
+  "source": "Wikipedia: Regent Street Cinema",
+  "year": 1896,
+  "topic": "film"
+ },
+ {
+  "id": "crooked-billet-phone",
+  "kind": "modern",
+  "score": 8,
+  "place": "Crooked Billet, Wimbledon",
+  "points": [
+   [
+    51.42139,
+    -0.2275,
+    300.0
+   ]
+  ],
+  "line": "Did you know, London's first house with a telephone was at Crooked Billet in Wimbledon?",
+  "fact": "The first house in London to have a telephone was at Crooked Billet in Wimbledon.",
+  "source": "Wikipedia: Crooked Billet",
+  "year": 1880,
+  "topic": "invention"
+ },
+ {
+  "id": "endell-street-hospital",
+  "kind": "modern",
+  "score": 8,
+  "place": "Endell Street, Covent Garden",
+  "points": [
+   [
+    51.51442,
+    -0.12441,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a First World War hospital on Endell Street was run entirely by women?",
+  "fact": "In the First World War, a military hospital at 36 Endell Street was staffed entirely by women. Two suffragist doctors ran it, and it treated 24,000 patients.",
+  "source": "Wikipedia: Endell Street",
+  "year": 1915,
+  "topic": "war"
+ },
+ {
+  "id": "pall-mall-game",
+  "kind": "modern",
+  "score": 7,
+  "place": "Pall Mall",
+  "points": [
+   [
+    51.50694,
+    -0.13306,
+    400.0
+   ]
+  ],
+  "line": "Did you know, Pall Mall is named after a game like croquet?",
+  "fact": "Pall Mall is named after pall-mall, a game like croquet, played here on a long, narrow court in the 17th century. The street was built over the old court in 1661.",
+  "source": "Wikipedia: Pall Mall, London",
+  "year": 1661,
+  "topic": "names"
+ },
+ {
+  "id": "james-ii-weeds",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.5084,
+    -0.129,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the statue of James II outside the National Gallery once lay in the weeds?",
+  "fact": "The statue of James II outside the National Gallery was taken down to make room for Edward VII's coronation stands. It lay on its back in the weeds until 1903.",
+  "source": "Wikipedia: Statue of James II, Trafalgar Square",
+  "year": 1902,
+  "topic": "royals"
+ },
+ {
+  "id": "george-v-quarry",
+  "kind": "modern",
+  "score": 7,
+  "place": "Old Palace Yard",
+  "points": [
+   [
+    51.49897,
+    -0.12634,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the statue of George V by Parliament spent the war in a quarry?",
+  "fact": "The statue of George V opposite the House of Lords was carved in a Portland quarry. It spent the Second World War hidden in one of the quarry's tunnels.",
+  "source": "Wikipedia: Statue of George V, Westminster",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "belgravia-fatberg",
+  "kind": "modern",
+  "score": 8,
+  "place": "Cadogan Place, Belgravia",
+  "points": [
+   [
+    51.49667,
+    -0.1575,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a fatberg heavier than an elephant was pulled from under Cadogan Place?",
+  "fact": "In 2020 Thames Water found a 10-tonne fatberg of grease, fat and wet wipes under Cadogan Place in Belgravia. They said it weighed more than an African elephant.",
+  "source": "Wikipedia: Cadogan Place",
+  "year": 2020,
+  "topic": "everyday"
+ },
+ {
+  "id": "primrose-hill-tunnel",
+  "kind": "building",
+  "score": 7,
+  "place": "Primrose Hill Tunnel",
+  "points": [
+   [
+    51.54222,
+    -0.16944,
+    400.0
+   ]
+  ],
+  "line": "Did you know, London's first railway tunnel runs under Primrose Hill?",
+  "fact": "The tunnel under Primrose Hill was London's first railway tunnel, dug for the London and Birmingham Railway in the 1830s. Its entrances have barely changed since.",
+  "source": "Wikipedia: Primrose Hill Tunnel",
+  "year": 1837,
+  "topic": "transport"
+ },
+ {
+  "id": "first-heart-transplant",
+  "kind": "modern",
+  "score": 8,
+  "place": "Westmoreland Street, Marylebone",
+  "points": [
+   [
+    51.51972,
+    -0.15,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Britain's first heart transplant happened on Westmoreland Street?",
+  "fact": "In 1968 Donald Ross and his team carried out Britain's first heart transplant on Westmoreland Street, where the National Heart Hospital then stood.",
+  "source": "Wikipedia: Westmoreland Street, London",
+  "year": 1968,
+  "topic": "science"
+ },
+ {
+  "id": "python-basil-street",
+  "kind": "modern",
+  "score": 8,
+  "place": "Basil Street, Knightsbridge",
+  "points": [
+   [
+    51.5,
+    -0.16139,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Monty Python started in a flat on Basil Street?",
+  "fact": "In the 1960s, the first meetings that led to Monty Python's Flying Circus were held in a flat on Basil Street, Knightsbridge.",
+  "source": "Wikipedia: Basil Street",
+  "year": 1969,
+  "topic": "film"
+ },
+ {
+  "id": "sky-pool",
+  "kind": "building",
+  "score": 7,
+  "place": "Embassy Gardens, Nine Elms",
+  "points": [
+   [
+    51.482,
+    -0.131,
+    300.0
+   ]
+  ],
+  "line": "Did you know, there's a swimming pool hanging between two buildings in Nine Elms?",
+  "fact": "The Sky Pool at Embassy Gardens is a swimming pool that bridges the gap between two blocks of flats, high above the ground. It's see-through, so it looks like a glass box floating in mid-air.",
+  "source": "Wikipedia: Sky Pool, London",
+  "year": 2021,
+  "topic": "buildings"
+ },
+ {
+  "id": "greenwich-oak-prison",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Greenwich Park",
+  "points": [
+   [
+    51.478104,
+    0.001764,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a hollow oak tree in Greenwich Park was used as a prison?",
+  "fact": "The hollow trunk of an old oak tree in Greenwich Park was used as a prison. Anyone caught breaking the law in the park was locked inside behind a heavy wooden door.",
+  "source": "Wikipedia: Queen Elizabeth's Oak, Greenwich Park",
+  "year": 1600,
+  "topic": "nature"
+ },
+ {
+  "id": "ealing-bells-aberdeen",
+  "kind": "building",
+  "score": 7,
+  "place": "St Stephen's, Ealing",
+  "points": [
+   [
+    51.5197,
+    -0.3193,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the bells of an Ealing church now ring in a cathedral in Aberdeen?",
+  "fact": "St Stephen's Church in Ealing was declared unsafe in 1979, and its eight bells were taken down. In 1987 they were restored and hung in St Machar's Cathedral, Aberdeen.",
+  "source": "Wikipedia: St Stephen's Church, Ealing",
+  "year": 1987,
+  "topic": "religion"
+ },
+ {
+  "id": "gants-hill-moscow",
+  "kind": "building",
+  "score": 8,
+  "place": "Gants Hill station",
+  "points": [
+   [
+    51.57666,
+    0.06611,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Gants Hill station was built after a look at the Moscow Metro?",
+  "fact": "London's Underground engineers advised on the Moscow Metro in the 1930s. Their report on it led to a station built in London to a similar design: Gants Hill.",
+  "source": "Wikipedia: Gants Hill tube station",
+  "year": 1947,
+  "topic": "transport"
+ },
+ {
+  "id": "battle-of-brentford",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Brentford",
+  "points": [
+   [
+    51.47861,
+    -0.30694,
+    1200.0
+   ]
+  ],
+  "line": "Did you know, an English army beat an invading Danish army at Brentford in 1016?",
+  "fact": "In 1016 the English army, led by Edmund Ironside, beat Cnut's invading Danish army at Brentford. The English lost many men, and Cnut beat them in Essex later that year.",
+  "source": "Wikipedia: Battle of Brentford (1016)",
+  "year": 1016,
+  "topic": "war"
+ },
+ {
+  "id": "whitehall-bath-screen",
+  "kind": "modern",
+  "score": 8,
+  "place": "Privy Garden, Whitehall",
+  "points": [
+   [
+    51.503841,
+    -0.124894,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Whitehall Palace had a screen so passers-by couldn't see the king in his bath?",
+  "fact": "The king's rooms at Whitehall Palace looked over the Privy Garden. A screen stopped people walking past from seeing him naked in his bathtub.",
+  "source": "Wikipedia: Privy Garden of the Palace of Whitehall",
+  "year": 1670,
+  "topic": "royals"
+ },
+ {
+  "id": "madness-dublin-castle",
+  "kind": "modern",
+  "score": 8,
+  "place": "Dublin Castle, Camden",
+  "points": [
+   [
+    51.53722,
+    -0.14556,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the band Madness made their name at a Camden pub?",
+  "fact": "The band Madness first played the Dublin Castle, a Camden pub, in January 1979. The landlord gave them a regular slot, and that's where they made their name.",
+  "source": "Wikipedia: Dublin Castle, Camden",
+  "year": 1979,
+  "topic": "music"
+ },
+ {
+  "id": "chenies-d-day",
+  "kind": "modern",
+  "score": 8,
+  "place": "Chenies Street, Bloomsbury",
+  "points": [
+   [
+    51.52056,
+    -0.13306,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a door on Chenies Street leads to a wartime shelter used to plan D-Day?",
+  "fact": "An entrance on Chenies Street leads down to a deep shelter under Goodge Street station. The US Army Signal Corps used it while preparing for D-Day.",
+  "source": "Wikipedia: Chenies Street",
+  "year": 1944,
+  "topic": "war"
+ },
+ {
+  "id": "minchenden-oak",
+  "kind": "landscape",
+  "score": 7,
+  "place": "Minchenden Oak Garden, Southgate",
+  "points": [
+   [
+    51.6243,
+    -0.1291,
+    300.0
+   ]
+  ],
+  "line": "Did you know, an oak tree in Southgate is thought to be 800 years old?",
+  "fact": "The Minchenden Oak in Southgate is thought to be 800 years old, one of the oldest trees in London. It survives from the ancient Forest of Middlesex.",
+  "source": "Wikipedia: Minchenden Oak Garden",
+  "year": 1220,
+  "topic": "nature"
+ },
+ {
+  "id": "bowie-blackheath",
+  "kind": "modern",
+  "score": 8,
+  "place": "Green Man, Blackheath",
+  "points": [
+   [
+    51.4725,
+    -0.0081,
+    300.0
+   ]
+  ],
+  "line": "Did you know, David Bowie first sang lead at a Blackheath pub, by accident?",
+  "fact": "In 1963 a 16-year-old David Bowie played sax with the Konrads at the Green Man. The singer cut himself on glass, so Bowie took over.",
+  "source": "Wikipedia: Green Man, Blackheath",
+  "year": 1963,
+  "topic": "music"
+ },
+ {
+  "id": "spa-road-terminus",
+  "kind": "modern",
+  "score": 8,
+  "place": "Spa Road, Bermondsey",
+  "points": [
+   [
+    51.4956,
+    -0.0671,
+    300.0
+   ]
+  ],
+  "line": "Did you know, London's first trains ran from Bermondsey?",
+  "fact": "London's first trains ran in February 1836, between Spa Road in Bermondsey and Deptford. The line only reached London Bridge later that year.",
+  "source": "Wikipedia: Spa Road railway station",
+  "year": 1836,
+  "topic": "transport"
+ },
+ {
+  "id": "fann-street-sans",
+  "kind": "modern",
+  "score": 8,
+  "place": "Fann Street, Barbican",
+  "points": [
+   [
+    51.522,
+    -0.0969,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the first sans serif type with lower-case letters was made on Fann Street?",
+  "fact": "William Thorowgood of the Fann Street Foundry designed the first sans serif type with lower-case letters: plain letters, without the little strokes at their ends. He called it Grotesque.",
+  "source": "Wikipedia: Fann Street Foundry",
+  "year": 1832,
+  "topic": "design"
+ },
+ {
+  "id": "clovelly-first-film",
+  "kind": "modern",
+  "score": 8,
+  "place": "Park Road, Chipping Barnet",
+  "points": [
+   [
+    51.6532292,
+    -0.1971497,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the first successful British film was shot outside a house in Barnet?",
+  "fact": "In March 1895 Birt Acres filmed outside his home, Clovelly Cottage on Park Road, Barnet. Incident at Clovelly Cottage was the first successful motion picture made in Britain.",
+  "source": "Wikipedia: Incident at Clovelly Cottage",
+  "year": 1895,
+  "topic": "film"
+ },
+ {
+  "id": "boulogne-mouth",
+  "kind": "modern",
+  "score": 7,
+  "place": "Bull and Mouth, St Martin's le Grand",
+  "points": [
+   [
+    51.5164,
+    -0.098,
+    250.0
+   ]
+  ],
+  "line": "Did you know, an old London inn called the Bull and Mouth was named after a French harbour?",
+  "fact": "The Bull and Mouth Inn was first called the Boulogne Mouth. Boulogne is the French harbour town Henry VIII besieged in the 1540s.",
+  "source": "Wikipedia: Bull and Mouth Inn",
+  "year": 1545,
+  "topic": "names"
+ },
+ {
+  "id": "soho-charles-fountain",
+  "kind": "modern",
+  "score": 7,
+  "place": "Soho Square",
+  "points": [
+   [
+    51.515372,
+    -0.132264,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the statue of Charles II in Soho Square once stood in a fountain?",
+  "fact": "The statue of Charles II was once the centrepiece of a fountain in the middle of Soho Square, built in 1681. The fountain was a modest copy of a famous one in Rome.",
+  "source": "Wikipedia: Statue of Charles II, Soho Square",
+  "year": 1681,
+  "topic": "art"
+ },
+ {
+  "id": "olympic-mcdonalds",
+  "kind": "modern",
+  "score": 8,
+  "place": "Olympic Park, Stratford",
+  "points": [
+   [
+    51.5371,
+    -0.0129,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the world's biggest McDonald's stood in the Olympic Park for just six weeks?",
+  "fact": "For the 2012 Olympics, the world's largest McDonald's was built in the Olympic Park, serving 14,000 people a day. After six weeks it was taken apart.",
+  "source": "Wikipedia: Olympic Park McDonald's",
+  "year": 2012,
+  "topic": "sport"
+ },
+ {
+  "id": "leaning-tower-rotherhithe",
+  "kind": "building",
+  "score": 7,
+  "place": "Fulford Street, Rotherhithe",
+  "points": [
+   [
+    51.50072,
+    -0.05825,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a house by the Thames in Rotherhithe is nicknamed the Leaning Tower?",
+  "fact": "1 Fulford Street, a house nicknamed the Leaning Tower of Rotherhithe, was once a wages office. Bargemen pulled their barges up alongside it to collect their pay.",
+  "source": "Wikipedia: 1 Fulford Street",
+  "year": 1900,
+  "topic": "work"
+ },
+ {
+  "id": "lightship-studio",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trinity Buoy Wharf",
+  "points": [
+   [
+    51.50808,
+    0.00917,
+    250.0
+   ]
+  ],
+  "line": "Did you know, an old lightship at Trinity Buoy Wharf is now a recording studio?",
+  "fact": "Light Vessel 95, a lightship that once warned ships off the Goodwin Sands in Kent, became a recording studio in 2003. It's now moored at Trinity Buoy Wharf.",
+  "source": "Wikipedia: Light Vessel 95",
+  "year": 2003,
+  "topic": "music"
+ },
+ {
+  "id": "queen-toy-horses",
+  "kind": "modern",
+  "score": 8,
+  "place": "145 Piccadilly",
+  "points": [
+   [
+    51.5036,
+    -0.1503,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the young Elizabeth II kept 30 toy horses at a house on Piccadilly?",
+  "fact": "As a girl, the future Elizabeth II lived at 145 Piccadilly. Her toys there included 30 toy horses and a farm set bought piece by piece from Woolworths.",
+  "source": "Wikipedia: 145 Piccadilly",
+  "year": 1930,
+  "topic": "royals"
+ },
+ {
+  "id": "tbm-helen-amy",
+  "kind": "modern",
+  "score": 7,
+  "place": "Battersea Power Station",
+  "points": [
+   [
+    51.4803,
+    -0.1403,
+    400.0
+   ]
+  ],
+  "line": "Did you know, the machines that dug the tube tunnels to Battersea were called Helen and Amy?",
+  "fact": "Local schoolchildren named the two machines that dug the Northern line tunnels to Battersea. They chose Helen and Amy, after the astronaut Helen Sharman and the pilot Amy Johnson.",
+  "source": "Wikipedia: Northern line extension to Battersea",
+  "year": 2017,
+  "topic": "transport"
+ },
+ {
+  "id": "pepys-barnet-well",
+  "kind": "modern",
+  "score": 8,
+  "place": "Barnet Common",
+  "points": [
+   [
+    51.644,
+    -0.224,
+    600.0
+   ]
+  ],
+  "line": "Did you know, Samuel Pepys drank so much well water on Barnet Common he had to stop to pee seven or eight times?",
+  "fact": "In 1664 Samuel Pepys drank five glasses of Barnet Common's famous purging well water. He then had to stop to pee seven or eight times on the road home.",
+  "source": "Wikipedia: Barnet Common",
+  "year": 1664,
+  "topic": "everyday"
+ },
+ {
+  "id": "bond-ambassadeurs",
+  "kind": "modern",
+  "score": 8,
+  "place": "Les Ambassadeurs, Mayfair",
+  "points": [
+   [
+    51.50444,
+    -0.15056,
+    250.0
+   ]
+  ],
+  "line": "Did you know, James Bond first said his name on screen in a Mayfair club?",
+  "fact": "In Dr. No, the first Bond film, Sean Connery introduces himself as Bond for the first time while playing cards at Les Ambassadeurs, a real Mayfair club.",
+  "source": "Wikipedia: Les Ambassadeurs Club",
+  "year": 1962,
+  "topic": "film"
+ },
+ {
+  "id": "syds-coffee-stall",
+  "kind": "modern",
+  "score": 8,
+  "place": "Calvert Avenue, Shoreditch",
+  "points": [
+   [
+    51.5264,
+    -0.0777,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a man was called back from a secret RAF mission to run a Shoreditch coffee stall?",
+  "fact": "Syd's coffee stall stood on Calvert Avenue, Shoreditch, for 100 years. In the war, the mayor got Syd's son called back from a secret RAF mission to run it.",
+  "source": "Wikipedia: Syd's coffee stall",
+  "year": 1940,
+  "topic": "work"
+ },
+ {
+  "id": "sellers-naked",
+  "kind": "modern",
+  "score": 8,
+  "place": "Monkenhurst, New Barnet",
+  "points": [
+   [
+    51.6578,
+    -0.18511,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Peter Sellers turned up naked at Spike Milligan's house in New Barnet, as a joke?",
+  "fact": "The comedian Spike Milligan lived at Monkenhurst in New Barnet from 1974. His friend Peter Sellers once arrived there naked as a joke, and was sent away still naked.",
+  "source": "Wikipedia: Monkenhurst",
+  "year": 1974,
+  "topic": "comedy"
+ },
+ {
+  "id": "norway-tree",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.50806,
+    -0.12806,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Norway has given London the Trafalgar Square Christmas tree every year since 1947?",
+  "fact": "Every year since 1947, Norway's government has given London the Christmas tree in Trafalgar Square. It stands for twelve days before and after Christmas.",
+  "source": "Wikipedia: Trafalgar Square",
+  "year": 1947,
+  "topic": "traditions"
+ },
+ {
+  "id": "fore-street-bomb",
+  "kind": "modern",
+  "score": 8,
+  "place": "Fore Street, City of London",
+  "points": [
+   [
+    51.5182,
+    -0.0918,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the first German bomb to hit the City of London fell on Fore Street?",
+  "fact": "On 25 August 1940, Fore Street became the first place in the City of London hit by a German bomb, just before the Blitz began.",
+  "source": "Wikipedia: Fore Street, London",
+  "year": 1940,
+  "topic": "war"
+ },
+ {
+  "id": "marmite-hostel",
+  "kind": "modern",
+  "score": 7,
+  "place": "Bondway, Vauxhall",
+  "points": [
+   [
+    51.4855,
+    -0.1235,
+    300.0
+   ]
+  ],
+  "line": "Did you know, a Vauxhall homeless shelter opened in an old Marmite factory?",
+  "fact": "In 1973 the homeless charity St Mungo's opened a hostel for up to 200 people in a disused Marmite factory in Vauxhall.",
+  "source": "Wikipedia: St Mungo's (charity)",
+  "year": 1973,
+  "topic": "everyday"
+ },
+ {
+  "id": "sun-in-the-sands",
+  "kind": "modern",
+  "score": 8,
+  "place": "Sun in the Sands, Blackheath",
+  "points": [
+   [
+    51.475,
+    0.025,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the Sun in the Sands junction is named after sheep?",
+  "fact": "The Sun in the Sands pub is named after sunsets seen through dust kicked up by sheep driven from Kent to London. The junction took the pub's name.",
+  "source": "Wikipedia: Sun in the Sands",
+  "year": 1745,
+  "topic": "names"
+ },
+ {
+  "id": "peter-the-great",
+  "kind": "modern",
+  "score": 8,
+  "place": "Deptford Dockyard",
+  "points": [
+   [
+    51.4865,
+    -0.0276,
+    400.0
+   ]
+  ],
+  "line": "Did you know, a Russian emperor came to Deptford in disguise to learn shipbuilding?",
+  "fact": "In 1698 Peter the Great, Russia's emperor, came to the royal dockyard at Deptford, officially in disguise, to learn how ships were built.",
+  "source": "Wikipedia: Deptford Dockyard",
+  "year": 1698,
+  "topic": "royals"
+ },
+ {
+  "id": "george-iv-marble-arch",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.50838,
+    -0.12759,
+    200.0
+   ]
+  ],
+  "line": "Did you know, the statue of George IV in Trafalgar Square was meant to stand on top of Marble Arch?",
+  "fact": "The statue of George IV on horseback was made for the top of Marble Arch. After he died it went on an empty plinth in Trafalgar Square as a stopgap.",
+  "source": "Wikipedia: Equestrian statue of George IV, Trafalgar Square",
+  "year": 1843,
+  "topic": "art"
+ },
+ {
+  "id": "caxton-weddings",
+  "kind": "building",
+  "score": 7,
+  "place": "Caxton Hall, Westminster",
+  "points": [
+   [
+    51.49861,
+    -0.13514,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Ringo Starr, Elizabeth Taylor and a future prime minister all married at Caxton Hall?",
+  "fact": "Caxton Hall in Westminster was a register office where many famous people married. They included Anthony Eden, a future prime minister, Elizabeth Taylor and Ringo Starr.",
+  "source": "Wikipedia: Caxton Hall",
+  "year": 1950,
+  "topic": "people"
+ },
+ {
+  "id": "churchill-honeymoon",
+  "kind": "modern",
+  "score": 7,
+  "place": "Highgrove House, Eastcote",
+  "points": [
+   [
+    51.58167,
+    -0.40778,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Winston Churchill spent his honeymoon in Eastcote?",
+  "fact": "Winston Churchill spent his honeymoon at Highgrove House in Eastcote. The brother and sister who lived there were friends of his mother.",
+  "source": "Wikipedia: Highgrove House, Eastcote",
+  "year": 1908,
+  "topic": "people"
+ },
+ {
+  "id": "widows-son-buns",
+  "kind": "modern",
+  "score": 8,
+  "place": "Widow's Son, Bromley-by-Bow",
+  "points": [
+   [
+    51.52225,
+    -0.01801,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a pub in Bromley-by-Bow hangs up a hot cross bun every Good Friday?",
+  "fact": "The Widow's Son is named after a widow who kept a hot cross bun for her sailor son, due home at Easter. Every Good Friday, the pub hangs up another.",
+  "source": "Wikipedia: The Widow's Son, London",
+  "year": 1848,
+  "topic": "traditions"
+ },
+ {
+  "id": "bears-grease",
+  "kind": "modern",
+  "score": 8,
+  "place": "Old Bond Street",
+  "points": [
+   [
+    51.5095,
+    -0.1412,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a Bond Street perfumer made its name selling bear grease for your hair?",
+  "fact": "Atkinsons of London's first big seller was a hair cream made from bear grease. Bald men were told it would make their hair grow back.",
+  "source": "Wikipedia: Atkinsons of London",
+  "year": 1800,
+  "topic": "shops"
+ },
+ {
+  "id": "plath-hughes",
+  "kind": "modern",
+  "score": 7,
+  "place": "Rugby Street, Bloomsbury",
+  "points": [
+   [
+    51.52179,
+    -0.11717,
+    200.0
+   ]
+  ],
+  "line": "Did you know, the poets Sylvia Plath and Ted Hughes spent their wedding night on Rugby Street?",
+  "fact": "The poets Ted Hughes and Sylvia Plath spent their wedding night in 1956 at his flat, 18 Rugby Street. He later wrote a poem named after it.",
+  "source": "Wikipedia: Rugby Street",
+  "year": 1956,
+  "topic": "books"
+ },
+ {
+  "id": "kings-cross-1863",
+  "kind": "modern",
+  "score": 7,
+  "place": "King's Cross",
+  "points": [
+   [
+    51.5308,
+    -0.1202,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a closed station at King's Cross was one of the first seven on London's first underground line?",
+  "fact": "King's Cross Thameslink opened in 1863 as one of the first seven stations on the Metropolitan Railway, London's first underground line. It closed in 2007.",
+  "source": "Wikipedia: King's Cross Thameslink railway station",
+  "year": 1863,
+  "topic": "transport"
+ },
+ {
+  "id": "cadiz-bum",
+  "kind": "modern",
+  "score": 8,
+  "place": "Horse Guards Parade",
+  "points": [
+   [
+    51.5042,
+    -0.1273,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a French cannon on Horse Guards Parade was a running joke about the Prince Regent's bottom?",
+  "fact": "The French mortar, a kind of cannon, on Horse Guards Parade was nicknamed the Prince Regent's Bomb. Back then bomb was pronounced bum, and he was famously fat.",
+  "source": "Wikipedia: Cádiz Memorial",
+  "year": 1816,
+  "topic": "royals"
+ },
+ {
+  "id": "rolls-skating-rink",
+  "kind": "modern",
+  "score": 8,
+  "place": "Seagrave Road, Fulham",
+  "points": [
+   [
+    51.4863,
+    -0.1953,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Charles Rolls opened his first car showroom in an old skating rink in Fulham?",
+  "fact": "Around 1903, Charles Rolls turned Lillie Hall, a disused skating rink in Fulham, into his first car showroom. A few years later he co-founded Rolls-Royce.",
+  "source": "Wikipedia: Lillie Hall",
+  "year": 1903,
+  "topic": "invention"
+ },
+ {
+  "id": "bomb-shop",
+  "kind": "modern",
+  "score": 7,
+  "place": "66 Charing Cross Road",
+  "points": [
+   [
+    51.5123,
+    -0.1284,
+    200.0
+   ]
+  ],
+  "line": "Did you know, a bookshop on Charing Cross Road was known as the Bomb Shop?",
+  "fact": "Henderson's, at 66 Charing Cross Road, sold radical and anarchist books. People called it the Bomb Shop, and the shop was so proud of the name it printed it on its adverts.",
+  "source": "Wikipedia: Henderson's",
+  "year": 1910,
+  "topic": "books"
+ },
+ {
+  "id": "franklin-chess",
+  "kind": "modern",
+  "score": 7,
+  "place": "St Martin's Lane",
+  "points": [
+   [
+    51.5116,
+    -0.12781,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Benjamin Franklin played chess at a coffee house on St Martin's Lane?",
+  "fact": "Old Slaughter's Coffee House on St Martin's Lane was known for games like chess and draughts. Benjamin Franklin was one of its players.",
+  "source": "Wikipedia: Old Slaughter's Coffee House",
+  "year": 1750,
+  "topic": "people"
+ },
+ {
+  "id": "sex-pistols-denmark-st",
+  "kind": "modern",
+  "score": 8,
+  "place": "Denmark Street",
+  "points": [
+   [
+    51.51528,
+    -0.12944,
+    200.0
+   ]
+  ],
+  "line": "Did you know, the Sex Pistols lived on Denmark Street?",
+  "fact": "The Sex Pistols lived above number 6 Denmark Street. They rehearsed in the basement there and recorded their first demos in the building.",
+  "source": "Wikipedia: Denmark Street",
+  "year": 1976,
+  "topic": "music"
+ },
+ {
+  "id": "duck-island-bombs",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Duck Island, St James's Park",
+  "points": [
+   [
+    51.50303,
+    -0.13014,
+    250.0
+   ]
+  ],
+  "line": "Did you know, an island in St James's Park was where bombs were made safe?",
+  "fact": "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.",
+  "source": "Wikipedia: Duck Island Cottage",
+  "year": 1894,
+  "topic": "secrets"
+ },
+ {
+  "id": "name-kew",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kew",
+  "points": [
+   [
+    51.4787,
+    -0.29,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Kew's name means a landing place on a bend in the river?",
+  "fact": "Kew was written Cayho in 1327. It joins the Old French kai, a landing place, with the Old English hoh, a spur of land made by the bend in the Thames.",
+  "source": "Wikipedia: Kew",
+  "year": 1327,
+  "topic": "names"
+ },
+ {
+  "id": "name-richmond",
+  "kind": "modern",
+  "score": 8,
+  "place": "Richmond",
+  "points": [
+   [
+    51.4613,
+    -0.3037,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Richmond is named after a town in Yorkshire?",
+  "fact": "Richmond used to be called Sheen. In 1501 Henry VII rebuilt the palace there and named it Richmond, after his title, Earl of Richmond, which came from Richmond in Yorkshire.",
+  "source": "Wikipedia: Richmond, London",
+  "year": 1501,
+  "topic": "names"
+ },
+ {
+  "id": "name-kingston",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kingston upon Thames",
+  "points": [
+   [
+    51.4123,
+    -0.3007,
+    1200.0
+   ]
+  ],
+  "line": "Did you know, Kingston's name means the king's estate?",
+  "fact": "Kingston means the king's estate. The land belonged to the Saxon kings, and Kingston was the earliest royal borough.",
+  "source": "Wikipedia: Kingston upon Thames",
+  "year": 838,
+  "topic": "names"
+ },
+ {
+  "id": "name-surbiton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Surbiton",
+  "points": [
+   [
+    51.3937,
+    -0.3033,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Surbiton just means the south farm?",
+  "fact": "Surbiton comes from the Old English for southern farm, as opposed to Norbiton, the northern one. Both were outlying farms belonging to the king's manor of Kingston.",
+  "source": "Wikipedia: Surbiton",
+  "year": 1179,
+  "topic": "names"
+ },
+ {
+  "id": "name-knightsbridge",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Knightsbridge",
+  "points": [
+   [
+    51.5015,
+    -0.1607,
+    700.0
+   ]
+  ],
+  "line": "Did you know, the knights in Knightsbridge weren't knights?",
+  "fact": "Knightsbridge means the bridge of the young men. In Saxon times, the word knight just meant a young man or a servant, not a knight on horseback.",
+  "source": "Wikipedia: Knightsbridge",
+  "year": 1050,
+  "topic": "names"
+ },
+ {
+  "id": "name-soho",
+  "kind": "modern",
+  "score": 8,
+  "place": "Soho",
+  "points": [
+   [
+    51.5136,
+    -0.1365,
+    600.0
+   ]
+  ],
+  "line": "Did you know, Soho is named after a hunting cry?",
+  "fact": "Soho takes its name from soho!, an old hunting cry. It was first used as the name of the area around 1636.",
+  "source": "Wikipedia: Soho",
+  "year": 1636,
+  "topic": "names"
+ },
+ {
+  "id": "name-stepney",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Stepney",
+  "points": [
+   [
+    51.5152,
+    -0.0462,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Stepney is named after a man called Stybba and his landing place?",
+  "fact": "Stepney means Stybba's landing place: a spot on the Thames where boats came in, named after a man called Stybba around the year 1000.",
+  "source": "Wikipedia: Stepney",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-bermondsey",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Bermondsey",
+  "points": [
+   [
+    51.4979,
+    -0.0637,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Bermondsey means Beornmund's island?",
+  "fact": "Bermondsey means Beornmund's island, after a Saxon called Beornmund. It may not have been a real island: the Old English word could also mean firm ground in a marsh.",
+  "source": "Wikipedia: Bermondsey",
+  "year": 1086,
+  "topic": "names"
+ },
+ {
+  "id": "name-southwark",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Southwark",
+  "points": [
+   [
+    51.5035,
+    -0.0804,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Southwark's name means the southern fort?",
+  "fact": "Southwark means the southern defensive work. In the 900s it was the fort of the men of Surrey, at the south end of London Bridge, across the river from the City.",
+  "source": "Wikipedia: Southwark",
+  "year": 900,
+  "topic": "names"
+ },
+ {
+  "id": "name-lambeth",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Lambeth",
+  "points": [
+   [
+    51.4963,
+    -0.1171,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Lambeth means a landing place for lambs?",
+  "fact": "Lambeth was first written Lambehitha in 1062, meaning a landing place for lambs. It was a riverside harbour where lambs were shipped in or out.",
+  "source": "Wikipedia: Lambeth",
+  "year": 1062,
+  "topic": "names"
+ },
+ {
+  "id": "name-vauxhall",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Vauxhall",
+  "points": [
+   [
+    51.4861,
+    -0.1253,
+    800.0
+   ]
+  ],
+  "line": "Did you know, Vauxhall is named after King John's mercenary chief?",
+  "fact": "Vauxhall is named after Falkes de Breauté, who led King John's hired soldiers. He had a big house here, known as Faulke's Hall, and over time the name became Vauxhall.",
+  "source": "Wikipedia: Vauxhall",
+  "year": 1250,
+  "topic": "names"
+ },
+ {
+  "id": "name-brixton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Brixton Hill",
+  "points": [
+   [
+    51.45,
+    -0.118,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Brixton is named after a Saxon lord's stone?",
+  "fact": "Brixton means Brixi's stone. Brixi, a Saxon lord, is thought to have set up a stone at the top of what's now Brixton Hill, to mark where the local court met.",
+  "source": "Wikipedia: Brixton",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-greenwich",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Greenwich",
+  "points": [
+   [
+    51.4826,
+    -0.0077,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Greenwich means the green trading town?",
+  "fact": "Greenwich was first written Gronewic in 918. The wic part comes from the Latin vicus and means a trading town, so the name means the green trading town.",
+  "source": "Wikipedia: Greenwich",
+  "year": 918,
+  "topic": "names"
+ },
+ {
+  "id": "name-ealing",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Ealing",
+  "points": [
+   [
+    51.513,
+    -0.3089,
+    1200.0
+   ]
+  ],
+  "line": "Did you know, Ealing is named after a Saxon tribe?",
+  "fact": "Ealing comes from the Gillingas, a Saxon tribe named in a charter from around the year 700. The tribe took its name from its chief, a man called Gilla.",
+  "source": "Wikipedia: Ealing",
+  "year": 700,
+  "topic": "names"
+ },
+ {
+  "id": "name-acton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Acton",
+  "points": [
+   [
+    51.508,
+    -0.27,
+    1200.0
+   ]
+  ],
+  "line": "Did you know, Acton means the farm by the oaks?",
+  "fact": "Acton comes from the Old English ac, oak, and tun, an enclosure. It means a field or farm surrounded by oak trees.",
+  "source": "Wikipedia: Acton, London",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-brentford",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Brentford",
+  "points": [
+   [
+    51.487,
+    -0.309,
+    900.0
+   ]
+  ],
+  "line": "Did you know, the River Brent may be named after a goddess?",
+  "fact": "Brentford is the ford over the River Brent. The river's name comes from an ancient British word for high or holy, and may be linked to the goddess Brigantia.",
+  "source": "Wikipedia: Brentford",
+  "year": 705,
+  "topic": "names"
+ },
+ {
+  "id": "name-islington",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Islington",
+  "points": [
+   [
+    51.5362,
+    -0.1033,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Islington means Gisla's hill?",
+  "fact": "The Saxons called Islington Giseldone. It means Gisla's hill, after a man called Gisla, and it was still spelt Isledon into the 1600s.",
+  "source": "Wikipedia: Islington",
+  "year": 1005,
+  "topic": "names"
+ },
+ {
+  "id": "name-wandsworth",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Wandsworth",
+  "points": [
+   [
+    51.4567,
+    -0.191,
+    1000.0
+   ]
+  ],
+  "line": "Did you know, Wandsworth and the River Wandle are named after the same man?",
+  "fact": "Wandsworth means the enclosure of a man called Waendel. The River Wandle, which joins the Thames there, is named after him too.",
+  "source": "Wikipedia: Wandsworth",
+  "year": 1086,
+  "topic": "names"
+ },
+ {
+  "id": "name-camden-town",
+  "kind": "modern",
+  "score": 8,
+  "place": "Camden Town",
+  "points": [
+   [
+    51.539,
+    -0.1426,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Camden Town is named after a house in Kent?",
+  "fact": "Camden Town is named after Charles Pratt, Earl Camden. He took his title from his house in Chislehurst, Kent, Camden Place, once owned by the historian William Camden.",
+  "source": "Wikipedia: Camden Town",
+  "year": 1791,
+  "topic": "names"
+ },
+ {
+  "id": "name-bayswater",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Bayswater",
+  "points": [
+   [
+    51.5121,
+    -0.1879,
+    900.0
+   ]
+  ],
+  "line": "Did you know, Bayswater was a place for watering horses?",
+  "fact": "Bayswater comes from Bayards Watering Place, recorded in 1380. It was either a place where horses drank or one owned by the Bayard family.",
+  "source": "Wikipedia: Bayswater",
+  "year": 1380,
+  "topic": "names"
+ },
+ {
+  "id": "barts-jester",
+  "kind": "medieval",
+  "score": 8,
+  "place": "St Bartholomew's Hospital",
+  "points": [
+   [
+    51.5174,
+    -0.1003,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Barts hospital was founded by the king's jester?",
+  "fact": "St Bartholomew's Hospital was founded in 1123 by Rahere, once jester to Henry I. He fell ill on a pilgrimage to Rome and vowed to found a hospital if he recovered.",
+  "source": "BHO: Old and New London vol 2; VCH London vol 1",
+  "year": 1123,
+  "topic": "people"
+ },
+ {
+  "id": "tower-white-bear",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Tower of London",
+  "points": [
+   [
+    51.5081,
+    -0.0759,
+    350.0
+   ]
+  ],
+  "line": "Did you know, Henry III kept a white bear that went fishing in the Thames?",
+  "fact": "In 1252, London's sheriffs were told to pay fourpence a day to feed the king's white bear at the Tower, and to give it a muzzle and chain for fishing in the Thames.",
+  "source": "BHO: Old and New London vol 2",
+  "year": 1252,
+  "topic": "animals"
+ },
+ {
+  "id": "moorfields-bone-skates",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Moorfields",
+  "points": [
+   [
+    51.5187,
+    -0.0883,
+    400.0
+   ]
+  ],
+  "line": "Did you know, medieval Londoners went skating at Moorfields on animal bones?",
+  "fact": "In the 1100s, when the marsh at Moorfields froze, young Londoners tied animal leg bones to their feet and pushed themselves across the ice with iron-tipped poles.",
+  "source": "BHO: Old and New London vol 2",
+  "year": 1174,
+  "topic": "sport"
+ },
+ {
+  "id": "bow-bridge",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Bow",
+  "points": [
+   [
+    51.53,
+    -0.013,
+    600.0
+   ]
+  ],
+  "line": "Did you know, Bow is named after a bridge shaped like a bow?",
+  "fact": "Queen Matilda got soaked crossing the River Lea, so around 1110 she had a bridge built. It was arched like a bow, a shape England hadn't seen before, and gave Bow its name.",
+  "source": "BHO: Lysons, Environs of London vol 3; VCH Essex vol 6",
+  "year": 1110,
+  "topic": "names"
+ },
+ {
+  "id": "harrow-temple",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Harrow on the Hill",
+  "points": [
+   [
+    51.5755,
+    -0.3369,
+    700.0
+   ]
+  ],
+  "line": "Did you know, Harrow is named after a pagan temple?",
+  "fact": "Harrow comes from the Saxon word for a heathen temple. St Mary's church, on top of Harrow Hill, may stand where that temple was.",
+  "source": "BHO: VCH Middlesex vols 1 and 4",
+  "year": 767,
+  "topic": "names"
+ },
+ {
+  "id": "clerkenwell-plays",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Clerkenwell",
+  "points": [
+   [
+    51.5233,
+    -0.1055,
+    400.0
+   ]
+  ],
+  "line": "Did you know, Clerkenwell is named after a well where clergy put on plays?",
+  "fact": "Clerkenwell means the clerks' well. In the 1100s, London's clergy gathered around a well here to act out stories from the Bible, and the area took its name from it.",
+  "source": "BHO: Topographical Dictionary of England; Stow via Survey of London vol 46",
+  "year": 1174,
+  "topic": "names"
+ },
+ {
+  "id": "temple-church-round",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Temple Church",
+  "points": [
+   [
+    51.5133,
+    -0.11,
+    250.0
+   ]
+  ],
+  "line": "Did you know, Temple Church is round to copy a church in Jerusalem?",
+  "fact": "The Knights Templar built Temple Church round to copy the Church of the Holy Sepulchre in Jerusalem. The head of the church in Jerusalem came to London to dedicate it in 1185.",
+  "source": "BHO: Survey of London vol 46; RCHME London vol 4",
+  "year": 1185,
+  "topic": "religion"
+ },
+ {
+  "id": "guildhall-arena",
+  "kind": "roman",
+  "score": 9,
+  "place": "Guildhall Yard",
+  "points": [
+   [
+    51.5157,
+    -0.0924,
+    250.0
+   ]
+  ],
+  "line": "Did you know, there's a Roman arena under Guildhall Yard?",
+  "fact": "London's Roman amphitheatre, where gladiators fought, lies under Guildhall Yard. It was only found in 1988, and a curve of dark stone in the yard marks its outer wall.",
+  "source": "London Museum: The Roman amphitheatre in central London; Wikipedia: Amphitheatre (London)",
+  "year": 70,
+  "topic": "ancient"
+ },
+ {
+  "id": "crosby-hall-moved",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Crosby Hall, Chelsea",
+  "points": [
+   [
+    51.4829,
+    -0.1712,
+    300.0
+   ]
+  ],
+  "line": "Did you know, Chelsea's oldest building was moved there from the City?",
+  "fact": "Crosby Hall was built in Bishopsgate in the 1400s. When it was due to be demolished, it was taken down and rebuilt in Chelsea in 1909 and 1910.",
+  "source": "BHO: VCH Middlesex vol 12; Dictionary of London",
+  "year": 1466,
+  "topic": "buildings"
+ },
+ {
+  "id": "tabard-mp",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Talbot Yard, Borough High Street",
+  "points": [
+   [
+    51.5025,
+    -0.0911,
+    250.0
+   ]
+  ],
+  "line": "Did you know, the inn where Chaucer's pilgrims meet was run by Southwark's MP?",
+  "fact": "In The Canterbury Tales, the pilgrims meet at the Tabard, a real inn on Borough High Street. Its real host at the time, Henry Bailley, was also Southwark's MP in 1376 and 1379.",
+  "source": "BHO: Survey of London vol 22",
+  "year": 1376,
+  "topic": "books"
+ },
+ {
+  "id": "thorney-island",
+  "kind": "saxon",
+  "score": 8,
+  "place": "Westminster Abbey",
+  "points": [
+   [
+    51.4994,
+    -0.1273,
+    350.0
+   ]
+  ],
+  "line": "Did you know, Westminster Abbey was built on an island?",
+  "fact": "Westminster Abbey stands on what was Thorney Island, a patch of marshy ground in the Thames, cut off by streams flowing down from Hampstead and Kilburn.",
+  "source": "BHO: Old and New London vol 3; New History of London",
+  "year": 610,
+  "topic": "nature"
+ },
+ {
+  "id": "kingston-bridge-old",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kingston Bridge",
+  "points": [
+   [
+    51.4115,
+    -0.3082,
+    400.0
+   ]
+  ],
+  "line": "Did you know, Kingston had the next bridge up the Thames from London Bridge?",
+  "fact": "In the 1200s, Kingston's bridge was the first bridge over the Thames upstream of London Bridge. That made Kingston one of the two main ways into Surrey from the north.",
+  "source": "BHO: VCH Surrey vol 3; Lysons, Environs of London vol 1",
+  "year": 1223,
+  "topic": "transport"
+ },
+ {
+  "id": "eltham-barn",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Eltham Palace",
+  "points": [
+   [
+    51.4475,
+    0.048,
+    350.0
+   ]
+  ],
+  "line": "Did you know, Eltham Palace's great hall, where Parliaments met, became a barn?",
+  "fact": "Edward IV finished the great hall at Eltham Palace around 1479, and Parliaments met there. By the 1790s, the royal hall was being used as a barn.",
+  "source": "BHO: RCHME London vol 5; Lysons, Environs of London vol 4",
+  "year": 1479,
+  "topic": "buildings"
+ },
+ {
+  "id": "cheapside-joust",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Cheapside",
+  "points": [
+   [
+    51.5143,
+    -0.0937,
+    300.0
+   ]
+  ],
+  "line": "Did you know, knights once held a jousting tournament in Cheapside?",
+  "fact": "In 1330, to celebrate the birth of the king's heir, thirteen knights a side jousted in Cheapside. The street was covered in sand so the horses wouldn't slip.",
+  "source": "BHO: Old and New London vol 1",
+  "year": 1330,
+  "topic": "sport"
+ },
+ {
+  "id": "bedlam-liverpool-st",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Liverpool Street station",
+  "points": [
+   [
+    51.5178,
+    -0.0817,
+    300.0
+   ]
+  ],
+  "line": "Did you know, the word bedlam comes from a hospital where Liverpool Street station is now?",
+  "fact": "Bethlem Hospital was founded in 1247 just outside Bishopsgate, where Liverpool Street station is now. Londoners shortened its name to Bedlam, which is where the word comes from.",
+  "source": "BHO: Survey of London vol 25; Stow",
+  "year": 1247,
+  "topic": "names"
+ },
+ {
+  "id": "caxton-almonry",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Westminster Abbey",
+  "points": [
+   [
+    51.499,
+    -0.131,
+    300.0
+   ]
+  ],
+  "line": "Did you know, England's first printing press was set up beside Westminster Abbey?",
+  "fact": "In the 1470s, William Caxton set up the first printing press in England in the Almonry, next to Westminster Abbey, where the abbey handed out alms to the poor.",
+  "source": "BHO: Old and New London vol 3; VCH Middlesex vol 2",
+  "year": 1476,
+  "topic": "invention"
+ },
+ {
+  "id": "london-bridge-chapel",
+  "kind": "medieval",
+  "score": 8,
+  "place": "London Bridge",
+  "points": [
+   [
+    51.5079,
+    -0.0877,
+    300.0
+   ]
+  ],
+  "line": "Did you know, old London Bridge had a chapel in the middle?",
+  "fact": "The stone London Bridge, begun in 1176, had a two-storey chapel on its central pier. You could reach the lower chapel from the one above, or by stone steps up from the river.",
+  "source": "BHO: Old and New London vol 2; Dictionary of London",
+  "year": 1205,
+  "topic": "religion"
+ },
+ {
+  "id": "lundenwic-covent-garden",
+  "kind": "saxon",
+  "score": 9,
+  "place": "Covent Garden",
+  "points": [
+   [
+    51.5117,
+    -0.124,
+    600.0
+   ]
+  ],
+  "line": "Did you know, Saxon London was at Covent Garden, not in the City?",
+  "fact": "In the 600s, Saxon London sat outside the old Roman walls, stretching from today's National Gallery to Aldwych. When London moved back inside the walls, this became the old port: Aldwych.",
+  "source": "Wikipedia: Aldwych",
+  "year": 650,
+  "topic": "names"
+ },
+ {
+  "id": "mithras-returned",
+  "kind": "roman",
+  "score": 8,
+  "place": "London Mithraeum, Walbrook",
+  "points": [
+   [
+    51.5124,
+    -0.0905,
+    250.0
+   ]
+  ],
+  "line": "Did you know, a Roman temple on Walbrook was moved away, then brought back?",
+  "fact": "A Roman temple to the god Mithras was found on Walbrook in 1954 and moved 100 metres for an office block. In 2017 it went back to its original site, underground.",
+  "source": "Wikipedia: London Mithraeum",
+  "year": 240,
+  "topic": "ancient"
  }
 ]

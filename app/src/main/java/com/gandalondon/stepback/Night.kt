@@ -34,24 +34,43 @@ object Night {
     )
 
     /**
-     * Tonight's finds: up to five of the most interesting places passed today, by score, never told before.
+     * Tonight's finds: up to five places passed today, never told before, picked by the nightly mix (agreed 21 Nov):
+     * highest score first, then each next pick loses 1.5 for every find already picked from the same era and
+     * 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one),
+     * but a night spreads across time. Unpicked places stay untold for another day.
      * Answers don't steer what you're told (decided 18 Nov): Interesting or Not for me only decides
      * ball or dust in the rings, so the picture keeps both.
      */
     fun pick(c: Context, day: String): List<Spot> {
         val told = Store(c).told
-        return Store(c).passed(day)
+        val left = Store(c).passed(day)
             .filter { it !in told }
             .mapNotNull { Spots.byId(c, it) }
-            .sortedByDescending { it.score }
-            .take(5)
+            .sortedWith(compareByDescending<Spot> { it.score }.thenBy { it.id }) // ties stay stable
+            .toMutableList()
+        val picked = mutableListOf<Spot>()
+        while (picked.size < 5 && left.isNotEmpty()) {
+            val best = left.maxWith(compareBy<Spot> { s ->
+                s.score - 1.5 * picked.count { it.era == s.era } - 1.5 * picked.count { it.topic.isNotEmpty() && it.topic == s.topic }
+            }.thenBy { -left.indexOf(it) })
+            picked += best; left -= best
+        }
+        return picked
     }
 
-    fun run(c: Context) {
+    /** At 9pm: first count any untold zone you're standing in right now (the zone fix, 21 Nov), then pick and tell. */
+    fun run(c: Context, done: () -> Unit = {}) {
         val now = LocalDateTime.now()
         // If the alarm slipped past midnight, it still belongs to yesterday.
         val date = if (now.hour < 12) LocalDate.now().minusDays(1) else LocalDate.now()
         val day = Day.endingOn(date)
+        Fences.here(c) { loc ->
+            if (loc != null) Fences.countInside(c, loc, day, "at 9pm")
+            try { tell(c, day) } finally { done() }
+        }
+    }
+
+    private fun tell(c: Context, day: String) {
         val spots = pick(c, day)
         TestLog.add(c, "tonight: " + (if (spots.isEmpty()) "nothing to tell" else spots.joinToString(", ") { it.id }))
         if (spots.isNotEmpty()) {

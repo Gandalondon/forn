@@ -14,12 +14,13 @@ Go about your day. Stepback quietly notes the old places you pass. In the evenin
 - No internet permission. Nothing leaves the phone.
 - Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under or passed, never "here".
 - A fact that has been told drops its circle.
-- Android allows 100 circles per app.
+- Android allows 100 circles per app, and London alone has more. So the app watches the 99 nearest untold circles plus one ring around where you are; leave that ring (half the distance to the furthest watched circle, 1 to 30km) and it picks the nearest again (21 Nov).
+- Already inside counts (zone fix, 21 Nov): when the circles are set up, and again at 9pm, any untold circle you're standing in counts as passed, at the time of that fix. Android's own "already inside" trigger doesn't always fire, which is how build 46 missed places.
 
 ## What you're told
 
 - A Stepback day runs 9pm to 9pm. Anything passed after tonight's line counts towards tomorrow's.
-- The pick is the most interesting place passed that day, by score, among those never told before. Each fact is told once, ever.
+- The pick is the nightly mix (agreed 21 Nov): among places passed that day and never told before, the highest score first; each next pick loses 1.5 for every find already picked from the same era and 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one), but a night spreads across time. Unpicked places stay untold for another day. Each fact is told once, ever.
 - Answers never steer the pick (decided 18 Nov). Interesting or Not for me only decides ball or dust in the rings. Otherwise the dust would die out as the app learned your taste.
 - Quiet day, no notification. Never padded.
 - Up to five finds each evening, most interesting first, never padded; a home day may be one card. The notification is the best one's line ("And 2 more."). The cards wait on top of the rings until answered; until noon, last night's finds still count as today's ring.
@@ -37,8 +38,30 @@ Each spot has:
 - line: the notification, one sentence starting "Did you know, ".
 - fact: the card. Two or three short sentences, plain and specific, written for someone who has never heard of it. Lead with the surprise.
 - source: where it was checked. Every fact is checked against a published source before it goes in; nothing from memory.
+- year: when the thing in the fact happened (rough is fine; negative for BC). Era comes from it: prehistory (before 43), roman, saxon (410), medieval (1066), tudor (1485), stuart (1603), georgian (1714), victorian (1837), early-20c (1901), late-20c (1945), 21c (2000).
+- topic: one word from war, transport, music, film, comedy, sport, royals, people, politics, law, science, invention, design, buildings, art, books, religion, names, traditions, everyday, work, shops, animals, nature, secrets, ancient.
 
-Next additions: an age for the thing itself (for the rings later) and the time passed, which is already stored.
+## Writing rules (confirmed by Tony, 21 Nov)
+
+1. The single most interesting, surprising fact about the place. Aim for whoa, not merely amusing.
+2. Every claim in the notification and the card is in the source.
+3. Skip anything resting on a death, crime or sex; no restaurants or "described as" quotes.
+4. Drop anything that makes you ask "why does it matter?"
+5. The notification states the fact ("Did you know, ...").
+6. One fact per card: the card explains the notification's fact more fully; never a second fact.
+7. Name the kind of thing plainly (the band, a Camden pub, an oak tree, an English army).
+8. Don't name people who'd need explaining.
+9. No jargon, odd phrasing, old or foreign words, or places locals wouldn't know. Round numbers.
+10. Give the cause if the source has it.
+11. Aim for 35 words or under.
+12. A fact that needs local or background knowledge to land is out. A card rejected twice is dropped, not rewritten again.
+13. Every fact keeps its source text (in the content pipeline's files).
+
+## Reviews (21 Nov)
+
+- Tony can't check every fact. Reviews are nights: four nights of five finds along a realistic day, mixing eras, about half new and half already passed. He keeps or rejects each card and rates each night good or flat.
+- One review per new area or roughly every 60 new facts. Under 1 in 5 rejects and the area's unseen facts ship.
+- A blind grader agent agreed with Tony only about 2 in 3, so it's an optional editor pass, never a gate.
 
 ## Answers
 
