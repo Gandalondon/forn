@@ -94,14 +94,26 @@ object Fences {
      */
     fun register(c: Context) {
         if (!hasLocation(c) || !hasBackground(c)) return
+        // One set-up at a time (21 Nov): opening the app, a 9pm run and the re-pick ring can all ask at once.
+        // Two overlapping set-ups each removed the old zones, then each added its own 100: Android refused
+        // ("Maximum package geofence allowance reached"). A request made mid set-up runs once it's done.
+        synchronized(this) { if (busy) { again = true; return }; busy = true }
         here(c) { l ->
             if (l != null) countInside(c, l, Day.key(), "when zones were set")
-            add(c, l)
+            try { add(c, l) { finished(c) } } catch (e: Exception) { status(c, "Zones not working: ${e.message}"); finished(c) }
         }
     }
 
+    @Volatile private var busy = false
+    @Volatile private var again = false
+
+    private fun finished(c: Context) {
+        val rerun = synchronized(this) { busy = false; again.also { again = false } }
+        if (rerun) register(c)
+    }
+
     @SuppressLint("MissingPermission")
-    private fun add(c: Context, l: Location?) {
+    private fun add(c: Context, l: Location?, done: () -> Unit) {
         val told = Store(c).told
         data class Z(val id: String, val pt: Point, val d: Float)
         val all = Spots.all(c).filter { it.id !in told }.flatMap { s ->
@@ -131,7 +143,7 @@ object Fences {
         }
         val client = LocationServices.getGeofencingClient(c)
         client.removeGeofences(intent(c)).addOnCompleteListener {
-            if (fences.isEmpty()) { status(c, "No zones left to watch: every fact has been told."); return@addOnCompleteListener }
+            if (fences.isEmpty()) { status(c, "No zones left to watch: every fact has been told."); done(); return@addOnCompleteListener }
             client.addGeofences(
                 GeofencingRequest.Builder()
                     // Fires straight away if you're already inside one (not always: countInside covers the misses).
@@ -144,16 +156,18 @@ object Fences {
                 .addOnSuccessListener {
                     val places = near.map { spotId(it.id) }.distinct().size
                     status(c, "Watching $places places" + (if (needRefresh) ", the nearest of ${all.size} zones, re-picked after %.1f km.".format(java.util.Locale.UK, refreshKm) else "."))
+                    done()
                 }
                 .addOnFailureListener { e ->
                     val code = (e as? com.google.android.gms.common.api.ApiException)?.statusCode
                     val why = when (code) {
                         1000 -> "Android's zone service is off. Turn on Google Location Accuracy in Settings > Location > Location services."
-                        1001 -> "Too many zones."
+                        1001, 10 -> "Too many zones at once."
                         1004 -> "Location permission isn't set to Allow all the time."
                         else -> e.message ?: "unknown"
                     }
                     status(c, "Zones not working: $why (code $code)")
+                    done()
                 }
         }
     }
