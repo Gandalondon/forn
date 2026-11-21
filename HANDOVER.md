@@ -1,6 +1,14 @@
 # Forn handover
 
-### Latest: Sat 21 Nov 2026, 23:50
+### Latest: Sat 21 Nov 2026, 23:58
+
+### Update, Sat 21 Nov 23:58: getforn.app is live
+- Tony's call: no holding page. The Forn page as it was on gandalondon.com/forn (today still on the outside) is the home page of getforn.app. Kept out of search (meta noindex plus an X-Robots-Tag header in site/vercel.json) until launch.
+- Lives in this repo: site/ (index.html, three.js, instrument-sans.ttf, vercel.json). Vercel project "forn" (gandalondon team, prj_7wmQ0qd9AfxyaC1LoBbpTXGgu2Ou), root directory site, deploys on every push to main. www.getforn.app redirects to getforn.app.
+- build.yml now ignores site/** and *.md, so site and doc pushes don't make a new APK.
+- Vercel connector is connected and authorised for the gandalondon team, so domain, DNS and deploys can be done from the cloud.
+- Still to do: (1) today in the centre on the page: the edit is made on branch forn-rings of Gandalondon/ganda (public/forn/index.html, not pushed, not checked on screen); move it into site/index.html here and send a preview link. (2) Redirect gandalondon.com/forn to getforn.app (ganda next.config.ts). (3) ImprovMX for hello@ and feedback@: Tony adds getforn.app in ImprovMX, then Claude adds the MX and SPF records through Vercel. (4) The agreed page changes (real fact cards, footer only on the last step, city sign-up).
+- Content: batch 11 still has no answers. The fact files live in the claude.ai Forn Project (claude/facts); move them into this repo so any chat can reach them.
 
 ### Update, Sat 21 Nov 23:50: GitHub first (read this first)
 - Tony now works GitHub first so he can work away from the Mac; the Mac is a fallback. This repo's HANDOVER.md is the master handover. The Stepback Google Doc is retired: no need to copy into it.
