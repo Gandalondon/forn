@@ -14,6 +14,7 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
 - RULES.md: zones, mix, year/topic fields and topic list, the 13 writing rules, the night review process.
 - tools/pipeline/: gather, filter, check (bracket bug fixed: titles keep their brackets), dyk, raw, with a README. Caches and geo data are gitignored.
 - To check on the phone: update through Obtainium, open the app, How it works > Testing should say Watching ... places. Tonight's 9pm (or tomorrow's) is the first real test of the mix and the inside count. Ask for a Send my data export after a day out.
+- 19:15 fix (7ea32cd, build green): Tony's app said "Zones not working: Maximum package geofence allowance reached (code 10)". Cause: two zone set-ups overlapped (opening the app runs one, and with a fix arriving at different times they picked different nearest-100 sets), so Android saw more than 100. Fences.register now runs one set-up at a time and re-runs once if asked mid set-up. Check How it works > Testing says Watching ... places after updating.
 - Still to do from Monday's list: getforn.app setup and landing page changes (needs the Mac and Chrome), and copying this handover into the Stepback Google Doc (Drive tools can't edit doc text).
 
 ### Update, Sat 21 Nov 18:50
