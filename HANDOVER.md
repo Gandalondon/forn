@@ -1,6 +1,13 @@
 # Forn handover
 
-### Latest: Sat 21 Nov 2026, 19:05 (read this first)
+### Latest: Sat 21 Nov 2026, 23:50
+
+### Update, Sat 21 Nov 23:50: GitHub first (read this first)
+- Tony now works GitHub first so he can work away from the Mac; the Mac is a fallback. This repo's HANDOVER.md is the master handover. The Stepback Google Doc is retired: no need to copy into it.
+- "Needs the Mac" items no longer wait: landing page changes go through the ganda repo (forn branch) with a Vercel preview link for Tony to check on his phone. getforn.app setup needs the domain registrar and Vercel dashboards: do it in Tony's Chrome when it's on, otherwise give him the one or two settings to change.
+- Network: Tony added historicengland.org.uk (and Hlid's sites) to the allowed sites; applies to new chats. The homepage blocks automated visits, so look for Historic England's open data download address and ask Tony to allow it too. Wikipedia works.
+
+### Sat 21 Nov 2026, 19:05
 
 This section mirrors claude/HANDOVER-2026-11-21.md in the claude.ai Forn Project (the review logs, fact files and review pages live there). Older history follows below it.
 
