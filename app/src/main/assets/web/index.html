@@ -143,10 +143,13 @@ const deck = document.getElementById('deck'), pips = document.getElementById('pi
 let CARDS = [], idx = 0, hold = false;
 function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 const nb = s => s.replace(/-/g, '\u2011'); // hyphenated words never break
+// Cards show just the area (22 Nov): Barclays, Enfield is Enfield; 145 Piccadilly is Piccadilly. The full place
+// still goes into Tell me more, where the detail helps.
+const area = p => String(p).split(',').pop().trim().replace(/^\d+[a-z]?\s+/i, '');
 function renderCard() {
   const f = CARDS[idx], el = document.createElement('article');
   el.className = 'card';
-  el.innerHTML = `<h2>${nb(esc(f.fact))}</h2><p>${esc(f.place)}${f.at ? ', ' + new Date(f.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : ''}</p>`;
+  el.innerHTML = `<h2>${nb(esc(f.fact))}</h2><p>${esc(area(f.place))}${f.at ? ', ' + new Date(f.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : ''}</p>`;
   el.setAttribute('aria-label', `Find ${idx + 1} of ${CARDS.length}. Swipe or tap for the next one.`);
   deck.innerHTML = ''; deck.appendChild(el); wire(el);
   pips.innerHTML = CARDS.length > 1 ? CARDS.map((_, i) => `<button type="button" aria-label="Find ${i + 1} of ${CARDS.length}"><i class="${i === idx ? 'now' : ''}"></i></button>`).join('') : '';
@@ -466,7 +469,7 @@ function keptInOrder() { return balls.map(m => m.userData.f).sort((a, b) => b.d 
 function showPeek(f, move) {
   peekFind = f;
   document.getElementById('peekFact').textContent = f.fact;
-  document.getElementById('peekMeta').textContent = `${f.place}, ${fmtDate(f.day, f.at)}`;
+  document.getElementById('peekMeta').textContent = `${area(f.place)}, ${fmtDate(f.day, f.at)}`;
   document.getElementById('peekMore').hidden = String(f.id).startsWith('demo-'); // example finds open a placeholder card, nothing to ask about
   const day = keptInOrder().filter(g => g.d === f.d);
   document.getElementById('peekPips').innerHTML = day.length > 1 ? day.map(g => `<i${g === f ? ' class="now"' : ''}></i>`).join('') : '';

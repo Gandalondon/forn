@@ -35,7 +35,7 @@ Each spot has:
 - id: short, unique, kebab-case.
 - kind: the type of thing. One of geology, prehistory, roman, pictish, medieval, building, landscape. Add a kind only if none fits.
 - score: 1 to 10, how surprising it is. 9 is a "well I never", 7 a good fact, 4 or below rarely worth telling.
-- place: shown small under the fact, never above it (that would be an eyebrow).
+- place: shown small under the fact, never above it (that would be an eyebrow). Cards show only the area (22 Nov): the part after the last comma, without a house number (Barclays, Enfield shows as Enfield; 145 Piccadilly as Piccadilly). Tell me more still uses the full place.
 - points: [lat, lng, radius in metres], one or more.
 - line: the notification, one sentence starting "Did you know, ".
 - fact: the card. Two or three short sentences, plain and specific, written for someone who has never heard of it. Lead with the surprise.
