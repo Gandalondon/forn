@@ -1,6 +1,12 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 16:15
+### Latest: Sun 22 Nov 2026, 23:20
+
+### Update, Sun 22 Nov 23:20
+- Re-pick loop bug (found in Tony's 22 Nov data export, saved outside the repo): "left the watched area" fired every 4 minutes for 24 hours at home (388 times, from 21 Nov 23:16), re-picking 100 zones each time. Fix in Fences.leftArea + Receivers: only an EXIT counts, Android's own fix must be clearly outside the remembered ring, and at most one re-pick in 10 minutes unless he's moved 2km+. Each leave is now logged with distance, ring size and fix accuracy, and a stale centring fix (30+ min old) is logged. Check the next export: the log should show "ignored" lines or real leaves, not a 4-minute loop. If the loop persists with "km from the centre" in the hundreds, the zone centre is a stale fix (Aberdeen).
+- Today's ring now shows from 9pm even on an empty day (Tony agreed 23:13). Before 9pm it still waits for the first dust.
+- Landing page steps re-timed (Tony): 1 You pass history = dust appears; 2 Forn notices it = the three balls pull together one after another; 3 At 9pm = zoom in, then the card. Pushed; the Site job skipped (96 of 100 Vercel deploys used). The scheduled 16:05 rerun on 23 Nov will deploy it.
+
 
 ### Update, Sun 22 Nov 16:15: batches 13 to 15 reviewed and shipped
 - Tony reviewed all three at 16:00. 58 of 60 kept, every night good. 34 facts ship: spots.json now 218. Details: notes/review-log-3.md.
