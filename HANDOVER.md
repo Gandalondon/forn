@@ -1,6 +1,12 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 01:40
+### Latest: Sun 22 Nov 2026, 13:35
+
+### Update, Sun 22 Nov 13:35: batch 14 drafted, replay test built (items 2 and 3 of the 13:20 list)
+- Batch 13 still waiting for Tony. When he says "batch 13 done": read review-batch-13, add passing facts to spots.json, log in notes/review-log-3.md, push (builds the APK).
+- Batch 14 (outer London) built and waiting too: https://claude.ai/artifact/2NmRPAc1s2xnnN3gsZ9s4o (answers in review-batch-14). 13 new facts plus 7 passed. Files: content/facts/london-outer-batch14.json, sources-london-outer-batch14.json, content/review/batch14-nights.json. Details and things to watch in notes/review-log-3.md.
+- Go/no-go replay test: tools/replay/, results and proposed bar in notes/replay-test.md. Today (weeks 3 to 8): a central commuter's days out get a find 18% of the time, an outer Londoner's 26%; Tony's 29%. Simulated people, not real tracks (no London tracks exist yet; a week of Record walk GPX would make the Tony one real). Rough answer: the centre needs about 1,000 to 2,000 more facts; outer London needs its own push; Tony's country walks need Surrey content. Proposed bar (Tony to agree): 75% of central days out, 50% of outer, 5+ finds a week.
+- Still open from the 13:20 list: (1) map locations for the six held-back stories; (4) the faster pipeline plan.
 
 ### Update, Sun 22 Nov 01:40: dust in the app (branch dust-app, merged to main)
 - Built as decided 22 Nov: dust is what you pass. Every place passed leaves a pinch (70 round specks, as the landing page) on that day's ring by the time passed; today's ring appears with its first dust. At 9pm the app opens close on today: the uncovered pinches pull together into balls (about 1.4s), then the cards fade in. Cards just page (swipe left or tap for next, right for back, pips are buttons); past the last card, or Android back, they're seen for good and the view pulls back.

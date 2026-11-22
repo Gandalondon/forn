@@ -1,0 +1,246 @@
+[
+ {
+  "id": "croydon-mayday",
+  "kind": "modern",
+  "score": 9,
+  "place": "Croydon Airport, Purley Way",
+  "points": [
+   [
+    51.3564,
+    -0.1172,
+    500
+   ]
+  ],
+  "line": "Did you know, the distress call Mayday was invented at Croydon Airport?",
+  "fact": "In the early 1920s, Croydon Airport's head of radio needed a distress call that pilots and Paris controllers would both understand. He chose Mayday, because it sounds like the French for help me.",
+  "source": "Wikipedia: Mayday",
+  "year": 1923,
+  "topic": "transport"
+ },
+ {
+  "id": "crystal-palace-dinner",
+  "kind": "modern",
+  "score": 9,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.4175,
+    -0.0672,
+    400
+   ]
+  ],
+  "line": "Did you know, a dinner party was once held inside a dinosaur in Crystal Palace Park?",
+  "fact": "To launch the world's first dinosaur sculptures, their maker held a dinner on New Year's Eve 1853 inside the mould of one of the Iguanodons. The sculptures are still in the park.",
+  "source": "Wikipedia: Crystal Palace Dinosaurs",
+  "year": 1853,
+  "topic": "science"
+ },
+ {
+  "id": "chislehurst-bowie",
+  "kind": "modern",
+  "score": 8,
+  "place": "Chislehurst Caves",
+  "points": [
+   [
+    51.4074,
+    0.0575,
+    400
+   ]
+  ],
+  "line": "Did you know, David Bowie and Jimi Hendrix played gigs deep inside Chislehurst Caves?",
+  "fact": "The man-made caves under Chislehurst, old chalk mines, were a rock venue in the 1960s. David Bowie played there four times between 1962 and 1966, and Jimi Hendrix twice.",
+  "source": "Wikipedia: Chislehurst Caves",
+  "year": 1966,
+  "topic": "music"
+ },
+ {
+  "id": "down-house-origin",
+  "kind": "building",
+  "score": 8,
+  "place": "Down House, Downe",
+  "points": [
+   [
+    51.3314,
+    0.0533,
+    500
+   ]
+  ],
+  "line": "Did you know, Darwin wrote On the Origin of Species in a village that's now part of London?",
+  "fact": "Charles Darwin wrote On the Origin of Species in his study at Down House, in Downe. It was Kent then; since 1965 it has been in the London Borough of Bromley.",
+  "source": "Wikipedia: Down House",
+  "year": 1859,
+  "topic": "science"
+ },
+ {
+  "id": "lesnes-becket",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Lesnes Abbey, Abbey Wood",
+  "points": [
+   [
+    51.4886,
+    0.1289,
+    400
+   ]
+  ],
+  "line": "Did you know, Lesnes Abbey may have been built as penance for Thomas Becket's murder?",
+  "fact": "The king's chief justice founded Lesnes Abbey in 1178, eight years after Thomas Becket was murdered. It may have been penance for his part in Henry II's long feud with Becket.",
+  "source": "Wikipedia: Lesnes Abbey",
+  "year": 1178,
+  "topic": "religion"
+ },
+ {
+  "id": "red-house-wallpaper",
+  "kind": "building",
+  "score": 8,
+  "place": "Red House, Bexleyheath",
+  "points": [
+   [
+    51.4556,
+    0.1303,
+    300
+   ]
+  ],
+  "line": "Did you know, William Morris drew his first wallpapers at a house in Bexleyheath with no wallpaper?",
+  "fact": "The designer William Morris drew his earliest wallpapers at Red House, the only house he ever built. Yet there was to be no wallpaper in it: the walls were painted or hung with tapestries.",
+  "source": "Wikipedia: Red House, Bexleyheath",
+  "year": 1860,
+  "topic": "design"
+ },
+ {
+  "id": "upminster-sound",
+  "kind": "building",
+  "score": 9,
+  "place": "St Laurence's Church, Upminster",
+  "points": [
+   [
+    51.5557,
+    0.2482,
+    400
+   ]
+  ],
+  "line": "Did you know, the speed of sound was first measured accurately from Upminster's church tower?",
+  "fact": "From St Laurence's tower, Upminster's rector watched distant guns fire through a telescope and timed how long the bang took to reach him. In 1709 he published the first reasonably accurate speed of sound.",
+  "source": "Wikipedia: William Derham",
+  "year": 1709,
+  "topic": "science"
+ },
+ {
+  "id": "walthamstow-first-flight",
+  "kind": "modern",
+  "score": 8,
+  "place": "Walthamstow Marshes",
+  "points": [
+   [
+    51.5706,
+    -0.0499,
+    500
+   ]
+  ],
+  "line": "Did you know, the first flight in an all-British plane took off from Walthamstow Marshes?",
+  "fact": "In July 1909 a young aircraft designer flew his triplane across Walthamstow Marshes: the first flight in an all-British powered plane. He built it under a railway arch, which now has a blue plaque.",
+  "source": "Wikipedia: Walthamstow Marshes",
+  "year": 1909,
+  "topic": "transport"
+ },
+ {
+  "id": "enfield-bren-sten",
+  "kind": "modern",
+  "score": 8,
+  "place": "Royal Small Arms Factory, Enfield Lock",
+  "points": [
+   [
+    51.6687,
+    -0.016,
+    400
+   ]
+  ],
+  "line": "Did you know, the \"en\" in the Bren and Sten guns stands for Enfield?",
+  "fact": "The government's rifle factory at Enfield Lock put its name into its guns. The Bren is Brno plus Enfield; the Sten is its two designers, Shepherd and Turpin, plus Enfield.",
+  "source": "Wikipedia: Royal Small Arms Factory",
+  "year": 1935,
+  "topic": "war"
+ },
+ {
+  "id": "nonsuch-debts",
+  "kind": "building",
+  "score": 9,
+  "place": "Nonsuch Park, Cheam",
+  "points": [
+   [
+    51.3544,
+    -0.2383,
+    500
+   ]
+  ],
+  "line": "Did you know, Henry VIII's palace at Cheam was pulled down to pay off gambling debts?",
+  "fact": "Henry VIII began Nonsuch Palace in 1538; the name boasted there was none such. Around 1682 Charles II's mistress had it pulled down and sold the materials to pay her gambling debts.",
+  "source": "Wikipedia: Nonsuch Palace",
+  "year": 1682,
+  "topic": "royals"
+ },
+ {
+  "id": "eel-pie-stones",
+  "kind": "modern",
+  "score": 8,
+  "place": "Eel Pie Island, Twickenham",
+  "points": [
+   [
+    51.4452,
+    -0.3246,
+    300
+   ]
+  ],
+  "line": "Did you know, the Rolling Stones and the Who played on a tiny island in the Thames at Twickenham?",
+  "fact": "In the 1960s a dance hall on Eel Pie Island was a major jazz and blues club. The Rolling Stones, the Who, the Yardbirds and Eric Clapton all played there.",
+  "source": "Wikipedia: Eel Pie Island",
+  "year": 1963,
+  "topic": "music"
+ },
+ {
+  "id": "hounslow-baseline",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Hounslow Heath",
+  "points": [
+   [
+    51.4263,
+    -0.3662,
+    500
+   ],
+   [
+    51.453,
+    -0.408,
+    600
+   ],
+   [
+    51.4798,
+    -0.4503,
+    500
+   ]
+  ],
+  "line": "Did you know, the mapping of all Britain began with a straight line measured across Hounslow Heath?",
+  "fact": "In 1784 surveyors measured a straight line of just over five miles across Hounslow Heath, chosen because it was flat. The Ordnance Survey's mapping of the whole country began with it.",
+  "source": "Wikipedia: Hounslow Heath",
+  "year": 1784,
+  "topic": "science"
+ },
+ {
+  "id": "uxbridge-so-few",
+  "kind": "modern",
+  "score": 9,
+  "place": "Battle of Britain Bunker, Uxbridge",
+  "points": [
+   [
+    51.5413,
+    -0.4653,
+    400
+   ]
+  ],
+  "line": "Did you know, Churchill's famous \"so few\" line was spoken in a bunker in Uxbridge?",
+  "fact": "During the Battle of Britain, Churchill visited the RAF's operations room, 60 feet under Uxbridge, on 16 August 1940. There he said: \"Never was so much owed, by so many, to so few.\"",
+  "source": "Wikipedia: Battle of Britain Bunker",
+  "year": 1940,
+  "topic": "war"
+ }
+]
