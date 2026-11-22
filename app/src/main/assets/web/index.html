@@ -25,6 +25,7 @@ body.carded .tally { opacity: 0; }
 /* Cards: white, on the 3D view under a dim scrim. A plain stack: the next card is just there. */
 #cards { position: fixed; inset: 0; z-index: 4; background: rgba(26,26,26,0.5); padding: 96px 24px 24px; display: flex; flex-direction: column; transition: opacity 300ms ease; }
 #cards.gone { opacity: 0; pointer-events: none; }
+#cards.wait { opacity: 0; pointer-events: none; } /* 9pm: the dust gathers first, then the cards fade in */
 #cards[hidden] { display: none; }
 .deck { position: relative; flex: 1; }
 .card { position: absolute; inset: 0; border-radius: 32px; background: #FFFFFF; color: var(--ink); padding: 32px 24px 24px; display: flex; flex-direction: column; touch-action: none; user-select: none; will-change: transform; }
@@ -34,6 +35,10 @@ body.carded .tally { opacity: 0; }
 .pips { display: flex; gap: 8px; justify-content: center; height: 8px; margin-top: 24px; }
 .pips i { width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.32); }
 .pips i.now { background: #FFFFFF; }
+/* Tonight's pips are buttons too (22 Nov): 24px to tap, the same 8px dot inside. */
+#pips { gap: 0; height: 24px; margin-top: 16px; }
+#pips button { width: 24px; height: 24px; padding: 8px; border: 0; background: none; }
+#pips button i { display: block; }
 
 /* A reopened find: same card, same scrim. */
 .peek { position: fixed; inset: 0; z-index: 5; padding: 96px 24px 24px; background: rgba(26,26,26,0.5); display: none; }
@@ -79,8 +84,8 @@ body.carded .tally { opacity: 0; }
 <div class="page" id="sheet" role="dialog" aria-label="How it works">
   <div class="head"><button type="button" class="back" id="sheetClose" aria-label="Back"><svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="m274-450 227 227q9 9 9 21t-9 21q-9 9-21 9t-21-9L181-459q-5-5-7-10t-2-11q0-6 2-11t7-10l278-278q9-9 21-9t21 9q9 9 9 21t-9 21L274-510h496q13 0 21.5 8.5T800-480q0 13-8.5 21.5T770-450H274Z"/></svg></button><h2>How it works</h2></div>
   <section><h3>Go about your day</h3><p>Forn notices the places you pass: near, under or over. At 9pm it tells you the best of them. Up to five, fewer on a quiet day.</p></section>
-  <section><h3>Swipe</h3><p>Right if it's interesting, left if it's not for you. Only you see your answers.</p></section>
-  <section><h3>Keep</h3><p>Every right swipe stays as a black ball. Tap one to read it again. The rest turns to dust. One ring for each day, today in the middle.</p></section>
+  <section><h3>Dust</h3><p>Every place you pass leaves dust on that day's ring: history you haven't uncovered yet. Lots of dust means you walked through lots of history.</p></section>
+  <section><h3>Balls</h3><p>Each night Forn uncovers up to five places, and they become black balls. Tap one to read it again. Pass the dusty places again to uncover more. One ring for each day, today in the middle.</p></section>
   <section><h3>What it needs</h3><p>Your location, all the time, so it knows what you passed with your phone in your pocket. Notifications, for 9pm.</p></section>
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
@@ -97,18 +102,30 @@ window.onerror = (m, s, l) => { const t = document.getElementById("tally"); if (
 <script src="three.js"></script>
 <script>
 /* ---------- Data from the phone ---------- */
-// Forn (the app) gives: today's day key, the finds told so far (with answers) and tonight's unanswered cards.
-// Opened in a browser without the app, it shows example data so the page can be checked.
-const N = window.Forn || {
-  state: () => JSON.stringify({ today: '2026-11-18', cards: ['a', 'b'], recording: false, saved: '',
-    passed: [{ id: 'a', place: 'Raynes Park station', at: Date.now() - 3600e3 }],
-    finds: [
-      { id: 'a', fact: "In 1889 a guidebook writer called a Norfolk halt possibly the least important station in England, except Raynes Park.", place: 'Raynes Park station', day: '2026-11-18', at: Date.now() - 3600e3, verdict: '' },
-      { id: 'b', fact: 'Raynes Park was never a park.', place: 'Raynes Park', day: '2026-11-18', at: Date.now() - 3000e3, verdict: '' },
-      { id: 'c', fact: '50 million years ago, SW20 was a warm sea.', place: 'SW20', day: '2026-11-17', at: null, verdict: 'yes' },
-    ] }),
-  verdict: () => {}, tellNow: () => {}, record: () => '', share: t => console.log('share:', t),
-};
+// Forn (the app) gives: today's day key, the finds uncovered so far, tonight's cards (until paged through) and the dust:
+// every place passed, by day and time, except where it was uncovered that night (22 Nov).
+// Opened in a browser without the app, it plays an example 9pm: today's dust gathers into three balls, the cards
+// page through, then it pulls back to a month of example rings. Reload to play it again.
+const N = window.Forn || (() => {
+  const t = new Date(), key = d => { const x = new Date(t); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
+  const at = (d, h) => { const x = new Date(t); x.setDate(x.getDate() - d); x.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); return x.getTime(); };
+  const tonight = [{"id": "first-atm", "fact": "The world's first cash machine opened at Barclays in Enfield in June 1967. You used a paper voucher bought in advance, and could take out \u00a310 at most.", "place": "Barclays, Enfield"}, {"id": "duck-island-bombs", "fact": "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", "place": "Duck Island, St James's Park"}, {"id": "bomber-command-roof", "fact": "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", "place": "Green Park"}], hours = [8.67, 13.2, 17.9];
+  const finds = tonight.map((f, i) => ({ ...f, day: key(0), at: at(0, hours[i]) }));
+  const dust = [7.6, 9.4, 11.6, 15.4, 16.5, 19.6, 20.4].map((h, i) => ({ id: 'ex-today-' + i, day: key(0), at: at(0, h) }));
+  let seed = 11; const r = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const hour = () => { const k = r(); return k < 0.4 ? 8 + r() * 1.2 : k < 0.75 ? 17.5 + r() * 1.5 : k < 0.9 ? 12.5 + r() : 7 + r() * 15; };
+  for (let d = 1; d <= 30; d++) {
+    if (r() > 0.7) continue; // a day at home: nothing passed
+    const told = r() < 0.6 ? 1 + Math.floor(r() * 2) : 0, left = Math.floor(r() * 5);
+    for (let i = 0; i < told; i++) finds.push({ id: 'ex-' + d + '-' + i, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', place: 'Example', day: key(d), at: at(d, hour()) });
+    for (let i = 0; i < left; i++) dust.push({ id: 'ex-dust-' + d + '-' + i, day: key(d), at: at(d, hour()) });
+  }
+  let seen = false;
+  return {
+    state: () => JSON.stringify({ today: key(0), finds, dust, cards: seen ? [] : tonight.map(f => f.id), recording: false, saved: '' }),
+    seen: () => { seen = true; }, tellNow: () => {}, record: () => '', share: t => console.log('share:', t),
+  };
+})();
 let S = JSON.parse(N.state());
 const DAY = 864e5;
 const dayDate = key => { const [y, m, d] = key.split('-').map(Number); return new Date(y, m - 1, d); };
@@ -118,59 +135,53 @@ const fmtDate = (key, at) => {
   return at ? d + ', ' + new Date(at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : d;
 };
 
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- Cards ---------- */
+// No verdict (22 Nov): tonight's cards just page. Swipe left or tap for the next, swipe right for the one before,
+// or tap a pip. Past the last card they're done, and the view pulls back to the whole.
 const deck = document.getElementById('deck'), pips = document.getElementById('pips'), cardsEl = document.getElementById('cards');
 let CARDS = [], idx = 0, hold = false;
-function renderPips() { pips.innerHTML = CARDS.length > 1 ? CARDS.map((_, i) => `<i class="${i === idx ? 'now' : ''}"></i>`).join('') : ''; }
 function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
-function renderDeck() {
-  renderPips(); deck.innerHTML = '';
-  for (let i = Math.min(idx + 1, CARDS.length - 1); i >= idx; i--) {
-    const f = CARDS[i], el = document.createElement('article');
-    el.className = 'card';
-    el.innerHTML = `<h2>${esc(f.fact)}</h2><p>${esc(f.place)}${f.at ? ', ' + new Date(f.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : ''}</p>`;
-    el.setAttribute('aria-label', 'Swipe right if it is interesting, left if not');
-    deck.appendChild(el);
-    if (i === idx) wire(el);
-  }
+const nb = s => s.replace(/-/g, '\u2011'); // hyphenated words never break
+function renderCard() {
+  const f = CARDS[idx], el = document.createElement('article');
+  el.className = 'card';
+  el.innerHTML = `<h2>${nb(esc(f.fact))}</h2><p>${esc(f.place)}${f.at ? ', ' + new Date(f.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) : ''}</p>`;
+  el.setAttribute('aria-label', `Find ${idx + 1} of ${CARDS.length}. Swipe or tap for the next one.`);
+  deck.innerHTML = ''; deck.appendChild(el); wire(el);
+  pips.innerHTML = CARDS.length > 1 ? CARDS.map((_, i) => `<button type="button" aria-label="Find ${i + 1} of ${CARDS.length}"><i class="${i === idx ? 'now' : ''}"></i></button>`).join('') : '';
 }
+function page(n) { if (n < 0) return; if (n >= CARDS.length) { finish(); return; } idx = n; renderCard(); }
+pips.addEventListener('click', e => { const b = e.target.closest('button'); if (b) page([...pips.children].indexOf(b)); });
 function wire(el) {
-  let x0 = null, dx = 0;
-  el.addEventListener('pointerdown', e => { x0 = e.clientX; el.setPointerCapture(e.pointerId); el.style.transition = 'none'; });
-  el.addEventListener('pointermove', e => { if (x0 == null) return; dx = e.clientX - x0; el.style.transform = `translateX(${dx}px) rotate(${dx / 24}deg)`; });
-  const up = () => {
-    if (x0 == null) return; x0 = null;
-    if (Math.abs(dx) > 96) decide(el, dx > 0 ? 'yes' : 'no');
-    else { el.style.transition = 'transform 200ms ease'; el.style.transform = ''; }
-    dx = 0;
-  };
-  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
-}
-function decide(el, v) {
-  el.style.transition = 'transform 280ms ease, opacity 280ms ease';
-  el.style.transform = `translateX(${v === 'yes' ? 480 : -480}px) rotate(${v === 'yes' ? 16 : -16}deg)`;
-  el.style.opacity = '0';
-  const f = CARDS[idx]; f.verdict = v; N.verdict(f.id, v);
-  setTimeout(() => { idx++; if (idx >= CARDS.length) finish(); else renderDeck(); }, 300);
+  let x0 = null, y0 = 0;
+  el.addEventListener('pointerdown', e => { x0 = e.clientX; y0 = e.clientY; });
+  el.addEventListener('pointerup', e => {
+    if (x0 == null) return; const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) page(idx + (dx < 0 ? 1 : -1));
+    else if (Math.hypot(dx, dy) < 10) page(idx + 1);
+  });
+  el.addEventListener('pointercancel', () => { x0 = null; });
 }
 function finish() {
-  renderPips();
-  setTimeout(() => {
-    cardsEl.classList.add('gone'); document.body.classList.remove('carded'); hold = false;
-    S = JSON.parse(N.state()); build(true);
-    setTimeout(() => { cardsEl.hidden = true; }, 300);
-  }, 300);
+  if (!hold) return; hold = false; N.seen(S.today);
+  cardsEl.classList.add('gone'); document.body.classList.remove('carded');
+  if (pull) pull.start = performance.now() + 300; else controls.autoRotate = true;
+  setTimeout(() => { cardsEl.hidden = true; }, 300);
 }
 function openCards() {
-  CARDS = S.cards.map(id => S.finds.find(f => f.id === id)).filter(Boolean);
+  CARDS = (S.cards || []).map(id => S.finds.find(f => f.id === id)).filter(Boolean);
   if (!CARDS.length) { cardsEl.hidden = true; document.body.classList.remove('carded'); hold = false; return false; }
-  idx = 0; cardsEl.hidden = false; cardsEl.classList.remove('gone'); document.body.classList.add('carded');
-  renderDeck(); hold = true; return true;
+  idx = 0; cardsEl.hidden = false; cardsEl.classList.remove('gone'); cardsEl.classList.add('wait'); document.body.classList.add('carded');
+  renderCard(); hold = true;
+  setTimeout(() => cardsEl.classList.remove('wait'), reduce ? 0 : 2000); // the dust gathers into balls first
+  return true;
 }
 
 /* ---------- Rings ---------- */
-// Distance from the centre is when you found it: today the outer ring, the past at the core. Angle means nothing.
-// Kept finds are flat black balls; Not for me bursts into dust where its ball sat.
+// Today in the centre, older days ripple outwards. A ball's angle is the time you passed it, like a clock face.
+// Dust (22 Nov) is what you pass: every place passed leaves a pinch of round specks on that day's ring, by the time
+// you passed it. At 9pm the uncovered places' dust pulls together into flat black balls. One round shape, two scales.
 const canvas = document.getElementById('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -180,11 +191,10 @@ const SPH = new THREE.SphereGeometry(1, 40, 28);
 const MAT_YES = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
 const controls = new THREE.OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.5; controls.enablePan = true; controls.screenSpacePanning = false; // two fingers move across the rings (19 Nov), kept within the disc
-let panR = 2, idleT = null, group = null, balls = [], bursts = [], reveal = [], openAt = 0, pull = null, nDays = 1, freeK = 1;
+let panR = 2, idleT = null, group = null, balls = [], gathers = [], reveal = [], gatherAt = 0, pull = null, nDays = 1, freeK = 1;
 controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); });
 controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoRotate = true, 4000); });
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const R_BALL = 0.12, PARTS = 420, STEP = 0.48; // 19 Nov: smaller balls, wider rings, so neighbouring days never cover each other at the tilt
+const R_BALL = 0.12, PINCH = 70, REACH = 0.32, STEP = 0.48; // 19 Nov: smaller balls, wider rings, so neighbouring days never cover each other at the tilt
 const centre = new THREE.Vector3();
 // Ring radii: oldest day at the core, today outside. A day with a find gets a full ring width; an empty day gets
 // a full, thin or no ring (Try it out decides; the real app uses full for now).
@@ -308,25 +318,34 @@ function driftMat(m) {
   m.customProgramCacheKey = () => 'drift';
   return m;
 }
-function makeBurst(pos, r, settled) {
-  const start = new Float32Array(PARTS * 3), end = new Float32Array(PARTS * 3);
-  for (let i = 0; i < PARTS; i++) {
-    const u = r() * 2 - 1, th = r() * Math.PI * 2, s = Math.sqrt(1 - u * u), d = 0.2 + Math.pow(r(), 0.7) * 0.6;
-    start.set([pos.x, pos.y, pos.z], i * 3);
-    end.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3);
+// A pinch of dust (22 Nov, same as the landing page): 70 small round specks around the place, not a full burst.
+function pinch(pos, r, ends, seeds) {
+  for (let i = 0; i < PINCH; i++) {
+    const u = r() * 2 - 1, th = r() * TAU, s = Math.sqrt(1 - u * u), d = REACH * (0.25 + Math.pow(r(), 0.7) * 0.75);
+    ends.push(pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d);
+    seeds.push(r() * 6.283, 0.25 + r() * 0.5, 0.02 + r() * 0.04, r() * 6.283);
   }
-  const seed = new Float32Array(PARTS * 4);
-  for (let i = 0; i < PARTS; i++) seed.set([r() * 6.283, 0.25 + r() * 0.5, 0.02 + r() * 0.04, r() * 6.283], i * 4);
-  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(settled ? end.slice() : start.slice(), 3));
-  geo.setAttribute('seed', new THREE.BufferAttribute(seed, 4));
+}
+function specks(pos, seeds) {
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pos), 3));
+  geo.setAttribute('seed', new THREE.BufferAttribute(new Float32Array(seeds), 4));
+  // Solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov).
   const pts = new THREE.Points(geo, driftMat(new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022, map: DOT, alphaTest: 0.5 })));
-  pts.visible = settled; // solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov)
-  group.add(pts);
-  return { pts, start, end, settled };
+  group.add(pts); return pts;
+}
+// Where a pinch sits: the clock-face angle of the time you passed, with the same small nudge as a ball. No fanning:
+// dust can overlap, that's what dust does.
+function dustPos(x) {
+  const r = rng(seedOf(x.id + x.day + 'at')), R = ringR(x.d);
+  let th;
+  if (x.at) { const t = new Date(x.at); th = ((t.getHours() * 60 + t.getMinutes()) / 1440) * TAU - Math.PI / 2 + (r() - 0.5) * 0.12; }
+  else th = r() * TAU;
+  return new THREE.Vector3(Math.cos(th) * R, x.d === 0 ? 0 : (r() - 0.5) * 0.08, Math.sin(th) * R);
 }
 function endPull() {
   if (!pull) return; pull = null;
-  reveal.forEach(o => { o.visible = true; });
+  reveal.forEach(o => { o.visible = o.userData.day >= 0; });
   controls.target.copy(centre); controls.autoRotate = true;
 }
 function fit(reach) {
@@ -346,30 +365,34 @@ function demoAt(d, r) {
   t.setHours(Math.floor(h), Math.floor((h % 1) * 60)); return t.getTime();
 }
 function demoFinds() {
-  const r = rng(7), out = [];
+  const r = rng(7), finds = [], dust = [];
   const pDay = { quiet: 0.2, normal: 0.55, busy: 0.9 }[OPT.busy], most = { quiet: 1, normal: 2, busy: 5 }[OPT.busy];
   for (let d = OPT.span; d >= 1; d--) {
-    const n = r() < pDay ? 1 + Math.floor(r() * most) : 0;
+    if (r() > pDay + 0.2) continue; // a day at home
+    const n = r() < OPT.kept / 100 ? 1 + Math.floor(r() * most) : 0, left = Math.floor(r() * 4);
     for (let i = 0; i < n; i++) {
       const place = POOL[Math.floor(r() * POOL.length)];
-      out.push({ id: 'demo-' + d + '-' + i, place, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', day: keyFor(d), at: demoAt(d, r), verdict: r() * 100 < OPT.kept ? 'yes' : 'no' });
+      finds.push({ id: 'demo-' + d + '-' + i, place, fact: 'An example find. Yours will hold a fact about somewhere you passed that day.', day: keyFor(d), at: demoAt(d, r) });
     }
+    for (let i = 0; i < left; i++) dust.push({ id: 'demo-dust-' + d + '-' + i, day: keyFor(d), at: demoAt(d, r) });
   }
-  return out;
+  return { finds, dust };
 }
 const spanName = d => ({ 182: 'Six months', 30: 'One month', 120: 'Four months', 365: 'One year', 1461: 'Four years' }[d]);
 
-function build(animate) {
+function build() {
   if (group) { scene.remove(group); group.traverse(o => { if (o.isPoints || o.isLine || o.userData.ring) { o.geometry.dispose(); o.material.dispose(); } }); }
-  group = new THREE.Group(); scene.add(group); balls = []; bursts = []; reveal = []; pull = null;
+  group = new THREE.Group(); scene.add(group); balls = []; gathers = []; reveal = []; pull = null;
   if (demo && !DEMO) DEMO = demoFinds();
-  const finds = (demo ? S.finds.concat(DEMO) : S.finds).map(f => ({ ...f, d: Math.max(0, dayIndex(f.day)) }));
-  nDays = Math.max(1, demo ? OPT.span + 1 : 1, ...finds.map(f => f.d + 1));
+  const finds = (demo ? S.finds.concat(DEMO.finds) : S.finds).map(f => ({ ...f, d: dayIndex(f.day) })).filter(f => f.d >= 0);
+  const dust = (demo ? (S.dust || []).concat(DEMO.dust) : S.dust || []).map(x => ({ ...x, d: dayIndex(x.day) })).filter(x => x.d >= 0); // passes after 9pm wait for tomorrow's ring
+  nDays = Math.max(1, demo ? OPT.span + 1 : 1, ...finds.map(f => f.d + 1), ...dust.map(x => x.d + 1));
   emptyMode = demo ? OPT.empty : 'full';
-  HAS = new Set(finds.map(f => f.d));
-  todayWait = !demo && finds.length > 0 && !HAS.has(0);
+  HAS = new Set(finds.map(f => f.d).concat(dust.map(x => x.d)));
+  todayWait = !HAS.has(0) && HAS.size > 0; // today's ring appears with its first dust (22 Nov)
   layoutRings();
   guides();
+  const nine = hold; // tonight's cards are waiting: play the gather first
   const today = finds.filter(f => f.d === 0), focus = new THREE.Vector3(), todayPos = [];
   let maxR = Math.max(0.5, ...RR.filter(x => x != null));
   const byDay = new Map(); finds.forEach(f => { if (!byDay.has(f.d)) byDay.set(f.d, []); byDay.get(f.d).push(f); });
@@ -378,39 +401,48 @@ function build(animate) {
     const pos = POS.get(f.id);
     maxR = Math.max(maxR, pos.length());
     if (f.d === 0) { focus.add(pos.clone().divideScalar(today.length)); todayPos.push(pos); }
-    // Today's answers play out live once the cards are swiped away; older dust is already settled.
-    const live = f.d === 0 && animate && !reduce;
-    const r = rng(seedOf(f.id + 'dust'));
-    if (f.verdict === 'no' && !hold) {
-      const b = makeBurst(pos, r, !live); b.pts.userData.day = f.d; reveal.push(b.pts);
-      if (live) { const m = new THREE.Mesh(SPH, MAT_YES); m.scale.setScalar(R_BALL); m.position.copy(pos); group.add(m); b.ball = m; }
-      bursts.push(b);
-    } else {
-      const m = new THREE.Mesh(SPH, MAT_YES); m.scale.setScalar(R_BALL); m.position.copy(pos);
-      m.userData = { f, day: f.d }; group.add(m); balls.push(m); reveal.push(m);
+    const m = new THREE.Mesh(SPH, MAT_YES); m.scale.setScalar(R_BALL); m.position.copy(pos);
+    m.userData = { f, day: f.d }; group.add(m); balls.push(m); reveal.push(m);
+    // Tonight's finds start as their pinch of dust, which pulls together into the ball.
+    if (nine && f.d === 0 && !reduce) {
+      const ends = [], seeds = []; pinch(pos, rng(seedOf(f.id + 'dust')), ends, seeds);
+      const start = new Float32Array(ends.length); for (let i = 0; i < start.length; i += 3) start.set([pos.x, pos.y, pos.z], i);
+      const pts = specks(ends, seeds); pts.userData.day = 0; reveal.push(pts);
+      m.visible = false; m.scale.setScalar(0.0001);
+      gathers.push({ pts, ball: m, start, end: Float32Array.from(ends) });
     }
   });
-  const kept = finds.filter(f => f.verdict !== 'no').length;
+  // Settled dust: one set of specks per day, so a year of dust stays cheap.
+  const perDay = new Map();
+  dust.forEach(x => {
+    if (!perDay.has(x.d)) perDay.set(x.d, { ends: [], seeds: [] });
+    const p = perDay.get(x.d); pinch(dustPos(x), rng(seedOf(x.id + x.day + 'dust')), p.ends, p.seeds);
+  });
+  perDay.forEach((p, d) => { const pts = specks(p.ends, p.seeds); pts.userData.day = d; reveal.push(pts); });
+  gatherAt = performance.now();
   const weekday = dayDate(S.today).toLocaleDateString('en-GB', { weekday: 'long' });
+  const passed = dust.filter(x => x.d === 0).length || dust.length;
   document.getElementById('tally').innerHTML = demo
     ? `<strong>${spanName(OPT.span)}</strong>An example of six months. Turn it off in How it works.`
-    : !finds.length
+    : !finds.length && !dust.length
     ? `<strong>${weekday}</strong>Nothing yet. Go about your day, and find out at 9pm.`
-    : `<strong>${nDays === 1 ? weekday : todayWait && nDays === 2 ? dayDate(keyFor(1)).toLocaleDateString('en-GB', { weekday: 'long' }) : 'Your rings'}</strong>${kept} kept, the rest is dust. Tap a ball to read it again.`;
+    : !finds.length
+    ? `<strong>${weekday}</strong>Dust from ${passed} ${passed === 1 ? 'place' : 'places'} so far. Find out at 9pm.`
+    : `<strong>${nDays === 1 ? weekday : todayWait && nDays === 2 ? dayDate(keyFor(1)).toLocaleDateString('en-GB', { weekday: 'long' }) : 'Your rings'}</strong>${finds.length} uncovered. The rest is dust, for now. Tap a ball to read it again.`;
   resize();
   const spread = Math.max(0, ...todayPos.map(p => p.distanceTo(focus)));
   const far = fit(Math.max(1.3, maxR + 0.5)), near = fit(Math.max(0.9, spread + 0.8));
   const dir = new THREE.Vector3(1, 1.3, 1).normalize();
-  const live = (animate || hold) && !reduce && today.length > 0 && far > near * 1.05;
+  const live = nine && !reduce && today.length > 0 && far > near * 1.05;
   const from = live ? focus : centre;
   panR = maxR + 0.3;
   controls.target.copy(from); controls.minDistance = 1.5; controls.maxDistance = far * 1.6;
   camera.far = far * 4; camera.updateProjectionMatrix();
   camera.position.copy(from).add(dir.clone().multiplyScalar(live ? near : far)); controls.update();
-  controls.autoRotate = !live && !hold;
-  openAt = performance.now();
-  pull = live ? { from: near, to: far, t0: from.clone(), at: 2.8, dur: 2.6 } : null;
-  if (pull) reveal.forEach(o => { o.visible = o.userData.day === 0; });
+  controls.autoRotate = !nine;
+  // The pull back waits for the cards; finish() starts it.
+  pull = live ? { from: near, to: far, t0: from.clone(), start: Infinity, dur: 2.6 } : null;
+  if (pull) reveal.forEach(o => { o.visible = o.userData.day === 0 && !gathers.some(g => g.ball === o); });
 }
 
 /* Tap a black ball: its card comes back, with the date and time. */
@@ -477,24 +509,23 @@ function tick(now) {
     controls.target.add(step); camera.position.add(step);
     if (step.lengthSq() < 1e-8) glide = null;
   }
-  if (hold) openAt = now; // nothing plays until the cards are gone
-  const t = (now - openAt) / 1000;
-  bursts.forEach(b => {
-    if (b.settled) return;
-    const k = Math.max(0, Math.min(1, (t - 0.7) / 1.0)), e = 1 - Math.pow(1 - k, 4); // quicker burst (18 Nov)
-    if (b.ball) { b.ball.scale.setScalar(R_BALL * Math.max(0, 1 - k * 4)); if (k >= 0.25) b.ball.visible = false; }
-    const a = b.pts.geometry.attributes.position.array;
-    for (let i = 0; i < a.length; i++) a[i] = b.start[i] + (b.end[i] - b.start[i]) * e;
-    b.pts.geometry.attributes.position.needsUpdate = true;
-    b.pts.visible = k > 0;
-    if (k >= 1) b.settled = true;
-  });
-  if (pull && !hold) {
-    const k = Math.max(0, Math.min(1, (t - pull.at) / pull.dur)), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+  // 9pm: tonight's pinches of dust pull together into their balls, then the cards fade in.
+  if (gathers.length) {
+    const k = Math.max(0, Math.min(1, ((now - gatherAt) / 1000 - 0.5) / 0.9)), ge = k * k * (3 - 2 * k);
+    gathers.forEach(g => {
+      const a = g.pts.geometry.attributes.position.array;
+      for (let i = 0; i < a.length; i++) a[i] = g.end[i] + (g.start[i] - g.end[i]) * ge;
+      g.pts.geometry.attributes.position.needsUpdate = true;
+      g.pts.visible = ge < 0.97; g.ball.visible = ge > 0; g.ball.scale.setScalar(Math.max(0.0001, R_BALL * ge));
+    });
+    if (k >= 1) { gathers.forEach(g => { g.pts.visible = false; g.ball.scale.setScalar(R_BALL); g.pts.userData.day = -1; }); gathers = []; }
+  }
+  if (pull && now >= pull.start) {
+    const k = Math.max(0, Math.min(1, (now - pull.start) / 1000 / pull.dur)), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
     const off = new THREE.Vector3().copy(camera.position).sub(controls.target).normalize();
     controls.target.lerpVectors(pull.t0, centre, e);
     camera.position.copy(controls.target).addScaledVector(off, pull.from * Math.pow(pull.to / pull.from, e));
-    reveal.forEach(o => { o.visible = o.userData.day <= e * nDays; });
+    reveal.forEach(o => { o.visible = o.userData.day >= 0 && o.userData.day <= e * nDays; });
     if (k >= 1) endPull();
   }
   DRIFT_T.value = performance.now() / 1000; controls.update();
@@ -517,24 +548,25 @@ document.getElementById('sheetClose').addEventListener('click', () => sheet.clas
 // Nothing is saved, so your own rings and answers are never touched; closing the app also turns it off.
 document.getElementById('dataBtn').addEventListener('click', () => { if (N.exportData) N.exportData(); });
 document.getElementById('sixBtn').addEventListener('click', () => {
-  demo = !demo; DEMO = null; sheet.classList.remove('on'); S = JSON.parse(N.state()); build(false);
+  demo = !demo; DEMO = null; sheet.classList.remove('on'); S = JSON.parse(N.state()); build();
 });
 document.getElementById('walkBtn').addEventListener('click', () => { N.record(); S = JSON.parse(N.state()); renderTest(); });
 
 /* Called by the app: on open, on return, and from Android's back button. */
 window.forn = {
   refresh() {
-    if (!cardsEl.hidden && hold) return; // mid-swipe: leave it
+    if (hold) return; // tonight's cards are up: leave them
     S = JSON.parse(N.state());
-    if (!openCards()) build(false); else build(false);
+    openCards(); build();
   },
   back() {
+    if (hold) { finish(); return true; }
     if (document.getElementById('peek').classList.contains('on')) { document.getElementById('peekClose').click(); return true; }
     if (sheet.classList.contains('on')) { sheet.classList.remove('on'); return true; }
     return false;
   },
 };
-openCards(); build(false);
+openCards(); build();
 requestAnimationFrame(tick);
 </script>
 </body>

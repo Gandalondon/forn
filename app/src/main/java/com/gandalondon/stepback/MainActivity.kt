@@ -161,12 +161,7 @@ class MainActivity : ComponentActivity() {
                         *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this) { tick++ } }) else emptyArray()),
                     )
                 } else {
-                    val verdict = store.verdict(spot.id)
-                    Page(
-                        spot.fact, spot.place,
-                        Choice("Interesting", filled = verdict == Store.YES) { store.setVerdict(spot.id, Store.YES); tick++ },
-                        Choice("Not for me", filled = verdict == Store.NO) { store.setVerdict(spot.id, Store.NO); tick++ },
-                    )
+                    Page(spot.fact, spot.place)
                 }
             }
         }

@@ -27,6 +27,7 @@ class Web(private val a: MainActivity) {
 
     @SuppressLint("SetJavaScriptEnabled")
     fun build(): FrameLayout {
+        Store(a).dropAnswers()
         root.setBackgroundColor(Color.WHITE)
         view.setBackgroundColor(Color.WHITE)
         view.settings.javaScriptEnabled = true
@@ -66,16 +67,24 @@ class Web(private val a: MainActivity) {
             val today = evening()
             val finds = JSONArray()
             val cards = JSONArray()
+            val toldOn = HashMap<String, String>()
             store.history.forEach { id ->
                 if (!store.hasToldDay(id)) return@forEach // told by the v1 app before dates were kept (sw20-clay): hidden, as Tony asked 19 Nov; stays told so it never repeats
                 val s = Spots.byId(a, id) ?: return@forEach
                 val day = store.toldDay(id)
-                val v = store.verdict(id)
+                toldOn[id] = day
                 finds.put(JSONObject()
                     .put("id", id).put("fact", s.fact).put("place", s.place).put("kind", s.kind)
-                    .put("day", day).put("at", store.passedAt(day, id) ?: JSONObject.NULL)
-                    .put("verdict", v ?: ""))
-                if (day == today && v == null) cards.put(id)
+                    .put("day", day).put("at", store.passedAt(day, id) ?: JSONObject.NULL))
+                if (day == today && !store.seen(today)) cards.put(id) // tonight's cards wait on top until paged through
+            }
+            // Dust (22 Nov): every place passed leaves a pinch on that day's ring, by the time it was passed. Where a
+            // place was uncovered that night, its dust became the ball, so it's left out on that day only.
+            val dust = JSONArray()
+            store.passedDays().forEach { day ->
+                store.passed(day).forEach { id ->
+                    if (toldOn[id] != day) dust.put(JSONObject().put("id", id).put("day", day).put("at", store.passedAt(day, id) ?: JSONObject.NULL))
+                }
             }
             // Tonight's cards, best first (history is newest first, and the best was told last).
             val passedDay = Day.key()
@@ -84,13 +93,14 @@ class Web(private val a: MainActivity) {
                 passed.put(JSONObject().put("id", it.id).put("place", it.place).put("at", store.passedAt(passedDay, it.id) ?: JSONObject.NULL))
             }
             return JSONObject()
-                .put("today", today).put("finds", finds).put("cards", cards).put("passed", passed)
+                .put("today", today).put("finds", finds).put("cards", cards).put("dust", dust).put("passed", passed)
                 .put("recording", TrackService.recording).put("saved", saved).put("fences", Fences.status(a))
                 .toString()
         }
 
+        /** Tonight's cards were paged through: they don't come back. */
         @JavascriptInterface
-        fun verdict(id: String, v: String) = Store(a).putVerdict(id, v.ifBlank { null })
+        fun seen(day: String) = Store(a).markSeen(day)
 
         @JavascriptInterface
         fun tellNow() = Night.run(a)
@@ -104,7 +114,7 @@ class Web(private val a: MainActivity) {
 
         /**
          * Send my data (19 Nov): everything the app keeps, as one JSON file in Downloads/Forn, then the share menu
-         * so Tony can email it to himself and hand it to Claude. Finds, verdicts, places passed and when, zone status,
+         * so Tony can email it to himself and hand it to Claude. Finds, places passed and when, zone status,
          * crash notes and the last of the events log. No recorded GPX routes.
          */
         @JavascriptInterface

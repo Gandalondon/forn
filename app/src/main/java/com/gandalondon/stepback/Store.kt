@@ -56,22 +56,36 @@ class Store(c: Context) {
             .apply()
     }
 
-    /** Private verdict per fact: Interesting or Not for me. Tap again to undo. */
-    fun verdict(id: String): String? = p.getString("v_$id", null)
+    /** Every day that has places passed, oldest first. */
+    fun passedDays(): List<String> = p.all.keys.filter { it.startsWith("passed_") }.map { it.removePrefix("passed_") }.sorted()
 
-    fun setVerdict(id: String, v: String) {
-        p.edit().apply { if (verdict(id) == v) remove("v_$id") else putString("v_$id", v) }.apply()
+    /**
+     * The day each place was first passed, for the pick's tie-break (22 Nov): best place first, then whichever was
+     * passed longest ago, so old dust gets its turn.
+     */
+    fun firstPassed(): Map<String, String> {
+        val out = HashMap<String, String>()
+        passedDays().forEach { day -> passed(day).forEach { id -> if (id !in out) out[id] = day } }
+        return out
     }
 
-    /** Set an answer outright (swipes); null clears it. */
-    fun putVerdict(id: String, v: String?) {
-        p.edit().apply { if (v == null) remove("v_$id") else putString("v_$id", v) }.apply()
-    }
+    /** Tonight's cards have been paged through (22 Nov: no answers, they just page). */
+    fun seen(day: String) = p.getBoolean("seen_$day", false)
 
-    fun withVerdict(v: String): List<String> = history.filter { verdict(it) == v }
+    fun markSeen(day: String) = p.edit().putBoolean("seen_$day", true).apply()
 
-    companion object {
-        const val YES = "yes"
-        const val NO = "no"
+    /**
+     * No more answers (22 Nov): every place passed is dust and every find told is a ball. Once: a night that was
+     * already answered counts as seen, then the stored answers (v_ keys) are removed.
+     */
+    fun dropAnswers() {
+        if (p.getBoolean("answers_dropped", false)) return
+        val e = p.edit()
+        p.all.keys.filter { it.startsWith("v_") }.forEach { k ->
+            val id = k.removePrefix("v_")
+            if (hasToldDay(id)) e.putBoolean("seen_${toldDay(id)}", true)
+            e.remove(k)
+        }
+        e.putBoolean("answers_dropped", true).apply()
     }
 }

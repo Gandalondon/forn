@@ -37,16 +37,18 @@ object Night {
      * Tonight's finds: up to five places passed today, never told before, picked by the nightly mix (agreed 21 Nov):
      * highest score first, then each next pick loses 1.5 for every find already picked from the same era and
      * 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one),
-     * but a night spreads across time. Unpicked places stay untold for another day.
-     * Answers don't steer what you're told (decided 18 Nov): Interesting or Not for me only decides
-     * ball or dust in the rings, so the picture keeps both.
+     * but a night spreads across time.
+     * Ties go to whichever was passed longest ago (22 Nov), so old dust gets its turn. Unpicked places stay dust:
+     * pass them again on a quieter day and they can be uncovered then.
      */
     fun pick(c: Context, day: String): List<Spot> {
-        val told = Store(c).told
-        val left = Store(c).passed(day)
+        val store = Store(c)
+        val told = store.told
+        val first = store.firstPassed()
+        val left = store.passed(day)
             .filter { it !in told }
             .mapNotNull { Spots.byId(c, it) }
-            .sortedWith(compareByDescending<Spot> { it.score }.thenBy { it.id }) // ties stay stable
+            .sortedWith(compareByDescending<Spot> { it.score }.thenBy { first[it.id] ?: day }.thenBy { it.id }) // best, then oldest dust, then stable
             .toMutableList()
         val picked = mutableListOf<Spot>()
         while (picked.size < 5 && left.isNotEmpty()) {
