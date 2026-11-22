@@ -7,8 +7,8 @@
 - Lives in this repo: site/ (index.html, three.js, instrument-sans.ttf, vercel.json). Vercel project "forn" (gandalondon team, prj_7wmQ0qd9AfxyaC1LoBbpTXGgu2Ou), root directory site, deploys on every push to main. www.getforn.app redirects to getforn.app.
 - build.yml now ignores site/** and *.md, so site and doc pushes don't make a new APK.
 - Vercel connector is connected and authorised for the gandalondon team, so domain, DNS and deploys can be done from the cloud.
-- 22 Nov 00:01: gandalondon.com/forn now redirects (308) to getforn.app; the old copy in the ganda repo is removed (ganda commit 9d06050). Credit line and Privacy only on the last step (FORN edge to edge) is on branch footer-last, preview sent to Tony; merge to main when he says. ImprovMX: TBC by Tony.
-- Still to do: (1) today in the centre on the page: the edit is made on branch forn-rings of Gandalondon/ganda (public/forn/index.html, not pushed, not checked on screen); move it into site/index.html here and send a preview link. (3) ImprovMX for hello@ and feedback@: Tony adds getforn.app in ImprovMX, then Claude adds the MX and SPF records through Vercel. (4) The agreed page changes (real fact cards, footer only on the last step, city sign-up).
+- 22 Nov 00:01: gandalondon.com/forn now redirects (308) to getforn.app; the old copy in the ganda repo is removed (ganda commit 9d06050). Credit line and Privacy only on the last step (FORN edge to edge): live 22 Nov 00:05. ImprovMX: TBC by Tony.
+- Still to do: (1) today in the centre on the page: on branch rings-centre of this repo (site/index.html), not checked on screen yet; check it, then send Tony its preview link. (3) ImprovMX for hello@ and feedback@: Tony adds getforn.app in ImprovMX, then Claude adds the MX and SPF records through Vercel. (4) The agreed page changes (real fact cards, footer only on the last step, city sign-up).
 - Content: batch 11 still has no answers. The fact files live in the claude.ai Forn Project (claude/facts); move them into this repo so any chat can reach them.
 
 ### Update, Sat 21 Nov 23:50: GitHub first (read this first)
