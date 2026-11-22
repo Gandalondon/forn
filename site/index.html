@@ -32,7 +32,8 @@ body.turning { cursor: grabbing; }
 .step[hidden] { display: none; }
 /* Lines are broken by hand, so each line is as big as the screen allows. */
 .step h1, .step h2 { margin: 0; font-weight: 600; font-size: min(15vw, 24vh); line-height: 0.92; letter-spacing: 0.005em; }
-@media (max-aspect-ratio: 1/1) { .step h1, .step h2 { font-size: min(16.5vw, 13vh); } } /* normal width, as in the app; only the word FORN narrows */
+@media (max-aspect-ratio: 1/1) { .step h1, .step h2 { font-size: min(15vw, 13vh); } }
+/* normal width, as in the app; only the word FORN narrows */
 .step .note { margin: 24px 0 0; font-size: 19px; line-height: 26px; color: var(--soft); }
 .step .btn { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; height: 64px; padding: 0 32px; margin-top: 32px; border-radius: 999px; background: var(--ink); color: #FFFFFF; font: 600 19px/1 var(--font); text-decoration: none; }
 .step .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -47,7 +48,7 @@ body.dark .shade { opacity: 1; }
 .card[hidden] { display: none; }
 .card { opacity: 0; transition: opacity 500ms ease; }
 body.dark .card { opacity: 1; }
-.card b { display: block; font-size: 26px; line-height: 32px; font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; }
+.card b { display: block; font-size: 26px; line-height: 32px; font-weight: 600; letter-spacing: 0.2px; text-wrap: pretty; } /* balance stops past six lines; pretty avoids a lone last word */
 .card span { display: block; margin-top: 12px; font-size: 15px; line-height: 20px; color: var(--soft); }
 /* 9pm: a plain stack of today's finds, as in the app (solid white, no fade, scale or bounce). Swipe or tap for the
    next; the pips under it show which one. Pips are buttons too. */
@@ -100,7 +101,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <main>
   <section class="step" data-s="1" hidden><h1>You pass<br>history<br>every day.</h1></section>
   <section class="step" data-s="2" hidden><h2>Forn<br>notices it<br>for you.</h2></section>
-  <section class="step" data-s="3" hidden><h2>Find out<br>at 9pm.</h2></section>
+  <section class="step" data-s="3" hidden><h2>At 9pm,<br>see what<br>you missed.</h2></section>
   <section class="step" data-s="4" hidden><h2>Keep it,<br>or let it go.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
   <section class="step" data-s="6" hidden><h2>Grow yours.</h2></section>
@@ -111,7 +112,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <div class="card" id="card" hidden aria-live="polite" aria-roledescription="card"><b></b><span></span></div>
 <div class="pips" id="pips" hidden></div>
 <div class="join" id="join" hidden>
-  <div class="card end"><b>The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.</b><span>Green Park, Tue 3 Nov, 16:20</span></div>
+  <div class="card end"><b>In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.</b><span>Charing Cross Road, Tue 3 Nov, 16:20</span></div>
   <form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form>
 </div>
 
@@ -248,10 +249,10 @@ const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { con
 let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
 // Today's three finds, all from reviewed facts, in the order they were passed (one per ball).
 const FINDS = [
-  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. You used a paper voucher bought in advance, and could take out £10 at most.", at: 'Barclays, Enfield, 08:40' },
-  { fact: "The world's first coal-fired power station for public use was at 57 Holborn Viaduct, built by Thomas Edison's company. New York got its own afterwards.", at: 'Holborn Viaduct, 13:12' },
-  { fact: "In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.", at: 'Charing Cross Road, 17:54' },
-]
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Barclays, Enfield, 08:40' },
+  { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "Duck Island, St James's Park, 13:12" },
+  { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park, 17:54' },
+];
 // The ending zooms into a kept ball from a few weeks back.
 const oldBall = (() => { for (let d = 18; d < DAYS; d++) { const m = days[d].children.find(o => o.isMesh && o.geometry === SPH); if (m) return m; } return todayBalls[0]; })();
 
