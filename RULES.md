@@ -81,6 +81,7 @@ Each spot has:
 - Dust and balls are one round shape at two scales: a place you pass is a cloud of tiny balls, an uncovered find is one big readable ball pulled out of the mess. Only scale and gathering change.
 - Tap a ball: its card comes back with the date and time, and a Tell me more button. That opens Android's share menu with a ready-made question about the place ("Tell me more about X in the UK. I learned that: ... What else is worth knowing about it, and about what's nearby?"), for an AI app, a search or notes. No setup, no AI connection, no internet permission. Only on reopened cards, so the evening stays quick.
 - Any other open: the whole, with the slow spin.
+- Back home (22 Nov): no centre button. After 6 seconds untouched, the view eases back to the whole disc and the slow spin carries on; never while a card or How it works is open. Double-tap the rings to go back at once.
 - Zoom stops before a ball fills the screen. The title and text sit over the rings with no panel.
 - Parked: tree trunk (height as the age of the thing), solar system, onion, stepped cone.
 

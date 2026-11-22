@@ -195,8 +195,18 @@ const MAT_YES = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
 const controls = new THREE.OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.5; controls.enablePan = true; controls.screenSpacePanning = false; // two fingers move across the rings (19 Nov), kept within the disc
 let panR = 2, idleT = null, group = null, balls = [], gathers = [], reveal = [], gatherAt = 0, pull = null, nDays = 1, freeK = 1;
-controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); });
-controls.addEventListener('end', () => { idleT = setTimeout(() => controls.autoRotate = true, 4000); });
+controls.addEventListener('start', () => { controls.autoRotate = false; endPull(); clearTimeout(idleT); homing = null; });
+controls.addEventListener('end', idleHome);
+// Back home (22 Nov): moved, zoomed or tilted out of reach, the view eases back to the whole disc after 6 seconds
+// untouched, then the slow spin carries on. Never while a card or How it works is open. Double-tap goes now.
+let home = null, homing = null;
+function idleHome() { clearTimeout(idleT); idleT = setTimeout(goHome, 6000); }
+function goHome() {
+  if (!home || hold || pull || document.getElementById('peek').classList.contains('on') || document.getElementById('sheet').classList.contains('on')) return;
+  const sp = new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
+  homing = { t0: performance.now(), target: controls.target.clone(), r: sp.radius, phi: sp.phi, theta: sp.theta, dur: reduce ? 0.001 : 1.6 };
+  controls.autoRotate = false;
+}
 const R_BALL = 0.12, PINCH = 70, REACH = 0.32, STEP = 0.48; // 19 Nov: smaller balls, wider rings, so neighbouring days never cover each other at the tilt
 const centre = new THREE.Vector3();
 // Ring radii: oldest day at the core, today outside. A day with a find gets a full ring width; an empty day gets
@@ -443,6 +453,7 @@ function build() {
   camera.far = far * 4; camera.updateProjectionMatrix();
   camera.position.copy(from).add(dir.clone().multiplyScalar(live ? near : far)); controls.update();
   controls.autoRotate = !nine;
+  home = { dist: far, phi: Math.acos(dir.y) }; homing = null;
   // The pull back waits for the cards; finish() starts it.
   pull = live ? { from: near, to: far, t0: from.clone(), start: Infinity, dur: 2.6 } : null;
   if (pull) reveal.forEach(o => { o.visible = o.userData.day === 0 && !gathers.some(g => g.ball === o); });
@@ -450,7 +461,7 @@ function build() {
 
 /* Tap a black ball: its card comes back, with the date and time. */
 const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
-let downAt = null;
+let downAt = null, lastTap = 0;
 canvas.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; });
 canvas.addEventListener('pointerup', e => {
   if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 6) return;
@@ -458,9 +469,9 @@ canvas.addEventListener('pointerup', e => {
   ptr.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
   ray.setFromCamera(ptr, camera);
   const hit = ray.intersectObjects(balls)[0];
-  if (!hit) return;
+  if (!hit) { const t = performance.now(); if (t - lastTap < 320) { lastTap = 0; clearTimeout(idleT); goHome(); } else lastTap = t; return; }
   showPeek(hit.object.userData.f, false);
-  controls.autoRotate = false; endPull();
+  controls.autoRotate = false; endPull(); clearTimeout(idleT); homing = null;
 });
 // Reopened cards (19 Nov): swipe to step through that day's kept finds in time order without closing; the run stops at the day's last card. Right for earlier,
 // left for later, like paging photos. The rings glide to each ball behind the scrim; dots show the day's finds.
@@ -493,7 +504,7 @@ document.getElementById('peekMore').addEventListener('click', () => {
   if (!peekFind) return;
   N.share(`Tell me more about ${peekFind.place} in the UK. I learned that: ${peekFind.fact} What else is worth knowing about it, and about what's nearby?`);
 });
-document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); glide = null; controls.autoRotate = true; });
+document.getElementById('peekClose').addEventListener('click', () => { document.getElementById('peek').classList.remove('on'); glide = null; controls.autoRotate = true; idleHome(); });
 
 function resize() {
   const w = innerWidth, h = innerHeight; if (!w) return;
@@ -522,6 +533,13 @@ function tick(now) {
       g.pts.visible = ge < 0.97; g.ball.visible = ge > 0; g.ball.scale.setScalar(Math.max(0.0001, R_BALL * ge));
     });
     if (k >= 1) { gathers.forEach(g => { g.pts.visible = false; g.ball.scale.setScalar(R_BALL); g.pts.userData.day = -1; }); gathers = []; }
+  }
+  if (homing) {
+    const k = Math.min(1, (now - homing.t0) / 1000 / homing.dur), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+    controls.target.lerpVectors(homing.target, centre, e);
+    const r = homing.r * Math.pow(home.dist / homing.r, e), phi = homing.phi + (home.phi - homing.phi) * e;
+    camera.position.copy(controls.target).add(new THREE.Vector3().setFromSphericalCoords(r, phi, homing.theta));
+    if (k >= 1) { homing = null; controls.autoRotate = true; }
   }
   if (pull && now >= pull.start) {
     const k = Math.max(0, Math.min(1, (now - pull.start) / 1000 / pull.dur)), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
