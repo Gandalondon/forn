@@ -104,6 +104,29 @@ object Fences {
         }
     }
 
+    /**
+     * The re-pick loop (22 Nov): Tony's phone said "left the watched area" every 4 minutes for a whole day at home,
+     * re-picking 100 zones each time. A leave only counts if Android's own fix is clearly outside the ring we set;
+     * otherwise it's logged and ignored. Never more than once in 10 minutes unless he's really moved 2km+.
+     */
+    fun leftArea(c: Context, at: Location?): Boolean {
+        val p = c.getSharedPreferences("stepback", Context.MODE_PRIVATE)
+        val lat = p.getFloat("ring_lat", Float.NaN).toDouble(); val lng = p.getFloat("ring_lng", Float.NaN).toDouble()
+        val r = p.getFloat("ring_r", 0f); val since = System.currentTimeMillis() - p.getLong("ring_at", 0L)
+        if (lat.isNaN() || r <= 0f) return true // no ring remembered (older build set it): re-pick
+        if (at == null) {
+            if (since < 10 * 60_000L) { TestLog.add(c, "left the watched area? no fix, ignored (re-picked ${since / 60_000} min ago)"); return false }
+            return true
+        }
+        val d = dist(at.latitude, at.longitude, lat, lng)
+        val where = "%.1f km from the centre of a %.1f km ring (fix ±%.0fm)".format(java.util.Locale.UK, d / 1000f, r / 1000f, at.accuracy)
+        val outside = d - at.accuracy > r
+        val moved = d > 2_000f
+        if (!outside || (since < 10 * 60_000L && !moved)) { TestLog.add(c, "left the watched area? $where, ignored"); return false }
+        TestLog.add(c, "left the watched area, $where, picking the nearest zones again")
+        return true
+    }
+
     @Volatile private var busy = false
     @Volatile private var again = false
 
@@ -130,10 +153,16 @@ object Fences {
                 .build()
         }.toMutableList()
         var refreshKm = 0f
+        val prefs = c.getSharedPreferences("stepback", Context.MODE_PRIVATE)
         if (needRefresh && l != null) {
             // Half way to the furthest watched zone, so you're re-centred well before you reach the edge.
             val r = (near.last().d / 2f).coerceIn(1_000f, 30_000f)
             refreshKm = r / 1000f
+            // Remember the ring (22 Nov), so a false "left" can be spotted: see leftArea.
+            prefs.edit().putFloat("ring_lat", l.latitude.toFloat()).putFloat("ring_lng", l.longitude.toFloat())
+                .putFloat("ring_r", r).putLong("ring_at", System.currentTimeMillis()).apply()
+            val ageMin = (System.currentTimeMillis() - l.time) / 60_000
+            if (ageMin > 30) TestLog.add(c, "zones centred on a fix $ageMin min old")
             fences += Geofence.Builder()
                 .setRequestId(REFRESH)
                 .setCircularRegion(l.latitude, l.longitude, r)

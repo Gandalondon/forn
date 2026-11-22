@@ -403,7 +403,10 @@ function build() {
   nDays = Math.max(1, demo ? OPT.span + 1 : 1, ...finds.map(f => f.d + 1), ...dust.map(x => x.d + 1));
   emptyMode = demo ? OPT.empty : 'full';
   HAS = new Set(finds.map(f => f.d).concat(dust.map(x => x.d)));
-  todayWait = !HAS.has(0) && HAS.size > 0; // today's ring appears with its first dust (22 Nov)
+  // Today's ring appears with its first dust (22 Nov), and from 9pm whatever happened (22 Nov, Tony: an empty day
+  // still gets its ring once the evening's been told; until noon the evening is still today, as in Web.kt).
+  const hr = new Date().getHours();
+  todayWait = !HAS.has(0) && HAS.size > 0 && !(hr >= 21 || hr < 12);
   layoutRings();
   guides();
   const nine = hold; // tonight's cards are waiting: play the gather first

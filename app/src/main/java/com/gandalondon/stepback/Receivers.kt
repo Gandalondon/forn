@@ -13,9 +13,9 @@ class PassedReceiver : BroadcastReceiver() {
         if (event.hasError()) return
         val fences = event.triggeringGeofences.orEmpty()
         // Left the area the nearest zones were picked for: pick again around here (only 100 zones fit at once).
-        if (fences.any { it.requestId == Fences.REFRESH }) {
-            TestLog.add(c, "left the watched area, picking the nearest zones again")
-            Fences.register(c)
+        // Only a real leave (22 Nov): see Fences.leftArea.
+        if (fences.any { it.requestId == Fences.REFRESH } && event.geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT) {
+            if (Fences.leftArea(c, event.triggeringLocation)) Fences.register(c)
         }
         if (event.geofenceTransition != Geofence.GEOFENCE_TRANSITION_ENTER) return
         val ids = fences.filter { it.requestId != Fences.REFRESH }.map { Fences.spotId(it.requestId) }
