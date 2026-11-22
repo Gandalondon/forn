@@ -3099,5 +3099,221 @@
   "source": "BHO: Lysons, Environs of London vol 2; Historic England: Fulham Palace",
   "year": 691,
   "topic": "religion"
+ },
+ {
+  "id": "hendrix-handel",
+  "kind": "modern",
+  "score": 8,
+  "place": "Brook Street, Mayfair",
+  "points": [
+   [
+    51.513,
+    -0.1459,
+    250
+   ]
+  ],
+  "line": "Did you know, Jimi Hendrix lived next door to Handel's house on Brook Street?",
+  "fact": "Jimi Hendrix lived at 23 Brook Street in 1968 and 1969. Next door, at number 25, the composer Handel had lived from 1723 until 1759. Today the two houses are one museum.",
+  "source": "Wikipedia: Handel Hendrix House",
+  "year": 1968,
+  "topic": "music"
+ },
+ {
+  "id": "werewolf-piccadilly",
+  "kind": "modern",
+  "score": 7,
+  "place": "Piccadilly Circus",
+  "points": [
+   [
+    51.51,
+    -0.13444,
+    300
+   ]
+  ],
+  "line": "Did you know, An American Werewolf in London was the first film in 15 years allowed to shoot in Piccadilly Circus?",
+  "fact": "In 1981, An American Werewolf in London became the first film allowed to shoot in Piccadilly Circus in 15 years.",
+  "source": "Wikipedia: An American Werewolf in London",
+  "year": 1981,
+  "topic": "film"
+ },
+ {
+  "id": "bond-war-office",
+  "kind": "modern",
+  "score": 8,
+  "place": "Old War Office, Whitehall",
+  "points": [
+   [
+    51.50556,
+    -0.12583,
+    250
+   ]
+  ],
+  "line": "Did you know, the Old War Office on Whitehall played MI6 in Bond films?",
+  "fact": "In three 1980s Bond films, the Old War Office on Whitehall stood in for MI6's headquarters. The real MI6 is across the river at Vauxhall Cross.",
+  "source": "Wikipedia: War Office; bondlocations.com (MI6 tag); jamesbondlifestyle.com: SIS/MI6 Headquarters, Vauxhall Cross",
+  "year": 1983,
+  "topic": "film"
+ },
+ {
+  "id": "execution-dock",
+  "kind": "building",
+  "score": 9,
+  "place": "Execution Dock, Wapping",
+  "points": [
+   [
+    51.50333,
+    -0.05722,
+    300
+   ]
+  ],
+  "line": "Did you know, pirates were hanged at Wapping and left until three tides had washed over them?",
+  "fact": "For over 400 years pirates were hanged at Execution Dock in Wapping, just past the low-tide mark. Their bodies were left until at least three tides had washed over their heads.",
+  "source": "Wikipedia: Execution Dock",
+  "year": 1700,
+  "topic": "crime"
+ },
+ {
+  "id": "city-bonds",
+  "kind": "modern",
+  "score": 9,
+  "place": "Nicholas Lane, City of London",
+  "points": [
+   [
+    51.5121,
+    -0.0871,
+    250
+   ]
+  ],
+  "line": "Did you know, a courier was mugged for £292 million on Nicholas Lane?",
+  "fact": "In 1990 a courier was mugged on Nicholas Lane and lost £292 million in bearer bonds, which pay whoever holds them. Police got back all but two of the 301 certificates.",
+  "source": "Wikipedia: City bonds robbery",
+  "year": 1990,
+  "topic": "crime"
+ },
+ {
+  "id": "baker-street-robbery",
+  "kind": "modern",
+  "score": 9,
+  "place": "Lloyds Bank, Baker Street",
+  "points": [
+   [
+    51.52231,
+    -0.15783,
+    250
+   ]
+  ],
+  "line": "Did you know, a 1971 bank raid on Baker Street was overheard on a radio half a mile away?",
+  "fact": "In 1971 a gang tunnelled into the Lloyds Bank vault on Baker Street from a shop two doors away. A radio fan half a mile off heard their walkie-talkies. Police thought it was a prank.",
+  "source": "Wikipedia: Baker Street robbery",
+  "year": 1971,
+  "topic": "crime"
+ },
+ {
+  "id": "abbey-road-crossing",
+  "kind": "modern",
+  "score": 8,
+  "place": "Abbey Road, St John's Wood",
+  "points": [
+   [
+    51.53194,
+    -0.17833,
+    250
+   ]
+  ],
+  "line": "Did you know, the Abbey Road cover was shot in ten minutes while a policeman held up the traffic?",
+  "fact": "The Beatles' Abbey Road cover was taken on the zebra crossing outside the studios on 8 August 1969. The photographer stood on a stepladder and had ten minutes, while a policeman held up the traffic.",
+  "source": "Wikipedia: Abbey Road",
+  "year": 1969,
+  "topic": "music"
+ },
+ {
+  "id": "stones-sutton",
+  "kind": "modern",
+  "score": 8,
+  "place": "Sutton High Street",
+  "points": [
+   [
+    51.36552,
+    -0.194094,
+    300
+   ]
+  ],
+  "line": "Did you know, the Rolling Stones became a five-piece in a Sutton pub?",
+  "fact": "The Rolling Stones played gigs at the Red Lion on Sutton High Street, now the Winning Post. It was there, in January 1963, that Charlie Watts and Bill Wyman joined the band for good.",
+  "source": "Wikipedia: Sutton High Street",
+  "year": 1963,
+  "topic": "music"
+ },
+ {
+  "id": "floyd-pig",
+  "kind": "modern",
+  "score": 9,
+  "place": "Battersea Power Station",
+  "points": [
+   [
+    51.4803,
+    -0.1403,
+    400
+   ]
+  ],
+  "line": "Did you know, Pink Floyd's giant pig broke loose from Battersea Power Station and flew over Heathrow?",
+  "fact": "In December 1976 a giant inflatable pig was flown between Battersea Power Station's chimneys for a Pink Floyd album cover. It broke free, flew over Heathrow, grounded flights and landed in Kent.",
+  "source": "Wikipedia: Animals (Pink Floyd album)",
+  "year": 1976,
+  "topic": "music"
+ },
+ {
+  "id": "krays-esmeralda",
+  "kind": "modern",
+  "score": 8,
+  "place": "Wilton Place, Knightsbridge",
+  "points": [
+   [
+    51.502,
+    -0.1563,
+    250
+   ]
+  ],
+  "line": "Did you know, the Kray twins once owned a Knightsbridge nightclub?",
+  "fact": "From 1960 to 1963 the Kray twins owned Esmeralda's Barn, a nightclub on Wilton Place in Knightsbridge. The gangsters used it to move their business into the West End.",
+  "source": "Wikipedia: Esmeralda's Barn",
+  "year": 1960,
+  "topic": "crime"
+ },
+ {
+  "id": "marley-collingham",
+  "kind": "modern",
+  "score": 7,
+  "place": "Collingham Gardens, Earl's Court",
+  "points": [
+   [
+    51.49167,
+    -0.18778,
+    250
+   ]
+  ],
+  "line": "Did you know, Bob Marley gave police a false address on Collingham Gardens?",
+  "fact": "When Bob Marley was arrested for cannabis in 1977, he gave police an address on Collingham Gardens. It wasn't his home: he gave it to keep police away from where he lived, on Oakley Street.",
+  "source": "Wikipedia: Collingham Gardens",
+  "year": 1977,
+  "topic": "music"
+ },
+ {
+  "id": "batman-acton",
+  "kind": "modern",
+  "score": 8,
+  "place": "Acton Lane Power Station",
+  "points": [
+   [
+    51.5305,
+    -0.2559,
+    500
+   ]
+  ],
+  "line": "Did you know, Batman's chemical works was a power station in Acton?",
+  "fact": "The disused Acton Lane power station was a film set twice: for Aliens in 1986, and as Axis Chemical Works in the 1989 Batman.",
+  "source": "Wikipedia: Acton Lane Power Station",
+  "year": 1989,
+  "topic": "film"
  }
 ]

@@ -21,7 +21,7 @@
 - Partly the batch's own doing: all 8 new facts were pre-1500 on purpose (the older-London push), so the nights leaned old. Of the 172 spots, the late-20c and 21c share is what to grow next.
 - Direction for the next batches: write more 1960 to 2000 facts (music, TV and film, design, buildings, transport, everyday life) so the nightly mix has modern finds to spread in. Mix rule unchanged for now.
 
-## Batch 12 (built 22 Nov 09:20): modern London, four nights, NOT yet reviewed
+## Batch 12 (built 22 Nov 09:20): modern London, four nights, reviewed 22 Nov 09:22
 - Page: "Forn Review, batch 12", slug 228ded2a-b4d1-4ddc-a9ef-9dc45c3981d8, https://claude.ai/artifact/5GUwCdnc9tErfTjHpZTKJ7. Answers in collection review-batch-12 on that artifact. Built from tools/review/template.html with tools/review/build.py; nights data in content/review/batch12-nights.json. New reject reason: Too grim (tests the revised rule 3).
 - First batch under the revised rule 3 (history, not horror: crime, gangs, executions in) and rule 14 (film, TV, music once they've become history). Asked for by Tony after batch 11 felt old.
 - 13 new: beatles-rooftop, hendrix-handel, werewolf-piccadilly, bond-war-office, execution-dock, city-bonds, baker-street-robbery, abbey-road-crossing, stones-sutton, floyd-pig, krays-esmeralda, marley-collingham, batman-acton. Facts: content/facts/london-modern-batch12.json; source sentences: sources-london-modern-batch12.json. All from Wikipedia (raw article text); bond-war-office also bondlocations.com and jamesbondlifestyle.com (from a web search).
@@ -30,3 +30,9 @@
 - New topic: crime (added to RULES.md). Every card 35 words or under; every number and name checked against the source sentences (292 is 291.9 rounded).
 - Found but held back: Heddon Street (Bowie's Ziggy Stardust cover, 1972) and Brink's-Mat (Heathrow, 1983): sources had no usable coordinates. Tramp nightclub (Keith Moon) dropped: the article doesn't support the chandelier story.
 - After the answers: passing facts go into spots.json.
+
+### Batch 12 results (Tony, 22 Nov 09:20 to 09:22)
+- 19 of 20 kept (5% rejects), all four nights Good, including the all-modern Sunday. Nothing marked Too grim: Execution Dock, the Krays and the robberies all passed, so the revised rule 3 holds.
+- Rejected: beatles-rooftop, Confusing: "The Beatles definitely played in public again, so maybe the wording is a bit confusing here." The source says it was the final public performance of their career, but "They never played in public again" reads as if none of them ever did (solo careers). Rewritten to say it was the band's last public performance; line now says "as a band". Goes into the next batch for a second look.
+- The 12 other new facts are in spots.json (184 spots).
+- Direction holds: modern, crime, film and music land as well as the old history. Next: more of the same mix, plus the held-back Heddon Street and Brink's-Mat once there are reliable locations.
