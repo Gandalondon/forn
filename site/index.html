@@ -100,7 +100,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <main>
   <section class="step" data-s="1" hidden><h1>You pass<br>history<br>every day.</h1></section>
   <section class="step" data-s="2" hidden><h2>Forn<br>notices it<br>for you.</h2></section>
-  <section class="step" data-s="3" hidden><h2>At 9pm,<br>find out what<br>you passed.</h2></section>
+  <section class="step" data-s="3" hidden><h2>Find out<br>at 9pm.</h2></section>
   <section class="step" data-s="4" hidden><h2>Keep it,<br>or let it go.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
   <section class="step" data-s="6" hidden><h2>Grow yours.</h2></section>
@@ -111,7 +111,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <div class="card" id="card" hidden aria-live="polite" aria-roledescription="card"><b></b><span></span></div>
 <div class="pips" id="pips" hidden></div>
 <div class="join" id="join" hidden>
-  <div class="card end"><b>The legs of Southwark's Alfred the Great are Roman, from about AD 100. The top half was added around 1800.</b><span>Trinity Church Square, Tue 3 Nov, 16:20</span></div>
+  <div class="card end"><b>The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.</b><span>Green Park, Tue 3 Nov, 16:20</span></div>
   <form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form>
 </div>
 
@@ -244,14 +244,14 @@ for (let d = 1; d < DAYS; d++) {
 }
 // Today: three finds on the centre ring, placed by the time they were passed. The first (10:42) is the Waterloo
 // card; the second bursts on step 4.
-const todayBalls = placeDay(ringR(0), [10.7, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
+const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
 let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
 // Today's three finds, all from reviewed facts, in the order they were passed (one per ball).
 const FINDS = [
-  { fact: 'For 87 years, a train from Waterloo took coffins to a Surrey cemetery, each with a first, second or third class ticket.', at: 'Waterloo station, 10:42' },
-  { fact: "Under Leadenhall Market lies Roman London's basilica, the largest north of the Alps. One of its piers survives in a barber's basement.", at: 'Leadenhall Market, 13:12' },
-  { fact: "In 1252, London's sheriffs were told to pay fourpence a day to feed the king's white bear at the Tower, and to give it a chain for fishing in the Thames.", at: 'Tower of London, 17:54' },
-];
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. You used a paper voucher bought in advance, and could take out £10 at most.", at: 'Barclays, Enfield, 08:40' },
+  { fact: "The world's first coal-fired power station for public use was at 57 Holborn Viaduct, built by Thomas Edison's company. New York got its own afterwards.", at: 'Holborn Viaduct, 13:12' },
+  { fact: "In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.", at: 'Charing Cross Road, 17:54' },
+]
 // The ending zooms into a kept ball from a few weeks back.
 const oldBall = (() => { for (let d = 18; d < DAYS; d++) { const m = days[d].children.find(o => o.isMesh && o.geometry === SPH); if (m) return m; } return todayBalls[0]; })();
 
@@ -365,10 +365,17 @@ let find = 0;
 pipsEl.innerHTML = FINDS.map((_, i) => `<button type="button" aria-label="Find ${i + 1} of ${FINDS.length}"><i></i></button>`).join('');
 function showFind(i, glide = true) {
   find = (i + FINDS.length) % FINDS.length;
-  cardEl.querySelector('b').textContent = FINDS[find].fact; cardEl.querySelector('span').textContent = FINDS[find].at;
+  cardEl.querySelector('b').textContent = FINDS[find].fact.replace(/-/g, '\u2011'); /* hyphenated words never break */ cardEl.querySelector('span').textContent = FINDS[find].at;
   [...pipsEl.children].forEach((b, k) => b.setAttribute('aria-current', k === find));
   if (glide && step === 3) { from = { ...cam, target: cam.target.clone() }; to = { ...shot(3), target: todayBalls[find].position.clone() }; t0 = performance.now(); if (reduce) { cam = to; to = null; } }
 }
+function lockCard() {
+  const was = cardEl.hidden; cardEl.hidden = false; cardEl.style.minHeight = '';
+  let tallest = 0; const b = cardEl.querySelector('b'), sp = cardEl.querySelector('span');
+  FINDS.forEach(f => { b.textContent = f.fact.replace(/-/g, '\u2011'); sp.textContent = f.at; tallest = Math.max(tallest, cardEl.offsetHeight); });
+  cardEl.style.minHeight = tallest + 'px'; showFind(find, false); cardEl.hidden = was;
+}
+document.fonts.ready.then(lockCard); addEventListener('resize', lockCard);
 pipsEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) showFind([...pipsEl.children].indexOf(b)); });
 cardEl.addEventListener('click', () => { if (!swiped) showFind(find + 1); swiped = false; });
 let cx = null, cy = 0, swiped = false;
