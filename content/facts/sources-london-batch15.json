@@ -1,0 +1,90 @@
+{
+ "marquee-stones-first": {
+  "sentences": [
+   "It was the location of the first live performance by the Rolling Stones on 12 July 1962.",
+   "Originally it was located in the Marquee Ballroom in the basement of the Academy Cinema in Oxford Street, where dances had been held since the early 1950s.",
+   "In March 1964, the club moved a short distance to what became its most famous venue, with an entrance at 90 Wardour Street"
+  ],
+  "point": "165 Oxford Street, corner of Poland Street (Londonist; Wetherspoon pub history; Wikipedia's coordinates are the later Wardour Street site)"
+ },
+ "heddon-ziggy": {
+  "sentences": [
+   "The photograph was taken during a photoshoot on 13 January 1972 at Ward's Heddon Street studio in London, just off Regent Street.",
+   "The album cover ... was taken on Heddon Street in London, outside the home of furriers \"K. West\" at 23 Heddon Street.",
+   "However tensions eased and the company soon became accustomed to tourists photographing themselves on the doorstep.",
+   "the site remains a popular \"place of pilgrimage\" for Bowie fans.",
+   "In March 2012 the Crown Estate, which owns Regent Street and Heddon Street, installed a commemorative brown plaque at No. 23"
+  ],
+  "point": "Heddon House, Regent Street (Historic England list entry 1235119 via britishlistedbuildings: 51.5115, -0.1395), nudged into Heddon Street"
+ },
+ "hatton-garden-lift": {
+  "sentences": [
+   "In April 2015, an underground safe deposit facility in Hatton Garden, London, owned by Hatton Garden Safe Deposit Ltd., was burgled.",
+   "The burglars entered through a lift shaft over the Easter bank holiday weekend and used a Hilti DD350 industrial power drill to bore through the vault walls.",
+   "the total stolen had an estimated value of up to £14 million"
+  ],
+  "point": "Wikidata (Hatton Garden safe deposit burglary): 51.5194, -0.1083"
+ },
+ "poe-stoke-newington": {
+  "sentences": [
+   "The family sailed to the United Kingdom in 1815.",
+   "He was subsequently entered at Reverend John Bransby's Manor House School in Stoke Newington, then a suburb north of London.",
+   "Poe moved with the Allans back to Richmond, Virginia, in 1820.",
+   "Edgar Allan Poe (1809–1849), American writer – attended Reverend John Bransby's Manor House School on Church Street about 1818 while his Scottish-born foster parents visited the United Kingdom."
+  ],
+  "point": "Wikidata (Stoke Newington Church Street): 51.5611, -0.0825; the school's exact spot isn't in the sources, so a 350m zone on the street"
+ },
+ "knightsbridge-deposit": {
+  "sentences": [
+   "The Knightsbridge Security Deposit robbery took place on 12 July 1987 in Cheval Place, Knightsbridge",
+   "This robbery, the Banco Central burglary at Fortaleza, and the $900 million stolen from the Central Bank of Iraq in 2003 are said to be the largest bank robberies in history.",
+   "On the day of the robbery, two men entered the Knightsbridge Safe Deposit Centre and requested to rent a safe deposit box.",
+   "They broke open many of the safe deposit boxes and left with a hoard estimated to be worth £60 million"
+  ],
+  "point": "Approximate: Cheval Place from nearby listed buildings (6-17 Montpelier Place 51.4994, -0.1666; Historic England via britishlistedbuildings)"
+ },
+ "notting-hill-door": {
+  "sentences": [
+   "Notting Hill is a 1999 romantic comedy film directed by Roger Michell, written by Richard Curtis",
+   "The story is of a romance between a British bookshop keeper (Grant) and a famous American actress (Roberts)",
+   "Will's house, 280 Westbourne Park Road, was owned by Richard Curtis",
+   "The blue door was auctioned for charity.",
+   "The current door is blue again."
+  ],
+  "point": "Approximate: between Portobello Road (Wikidata 51.51425, -0.20389) and the Westbourne Park Road end; 300m zone covers the house and the bookshop at 142 Portobello Road"
+ },
+ "electric-avenue": {
+  "sentences": [
+   "\"Electric Avenue\" is a song by Guyanese-British musician Eddy Grant.",
+   "Written and produced by Grant, it was released on his 1982 studio album Killer on the Rampage.",
+   "The title of the song refers to Electric Avenue in the south London district of Brixton, the first market street to be lit by electricity."
+  ],
+  "point": "Wikidata (Electric Avenue, Brixton): 51.4623, -0.11377"
+ },
+ "marlowe-deptford": {
+  "sentences": [
+   "Marlowe is among the most famous of the Elizabethan playwrights.",
+   "Marlowe had spent all day in a house in Deptford, owned by the widow Eleanor Bull, with three men",
+   "On Wednesday, 30 May 1593, Marlowe was killed.",
+   "Marlowe was buried in an unmarked grave in the churchyard of St. Nicholas, Deptford, immediately after the inquest, on 1 June 1593.",
+   "Its cemetery includes the unmarked graves of Christopher Marlowe and three sons of John Evelyn."
+  ],
+  "point": "Wikipedia (St Nicholas Church, Deptford): 51.4820, -0.0227"
+ },
+ "brinks-mat-gold": {
+  "sentences": [
+   "The Brink's-Mat robbery happened at 06:40 on 26 November 1983 when six robbers broke into the Brink's-Mat warehouse, Unit 7 of the Heathrow International Trading Estate near Heathrow Airport",
+   "The robbers thought that they were going to steal around £1 million worth of Spanish pesetas, but they also found three tonnes (96,000 troy oz) of pure gold bullion outside the main vault in 6,800 bars.",
+   "The total value of their haul was £26 million",
+   "Most of the gold has never been recovered."
+  ],
+  "point": "Postcode TW4 6HB (Heathrow International Trading Estate, Green Lane; Unit 7 listed under it): 51.46939, -0.40608"
+ },
+ "ealing-studios": {
+  "sentences": [
+   "It is the oldest continuously working studio facility for film production in the world, and the current stages were opened for the use of sound in 1931.",
+   "The site was first occupied by Will Barker Studios from 1902."
+  ],
+  "point": "Wikidata (Ealing Studios): 51.50917, -0.3075"
+ }
+}

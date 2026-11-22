@@ -1,0 +1,182 @@
+[
+ {
+  "id": "marquee-stones-first",
+  "kind": "modern",
+  "score": 9,
+  "place": "165 Oxford Street",
+  "points": [
+   [
+    51.5154,
+    -0.1368,
+    250
+   ]
+  ],
+  "line": "Did you know, the Rolling Stones played their first ever gig on Oxford Street?",
+  "fact": "On 12 July 1962 the Rolling Stones played their first live show at the Marquee Club, then in a basement under a cinema on Oxford Street. The club moved to Wardour Street in 1964.",
+  "source": "Wikipedia: Marquee Club",
+  "year": 1962,
+  "topic": "music"
+ },
+ {
+  "id": "heddon-ziggy",
+  "kind": "modern",
+  "score": 8,
+  "place": "Heddon Street",
+  "points": [
+   [
+    51.5113,
+    -0.1398,
+    250
+   ]
+  ],
+  "line": "Did you know, the Ziggy Stardust album cover was shot in a little street off Regent Street?",
+  "fact": "In January 1972 David Bowie posed outside number 23 Heddon Street for the cover of Ziggy Stardust. Fans still photograph themselves on the doorstep, and a plaque now marks the spot.",
+  "source": "Wikipedia: The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+  "year": 1972,
+  "topic": "music"
+ },
+ {
+  "id": "hatton-garden-lift",
+  "kind": "modern",
+  "score": 8,
+  "place": "Hatton Garden",
+  "points": [
+   [
+    51.5194,
+    -0.1083,
+    250
+   ]
+  ],
+  "line": "Did you know, the Hatton Garden burglars got into the vault down a lift shaft?",
+  "fact": "Over the Easter weekend of 2015, a gang climbed down a lift shaft into a Hatton Garden safe deposit vault and drilled through its wall with an industrial drill. They took up to £14 million.",
+  "source": "Wikipedia: Hatton Garden safe deposit burglary",
+  "year": 2015,
+  "topic": "crime"
+ },
+ {
+  "id": "poe-stoke-newington",
+  "kind": "building",
+  "score": 8,
+  "place": "Church Street, Stoke Newington",
+  "points": [
+   [
+    51.5611,
+    -0.0825,
+    350
+   ]
+  ],
+  "line": "Did you know, Edgar Allan Poe went to school in Stoke Newington?",
+  "fact": "The American writer Edgar Allan Poe was a pupil at the Manor House School on Church Street, Stoke Newington, around 1818, while his foster parents were living in Britain.",
+  "source": "Wikipedia: Edgar Allan Poe; Stoke Newington",
+  "year": 1818,
+  "topic": "books"
+ },
+ {
+  "id": "knightsbridge-deposit",
+  "kind": "modern",
+  "score": 8,
+  "place": "Cheval Place, Knightsbridge",
+  "points": [
+   [
+    51.4987,
+    -0.166,
+    250
+   ]
+  ],
+  "line": "Did you know, one of the biggest robberies in history happened in a Knightsbridge side street?",
+  "fact": "In July 1987 two men entered a safe deposit centre in Cheval Place asking to rent a box. They left with about £60 million, one of the largest robberies in history.",
+  "source": "Wikipedia: Knightsbridge Security Deposit robbery",
+  "year": 1987,
+  "topic": "crime"
+ },
+ {
+  "id": "notting-hill-door",
+  "kind": "modern",
+  "score": 8,
+  "place": "Westbourne Park Road, Notting Hill",
+  "points": [
+   [
+    51.5165,
+    -0.2045,
+    300
+   ]
+  ],
+  "line": "Did you know, the blue door from the film Notting Hill belonged to the man who wrote it?",
+  "fact": "Hugh Grant's house in the 1999 film Notting Hill is 280 Westbourne Park Road, owned by the film's writer, Richard Curtis. The blue door was auctioned for charity; today's door is blue again.",
+  "source": "Wikipedia: Notting Hill (film)",
+  "year": 1999,
+  "topic": "film"
+ },
+ {
+  "id": "electric-avenue",
+  "kind": "modern",
+  "score": 8,
+  "place": "Electric Avenue, Brixton",
+  "points": [
+   [
+    51.4623,
+    -0.1138,
+    250
+   ]
+  ],
+  "line": "Did you know, Brixton's Electric Avenue was the first market street lit by electricity?",
+  "fact": "Electric Avenue in Brixton was the first market street to be lit by electricity. Eddy Grant's 1982 hit song Electric Avenue is named after it.",
+  "source": "Wikipedia: Electric Avenue (song)",
+  "year": 1888,
+  "topic": "invention"
+ },
+ {
+  "id": "marlowe-deptford",
+  "kind": "building",
+  "score": 7,
+  "place": "St Nicholas Church, Deptford",
+  "points": [
+   [
+    51.482,
+    -0.0227,
+    250
+   ]
+  ],
+  "line": "Did you know, the playwright Christopher Marlowe lies in an unmarked grave in Deptford?",
+  "fact": "Christopher Marlowe, one of the most famous Elizabethan playwrights, was killed in a house in Deptford in 1593. He was buried in an unmarked grave in St Nicholas's churchyard.",
+  "source": "Wikipedia: Christopher Marlowe",
+  "year": 1593,
+  "topic": "books"
+ },
+ {
+  "id": "brinks-mat-gold",
+  "kind": "modern",
+  "score": 9,
+  "place": "Heathrow International Trading Estate, Hounslow",
+  "points": [
+   [
+    51.4694,
+    -0.4061,
+    400
+   ]
+  ],
+  "line": "Did you know, robbers near Heathrow came for £1 million in cash and found three tonnes of gold?",
+  "fact": "In November 1983 six robbers broke into a warehouse by Heathrow expecting about £1 million in Spanish money. They found three tonnes of gold instead, worth £26 million. Most of it was never recovered.",
+  "source": "Wikipedia: Brink's-Mat robbery",
+  "year": 1983,
+  "topic": "crime"
+ },
+ {
+  "id": "ealing-studios",
+  "kind": "modern",
+  "score": 8,
+  "place": "Ealing Studios, Ealing Green",
+  "points": [
+   [
+    51.5092,
+    -0.3075,
+    300
+   ]
+  ],
+  "line": "Did you know, Ealing has the oldest working film studio in the world?",
+  "fact": "Ealing Studios is the oldest continuously working film studio in the world. Films have been made on the site since 1902.",
+  "source": "Wikipedia: Ealing Studios",
+  "year": 1902,
+  "topic": "film"
+ }
+]

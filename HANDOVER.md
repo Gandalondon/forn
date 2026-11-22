@@ -1,6 +1,14 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 13:35
+### Latest: Sun 22 Nov 2026, 13:45
+
+### Update, Sun 22 Nov 13:45: all four 13:20 items done; sync with Tony at 11pm
+- Three review pages waiting, any order: batch 13 (https://claude.ai/artifact/324WRsSff9kqxHBghdYAY4), batch 14 outer London (https://claude.ai/artifact/2NmRPAc1s2xnnN3gsZ9s4o), batch 15 the six held-back stories plus four (https://claude.ai/artifact/JoBwsopm2wkrKWNYMMyP8W). When he says one is done: read review-batch-N, add passing facts to spots.json, log in notes/review-log-3.md, push (builds the APK). Batch details: notes/review-log-3.md.
+- Held-back locations: found for all six (sources in content/facts/sources-london-batch15.json).
+- Faster pipeline plan: notes/faster-pipeline.md (area runs of about 100 facts overnight, scripted gate, Tony reviews 12 random new cards per area, ships at 0 or 1 rejects). Three decisions for Tony at the end of that file.
+- tools/pipeline/lint.py: rule lint (words, line start, banned words, hedges, points, same topic within 300m).
+- 11pm agenda: (1) review pages; (2) the go bar (notes/replay-test.md); (3) the three pipeline decisions; (4) a week of Record walk GPX for the replay test.
+
 
 ### Update, Sun 22 Nov 13:35: batch 14 drafted, replay test built (items 2 and 3 of the 13:20 list)
 - Batch 13 still waiting for Tony. When he says "batch 13 done": read review-batch-13, add passing facts to spots.json, log in notes/review-log-3.md, push (builds the APK).
