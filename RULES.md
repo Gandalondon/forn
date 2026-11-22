@@ -41,7 +41,7 @@ Each spot has:
 - fact: the card. Two or three short sentences, plain and specific, written for someone who has never heard of it. Lead with the surprise.
 - source: where it was checked. Every fact is checked against a published source before it goes in; nothing from memory.
 - year: when the thing in the fact happened (rough is fine; negative for BC). Era comes from it: prehistory (before 43), roman, saxon (410), medieval (1066), tudor (1485), stuart (1603), georgian (1714), victorian (1837), early-20c (1901), late-20c (1945), 21c (2000).
-- topic: one word from war, transport, music, film, comedy, sport, royals, people, politics, law, science, invention, design, buildings, art, books, religion, names, traditions, everyday, work, shops, animals, nature, secrets, ancient.
+- topic: one word from war, transport, music, film, comedy, sport, royals, people, politics, law, science, invention, design, buildings, art, books, religion, names, traditions, everyday, work, shops, animals, nature, secrets, ancient, crime (added 22 Nov).
 
 ## Writing rules (confirmed by Tony, 21 Nov)
 

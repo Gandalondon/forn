@@ -20,3 +20,13 @@
 - Tony: it read well and was interesting, but over four nights in a row a lot of it was old (1700s, 1800s, medieval). He wants more modern facts dotted through: 1970s, 80s, 90s.
 - Partly the batch's own doing: all 8 new facts were pre-1500 on purpose (the older-London push), so the nights leaned old. Of the 172 spots, the late-20c and 21c share is what to grow next.
 - Direction for the next batches: write more 1960 to 2000 facts (music, TV and film, design, buildings, transport, everyday life) so the nightly mix has modern finds to spread in. Mix rule unchanged for now.
+
+## Batch 12 (built 22 Nov 09:20): modern London, four nights, NOT yet reviewed
+- Page: "Forn Review, batch 12", slug 228ded2a-b4d1-4ddc-a9ef-9dc45c3981d8, https://claude.ai/artifact/5GUwCdnc9tErfTjHpZTKJ7. Answers in collection review-batch-12 on that artifact. Built from tools/review/template.html with tools/review/build.py; nights data in content/review/batch12-nights.json. New reject reason: Too grim (tests the revised rule 3).
+- First batch under the revised rule 3 (history, not horror: crime, gangs, executions in) and rule 14 (film, TV, music once they've become history). Asked for by Tony after batch 11 felt old.
+- 13 new: beatles-rooftop, hendrix-handel, werewolf-piccadilly, bond-war-office, execution-dock, city-bonds, baker-street-robbery, abbey-road-crossing, stones-sutton, floyd-pig, krays-esmeralda, marley-collingham, batman-acton. Facts: content/facts/london-modern-batch12.json; source sentences: sources-london-modern-batch12.json. All from Wikipedia (raw article text); bond-war-office also bondlocations.com and jamesbondlifestyle.com (from a web search).
+- 7 passed mixed in: whitehall-bath-screen, fann-street-sans, whittington-longhouse, leaning-tower-rotherhithe, first-heart-transplant, lords-pavilion-women, primrose-hill-tunnel.
+- Nights: Mon West End (4 new), Wed City to Wapping (2 new), Fri Marylebone and St John's Wood (2 new), Sun driving Sutton to Acton (5 new, all 1960 to 1990 on purpose, to see if an all-modern night still feels like Forn).
+- New topic: crime (added to RULES.md). Every card 35 words or under; every number and name checked against the source sentences (292 is 291.9 rounded).
+- Found but held back: Heddon Street (Bowie's Ziggy Stardust cover, 1972) and Brink's-Mat (Heathrow, 1983): sources had no usable coordinates. Tramp nightclub (Keith Moon) dropped: the article doesn't support the chandelier story.
+- After the answers: passing facts go into spots.json.

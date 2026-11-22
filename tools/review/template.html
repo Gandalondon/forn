@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Forn Review, batch __BATCH__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap">
+<style>
+/* VOICE: quiet review tool, Forn's own look. IDEA: four evenings of the app, replayed.
+   PICTURE: the white card itself. COLOUR and TYPE: White and off-black, Instrument Sans only.
+   LAYOUT: one centred column, card then controls. Single light theme by choice (Forn is white).
+   Template kept in the repo (tools/review/template.html); build.py fills __BATCH__ and __NIGHTS__. */
+:root{--bg:#FFFFFF;--ink:#1A1A1A;--line:rgba(26,26,26,.18);--soft:rgba(26,26,26,.06);--font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.45;
+ padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px));-webkit-tap-highlight-color:transparent}
+.wrap{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.word{font-weight:600;font-stretch:75%;font-size:28px;letter-spacing:.02em;line-height:1}
+.count{font-size:13px;font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:16px;flex-wrap:wrap}
+.grp{display:flex;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;border:1px solid var(--ink)}
+.dot.keep{background:var(--ink)}
+.dot.reject{background:var(--line);border-color:var(--line)}
+.dot.now{outline:1px solid var(--ink);outline-offset:2px}
+.panel{display:flex;flex-direction:column;gap:16px}
+.ping{background:var(--soft);border-radius:16px;padding:14px 16px;font-size:15px;text-wrap:pretty}
+.card{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;touch-action:pan-y;user-select:none}
+.fact{font-weight:600;font-size:21px;line-height:1.32;text-wrap:pretty}
+.meta{display:flex;flex-direction:column;gap:2px;font-size:13px;text-wrap:pretty}
+.meta .place{font-weight:600}
+h1{font-size:44px;line-height:1.05;margin:0;font-weight:600;text-wrap:balance}
+h2{font-size:32px;line-height:1.1;margin:0;font-weight:600;text-wrap:balance}
+.about{font-size:16px;text-wrap:pretty;margin:0}
+.small{font-size:13px;text-wrap:pretty}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--ink);border-radius:999px;padding:14px 16px;font-weight:600;font-size:16px;cursor:pointer;min-height:48px}
+button.primary,button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+button:disabled{opacity:.35;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:10px 16px;font-weight:500;font-size:15px;min-height:44px}
+textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--soft);border:0;border-radius:14px;padding:12px 16px;min-height:80px;resize:vertical;width:100%}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.plain{border:0;padding:8px 0;min-height:0;font-weight:600;font-size:14px;background:none}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-size:26px;font-variant-numeric:tabular-nums;font-weight:600}
+.list{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.list div{border-top:1px solid var(--line);padding-top:8px;text-wrap:pretty}
+.status{font-size:13px;min-height:1.2em}
+</style></head><body>
+<div class="wrap">
+  <header><div class="word">FORN</div><div class="count" id="count">Batch __BATCH__</div></header>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <main id="main"><p class="small">Loading four nights.</p></main>
+  <div class="status" id="status" role="status"></div>
+</div>
+<script>
+{
+const BATCH = __BATCH__;
+const NIGHTS = __NIGHTS__;
+const REASONS = ["Dull", "Wrong", "Confusing", "Too long", "Knew it", "Too grim"];
+const CARDS = NIGHTS.flatMap(n => n.cards.map(c => ({...c, night: n.n})));
+const answers = {}, ratings = {};
+let step = null, picked = new Set(), coll = null, rejecting = false;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// steps: intro(n), card(i), rate(n), done
+const STEPS = NIGHTS.flatMap(n => [{t:"intro", n:n.n}, ...n.cards.map(c => ({t:"card", id:c.id, n:n.n})), {t:"rate", n:n.n}]).concat([{t:"done"}]);
+const night = k => NIGHTS.find(n => n.n === k);
+const card = id => CARDS.find(c => c.id === id);
+
+function save() { try { localStorage.setItem("forn-review-" + BATCH, JSON.stringify({answers, ratings})); } catch (e) {} }
+function load() { try { const v = JSON.parse(localStorage.getItem("forn-review-" + BATCH) || "{}"); Object.assign(answers, v.answers || {}); Object.assign(ratings, v.ratings || {}); } catch (e) {} }
+function firstOpen() {
+  const i = STEPS.findIndex(s => (s.t === "card" && !answers[s.id]) || (s.t === "rate" && !ratings[s.n]));
+  if (i < 0) return STEPS.length - 1;
+  const s = STEPS[i];
+  if (s.t === "card" && night(s.n).cards[0].id === s.id) return i - 1; // show the intro first
+  return i;
+}
+
+function dots() {
+  const cur = STEPS[step];
+  $("#dots").innerHTML = NIGHTS.map(n => `<span class="grp">${n.cards.map(c => {
+    const a = answers[c.id];
+    return `<span class="dot ${a ? a.verdict : ""} ${cur.t === "card" && cur.id === c.id ? "now" : ""}"></span>`;
+  }).join("")}</span>`).join("");
+  $("#count").textContent = cur.t === "done" ? `Batch ${BATCH} · done` : `Batch ${BATCH} · night ${cur.n} of ${NIGHTS.length}`;
+}
+
+function render() {
+  const s = STEPS[step]; dots();
+  if (s.t === "intro") return intro(night(s.n));
+  if (s.t === "card") return showCard(card(s.id));
+  if (s.t === "rate") return rate(night(s.n));
+  return done();
+}
+
+function intro(n) {
+  $("#main").innerHTML = `<div class="panel" style="gap:24px">
+    <h1>${esc(n.day)}</h1>
+    <p class="about">${esc(n.about)}</p>
+    <p class="small">${n.cards.length} finds at 9pm, in the order the app would pick them. Keep or reject each one, then say how the night felt.</p>
+    <div class="row">${step > 0 ? `<button class="plain" id="back">Back</button>` : "<span></span>"}<button class="primary" id="go">Start ${esc(n.day)}</button></div>
+  </div>`;
+  $("#go").onclick = () => { step++; render(); };
+  const b = $("#back"); if (b) b.onclick = () => { step--; render(); };
+}
+
+function showCard(c) {
+  const a = answers[c.id];
+  const body = `<div class="ping">${esc(c.line)}</div>
+    <article class="card" id="card">
+      <div class="fact">${esc(c.fact)}</div>
+      <div class="meta"><span class="place">${esc(c.place)}, ${esc(c.time)}</span><span>${esc(c.source)}</span></div>
+    </article>`;
+  let controls;
+  if (!rejecting) {
+    controls = `<div class="actions"><button id="reject">Reject</button><button id="keep" class="primary">Keep</button></div>
+      <div class="row"><button class="plain" id="back">Back</button><span class="small">${a ? (a.verdict === "keep" ? "Kept" : "Rejected") + ". Answer again to change it." : "Swipe right to keep, left to reject"}</span></div>`;
+  } else {
+    controls = `<div class="panel"><span class="small">Why? Pick any.</span>
+      <div class="chips">${REASONS.map(r => `<button class="chip" aria-pressed="${picked.has(r)}" data-r="${esc(r)}">${esc(r)}</button>`).join("")}</div>
+      <textarea id="note" placeholder="Note (optional). Most useful on Wrong.">${esc(a && a.note)}</textarea>
+      <div class="actions"><button id="cancel">Cancel</button><button id="next" class="primary" ${picked.size ? "" : "disabled"}>Next</button></div></div>`;
+  }
+  $("#main").innerHTML = `<div class="panel">${body}${controls}</div>`;
+  if (!rejecting) {
+    $("#keep").onclick = () => answer(c, "keep", [], "");
+    $("#reject").onclick = () => { rejecting = true; picked = new Set((a && a.reasons) || []); render(); };
+    $("#back").onclick = () => { step--; render(); };
+    swipe($("#card"), dx => dx > 0 ? $("#keep").onclick() : $("#reject").onclick());
+  } else {
+    document.querySelectorAll(".chip").forEach(el => el.onclick = () => {
+      const r = el.dataset.r; picked.has(r) ? picked.delete(r) : picked.add(r);
+      el.setAttribute("aria-pressed", picked.has(r)); $("#next").disabled = !picked.size;
+    });
+    $("#cancel").onclick = () => { rejecting = false; render(); };
+    $("#next").onclick = () => answer(c, "reject", [...picked], $("#note").value.trim());
+  }
+}
+
+function swipe(el, fn) {
+  let x0 = null, y0 = null;
+  el.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive: true});
+  el.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) fn(dx);
+  });
+}
+
+async function put(id, data) {
+  if (!coll) return;
+  try { await coll.doc(id).set({...data, batch: BATCH, at: new Date().toISOString()}); $("#status").textContent = "Saved for Claude."; }
+  catch (e) { $("#status").textContent = "Not saved online yet. Answers are kept on this phone, and the last screen has a copy to paste to Claude."; }
+}
+
+function answer(c, verdict, reasons, note) {
+  answers[c.id] = {verdict, reasons, note}; save();
+  rejecting = false; picked = new Set(); step++; render();
+  put(c.id, {id: c.id, night: c.night, verdict, reasons, note, status: c.status, score: c.score, era: c.era, topic: c.topic});
+}
+
+function rate(n) {
+  const r = ratings[n.n] || {};
+  const kept = n.cards.filter(c => answers[c.id] && answers[c.id].verdict === "keep").length;
+  $("#main").innerHTML = `<div class="panel" style="gap:24px">
+    <h2>Was ${esc(n.day)} night good?</h2>
+    <p class="small">You kept ${kept} of ${n.cards.length}. A good night makes you glad you opened it. A flat one, you'd rather have skipped.</p>
+    <div class="actions"><button id="flat" aria-pressed="${r.rating === "flat"}">Flat night</button><button id="good" aria-pressed="${r.rating === "good"}">Good night</button></div>
+    <textarea id="note" placeholder="Note (optional). What made it good or flat?">${esc(r.note)}</textarea>
+    <div class="row"><button class="plain" id="back">Back</button><button class="primary" id="next" ${r.rating ? "" : "disabled"}>${n.n < NIGHTS.length ? "Next night" : "Finish"}</button></div>
+  </div>`;
+  let pick = r.rating;
+  ["flat", "good"].forEach(k => $("#" + k).onclick = () => {
+    pick = k; $("#flat").setAttribute("aria-pressed", k === "flat"); $("#good").setAttribute("aria-pressed", k === "good"); $("#next").disabled = false;
+  });
+  $("#back").onclick = () => { step--; render(); };
+  $("#next").onclick = () => {
+    const note = $("#note").value.trim();
+    ratings[n.n] = {rating: pick, note}; save(); step++; render();
+    put("night-" + n.n, {id: "night-" + n.n, night: n.n, rating: pick, note, cards: n.cards.map(c => c.id)});
+  };
+}
+
+function summaryText() {
+  return NIGHTS.map(n => [`NIGHT ${n.n} ${n.day}: ${ratings[n.n] ? ratings[n.n].rating.toUpperCase() : "not rated"}${ratings[n.n] && ratings[n.n].note ? " | " + ratings[n.n].note : ""}`]
+    .concat(n.cards.map(c => { const a = answers[c.id]; if (!a) return `  ? ${c.id}`;
+      return a.verdict === "keep" ? `  KEEP ${c.id}` : `  REJECT ${c.id}: ${a.reasons.join(", ")}${a.note ? " | " + a.note : ""}`; })).join("\n")).join("\n");
+}
+
+function done() {
+  const vals = CARDS.map(c => answers[c.id]).filter(Boolean);
+  const rej = vals.filter(a => a.verdict === "reject").length, kept = vals.length - rej;
+  const good = NIGHTS.filter(n => ratings[n.n] && ratings[n.n].rating === "good").length;
+  const rejects = CARDS.filter(c => answers[c.id] && answers[c.id].verdict === "reject");
+  $("#main").innerHTML = `<div class="panel" style="gap:24px">
+    <h1>${good} of ${NIGHTS.length} good nights.</h1>
+    <div class="stats">
+      <div class="stat"><b>${kept}</b><span class="small">Kept</span></div>
+      <div class="stat"><b>${rej}</b><span class="small">Rejected</span></div>
+      <div class="stat"><b>${vals.length ? Math.round(rej * 100 / vals.length) : 0}%</b><span class="small">Reject rate</span></div>
+    </div>
+    <p class="small">${coll ? `Saved where Claude can read it. Say batch ${BATCH} done in the chat.` : "Couldn't reach the answer store, so copy this and paste it to Claude."}</p>
+    ${rejects.length ? `<div class="list">${rejects.map(c => `<div><b>${esc(c.place)}</b> · ${esc(answers[c.id].reasons.join(", "))}${answers[c.id].note ? `<br>${esc(answers[c.id].note)}` : ""}</div>`).join("")}</div>` : ""}
+    <div class="actions"><button id="again">Go back over it</button><button id="copy" class="primary">Copy answers</button></div>
+  </div>`;
+  $("#again").onclick = () => { step = 0; render(); };
+  $("#copy").onclick = () => navigator.clipboard.writeText(summaryText()).then(() => { $("#status").textContent = "Copied."; }).catch(() => { $("#status").textContent = summaryText(); });
+}
+
+load(); step = Math.max(0, firstOpen()); render();
+
+(async () => {
+  try {
+    const db = window.claude && await window.claude.use("db");
+    if (!db) return;
+    coll = db.collection("review-batch-" + BATCH);
+    const snap = await coll.get();
+    snap.docs.forEach(d => { const v = d.data(); if (!v) return;
+      if (v.verdict) answers[d.id] = {verdict: v.verdict, reasons: v.reasons || [], note: v.note || ""};
+      if (v.rating) ratings[v.night] = {rating: v.rating, note: v.note || ""}; });
+    for (const c of CARDS) if (answers[c.id] && !snap.docs.some(d => d.id === c.id)) { const a = answers[c.id];
+      try { await coll.doc(c.id).set({id: c.id, night: c.night, batch: BATCH, ...a, status: c.status, at: new Date().toISOString()}); } catch (e) {} }
+    for (const n of NIGHTS) if (ratings[n.n] && !snap.docs.some(d => d.id === "night-" + n.n)) {
+      try { await coll.doc("night-" + n.n).set({id: "night-" + n.n, night: n.n, batch: BATCH, ...ratings[n.n], at: new Date().toISOString()}); } catch (e) {} }
+    save();
+    if (!rejecting && STEPS[step].t !== "rate") { step = Math.max(0, firstOpen()); render(); }
+  } catch (e) { coll = null; }
+})();
+}
+</script>
+</body></html>
