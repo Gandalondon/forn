@@ -47,7 +47,7 @@ Each spot has:
 
 1. The single most interesting, surprising fact about the place. Aim for whoa, not merely amusing.
 2. Every claim in the notification and the card is in the source.
-3. Nothing grim (revised 22 Nov). Death and crime are fine when the story is history, not horror: the Necropolis Railway's coffin trains, a famous person's death or murder, a great robbery. Skip the grim ones: fatal crashes and disasters, victims, ghosts of victims, gore. Still out: sex, restaurants and "described as" quotes.
+3. Nothing grim or graphic (revised 22 Nov). History is complex: crime, robberies, gangs, scandals (sex scandals included), a famous person's death or murder, the Necropolis Railway's coffin trains are all fine, told as history. Skip the grim and the graphic: fatal crashes and disasters, victims, ghosts of victims, gore, anything explicit. Still out: restaurants and "described as" quotes.
 4. Drop anything that makes you ask "why does it matter?"
 5. The notification states the fact ("Did you know, ...").
 6. One fact per card: the card explains the notification's fact more fully; never a second fact.
