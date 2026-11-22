@@ -1,0 +1,75 @@
+name: Site
+
+# Deploys getforn.app (the site/ folder) to Vercel from GitHub's machines, only when site/ changes.
+# Why: Vercel's free plan allows 100 deploys a day across ALL of Tony's projects, and cancelled or skipped builds count.
+# On 22 Nov Forn used 40 of them, mostly pushes to main that never touched the site. Vercel's own Git deploys for main are off (site/vercel.json).
+# Needs the repo secret VERCEL_TOKEN (token forn-github, Gandalondon team, All Projects; added 22 Nov, expires 22 Nov 2027). Without it this skips.
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', '.github/workflows/site.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Token check
+        id: tok
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then echo "::notice::No VERCEL_TOKEN secret yet, so nothing deployed."; echo "go=no" >> "$GITHUB_OUTPUT"; else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/checkout@v4
+        if: steps.tok.outputs.go == 'yes'
+
+      - name: Find the forn project on Vercel
+        if: steps.tok.outputs.go == 'yes'
+        id: proj
+        run: |
+          curl -sf -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v10/projects?limit=100" > /tmp/projects.json || { echo "::error::Vercel didn't accept the token."; exit 1; }
+          python3 - <<'PY'
+          import json, os
+          ps = json.load(open("/tmp/projects.json"))["projects"]
+          hit = [p for p in ps if p["name"] == "forn"] or [p for p in ps if "getforn.app" in json.dumps(p.get("targets", {})) + json.dumps(p.get("alias", []))]
+          if not hit: raise SystemExit("::error::No Vercel project named forn: " + ", ".join(p["name"] for p in ps))
+          p = hit[0]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"org={p['accountId']}\nid={p['id']}\nroot={p.get('rootDirectory') or ''}\nname={p['name']}\n")
+          PY
+
+      - name: Daily deploy budget
+        # 100 deploys a day across all projects; stop at 95 so the others keep a little room.
+        if: steps.tok.outputs.go == 'yes'
+        id: budget
+        run: |
+          SINCE=$(( ($(date +%s) - 86400) * 1000 ))
+          N=$(curl -sf -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v6/deployments?teamId=${{ steps.proj.outputs.org }}&since=$SINCE&limit=100" | python3 -c "import json,sys; print(len(json.load(sys.stdin)['deployments']))") || N=0
+          echo "$N Vercel deploys in the last 24 hours (stop at 95)"
+          if [ "$N" -ge 95 ]; then echo "::warning::$N of 100 Vercel deploys used in 24 hours, so this one is skipped. Rerun later."; echo "go=no" >> "$GITHUB_OUTPUT"; else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Lay out site
+        if: steps.budget.outputs.go == 'yes'
+        run: |
+          # Same layout the project expects (its Root Directory), so cleanUrls and headers in vercel.json apply
+          D=/tmp/deploy; R="${{ steps.proj.outputs.root }}"
+          mkdir -p "$D/${R:-.}" && cp -r site/. "$D/${R:-.}/"
+          mkdir -p $D/.vercel && printf '{"orgId":"%s","projectId":"%s"}' "${{ steps.proj.outputs.org }}" "${{ steps.proj.outputs.id }}" > $D/.vercel/project.json
+          find $D -maxdepth 2 | head -30
+
+      - name: Deploy to production
+        if: steps.budget.outputs.go == 'yes'
+        run: |
+          # From a folder with no git history, so Vercel's commit-author check doesn't apply
+          set -o pipefail   # a refused deploy (e.g. the 100 a day limit) fails the job instead of passing silently
+          cd /tmp/deploy && npx -y vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" | tee /tmp/url.txt
+          echo "::notice::Deployed ${{ steps.proj.outputs.name }}: $(tail -1 /tmp/url.txt)"
