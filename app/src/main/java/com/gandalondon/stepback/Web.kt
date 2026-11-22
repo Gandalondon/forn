@@ -61,6 +61,10 @@ class Web(private val a: MainActivity) {
     }
 
     inner class Bridge {
+        /** The build number (GitHub run number = versionCode), shown under About in How it works (22 Nov). */
+        @JavascriptInterface
+        fun build(): Long = a.packageManager.getPackageInfo(a.packageName, 0).longVersionCode
+
         @JavascriptInterface
         fun state(): String {
             val store = Store(a)

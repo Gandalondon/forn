@@ -93,6 +93,7 @@ body.carded .tally { opacity: 0; }
     <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="sixBtn"></button><button type="button" class="pill" id="dataBtn">Send my data</button></div>
   </section>
   <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Back icon: Material Symbols (Apache 2.0).</p></section>
+  <section><p id="buildNo"></p></section>
 </div>
 
 <script>
@@ -559,6 +560,7 @@ function tick(now) {
 const sheet = document.getElementById('sheet');
 function renderTest() {
   const p = S.passed || [];
+  try { const n = window.Forn && Forn.build && Forn.build(); if (n) document.getElementById('buildNo').textContent = 'Build ' + n; } catch (e) {}  // 22 Nov (Tony): which version is on the phone
   document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}.` : '');  // no list of today's passes: 9pm stays a surprise
   document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
   document.getElementById('sixBtn').textContent = demo ? 'Back to my rings' : 'Show six months';
