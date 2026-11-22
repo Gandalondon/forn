@@ -21,7 +21,7 @@ body.turning { cursor: grabbing; }
 #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
 
 /* Step 0: the word, filling the screen above the bar at the bottom. */
-.mark { position: fixed; left: 0; right: 0; top: 0; bottom: calc(var(--pad) + 24px); padding: var(--pad) var(--pad) 0; z-index: 2; background: #FFFFFF; }
+.mark { position: fixed; inset: 0; padding: var(--pad); /* edge to edge: the credit line only shows on the last step (21 Nov) */ z-index: 2; background: #FFFFFF; }
 .mark svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .mark text { font-family: var(--font); font-weight: 600; fill: var(--ink); }
 .mark[hidden] { display: none; }
@@ -52,6 +52,7 @@ body.dark .card { opacity: 1; }
 
 /* Bottom bar: the credit and Privacy on the left, back and next on the right. */
 .bar { position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--pad) + 24px); padding: 0 var(--pad) var(--pad); align-items: flex-end; display: flex; align-items: center; justify-content: space-between; gap: 16px; z-index: 5; font-size: 13px; line-height: 18px; color: var(--soft); }
+.bar[hidden] { display: none; }
 .bar p { margin: 0; }
 .bar a { color: var(--ink); font-weight: 500; text-decoration: none; }
 .bar .link { color: var(--ink); background: none; border: 0; padding: 0; font: inherit; font-weight: 500; cursor: pointer; }
@@ -88,7 +89,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <div class="shade" aria-hidden="true"></div>
 <div class="card" id="card" hidden aria-live="polite"><b>For 87 years, a train from Waterloo took coffins to a Surrey cemetery, each with a first, second or third class ticket.</b><span>Waterloo station, 10:42</span></div>
 
-<div class="bar">
+<div class="bar" hidden>
   <p>&copy; 2026 Forn<span class="who">, a concept by <a href="https://gandalondon.com" target="_blank" rel="noopener">Tony Goff-Yu</a></span>. <button type="button" class="link" id="privacy">Privacy</button></p>
 </div>
 <p class="sr" aria-live="polite" id="live"></p>
@@ -241,6 +242,7 @@ function go(n) {
   if (n === step) return;
   const prev = step; step = n; lock = performance.now();
   document.getElementById('mark').hidden = step !== 0;
+  document.querySelector('.bar').hidden = step !== last; // credit and Privacy only at the end
   steps.forEach(s => s.hidden = +s.dataset.s !== step);
   document.getElementById('card').hidden = step !== 3;
   clearTimeout(darkT);
