@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: [main]
-    paths-ignore: ['site/**', '**.md']  # the getforn.app site and docs don't build a new APK
+    paths-ignore: ['site/**', '**.md', '.github/workflows/site.yml']  # the getforn.app site, its deploy job and docs don't build a new APK
   workflow_dispatch:
 
 permissions:

@@ -126,3 +126,5 @@ One ask per screen, each with its own headline:
 - Every push to main builds a release named Forn and its build number, with the APK file still called Stepback.apk (see the top of this file). Obtainium watches the repo.
 - Signed with the permanent key (repo secrets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD; keystore kept on Tony's Mac, never in git), so updates install over the top.
 - Docs-only pushes use [skip ci].
+- Vercel deploy budget (22 Nov): the free plan allows 100 deploys a day across ALL Tony's projects, and cancelled or skipped builds count. Prefer [skip ci] and batch pushes to main (one push for a session's content and notes, not one per file).
+- The site (getforn.app) deploys only through the Site job (.github/workflows/site.yml): on pushes to main that touch site/, or run by hand. It stops at 95 deploys in 24 hours. Vercel's own Git deploys for main are off (site/vercel.json). Preview branches still deploy on every push, so use them sparingly.

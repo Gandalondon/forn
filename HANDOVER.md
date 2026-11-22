@@ -1,6 +1,14 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 13:45
+### Latest: Sun 22 Nov 2026, 16:05
+
+### Update, Sun 22 Nov 16:05: Vercel deploy budget fix (as done for Hlid)
+- On 22 Nov the free plan's 100 Vercel deploys a day (all projects, cancelled ones count) ran out: Forn 40, Hlid 59.
+- Now: getforn.app deploys only through the Site job (.github/workflows/site.yml, copied from Hlid's), on pushes to main touching site/, or by hand (Actions, Site, Run workflow). Skips at 95 deploys in 24 hours. Repo secret VERCEL_TOKEN (forn-github, expires 22 Nov 2027).
+- site/vercel.json: Git deploys for main off. Build APK ignores the Site workflow file.
+- Rule added to RULES.md (Builds): [skip ci] and batched pushes; site deploys via the Site job only.
+- The budget was used up until about 15:45 on 23 Nov, so the first Site run may fail with api-deployments-free-per-day: rerun it after that (status in the 16:05 entry below once checked).
+
 
 ### Update, Sun 22 Nov 13:45: all four 13:20 items done; sync with Tony at 11pm
 - Three review pages waiting, any order: batch 13 (https://claude.ai/artifact/324WRsSff9kqxHBghdYAY4), batch 14 outer London (https://claude.ai/artifact/2NmRPAc1s2xnnN3gsZ9s4o), batch 15 the six held-back stories plus four (https://claude.ai/artifact/JoBwsopm2wkrKWNYMMyP8W). When he says one is done: read review-batch-N, add passing facts to spots.json, log in notes/review-log-3.md, push (builds the APK). Batch details: notes/review-log-3.md.
