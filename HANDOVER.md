@@ -1,6 +1,12 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 16:05
+### Latest: Sun 22 Nov 2026, 16:15
+
+### Update, Sun 22 Nov 16:15: batches 13 to 15 reviewed and shipped
+- Tony reviewed all three at 16:00. 58 of 60 kept, every night good. 34 facts ship: spots.json now 218. Details: notes/review-log-3.md.
+- beatles-rooftop shipped with the last sentence removed (Tony's note); trident-hey-jude held back (Confusing).
+- No review pages open now. Next: Tony's three pipeline decisions (notes/faster-pipeline.md), the go bar (notes/replay-test.md), Record walk GPX. Then the first area run (5 to 10km ring).
+
 
 ### Update, Sun 22 Nov 16:05: Vercel deploy budget fix (as done for Hlid)
 - On 22 Nov the free plan's 100 Vercel deploys a day (all projects, cancelled ones count) ran out: Forn 40, Hlid 59.

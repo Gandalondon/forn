@@ -62,3 +62,11 @@
 - Nights: Tue West End, Holborn, Stoke Newington (4 new); Thu Knightsbridge to Notting Hill (2 new); Sat Brixton, Deptford, Greenwich (2 new); Mon Heathrow pick-up home via Brentford and Ealing (2 new).
 - Watch: Hatton Garden is 2015, the most recent crime yet (no one hurt). Marlowe is a famous person's death (rule 3 allows). The Notting Hill card says "Hugh Grant's house" (the source says Will's house, played by Grant).
 - New: tools/pipeline/lint.py (rule lint). Flags on batches 13 to 15: lesnes-becket's hedge (the source hedges too); hendrix-ronnie-scotts and spaghetti-house-siege share a topic within 300m of shipped spots (Soho is dense; fine).
+
+## Results, 22 Nov 16:04: batches 13, 14 and 15 reviewed together; 34 ship (184 to 218 spots)
+- Batch 13: 18 of 20 kept, all four nights good. Rejected: trident-hey-jude (Confusing, no note; probably the eight-track and four-track detail; held back, not shipped) and beatles-rooftop (Confusing: "It was not the last public performance. Needs a re-write or remove the last sentence."). Did as Tony said: last sentence removed, and the line no longer claims a last gig. Now: "Did you know, police stopped the Beatles' rooftop gig on Savile Row after 42 minutes?" Shipped (text in london-modern-batch12.json).
+- Batch 14: 20 of 20 kept, all nights good. All 13 outer London facts ship.
+- Batch 15: 20 of 20 kept, all nights good. All 10 ship, including the six held-back stories.
+- Reject rate: 2 in 60 cards (3%), both "Confusing" and both Beatles-era music cards with a technical or factual edge. Lesson: avoid claims like "last ever" unless the source and common knowledge agree, and keep studio and technical detail out of cards.
+- Replay after shipping: commuter's days out with a find 18% to 23%; Tony 29%; Bromley 26%.
+- Next for trident-hey-jude: rewrite without the track counts if it comes back, or drop.
