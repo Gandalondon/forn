@@ -33,3 +33,14 @@ With batches 13 and 14: Tony 23/29%/7.0, commuter 9/18%/1.7, Bromley 6/26%/1.8.
 
 ## Proposed go bar (for Tony to agree)
 In weeks 3 to 8: at least 75% of a central commuter's days out and 50% of an outer Londoner's get a find, with 5+ finds a week for both. Today: 18% and 26%. Re-run after every batch: python3 tools/replay/replay.py app/src/main/assets/spots.json
+
+## Density by distance from Charing Cross (22 Nov, shipped plus batches 13 to 15, 207 London-area spots)
+| Ring | Spots | Per km² |
+|---|---|---|
+| 0 to 2km | 44 | 3.5 |
+| 2 to 5km | 51 | 0.8 |
+| 5 to 10km | 25 | 0.1 |
+| 10 to 15km | 54 | 0.1 (mostly SW20 and Merton) |
+| 15 to 20km | 26 | 0.05 |
+| 20km+ | 7 | under 0.01 |
+The 5 to 10km ring (Zones 2 and 3: Clapham, Hackney, Lewisham, Hammersmith) is the hole: most Londoners live there, and it has a tenth of the centre's density.
