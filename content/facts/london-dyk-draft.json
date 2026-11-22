@@ -1,0 +1,381 @@
+[
+ {
+  "id": "alfred-roman-legs",
+  "kind": "roman",
+  "score": 9,
+  "place": "Trinity Church Square, Southwark",
+  "points": [
+   [
+    51.49889,
+    -0.09361,
+    300
+   ]
+  ],
+  "line": "Did you know, the statue of Alfred the Great in Southwark stands on Roman legs?",
+  "fact": "The legs of Southwark's Alfred the Great are Roman, from about AD 100. The top half was added around 1800, which makes it probably London's oldest outdoor statue.",
+  "source": "Wikipedia: Statue of Alfred the Great, Southwark",
+  "url": "https://en.wikipedia.org/wiki/Statue_of_Alfred_the_Great,_Southwark"
+ },
+ {
+  "id": "first-atm",
+  "kind": "modern",
+  "score": 9,
+  "place": "Barclays, Enfield",
+  "points": [
+   [
+    51.6523,
+    -0.08196,
+    300
+   ]
+  ],
+  "line": "Did you know, the world's first cash machine was in Enfield?",
+  "fact": "The world's first cash machine opened at Barclays in Enfield in June 1967. You used a paper voucher bought in advance, and could take out £10 at most.",
+  "source": "Wikipedia: Barclays Bank, Enfield",
+  "url": "https://en.wikipedia.org/wiki/Barclays_Bank,_Enfield"
+ },
+ {
+  "id": "grendels-gate",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Barnet Gate",
+  "points": [
+   [
+    51.643083,
+    -0.24057,
+    500
+   ]
+  ],
+  "line": "Did you know, Barnet Gate was once named after the monster in Beowulf?",
+  "fact": "To the Anglo-Saxons, Barnet Gate was Grendel's Gate, after the monster in the poem Beowulf. A charter from about 975 uses the name.",
+  "source": "Wikipedia: Barnet Gate",
+  "url": "https://en.wikipedia.org/wiki/Barnet_Gate"
+ },
+ {
+  "id": "foyles-mein-kampf",
+  "kind": "modern",
+  "score": 9,
+  "place": "Foyles, Charing Cross Road",
+  "points": [
+   [
+    51.51478,
+    -0.13004,
+    250
+   ]
+  ],
+  "line": "Did you know, Foyles protected its roof in the Blitz with copies of Mein Kampf?",
+  "fact": "In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.",
+  "source": "Wikipedia: Foyles Building",
+  "url": "https://en.wikipedia.org/wiki/Foyles_Building"
+ },
+ {
+  "id": "newton-maypole",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Mary le Strand",
+  "points": [
+   [
+    51.5121,
+    -0.1171,
+    250
+   ]
+  ],
+  "line": "Did you know, the Strand's maypole ended up holding Isaac Newton's telescope?",
+  "fact": "A famous maypole stood where St Mary le Strand is now. In 1717 Isaac Newton bought it to hold up a telescope, then the largest in the world.",
+  "source": "Wikipedia: Maypole in the Strand",
+  "url": "https://en.wikipedia.org/wiki/Maypole_in_the_Strand"
+ },
+ {
+  "id": "bumper-harris",
+  "kind": "modern",
+  "score": 9,
+  "place": "Earl's Court station",
+  "points": [
+   [
+    51.4913,
+    -0.1947,
+    300
+   ]
+  ],
+  "line": "Did you know, a one-legged man rode the Underground's first escalators to show they were safe?",
+  "fact": "The Underground's first escalators opened at Earl's Court in 1911. A one-legged engineer, Bumper Harris, rode them on the first day to reassure passengers.",
+  "source": "Wikipedia: Earl's Court tube station",
+  "url": "https://en.wikipedia.org/wiki/Earl%27s_Court_tube_station"
+ },
+ {
+  "id": "whittington-longhouse",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Bell Wharf Lane",
+  "points": [
+   [
+    51.51,
+    -0.092,
+    300
+   ]
+  ],
+  "line": "Did you know, Dick Whittington gave London a toilet with 128 seats?",
+  "fact": "Dick Whittington paid for a public toilet by the Thames with 128 seats, 64 for men and 64 for women. The tide washed it out twice a day.",
+  "source": "Wikipedia: Whittington's Longhouse",
+  "url": "https://en.wikipedia.org/wiki/Whittington%27s_Longhouse"
+ },
+ {
+  "id": "holborn-power",
+  "kind": "modern",
+  "score": 8,
+  "place": "Holborn Viaduct",
+  "points": [
+   [
+    51.51719722,
+    -0.10506944,
+    300
+   ]
+  ],
+  "line": "Did you know, the world's first coal-fired public power station was on Holborn Viaduct?",
+  "fact": "The world's first coal-fired power station for public use was at 57 Holborn Viaduct, built by Thomas Edison's company. New York got its own afterwards.",
+  "source": "Wikipedia: Holborn Viaduct power station",
+  "url": "https://en.wikipedia.org/wiki/Holborn_Viaduct_power_station"
+ },
+ {
+  "id": "craigs-court-tunnels",
+  "kind": "modern",
+  "score": 8,
+  "place": "Craig's Court, Whitehall",
+  "points": [
+   [
+    51.5067,
+    -0.1266,
+    250
+   ]
+  ],
+  "line": "Did you know, a telephone exchange off Whitehall hides a way into secret tunnels?",
+  "fact": "The BT telephone exchange in Craig's Court, off Whitehall, holds one of the entrances to the secret government tunnels under central London.",
+  "source": "Wikipedia: Craig's Court",
+  "url": "https://en.wikipedia.org/wiki/Craig%27s_Court"
+ },
+ {
+  "id": "first-tube-baby",
+  "kind": "modern",
+  "score": 8,
+  "place": "Elephant & Castle station",
+  "points": [
+   [
+    51.4944,
+    -0.0997,
+    300
+   ]
+  ],
+  "line": "Did you know, the first baby born on the Underground arrived at Elephant & Castle?",
+  "fact": "In May 1924 a girl was born at Elephant & Castle, the first baby born on the Underground. The railway's chairman, Lord Ashfield, became her godfather, and she got his name as a middle name.",
+  "source": "Wikipedia: Elephant & Castle tube station",
+  "url": "https://en.wikipedia.org/wiki/Elephant_%26_Castle_tube_station",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "lords-pavilion-women",
+  "kind": "modern",
+  "score": 8,
+  "place": "Lord's",
+  "points": [
+   [
+    51.529,
+    -0.1739,
+    300
+   ]
+  ],
+  "line": "Did you know, until 1999 the Queen was the only woman allowed in the Lord's Pavilion during play?",
+  "fact": "Until 1999, women weren't allowed in the Lord's Pavilion during play. The one exception was the Queen, the club's patron.",
+  "source": "Wikipedia: Lord's Pavilion",
+  "url": "https://en.wikipedia.org/wiki/Lord%27s_Pavilion"
+ },
+ {
+  "id": "bomber-command-roof",
+  "kind": "modern",
+  "score": 8,
+  "place": "Green Park",
+  "points": [
+   [
+    51.50333,
+    -0.14889,
+    300
+   ]
+  ],
+  "line": "Did you know, the Bomber Command Memorial's roof is made from a crashed bomber?",
+  "fact": "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.",
+  "source": "Wikipedia: RAF Bomber Command Memorial",
+  "url": "https://en.wikipedia.org/wiki/RAF_Bomber_Command_Memorial"
+ },
+ {
+  "id": "ruislip-tower",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Ruislip Woods",
+  "points": [
+   [
+    51.593,
+    -0.431,
+    1500
+   ]
+  ],
+  "line": "Did you know, wood from Ruislip helped build the Tower of London?",
+  "fact": "Timber from Ruislip Woods went into the Tower of London in 1339, Windsor Castle in 1344 and the Palace of Westminster in 1346.",
+  "source": "Wikipedia: Ruislip Woods",
+  "url": "https://en.wikipedia.org/wiki/Ruislip_Woods"
+ },
+ {
+  "id": "down-street-barn",
+  "kind": "modern",
+  "score": 8,
+  "place": "Down Street, Mayfair",
+  "points": [
+   [
+    51.50465,
+    -0.14791,
+    250
+   ]
+  ],
+  "line": "Did you know, Churchill hid in a closed tube station he called the Barn?",
+  "fact": "Down Street station closed in 1932. In the war Churchill and his cabinet sheltered there until the Cabinet War Rooms were ready, and he called it the Barn.",
+  "source": "Wikipedia: Down Street tube station",
+  "url": "https://en.wikipedia.org/wiki/Down_Street_tube_station"
+ },
+ {
+  "id": "ilford-dickin",
+  "kind": "modern",
+  "score": 8,
+  "place": "Ilford Animal Cemetery",
+  "points": [
+   [
+    51.5875,
+    0.04583,
+    400
+   ]
+  ],
+  "line": "Did you know, a fifth of all animal war heroes with the Dickin Medal are buried in Ilford?",
+  "fact": "Thirteen animals awarded the Dickin Medal, the animals' medal for bravery, are buried at Ilford Animal Cemetery. That's a fifth of every animal ever given it.",
+  "source": "Wikipedia: Ilford Animal Cemetery",
+  "url": "https://en.wikipedia.org/wiki/Ilford_Animal_Cemetery",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "regent-street-cinema",
+  "kind": "building",
+  "score": 8,
+  "place": "Regent Street Cinema",
+  "points": [
+   [
+    51.51684,
+    -0.14272,
+    250
+   ]
+  ],
+  "line": "Did you know, Britain's first moving pictures were shown on Regent Street?",
+  "fact": "In February 1896, the Regent Street Cinema showed a short film by the Lumière brothers. It was the first motion picture ever shown in the UK.",
+  "source": "Wikipedia: Regent Street Cinema",
+  "url": "https://en.wikipedia.org/wiki/Regent_Street_Cinema",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "crooked-billet-phone",
+  "kind": "modern",
+  "score": 8,
+  "place": "Crooked Billet, Wimbledon",
+  "points": [
+   [
+    51.42139,
+    -0.2275,
+    300
+   ]
+  ],
+  "line": "Did you know, London's first house with a telephone was at Crooked Billet in Wimbledon?",
+  "fact": "The first house in London to have a telephone was at Crooked Billet in Wimbledon.",
+  "source": "Wikipedia: Crooked Billet",
+  "url": "https://en.wikipedia.org/wiki/Crooked_Billet",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "endell-street-hospital",
+  "kind": "modern",
+  "score": 8,
+  "place": "Endell Street, Covent Garden",
+  "points": [
+   [
+    51.51442,
+    -0.12441,
+    250
+   ]
+  ],
+  "line": "Did you know, a First World War hospital on Endell Street was run entirely by women?",
+  "fact": "In the First World War, a military hospital at 36 Endell Street was staffed entirely by women. Two suffragist doctors ran it, and it treated 24,000 patients.",
+  "source": "Wikipedia: Endell Street",
+  "url": "https://en.wikipedia.org/wiki/Endell_Street"
+ },
+ {
+  "id": "clattern-goal",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Clattern Bridge, Kingston",
+  "points": [
+   [
+    51.4086,
+    -0.3068,
+    250
+   ]
+  ],
+  "line": "Did you know, a bridge in Kingston was once a football goal?",
+  "fact": "Every Shrove Tuesday, Kingston played a football match in the town centre. Clattern Bridge was one team's goal, and Kingston Bridge was the other's.",
+  "source": "Wikipedia: Clattern Bridge",
+  "url": "https://en.wikipedia.org/wiki/Clattern_Bridge"
+ },
+ {
+  "id": "pall-mall-game",
+  "kind": "modern",
+  "score": 7,
+  "place": "Pall Mall",
+  "points": [
+   [
+    51.50694,
+    -0.13306,
+    400
+   ]
+  ],
+  "line": "Did you know, Pall Mall is named after a game like croquet?",
+  "fact": "Pall Mall is named after pall-mall, a game like croquet, played here on a long, narrow court in the 17th century. The street was built over the old court in 1661.",
+  "source": "Wikipedia: Pall Mall, London",
+  "url": "https://en.wikipedia.org/wiki/Pall_Mall,_London",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "james-ii-weeds",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.5084,
+    -0.129,
+    250
+   ]
+  ],
+  "line": "Did you know, the statue of James II outside the National Gallery once lay in the weeds?",
+  "fact": "The statue of James II outside the National Gallery was taken down to make room for Edward VII's coronation stands. It lay on its back in the weeds until 1903.",
+  "source": "Wikipedia: Statue of James II, Trafalgar Square",
+  "url": "https://en.wikipedia.org/wiki/Statue_of_James_II,_Trafalgar_Square"
+ },
+ {
+  "id": "george-v-quarry",
+  "kind": "modern",
+  "score": 7,
+  "place": "Old Palace Yard",
+  "points": [
+   [
+    51.49897,
+    -0.12634,
+    250
+   ]
+  ],
+  "line": "Did you know, the statue of George V by Parliament spent the war in a quarry?",
+  "fact": "The statue of George V opposite the House of Lords was carved in a Portland quarry. It spent the Second World War hidden in one of the quarry's tunnels.",
+  "source": "Wikipedia: Statue of George V, Westminster",
+  "url": "https://en.wikipedia.org/wiki/Statue_of_George_V,_Westminster"
+ }
+]

@@ -1,0 +1,382 @@
+[
+ {
+  "id": "name-kew",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kew",
+  "points": [
+   [
+    51.4787,
+    -0.29,
+    1000
+   ]
+  ],
+  "line": "Did you know, Kew's name means a landing place on a bend in the river?",
+  "fact": "Kew was written Cayho in 1327. It joins the Old French kai, a landing place, with the Old English hoh, a spur of land made by the bend in the Thames.",
+  "source": "Wikipedia: Kew",
+  "url": "https://en.wikipedia.org/wiki/Kew",
+  "year": 1327,
+  "topic": "names"
+ },
+ {
+  "id": "name-richmond",
+  "kind": "modern",
+  "score": 8,
+  "place": "Richmond",
+  "points": [
+   [
+    51.4613,
+    -0.3037,
+    1000
+   ]
+  ],
+  "line": "Did you know, Richmond is named after a town in Yorkshire?",
+  "fact": "Richmond used to be called Sheen. In 1501 Henry VII rebuilt the palace there and named it Richmond, after his title, Earl of Richmond, which came from Richmond in Yorkshire.",
+  "source": "Wikipedia: Richmond, London",
+  "url": "https://en.wikipedia.org/wiki/Richmond%2C_London",
+  "year": 1501,
+  "topic": "names"
+ },
+ {
+  "id": "name-kingston",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kingston upon Thames",
+  "points": [
+   [
+    51.4123,
+    -0.3007,
+    1200
+   ]
+  ],
+  "line": "Did you know, Kingston's name means the king's estate?",
+  "fact": "Kingston means the king's estate. The land belonged to the Saxon kings, and Kingston was the earliest royal borough.",
+  "source": "Wikipedia: Kingston upon Thames",
+  "url": "https://en.wikipedia.org/wiki/Kingston_upon_Thames",
+  "year": 838,
+  "topic": "names"
+ },
+ {
+  "id": "name-surbiton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Surbiton",
+  "points": [
+   [
+    51.3937,
+    -0.3033,
+    1000
+   ]
+  ],
+  "line": "Did you know, Surbiton just means the south farm?",
+  "fact": "Surbiton comes from the Old English for southern farm, as opposed to Norbiton, the northern one. Both were outlying farms belonging to the king's manor of Kingston.",
+  "source": "Wikipedia: Surbiton",
+  "url": "https://en.wikipedia.org/wiki/Surbiton",
+  "year": 1179,
+  "topic": "names"
+ },
+ {
+  "id": "name-knightsbridge",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Knightsbridge",
+  "points": [
+   [
+    51.5015,
+    -0.1607,
+    700
+   ]
+  ],
+  "line": "Did you know, the knights in Knightsbridge weren't knights?",
+  "fact": "Knightsbridge means the bridge of the young men. In Saxon times, the word knight just meant a young man or a servant, not a knight on horseback.",
+  "source": "Wikipedia: Knightsbridge",
+  "url": "https://en.wikipedia.org/wiki/Knightsbridge",
+  "year": 1050,
+  "topic": "names"
+ },
+ {
+  "id": "name-soho",
+  "kind": "modern",
+  "score": 8,
+  "place": "Soho",
+  "points": [
+   [
+    51.5136,
+    -0.1365,
+    600
+   ]
+  ],
+  "line": "Did you know, Soho is named after a hunting cry?",
+  "fact": "Soho takes its name from soho!, an old hunting cry. It was first used as the name of the area around 1636.",
+  "source": "Wikipedia: Soho",
+  "url": "https://en.wikipedia.org/wiki/Soho",
+  "year": 1636,
+  "topic": "names"
+ },
+ {
+  "id": "name-stepney",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Stepney",
+  "points": [
+   [
+    51.5152,
+    -0.0462,
+    900
+   ]
+  ],
+  "line": "Did you know, Stepney is named after a man called Stybba and his landing place?",
+  "fact": "Stepney means Stybba's landing place: a spot on the Thames where boats came in, named after a man called Stybba around the year 1000.",
+  "source": "Wikipedia: Stepney",
+  "url": "https://en.wikipedia.org/wiki/Stepney",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-bermondsey",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Bermondsey",
+  "points": [
+   [
+    51.4979,
+    -0.0637,
+    900
+   ]
+  ],
+  "line": "Did you know, Bermondsey means Beornmund's island?",
+  "fact": "Bermondsey means Beornmund's island, after a Saxon called Beornmund. It may not have been a real island: the Old English word could also mean firm ground in a marsh.",
+  "source": "Wikipedia: Bermondsey",
+  "url": "https://en.wikipedia.org/wiki/Bermondsey",
+  "year": 1086,
+  "topic": "names"
+ },
+ {
+  "id": "name-southwark",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Southwark",
+  "points": [
+   [
+    51.5035,
+    -0.0804,
+    900
+   ]
+  ],
+  "line": "Did you know, Southwark's name means the southern fort?",
+  "fact": "Southwark means the southern defensive work. In the 900s it was the fort of the men of Surrey, at the south end of London Bridge, across the river from the City.",
+  "source": "Wikipedia: Southwark",
+  "url": "https://en.wikipedia.org/wiki/Southwark",
+  "year": 900,
+  "topic": "names"
+ },
+ {
+  "id": "name-lambeth",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Lambeth",
+  "points": [
+   [
+    51.4963,
+    -0.1171,
+    900
+   ]
+  ],
+  "line": "Did you know, Lambeth means a landing place for lambs?",
+  "fact": "Lambeth was first written Lambehitha in 1062, meaning a landing place for lambs. It was a riverside harbour where lambs were shipped in or out.",
+  "source": "Wikipedia: Lambeth",
+  "url": "https://en.wikipedia.org/wiki/Lambeth",
+  "year": 1062,
+  "topic": "names"
+ },
+ {
+  "id": "name-vauxhall",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Vauxhall",
+  "points": [
+   [
+    51.4861,
+    -0.1253,
+    800
+   ]
+  ],
+  "line": "Did you know, Vauxhall is named after King John's mercenary chief?",
+  "fact": "Vauxhall is named after Falkes de Breauté, who led King John's hired soldiers. He had a big house here, known as Faulke's Hall, and over time the name became Vauxhall.",
+  "source": "Wikipedia: Vauxhall",
+  "url": "https://en.wikipedia.org/wiki/Vauxhall",
+  "year": 1250,
+  "topic": "names"
+ },
+ {
+  "id": "name-brixton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Brixton Hill",
+  "points": [
+   [
+    51.45,
+    -0.118,
+    900
+   ]
+  ],
+  "line": "Did you know, Brixton is named after a Saxon lord's stone?",
+  "fact": "Brixton means Brixi's stone. Brixi, a Saxon lord, is thought to have set up a stone at the top of what's now Brixton Hill, to mark where the local court met.",
+  "source": "Wikipedia: Brixton",
+  "url": "https://en.wikipedia.org/wiki/Brixton",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-greenwich",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Greenwich",
+  "points": [
+   [
+    51.4826,
+    -0.0077,
+    1000
+   ]
+  ],
+  "line": "Did you know, Greenwich means the green trading town?",
+  "fact": "Greenwich was first written Gronewic in 918. The wic part comes from the Latin vicus and means a trading town, so the name means the green trading town.",
+  "source": "Wikipedia: Greenwich",
+  "url": "https://en.wikipedia.org/wiki/Greenwich",
+  "year": 918,
+  "topic": "names"
+ },
+ {
+  "id": "name-ealing",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Ealing",
+  "points": [
+   [
+    51.513,
+    -0.3089,
+    1200
+   ]
+  ],
+  "line": "Did you know, Ealing is named after a Saxon tribe?",
+  "fact": "Ealing comes from the Gillingas, a Saxon tribe named in a charter from around the year 700. The tribe took its name from its chief, a man called Gilla.",
+  "source": "Wikipedia: Ealing",
+  "url": "https://en.wikipedia.org/wiki/Ealing",
+  "year": 700,
+  "topic": "names"
+ },
+ {
+  "id": "name-acton",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Acton",
+  "points": [
+   [
+    51.508,
+    -0.27,
+    1200
+   ]
+  ],
+  "line": "Did you know, Acton means the farm by the oaks?",
+  "fact": "Acton comes from the Old English ac, oak, and tun, an enclosure. It means a field or farm surrounded by oak trees.",
+  "source": "Wikipedia: Acton, London",
+  "url": "https://en.wikipedia.org/wiki/Acton%2C_London",
+  "year": 1000,
+  "topic": "names"
+ },
+ {
+  "id": "name-brentford",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Brentford",
+  "points": [
+   [
+    51.487,
+    -0.309,
+    900
+   ]
+  ],
+  "line": "Did you know, the River Brent may be named after a goddess?",
+  "fact": "Brentford is the ford over the River Brent. The river's name comes from an ancient British word for high or holy, and may be linked to the goddess Brigantia.",
+  "source": "Wikipedia: Brentford",
+  "url": "https://en.wikipedia.org/wiki/Brentford",
+  "year": 705,
+  "topic": "names"
+ },
+ {
+  "id": "name-islington",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Islington",
+  "points": [
+   [
+    51.5362,
+    -0.1033,
+    1000
+   ]
+  ],
+  "line": "Did you know, Islington means Gisla's hill?",
+  "fact": "The Saxons called Islington Giseldone. It means Gisla's hill, after a man called Gisla, and it was still spelt Isledon into the 1600s.",
+  "source": "Wikipedia: Islington",
+  "url": "https://en.wikipedia.org/wiki/Islington",
+  "year": 1005,
+  "topic": "names"
+ },
+ {
+  "id": "name-wandsworth",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Wandsworth",
+  "points": [
+   [
+    51.4567,
+    -0.191,
+    1000
+   ]
+  ],
+  "line": "Did you know, Wandsworth and the River Wandle are named after the same man?",
+  "fact": "Wandsworth means the enclosure of a man called Waendel. The River Wandle, which joins the Thames there, is named after him too.",
+  "source": "Wikipedia: Wandsworth",
+  "url": "https://en.wikipedia.org/wiki/Wandsworth",
+  "year": 1086,
+  "topic": "names"
+ },
+ {
+  "id": "name-camden-town",
+  "kind": "modern",
+  "score": 8,
+  "place": "Camden Town",
+  "points": [
+   [
+    51.539,
+    -0.1426,
+    900
+   ]
+  ],
+  "line": "Did you know, Camden Town is named after a house in Kent?",
+  "fact": "Camden Town is named after Charles Pratt, Earl Camden. He took his title from his house in Chislehurst, Kent, Camden Place, once owned by the historian William Camden.",
+  "source": "Wikipedia: Camden Town",
+  "url": "https://en.wikipedia.org/wiki/Camden_Town",
+  "year": 1791,
+  "topic": "names"
+ },
+ {
+  "id": "name-bayswater",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Bayswater",
+  "points": [
+   [
+    51.5121,
+    -0.1879,
+    900
+   ]
+  ],
+  "line": "Did you know, Bayswater was a place for watering horses?",
+  "fact": "Bayswater comes from Bayards Watering Place, recorded in 1380. It was either a place where horses drank or one owned by the Bayard family.",
+  "source": "Wikipedia: Bayswater",
+  "url": "https://en.wikipedia.org/wiki/Bayswater",
+  "year": 1380,
+  "topic": "names"
+ }
+]

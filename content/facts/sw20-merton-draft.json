@@ -1,0 +1,682 @@
+[
+ {
+  "id": "laddie-station",
+  "kind": "modern",
+  "score": 9,
+  "place": "Wimbledon station",
+  "points": [
+   [
+    51.4232,
+    -0.2043,
+    300
+   ]
+  ],
+  "line": "Did you know, a stuffed dog collected money at Wimbledon station until 1990?",
+  "fact": "Laddie the dog collected money at Wimbledon station from 1949, with a box on his back. When he died he was stuffed and put back on the platform in a glass case, still collecting, until 1990.",
+  "source": "Wikipedia: Wimbledon station",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_station"
+ },
+ {
+  "id": "merton-statute",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Merton Priory",
+  "points": [
+   [
+    51.4142,
+    -0.1812,
+    400
+   ]
+  ],
+  "line": "Did you know, England's first recorded statute was passed where Sainsbury's is now?",
+  "fact": "In 1236 Henry III held a parliament at Merton Priory and passed England's first recorded statute, a written law. The priory is long gone, and a Sainsbury's stands on the site.",
+  "source": "Wikipedia: Merton Priory",
+  "url": "https://en.wikipedia.org/wiki/Merton_Priory"
+ },
+ {
+  "id": "mosque-chimney",
+  "kind": "building",
+  "score": 9,
+  "place": "Baitul Futuh, Morden",
+  "points": [
+   [
+    51.3961,
+    -0.1989,
+    350
+   ]
+  ],
+  "line": "Did you know, the minaret of Morden's mosque was a dairy chimney?",
+  "fact": "Baitul Futuh in Morden, one of the largest mosque complexes in Europe, stands on an old Express Dairies depot. Its 35m minaret is the dairy's chimney, converted.",
+  "source": "Wikipedia: Baitul Futuh Mosque",
+  "url": "https://en.wikipedia.org/wiki/Baitul_Futuh_Mosque"
+ },
+ {
+  "id": "perry-statue",
+  "kind": "modern",
+  "score": 9,
+  "place": "All England Club",
+  "points": [
+   [
+    51.4344,
+    -0.2135,
+    400
+   ]
+  ],
+  "line": "Did you know, a KGB spy photo of Wimbledon showed Fred Perry his own statue?",
+  "fact": "Fred Perry used to point at his own statue to get past the Wimbledon gates without a pass. In Russia, late in life, an ex-KGB man showed him a spy satellite photo of the grounds, statue and all.",
+  "source": "Wikipedia: Statue of Fred Perry",
+  "url": "https://en.wikipedia.org/wiki/Statue_of_Fred_Perry"
+ },
+ {
+  "id": "john-innes-compost",
+  "kind": "modern",
+  "score": 9,
+  "place": "Merton Park",
+  "points": [
+   [
+    51.4092,
+    -0.208,
+    400
+   ]
+  ],
+  "line": "Did you know, John Innes compost was invented in Merton Park?",
+  "fact": "John Innes compost was invented in Merton Park, at the John Innes Horticultural Institution, a plant research centre. Its scientists published the recipe in 1938.",
+  "source": "Wikipedia: Merton Park",
+  "url": "https://en.wikipedia.org/wiki/Merton_Park"
+ },
+ {
+  "id": "ophelia-hogsmill",
+  "kind": "landscape",
+  "score": 9,
+  "place": "Old Malden",
+  "points": [
+   [
+    51.3823,
+    -0.2612,
+    500
+   ]
+  ],
+  "line": "Did you know, the river in Millais's famous painting Ophelia is the Hogsmill in Old Malden?",
+  "fact": "Millais's painting Ophelia shows Hamlet's Ophelia drowning in a river. He painted the riverbank in 1852 along the Hogsmill, beside Church Road in Old Malden.",
+  "source": "Wikipedia: Old Malden; Ophelia (Millais)",
+  "url": "https://en.wikipedia.org/wiki/Old_Malden https://en.wikipedia.org/wiki/Ophelia_(Millais)"
+ },
+ {
+  "id": "morden-tunnel",
+  "kind": "modern",
+  "score": 8,
+  "place": "Morden station",
+  "points": [
+   [
+    51.4022,
+    -0.1948,
+    400
+   ]
+  ],
+  "line": "Did you know, the longest tunnel on the Underground starts at Morden?",
+  "fact": "Just north of Morden station, the Northern line goes into the longest tunnel on the London Underground. It runs 27.8km, all the way to East Finchley.",
+  "source": "Wikipedia: Morden tube station",
+  "url": "https://en.wikipedia.org/wiki/Morden_tube_station"
+ },
+ {
+  "id": "nelson-merton",
+  "kind": "modern",
+  "score": 8,
+  "place": "Merton",
+  "points": [
+   [
+    51.4155,
+    -0.188,
+    500
+   ]
+  ],
+  "line": "Did you know, Nelson lived in Merton with Emma Hamilton and her husband?",
+  "fact": "Admiral Nelson lived in Merton between voyages, at a house called Merton Place. He shared it with his mistress, Emma Hamilton, and her husband.",
+  "source": "Wikipedia: Merton, London",
+  "url": "https://en.wikipedia.org/wiki/Merton,_London"
+ },
+ {
+  "id": "putney-vale-bullet",
+  "kind": "modern",
+  "score": 8,
+  "place": "Putney Vale Cemetery",
+  "points": [
+   [
+    51.4403,
+    -0.2439,
+    500
+   ]
+  ],
+  "line": "Did you know, a stray bullet ended rifle shooting on Wimbledon Common?",
+  "fact": "Rifle ranges on Wimbledon Common sat next to Putney Vale Cemetery. When a stray bullet killed a gravedigger there, the cemetery took the rifle regiments to court and won, and the shooting stopped.",
+  "source": "Wikipedia: Putney Vale Cemetery",
+  "url": "https://en.wikipedia.org/wiki/Putney_Vale_Cemetery"
+ },
+ {
+  "id": "wimbledon-nz",
+  "kind": "modern",
+  "score": 8,
+  "place": "Wimbledon Common",
+  "points": [
+   [
+    51.4297,
+    -0.2383,
+    900
+   ]
+  ],
+  "line": "Did you know, a place in New Zealand is called Wimbledon because of one gunshot?",
+  "fact": "In the 1880s someone in New Zealand shot a bullock from very far away. Onlookers said it was worthy of the rifle championships then held at Wimbledon, so the place was named Wimbledon.",
+  "source": "Wikipedia: Wimbledon, London",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon,_London"
+ },
+ {
+  "id": "caesars-camp",
+  "kind": "prehistory",
+  "score": 8,
+  "place": "Wimbledon Common",
+  "points": [
+   [
+    51.4256,
+    -0.2409,
+    400
+   ]
+  ],
+  "line": "Did you know, a golf course on Wimbledon Common hides an Iron Age hill fort?",
+  "fact": "Under a golf course on Wimbledon Common is Caesar's Camp, an Iron Age hill fort over 2,000 years old. In 1875 John Erle-Drax had it destroyed, with the burial mounds around it.",
+  "source": "Wikipedia: Wimbledon Common",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Common"
+ },
+ {
+  "id": "henman-hill",
+  "kind": "modern",
+  "score": 8,
+  "place": "Henman Hill",
+  "points": [
+   [
+    51.4356,
+    -0.216,
+    300
+   ]
+  ],
+  "line": "Did you know, Henman Hill's real name comes from New Zealand's highest mountain?",
+  "fact": "The grass bank called Henman Hill is officially Aorangi Terrace. A New Zealand rugby club played here until 1981 and named its ground Aorangi, the Māori name for New Zealand's highest mountain.",
+  "source": "Wikipedia: Henman Hill",
+  "url": "https://en.wikipedia.org/wiki/Henman_Hill"
+ },
+ {
+  "id": "gore-worple-road",
+  "kind": "modern",
+  "score": 8,
+  "place": "Worple Road",
+  "points": [
+   [
+    51.4161,
+    -0.2141,
+    400
+   ]
+  ],
+  "line": "Did you know, the first Wimbledon champion said tennis would never be a great game?",
+  "fact": "The first Wimbledon championship was played in 1877, on Worple Road. The winner, Spencer Gore, said: \"Lawn tennis will never rank among our great games.\"",
+  "source": "Wikipedia: All England Lawn Tennis and Croquet Club",
+  "url": "https://en.wikipedia.org/wiki/All_England_Lawn_Tennis_and_Croquet_Club"
+ },
+ {
+  "id": "tuvalu-house",
+  "kind": "modern",
+  "score": 8,
+  "place": "Worple Road",
+  "points": [
+   [
+    51.412,
+    -0.2245,
+    300
+   ]
+  ],
+  "line": "Did you know, Tuvalu is represented in the UK from a house on Worple Road?",
+  "fact": "Tuvalu, a small Pacific island nation, has no ambassador in the UK. Its honorary consul works from Tuvalu House, 230 Worple Road, and campaigns from there about rising sea levels.",
+  "source": "Wikipedia: Tuvalu House",
+  "url": "https://en.wikipedia.org/wiki/Tuvalu_House"
+ },
+ {
+  "id": "nuncio-racehorse",
+  "kind": "building",
+  "score": 8,
+  "place": "54 Parkside",
+  "points": [
+   [
+    51.4361,
+    -0.2239,
+    300
+   ]
+  ],
+  "line": "Did you know, the Vatican's embassy in Wimbledon was named after a 200-to-1 racehorse?",
+  "fact": "54 Parkside is home to the Pope's ambassador to Britain. An earlier owner named it Winkfield Lodge after Winkfield's Pride, a 200-to-1 horse that won him £20,000.",
+  "source": "Wikipedia: 54 Parkside",
+  "url": "https://en.wikipedia.org/wiki/54_Parkside"
+ },
+ {
+  "id": "merton-park-footbridge",
+  "kind": "building",
+  "score": 8,
+  "place": "Merton Park tram stop",
+  "points": [
+   [
+    51.4134,
+    -0.2006,
+    300
+   ]
+  ],
+  "line": "Did you know, part of Merton Park's railway footbridge is now at Corfe Castle?",
+  "fact": "When the railway at Merton Park closed in 1997, part of its footbridge was moved to Corfe Castle station on the Swanage Railway.",
+  "source": "Wikipedia: Merton Park railway station",
+  "url": "https://en.wikipedia.org/wiki/Merton_Park_railway_station"
+ },
+ {
+  "id": "carry-on-sergeant",
+  "kind": "modern",
+  "score": 8,
+  "place": "Kingston Road, Merton Park",
+  "points": [
+   [
+    51.4117,
+    -0.2084,
+    300
+   ]
+  ],
+  "line": "Did you know, the first Carry On film was shot on Kingston Road?",
+  "fact": "The first Carry On film, Carry On Sergeant, was shot at Merton Park Studios in 1958. The studio's old office, Long Lodge, still stands on Kingston Road.",
+  "source": "Wikipedia: Merton Park Studios",
+  "url": "https://en.wikipedia.org/wiki/Merton_Park_Studios"
+ },
+ {
+  "id": "st-helier-alphabet",
+  "kind": "building",
+  "score": 8,
+  "place": "St Helier",
+  "points": [
+   [
+    51.3826,
+    -0.1836,
+    1200
+   ]
+  ],
+  "line": "Did you know, the St Helier estate's roads are in alphabetical order?",
+  "fact": "The St Helier estate's roads are in alphabetical order, from one corner to Woburn Road at the other. Each is named after an abbey or priory, because Westminster Abbey once owned the land.",
+  "source": "Wikipedia: Morden; St Helier, London",
+  "url": "https://en.wikipedia.org/wiki/Morden https://en.wikipedia.org/wiki/St_Helier,_London"
+ },
+ {
+  "id": "north-koreans-malden",
+  "kind": "modern",
+  "score": 8,
+  "place": "New Malden",
+  "points": [
+   [
+    51.4005,
+    -0.2557,
+    600
+   ]
+  ],
+  "line": "Did you know, New Malden has the largest group of North Koreans in Europe?",
+  "fact": "In 2014 around 20,000 Koreans lived in and around New Malden, about 600 of them from North Korea. That makes it the largest group of North Koreans in Europe.",
+  "source": "Wikipedia: New Malden",
+  "url": "https://en.wikipedia.org/wiki/New_Malden"
+ },
+ {
+  "id": "kingston-bypass",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Kingston Bypass",
+  "points": [
+   [
+    51.394,
+    -0.2564,
+    1500
+   ]
+  ],
+  "line": "Did you know, the A3 at Shannon Corner was the country's first dual carriageway across open fields?",
+  "fact": "The Kingston Bypass, the stretch of A3 past Shannon Corner, was the country's first dual carriageway purpose-built across green fields. Houses followed it, all the way to Chessington.",
+  "source": "Wikipedia: Motspur Park",
+  "url": "https://en.wikipedia.org/wiki/Motspur_Park"
+ },
+ {
+  "id": "torch-motspur",
+  "kind": "modern",
+  "score": 8,
+  "place": "Motspur Park",
+  "points": [
+   [
+    51.3958,
+    -0.2397,
+    500
+   ]
+  ],
+  "line": "Did you know, the last runner of the 1948 Olympic torch trained in secret at Motspur Park?",
+  "fact": "In 1948 the runner chosen to carry the Olympic torch into Wembley and light the flame trained for it in secret, at the BBC sports ground in Motspur Park.",
+  "source": "Wikipedia: Motspur Park",
+  "url": "https://en.wikipedia.org/wiki/Motspur_Park"
+ },
+ {
+  "id": "bazalgette-tomb",
+  "kind": "building",
+  "score": 8,
+  "place": "St Mary's, Wimbledon",
+  "points": [
+   [
+    51.4287,
+    -0.2102,
+    300
+   ]
+  ],
+  "line": "Did you know, the engineer who built London's sewers lies in a second-hand tomb?",
+  "fact": "Sir Joseph Bazalgette, who built London's sewers, lies at St Mary's, Wimbledon, in a tomb made for someone else. The churchyard was full, so he bought an old one, abandoned for 84 years.",
+  "source": "Wikipedia: Bazalgette Mausoleum",
+  "url": "https://en.wikipedia.org/wiki/Bazalgette_Mausoleum"
+ },
+ {
+  "id": "laetitia",
+  "kind": "building",
+  "score": 8,
+  "place": "New Wimbledon Theatre",
+  "points": [
+   [
+    51.4194,
+    -0.2016,
+    300
+   ]
+  ],
+  "line": "Did you know, the gold statue on Wimbledon's theatre was taken down in case it guided German bombers?",
+  "fact": "The gold statue on top of the New Wimbledon Theatre was taken down in the Second World War, as people thought German bombers could use it to find their way. It went back up in 1991.",
+  "source": "Wikipedia: New Wimbledon Theatre",
+  "url": "https://en.wikipedia.org/wiki/New_Wimbledon_Theatre"
+ },
+ {
+  "id": "hartley-fireproof",
+  "kind": "building",
+  "score": 8,
+  "place": "Putney Heath",
+  "points": [
+   [
+    51.4477,
+    -0.2253,
+    400
+   ]
+  ],
+  "line": "Did you know, George III watched a house on Putney Heath being set on fire, again and again?",
+  "fact": "David Hartley built a fireproof house on Putney Heath. Its lower floor was set alight again and again, with George III and Queen Charlotte watching. An obelisk stands nearby.",
+  "source": "Wikipedia: Wimbledon Common",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Common"
+ },
+ {
+  "id": "putney-duel",
+  "kind": "modern",
+  "score": 8,
+  "place": "Putney Heath",
+  "points": [
+   [
+    51.4477,
+    -0.2253,
+    500
+   ]
+  ],
+  "line": "Did you know, two Cabinet ministers fought a duel on Putney Heath?",
+  "fact": "In 1809 two government ministers, George Canning and Lord Castlereagh, fought a duel on Putney Heath. Prime Minister William Pitt had fought one there in 1798.",
+  "source": "Wikipedia: Wimbledon Common",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Common"
+ },
+ {
+  "id": "tutankhamun-putney",
+  "kind": "modern",
+  "score": 8,
+  "place": "Putney Vale Cemetery",
+  "points": [
+   [
+    51.4403,
+    -0.2439,
+    500
+   ]
+  ],
+  "line": "Did you know, the man who found Tutankhamun's tomb is buried in Putney Vale?",
+  "fact": "Howard Carter, who found Tutankhamun's tomb, is buried at Putney Vale Cemetery. So is Lady Evelyn Beauchamp, one of the first people to go into the tomb.",
+  "source": "Wikipedia: Putney Vale Cemetery",
+  "url": "https://en.wikipedia.org/wiki/Putney_Vale_Cemetery"
+ },
+ {
+  "id": "old-malden-merton-college",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Old Malden",
+  "points": [
+   [
+    51.3823,
+    -0.2612,
+    500
+   ]
+  ],
+  "line": "Did you know, Merton College, Oxford, started out in Old Malden?",
+  "fact": "Merton College, Oxford, began in Old Malden. Walter de Merton founded it in 1264 at the manor house by St John's church, and it later moved to Oxford.",
+  "source": "Wikipedia: Old Malden",
+  "url": "https://en.wikipedia.org/wiki/Old_Malden"
+ },
+ {
+  "id": "old-rectory",
+  "kind": "building",
+  "score": 7,
+  "place": "Old Rectory, Wimbledon",
+  "points": [
+   [
+    51.4292,
+    -0.2109,
+    300
+   ]
+  ],
+  "line": "Did you know, Henry VIII was too ill to go on and stopped in Wimbledon?",
+  "fact": "In December 1546, near the end of his life, Henry VIII was too ill to reach Whitehall and stayed three days at Wimbledon's Old Rectory. It's the oldest house in Wimbledon.",
+  "source": "Wikipedia: Wimbledon Manor House",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Manor_House"
+ },
+ {
+  "id": "windmill-scouting",
+  "kind": "building",
+  "score": 7,
+  "place": "Wimbledon Windmill",
+  "points": [
+   [
+    51.4376,
+    -0.232,
+    400
+   ]
+  ],
+  "line": "Did you know, part of Scouting for Boys was written at Wimbledon Windmill?",
+  "fact": "In 1902 Robert Baden-Powell stayed in the house at Wimbledon Windmill and wrote parts of Scouting for Boys there.",
+  "source": "Wikipedia: Wimbledon Windmill",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Windmill"
+ },
+ {
+  "id": "wimbledon-pro-colour",
+  "kind": "modern",
+  "score": 7,
+  "place": "All England Club",
+  "points": [
+   [
+    51.4342,
+    -0.2144,
+    400
+   ]
+  ],
+  "line": "Did you know, the BBC put on a tennis tournament at Wimbledon to mark colour TV?",
+  "fact": "In 1967 the BBC put on a tennis tournament at Wimbledon to celebrate colour TV. It was the first time since 1930 that professional men could play there.",
+  "source": "Wikipedia: Wimbledon Pro",
+  "url": "https://en.wikipedia.org/wiki/Wimbledon_Pro"
+ },
+ {
+  "id": "centre-court-bombs",
+  "kind": "modern",
+  "score": 7,
+  "place": "Centre Court",
+  "points": [
+   [
+    51.4342,
+    -0.2144,
+    400
+   ]
+  ],
+  "line": "Did you know, German bombs destroyed 1,200 seats on Centre Court?",
+  "fact": "At 5:20pm on 11 October 1940, five German bombs hit the All England Club and demolished 1,200 seats on Centre Court.",
+  "source": "Wikipedia: All England Lawn Tennis and Croquet Club",
+  "url": "https://en.wikipedia.org/wiki/All_England_Lawn_Tennis_and_Croquet_Club"
+ },
+ {
+  "id": "morden-boom",
+  "kind": "modern",
+  "score": 7,
+  "place": "Morden",
+  "points": [
+   [
+    51.4015,
+    -0.1949,
+    1200
+   ]
+  ],
+  "line": "Did you know, Morden's population grew ninefold in ten years?",
+  "fact": "Morden had 512 people in 1801 and still only 960 in 1901. Then the Underground arrived in 1926, and the parish went from 1,355 people in 1921 to 12,618 in 1931.",
+  "source": "Wikipedia: Morden",
+  "url": "https://en.wikipedia.org/wiki/Morden"
+ },
+ {
+  "id": "parking-meters",
+  "kind": "modern",
+  "score": 7,
+  "place": "Shannon Corner",
+  "points": [
+   [
+    51.394,
+    -0.2564,
+    600
+   ]
+  ],
+  "line": "Did you know, Britain's first parking meters were made in New Malden?",
+  "fact": "Britain's first parking meters were made in New Malden, by the Venner timeswitch company near Shannon Corner.",
+  "source": "Wikipedia: Motspur Park; New Malden",
+  "url": "https://en.wikipedia.org/wiki/Motspur_Park https://en.wikipedia.org/wiki/New_Malden"
+ },
+ {
+  "id": "motspur-adams",
+  "kind": "modern",
+  "score": 7,
+  "place": "Motspur Park",
+  "points": [
+   [
+    51.3958,
+    -0.2397,
+    500
+   ]
+  ],
+  "line": "Did you know, Douglas Adams turned Motspur into a word?",
+  "fact": "According to Douglas Adams, a motspur is the fourth wheel of a supermarket trolley: the one that looks just like the other three but makes the trolley completely uncontrollable.",
+  "source": "Wikipedia: Motspur Park",
+  "url": "https://en.wikipedia.org/wiki/Motspur_Park"
+ },
+ {
+  "id": "ghanapathy-temple",
+  "kind": "building",
+  "score": 7,
+  "place": "Shree Ghanapathy Temple",
+  "points": [
+   [
+    51.4233,
+    -0.1892,
+    300
+   ]
+  ],
+  "line": "Did you know, Europe's first fully consecrated Hindu temple is in Wimbledon?",
+  "fact": "Shree Ghanapathy Temple in Wimbledon, dedicated to Ganesha, became the first fully consecrated Hindu temple in Europe in 1981.",
+  "source": "Wikipedia: Shree Ghanapathy Temple, Wimbledon",
+  "url": "https://en.wikipedia.org/wiki/Shree_Ghanapathy_Temple,_Wimbledon"
+ },
+ {
+  "id": "selassie-cannizaro",
+  "kind": "modern",
+  "score": 7,
+  "place": "Cannizaro Park",
+  "points": [
+   [
+    51.4246,
+    -0.2313,
+    300
+   ]
+  ],
+  "line": "Did you know, Ethiopia's exiled emperor stayed in Wimbledon?",
+  "fact": "Ethiopia's emperor, Haile Selassie, stayed in Wimbledon in 1936 after Italy invaded his country. A bust of him in Cannizaro Park drew Rastafarian pilgrims until protesters destroyed it in 2020.",
+  "source": "Wikipedia: Bust of Haile Selassie; Cannizaro Park",
+  "url": "https://en.wikipedia.org/wiki/Bust_of_Haile_Selassie https://en.wikipedia.org/wiki/Cannizaro_Park"
+ },
+ {
+  "id": "surrey-iron-railway",
+  "kind": "modern",
+  "score": 7,
+  "place": "Merton Abbey",
+  "points": [
+   [
+    51.4141,
+    -0.1819,
+    500
+   ]
+  ],
+  "line": "Did you know, a horse-drawn railway ran through Merton in 1803?",
+  "fact": "In 1803 a railway pulled by horses opened through Merton, carrying goods from the factories by the Wandle to the Thames. It ran where Christchurch Road is now.",
+  "source": "Wikipedia: Merton, London",
+  "url": "https://en.wikipedia.org/wiki/Merton,_London"
+ },
+ {
+  "id": "snuff-mills",
+  "kind": "building",
+  "score": 7,
+  "place": "Morden Hall Park",
+  "points": [
+   [
+    51.4023,
+    -0.1881,
+    400
+   ]
+  ],
+  "line": "Did you know, the watermills in Morden Hall Park ground tobacco into snuff?",
+  "fact": "The two old watermills in Morden Hall Park ground tobacco into snuff. A tobacco merchant, Gilliat Hatfeild, bought the hall in the 1870s, and his son left it to the National Trust.",
+  "source": "Wikipedia: Morden Hall Park",
+  "url": "https://en.wikipedia.org/wiki/Morden_Hall_Park"
+ },
+ {
+  "id": "rogers-house",
+  "kind": "building",
+  "score": 7,
+  "place": "22 Parkside",
+  "points": [
+   [
+    51.4267,
+    -0.2221,
+    300
+   ]
+  ],
+  "line": "Did you know, a yellow steel house on Parkside inspired the Pompidou Centre?",
+  "fact": "22 Parkside is a yellow steel and glass house Richard Rogers designed for his parents in 1967. He said it inspired his later buildings, including the Pompidou Centre.",
+  "source": "Wikipedia: 22 Parkside",
+  "url": "https://en.wikipedia.org/wiki/22_Parkside"
+ },
+ {
+  "id": "black-buddha",
+  "kind": "building",
+  "score": 6,
+  "place": "Wat Buddhapadipa",
+  "points": [
+   [
+    51.4307,
+    -0.2206,
+    300
+   ]
+  ],
+  "line": "Did you know, a 700-year-old Buddha sits in a Wimbledon street?",
+  "fact": "Wat Buddhapadipa, a Thai temple on Calonne Road, holds a bronze Buddha nearly 700 years old. It was a gift to the King of Thailand in 1966, for this temple.",
+  "source": "Wikipedia: Wat Buddhapadipa",
+  "url": "https://en.wikipedia.org/wiki/Wat_Buddhapadipa"
+ }
+]

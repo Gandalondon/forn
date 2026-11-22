@@ -13,7 +13,9 @@ Forn is Tony's Android app that tells him at 9pm about old places he passed that
 
 - App: app/ (Kotlin plus the rings page in app/src/main/assets/web). Every push to main builds a release Tony installs through Obtainium.
 - Landing page: getforn.app, in site/ (Vercel, unindexed).
-- Content pipeline: PIPELINE.md and tools/pipeline. Fact and source files are still in the claude.ai Forn Project (claude/facts/).
+- Content pipeline: PIPELINE.md and tools/pipeline. Fact drafts and their source text: content/facts/ (spots.json is the shipped set, built from them).
+- Notes: notes/ (review logs, grader, nightly mix, positioning, session notes).
+- The claude.ai Forn Project holds only the open review page (batch 11), whose answers are saved on its artifact.
 - Kept as stepback on purpose: package id, APK file name (Stepback.apk) and signing key alias. Never change them.
 
 ## Forn rules

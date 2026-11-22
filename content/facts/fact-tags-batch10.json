@@ -1,0 +1,102 @@
+{
+ "barts-jester": {
+  "year": 1123,
+  "era": "saxon",
+  "topic": "people"
+ },
+ "tower-white-bear": {
+  "year": 1252,
+  "era": "medieval",
+  "topic": "animals"
+ },
+ "moorfields-bone-skates": {
+  "year": 1174,
+  "era": "medieval",
+  "topic": "sport"
+ },
+ "bow-bridge": {
+  "year": 1110,
+  "era": "medieval",
+  "topic": "names"
+ },
+ "harrow-temple": {
+  "year": 767,
+  "era": "saxon",
+  "topic": "names"
+ },
+ "clerkenwell-plays": {
+  "year": 1174,
+  "era": "medieval",
+  "topic": "names"
+ },
+ "temple-church-round": {
+  "year": 1185,
+  "era": "medieval",
+  "topic": "religion"
+ },
+ "guildhall-arena": {
+  "year": 70,
+  "era": "roman",
+  "topic": "ancient"
+ },
+ "crosby-hall-moved": {
+  "year": 1466,
+  "era": "medieval",
+  "topic": "buildings"
+ },
+ "barking-abbey": {
+  "year": 666,
+  "era": "saxon",
+  "topic": "religion"
+ },
+ "tabard-mp": {
+  "year": 1376,
+  "era": "medieval",
+  "topic": "books"
+ },
+ "thorney-island": {
+  "year": 610,
+  "era": "saxon",
+  "topic": "nature"
+ },
+ "kingston-bridge-old": {
+  "year": 1223,
+  "era": "medieval",
+  "topic": "transport"
+ },
+ "eltham-barn": {
+  "year": 1479,
+  "era": "medieval",
+  "topic": "buildings"
+ },
+ "cheapside-joust": {
+  "year": 1330,
+  "era": "medieval",
+  "topic": "sport"
+ },
+ "bedlam-liverpool-st": {
+  "year": 1247,
+  "era": "medieval",
+  "topic": "names"
+ },
+ "caxton-almonry": {
+  "year": 1476,
+  "era": "medieval",
+  "topic": "invention"
+ },
+ "london-bridge-chapel": {
+  "year": 1205,
+  "era": "medieval",
+  "topic": "religion"
+ },
+ "lundenwic-covent-garden": {
+  "year": 650,
+  "era": "saxon",
+  "topic": "names"
+ },
+ "mithras-returned": {
+  "year": 240,
+  "era": "roman",
+  "topic": "ancient"
+ }
+}

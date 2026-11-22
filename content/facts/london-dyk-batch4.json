@@ -1,0 +1,402 @@
+[
+ {
+  "id": "belgravia-fatberg",
+  "kind": "modern",
+  "score": 8,
+  "place": "Cadogan Place, Belgravia",
+  "points": [
+   [
+    51.49667,
+    -0.1575,
+    300
+   ]
+  ],
+  "line": "Did you know, a fatberg heavier than an elephant was pulled from under Cadogan Place?",
+  "fact": "In 2020 Thames Water found a 10-tonne fatberg of grease, fat and wet wipes under Cadogan Place in Belgravia. They said it weighed more than an African elephant.",
+  "source": "Wikipedia: Cadogan Place",
+  "url": "https://en.wikipedia.org/wiki/Cadogan_Place"
+ },
+ {
+  "id": "primrose-hill-tunnel",
+  "kind": "building",
+  "score": 7,
+  "place": "Primrose Hill Tunnel",
+  "points": [
+   [
+    51.54222,
+    -0.16944,
+    400
+   ]
+  ],
+  "line": "Did you know, London's first railway tunnel runs under Primrose Hill?",
+  "fact": "The tunnel under Primrose Hill was London's first railway tunnel, dug for the London and Birmingham Railway in the 1830s. Its entrances have barely changed since.",
+  "source": "Wikipedia: Primrose Hill Tunnel",
+  "url": "https://en.wikipedia.org/wiki/Primrose_Hill_Tunnel"
+ },
+ {
+  "id": "great-turnstile-cattle",
+  "kind": "modern",
+  "score": 6,
+  "place": "Great Turnstile, Holborn",
+  "points": [
+   [
+    51.518,
+    -0.11578,
+    250
+   ]
+  ],
+  "line": "Did you know, Great Turnstile in Holborn is named after a gate for cows?",
+  "fact": "Great Turnstile is named after turnstiles put up in Tudor times. They stopped cattle grazing in the fields from wandering into Holborn.",
+  "source": "Wikipedia: Great Turnstile",
+  "url": "https://en.wikipedia.org/wiki/Great_Turnstile"
+ },
+ {
+  "id": "first-heart-transplant",
+  "kind": "modern",
+  "score": 8,
+  "place": "Westmoreland Street, Marylebone",
+  "points": [
+   [
+    51.51972,
+    -0.15,
+    250
+   ]
+  ],
+  "line": "Did you know, Britain's first heart transplant happened on Westmoreland Street?",
+  "fact": "In 1968 Donald Ross and his team carried out Britain's first heart transplant on Westmoreland Street, where the National Heart Hospital then stood.",
+  "source": "Wikipedia: Westmoreland Street, London",
+  "url": "https://en.wikipedia.org/wiki/Westmoreland_Street,_London"
+ },
+ {
+  "id": "python-basil-street",
+  "kind": "modern",
+  "score": 8,
+  "place": "Basil Street, Knightsbridge",
+  "points": [
+   [
+    51.5,
+    -0.16139,
+    250
+   ]
+  ],
+  "line": "Did you know, Monty Python started in a flat on Basil Street?",
+  "fact": "In the 1960s, the first meetings that led to Monty Python's Flying Circus were held in a flat on Basil Street, Knightsbridge.",
+  "source": "Wikipedia: Basil Street",
+  "url": "https://en.wikipedia.org/wiki/Basil_Street"
+ },
+ {
+  "id": "cavendish-time",
+  "kind": "modern",
+  "score": 6,
+  "place": "Church Row, Hampstead",
+  "points": [
+   [
+    51.55554,
+    -0.17944,
+    250
+   ]
+  ],
+  "line": "Did you know, a scientist worked out that time on Church Row ran 10.2 seconds apart from Soho?",
+  "fact": "The scientist Henry Cavendish had a house on Church Row and another in Soho. He worked out that midday came exactly 10.2 seconds apart at the two.",
+  "source": "Wikipedia: Church Row, Hampstead",
+  "url": "https://en.wikipedia.org/wiki/Church_Row,_Hampstead",
+  "review": "dropped after batch 6: why it matters is not in the source"
+ },
+ {
+  "id": "sky-pool",
+  "kind": "building",
+  "score": 7,
+  "place": "Embassy Gardens, Nine Elms",
+  "points": [
+   [
+    51.482,
+    -0.131,
+    300
+   ]
+  ],
+  "line": "Did you know, there's a swimming pool hanging between two buildings in Nine Elms?",
+  "fact": "The Sky Pool at Embassy Gardens is a swimming pool that bridges the gap between two blocks of flats, high above the ground. It's see-through, so it looks like a glass box floating in mid-air.",
+  "source": "Wikipedia: Sky Pool, London",
+  "url": "https://en.wikipedia.org/wiki/Sky_Pool,_London",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "greenwich-oak-prison",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Greenwich Park",
+  "points": [
+   [
+    51.478104,
+    0.001764,
+    300
+   ]
+  ],
+  "line": "Did you know, a hollow oak tree in Greenwich Park was used as a prison?",
+  "fact": "The hollow trunk of an old oak tree in Greenwich Park was used as a prison. Anyone caught breaking the law in the park was locked inside behind a heavy wooden door.",
+  "source": "Wikipedia: Queen Elizabeth's Oak, Greenwich Park",
+  "url": "https://en.wikipedia.org/wiki/Queen_Elizabeth%27s_Oak,_Greenwich_Park",
+  "review": "rewritten after batch 5 notes, recheck in batch 6"
+ },
+ {
+  "id": "ealing-bells-aberdeen",
+  "kind": "building",
+  "score": 7,
+  "place": "St Stephen's, Ealing",
+  "points": [
+   [
+    51.5197,
+    -0.3193,
+    300
+   ]
+  ],
+  "line": "Did you know, the bells of an Ealing church now ring in a cathedral in Aberdeen?",
+  "fact": "St Stephen's Church in Ealing was declared unsafe in 1979, and its eight bells were taken down. In 1987 they were restored and hung in St Machar's Cathedral, Aberdeen.",
+  "source": "Wikipedia: St Stephen's Church, Ealing",
+  "url": "https://en.wikipedia.org/wiki/St_Stephen%27s_Church,_Ealing",
+  "review": "keep (batch 5)"
+ },
+ {
+  "id": "becontree-no-roads",
+  "kind": "modern",
+  "score": 7,
+  "place": "Becontree station",
+  "points": [
+   [
+    51.54028,
+    0.12667,
+    300
+   ]
+  ],
+  "line": "Did you know, Becontree station opened with no roads leading to it?",
+  "fact": "Becontree station opened in 1926, as Gale Street Halt, to serve the new Becontree Estate. At first, no roads led to it.",
+  "source": "Wikipedia: Becontree tube station",
+  "url": "https://en.wikipedia.org/wiki/Becontree_tube_station"
+ },
+ {
+  "id": "gants-hill-moscow",
+  "kind": "building",
+  "score": 8,
+  "place": "Gants Hill station",
+  "points": [
+   [
+    51.57666,
+    0.06611,
+    300
+   ]
+  ],
+  "line": "Did you know, Gants Hill station was built after a look at the Moscow Metro?",
+  "fact": "London's Underground engineers advised on the Moscow Metro in the 1930s. Their report on it led to a station built in London to a similar design: Gants Hill.",
+  "source": "Wikipedia: Gants Hill tube station",
+  "url": "https://en.wikipedia.org/wiki/Gants_Hill_tube_station"
+ },
+ {
+  "id": "battle-of-brentford",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Brentford",
+  "points": [
+   [
+    51.47861,
+    -0.30694,
+    1200
+   ]
+  ],
+  "line": "Did you know, an English army beat an invading Danish army at Brentford in 1016?",
+  "fact": "In 1016 the English army, led by Edmund Ironside, beat Cnut's invading Danish army at Brentford. The English lost many men, and Cnut beat them in Essex later that year.",
+  "source": "Wikipedia: Battle of Brentford (1016)",
+  "url": "https://en.wikipedia.org/wiki/Battle_of_Brentford_(1016)",
+  "review": "keep (batch 5)"
+ },
+ {
+  "id": "whitehall-bath-screen",
+  "kind": "modern",
+  "score": 8,
+  "place": "Privy Garden, Whitehall",
+  "points": [
+   [
+    51.503841,
+    -0.124894,
+    250
+   ]
+  ],
+  "line": "Did you know, Whitehall Palace had a screen so passers-by couldn't see the king in his bath?",
+  "fact": "The king's rooms at Whitehall Palace looked over the Privy Garden. A screen stopped people walking past from seeing him naked in his bathtub.",
+  "source": "Wikipedia: Privy Garden of the Palace of Whitehall",
+  "url": "https://en.wikipedia.org/wiki/Privy_Garden_of_the_Palace_of_Whitehall"
+ },
+ {
+  "id": "madness-dublin-castle",
+  "kind": "modern",
+  "score": 8,
+  "place": "Dublin Castle, Camden",
+  "points": [
+   [
+    51.53722,
+    -0.14556,
+    250
+   ]
+  ],
+  "line": "Did you know, the band Madness made their name at a Camden pub?",
+  "fact": "The band Madness first played the Dublin Castle, a Camden pub, in January 1979. The landlord gave them a regular slot, and that's where they made their name.",
+  "source": "Wikipedia: Dublin Castle, Camden",
+  "url": "https://en.wikipedia.org/wiki/Dublin_Castle,_Camden",
+  "review": "rewritten after batch 5 notes, recheck in batch 6"
+ },
+ {
+  "id": "chenies-d-day",
+  "kind": "modern",
+  "score": 8,
+  "place": "Chenies Street, Bloomsbury",
+  "points": [
+   [
+    51.52056,
+    -0.13306,
+    250
+   ]
+  ],
+  "line": "Did you know, a door on Chenies Street leads to a wartime shelter used to plan D-Day?",
+  "fact": "An entrance on Chenies Street leads down to a deep shelter under Goodge Street station. The US Army Signal Corps used it while preparing for D-Day.",
+  "source": "Wikipedia: Chenies Street",
+  "url": "https://en.wikipedia.org/wiki/Chenies_Street"
+ },
+ {
+  "id": "kew-pagoda-dragons",
+  "kind": "building",
+  "score": 7,
+  "place": "Great Pagoda, Kew",
+  "points": [
+   [
+    51.4713,
+    -0.2957,
+    300
+   ]
+  ],
+  "line": "Did you know, Kew's Great Pagoda lost its 80 dragons and got them back?",
+  "fact": "Kew's Great Pagoda had 80 gilded dragons on its ten roofs, all gone by 1784. They're back after the restoration.",
+  "source": "Wikipedia: Great Pagoda, Kew Gardens",
+  "url": "https://en.wikipedia.org/wiki/Great_Pagoda,_Kew_Gardens"
+ },
+ {
+  "id": "minchenden-oak",
+  "kind": "landscape",
+  "score": 7,
+  "place": "Minchenden Oak Garden, Southgate",
+  "points": [
+   [
+    51.6243,
+    -0.1291,
+    300
+   ]
+  ],
+  "line": "Did you know, an oak in Southgate is thought to be 800 years old?",
+  "fact": "The Minchenden Oak in Southgate is thought to be 800 years old, one of the oldest trees in London. It survives from the ancient Forest of Middlesex.",
+  "source": "Wikipedia: Minchenden Oak Garden",
+  "url": "https://en.wikipedia.org/wiki/Minchenden_Oak_Garden"
+ },
+ {
+  "id": "bowie-blackheath",
+  "kind": "modern",
+  "score": 8,
+  "place": "Green Man, Blackheath",
+  "points": [
+   [
+    51.4725,
+    -0.0081,
+    300
+   ]
+  ],
+  "line": "Did you know, David Bowie first sang lead at a Blackheath pub, by accident?",
+  "fact": "In 1963 a 16-year-old David Bowie played sax with the Konrads at the Green Man. The singer cut himself on glass, so Bowie took over.",
+  "source": "Wikipedia: Green Man, Blackheath",
+  "url": "https://en.wikipedia.org/wiki/Green_Man,_Blackheath"
+ },
+ {
+  "id": "spa-road-terminus",
+  "kind": "modern",
+  "score": 8,
+  "place": "Spa Road, Bermondsey",
+  "points": [
+   [
+    51.4956,
+    -0.0671,
+    300
+   ]
+  ],
+  "line": "Did you know, London's first trains ran from Bermondsey?",
+  "fact": "London's first trains ran in February 1836, between Spa Road in Bermondsey and Deptford. The line only reached London Bridge later that year.",
+  "source": "Wikipedia: Spa Road railway station",
+  "url": "https://en.wikipedia.org/wiki/Spa_Road_railway_station",
+  "review": "keep (batch 5)"
+ },
+ {
+  "id": "fann-street-sans",
+  "kind": "modern",
+  "score": 8,
+  "place": "Fann Street, Barbican",
+  "points": [
+   [
+    51.522,
+    -0.0969,
+    300
+   ]
+  ],
+  "line": "Did you know, the first sans serif type with lower-case letters was made on Fann Street?",
+  "fact": "William Thorowgood of the Fann Street Foundry designed the first sans serif type with lower-case letters: plain letters, without the little strokes at their ends. He called it Grotesque.",
+  "source": "Wikipedia: Fann Street Foundry",
+  "url": "https://en.wikipedia.org/wiki/Fann_Street_Foundry",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "clovelly-first-film",
+  "kind": "modern",
+  "score": 8,
+  "place": "Park Road, Chipping Barnet",
+  "points": [
+   [
+    51.6532292,
+    -0.1971497,
+    300
+   ]
+  ],
+  "line": "Did you know, the first successful British film was shot outside a house in Barnet?",
+  "fact": "In March 1895 Birt Acres filmed outside his home, Clovelly Cottage on Park Road, Barnet. Incident at Clovelly Cottage was the first successful motion picture made in Britain.",
+  "source": "Wikipedia: Incident at Clovelly Cottage",
+  "url": "https://en.wikipedia.org/wiki/Incident_at_Clovelly_Cottage"
+ },
+ {
+  "id": "boulogne-mouth",
+  "kind": "modern",
+  "score": 7,
+  "place": "Bull and Mouth, St Martin's le Grand",
+  "points": [
+   [
+    51.5164,
+    -0.098,
+    250
+   ]
+  ],
+  "line": "Did you know, the Bull and Mouth Inn was named after a French harbour?",
+  "fact": "The Bull and Mouth Inn was first called the Boulogne Mouth, after the French harbour Henry VIII besieged in the 1540s.",
+  "source": "Wikipedia: Bull and Mouth Inn",
+  "url": "https://en.wikipedia.org/wiki/Bull_and_Mouth_Inn"
+ },
+ {
+  "id": "soho-charles-fountain",
+  "kind": "modern",
+  "score": 7,
+  "place": "Soho Square",
+  "points": [
+   [
+    51.515372,
+    -0.132264,
+    250
+   ]
+  ],
+  "line": "Did you know, the statue of Charles II in Soho Square once stood in a fountain?",
+  "fact": "The statue of Charles II was once the centrepiece of a fountain in the middle of Soho Square, built in 1681. The fountain was a modest copy of a famous one in Rome.",
+  "source": "Wikipedia: Statue of Charles II, Soho Square",
+  "url": "https://en.wikipedia.org/wiki/Statue_of_Charles_II,_Soho_Square",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ }
+]

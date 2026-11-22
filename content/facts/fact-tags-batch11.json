@@ -1,0 +1,42 @@
+{
+ "kingston-crowned": {
+  "year": 925,
+  "era": "saxon",
+  "topic": "royals"
+ },
+ "tooting-bec": {
+  "year": 1086,
+  "era": "medieval",
+  "topic": "names"
+ },
+ "chapter-house-commons": {
+  "year": 1377,
+  "era": "medieval",
+  "topic": "politics"
+ },
+ "aldgate-chaucer": {
+  "year": 1374,
+  "era": "medieval",
+  "topic": "books"
+ },
+ "blackheath-emperor": {
+  "year": 1400,
+  "era": "medieval",
+  "topic": "royals"
+ },
+ "greenwich-castle-observatory": {
+  "year": 1437,
+  "era": "medieval",
+  "topic": "buildings"
+ },
+ "syon-nuns": {
+  "year": 1415,
+  "era": "medieval",
+  "topic": "religion"
+ },
+ "fulham-palace": {
+  "year": 691,
+  "era": "saxon",
+  "topic": "religion"
+ }
+}

@@ -1,6 +1,6 @@
 # Content pipeline scripts
 
-Copied from the Forn Project (claude/pipeline/) on 21 Nov. The plan behind them is PIPELINE.md at the repo root; the writing rules are in RULES.md.
+Copied from the Forn Project (tools/pipeline/) on 21 Nov. The plan behind them is PIPELINE.md at the repo root; the writing rules are in RULES.md.
 
 - gather.py: every geotagged Wikipedia article in a square, with text and Wikidata type.
 - filter.py: drops the dull majority with free rules.

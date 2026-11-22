@@ -1,0 +1,464 @@
+[
+ {
+  "id": "olympic-mcdonalds",
+  "kind": "modern",
+  "score": 8,
+  "place": "Olympic Park, Stratford",
+  "points": [
+   [
+    51.5371,
+    -0.0129,
+    400
+   ]
+  ],
+  "line": "Did you know, the world's biggest McDonald's stood in the Olympic Park for just six weeks?",
+  "fact": "For the 2012 Olympics, the world's largest McDonald's was built in the Olympic Park, serving 14,000 people a day. After six weeks it was taken apart.",
+  "source": "Wikipedia: Olympic Park McDonald's",
+  "url": "https://en.wikipedia.org/wiki/Olympic_Park_McDonald%27s"
+ },
+ {
+  "id": "leaning-tower-rotherhithe",
+  "kind": "building",
+  "score": 7,
+  "place": "Fulford Street, Rotherhithe",
+  "points": [
+   [
+    51.50072,
+    -0.05825,
+    250
+   ]
+  ],
+  "line": "Did you know, a house by the Thames in Rotherhithe is nicknamed the Leaning Tower?",
+  "fact": "1 Fulford Street, a house nicknamed the Leaning Tower of Rotherhithe, was once a wages office. Bargemen pulled their barges up alongside it to collect their pay.",
+  "source": "Wikipedia: 1 Fulford Street",
+  "url": "https://en.wikipedia.org/wiki/1_Fulford_Street"
+ },
+ {
+  "id": "lightship-studio",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trinity Buoy Wharf",
+  "points": [
+   [
+    51.50808,
+    0.00917,
+    250
+   ]
+  ],
+  "line": "Did you know, an old lightship at Trinity Buoy Wharf is now a recording studio?",
+  "fact": "Light Vessel 95, a lightship that once warned ships off the Goodwin Sands in Kent, became a recording studio in 2003. It's now moored at Trinity Buoy Wharf.",
+  "source": "Wikipedia: Light Vessel 95",
+  "url": "https://en.wikipedia.org/wiki/Light_Vessel_95",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "queen-toy-horses",
+  "kind": "modern",
+  "score": 8,
+  "place": "145 Piccadilly",
+  "points": [
+   [
+    51.5036,
+    -0.1503,
+    250
+   ]
+  ],
+  "line": "Did you know, the young Elizabeth II kept 30 toy horses at a house on Piccadilly?",
+  "fact": "As a girl, the future Elizabeth II lived at 145 Piccadilly. Her toys there included 30 toy horses and a farm set bought piece by piece from Woolworths.",
+  "source": "Wikipedia: 145 Piccadilly",
+  "url": "https://en.wikipedia.org/wiki/145_Piccadilly"
+ },
+ {
+  "id": "tbm-helen-amy",
+  "kind": "modern",
+  "score": 7,
+  "place": "Battersea Power Station",
+  "points": [
+   [
+    51.4803,
+    -0.1403,
+    400
+   ]
+  ],
+  "line": "Did you know, the machines that dug the tube tunnels to Battersea were called Helen and Amy?",
+  "fact": "Local schoolchildren named the two machines that dug the Northern line tunnels to Battersea. They chose Helen and Amy, after the astronaut Helen Sharman and the pilot Amy Johnson.",
+  "source": "Wikipedia: Northern line extension to Battersea",
+  "url": "https://en.wikipedia.org/wiki/Northern_line_extension_to_Battersea"
+ },
+ {
+  "id": "pepys-barnet-well",
+  "kind": "modern",
+  "score": 8,
+  "place": "Barnet Common",
+  "points": [
+   [
+    51.644,
+    -0.224,
+    600
+   ]
+  ],
+  "line": "Did you know, Samuel Pepys drank so much well water on Barnet Common he had to stop to pee seven or eight times?",
+  "fact": "In 1664 Samuel Pepys drank five glasses of Barnet Common's famous purging well water. He then had to stop to pee seven or eight times on the road home.",
+  "source": "Wikipedia: Barnet Common",
+  "url": "https://en.wikipedia.org/wiki/Barnet_Common"
+ },
+ {
+  "id": "bond-ambassadeurs",
+  "kind": "modern",
+  "score": 8,
+  "place": "Les Ambassadeurs, Mayfair",
+  "points": [
+   [
+    51.50444,
+    -0.15056,
+    250
+   ]
+  ],
+  "line": "Did you know, James Bond first said his name on screen in a Mayfair club?",
+  "fact": "In Dr. No, the first Bond film, Sean Connery introduces himself as Bond for the first time while playing cards at Les Ambassadeurs, a real Mayfair club.",
+  "source": "Wikipedia: Les Ambassadeurs Club",
+  "url": "https://en.wikipedia.org/wiki/Les_Ambassadeurs_Club"
+ },
+ {
+  "id": "syds-coffee-stall",
+  "kind": "modern",
+  "score": 8,
+  "place": "Calvert Avenue, Shoreditch",
+  "points": [
+   [
+    51.5264,
+    -0.0777,
+    250
+   ]
+  ],
+  "line": "Did you know, a man was called back from a secret RAF mission to run a Shoreditch coffee stall?",
+  "fact": "Syd's coffee stall stood on Calvert Avenue, Shoreditch, for 100 years. In the war, the mayor got Syd's son called back from a secret RAF mission to run it.",
+  "source": "Wikipedia: Syd's coffee stall",
+  "url": "https://en.wikipedia.org/wiki/Syd%27s_coffee_stall"
+ },
+ {
+  "id": "sellers-naked",
+  "kind": "modern",
+  "score": 8,
+  "place": "Monkenhurst, New Barnet",
+  "points": [
+   [
+    51.6578,
+    -0.18511,
+    250
+   ]
+  ],
+  "line": "Did you know, Peter Sellers turned up naked at Spike Milligan's house in New Barnet, as a joke?",
+  "fact": "The comedian Spike Milligan lived at Monkenhurst in New Barnet from 1974. His friend Peter Sellers once arrived there naked as a joke, and was sent away still naked.",
+  "source": "Wikipedia: Monkenhurst",
+  "url": "https://en.wikipedia.org/wiki/Monkenhurst"
+ },
+ {
+  "id": "norway-tree",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.50806,
+    -0.12806,
+    250
+   ]
+  ],
+  "line": "Did you know, Norway has given London the Trafalgar Square Christmas tree every year since 1947?",
+  "fact": "Every year since 1947, Norway's government has given London the Christmas tree in Trafalgar Square. It stands for twelve days before and after Christmas.",
+  "source": "Wikipedia: Trafalgar Square",
+  "url": "https://en.wikipedia.org/wiki/Trafalgar_Square"
+ },
+ {
+  "id": "fore-street-bomb",
+  "kind": "modern",
+  "score": 8,
+  "place": "Fore Street, City of London",
+  "points": [
+   [
+    51.5182,
+    -0.0918,
+    250
+   ]
+  ],
+  "line": "Did you know, the first German bomb to hit the City of London fell on Fore Street?",
+  "fact": "On 25 August 1940, Fore Street became the first place in the City of London hit by a German bomb, just before the Blitz began.",
+  "source": "Wikipedia: Fore Street, London",
+  "url": "https://en.wikipedia.org/wiki/Fore_Street%2C_London"
+ },
+ {
+  "id": "marmite-hostel",
+  "kind": "modern",
+  "score": 7,
+  "place": "Bondway, Vauxhall",
+  "points": [
+   [
+    51.4855,
+    -0.1235,
+    300
+   ]
+  ],
+  "line": "Did you know, a Vauxhall homeless shelter opened in an old Marmite factory?",
+  "fact": "In 1973 the homeless charity St Mungo's opened a hostel for up to 200 people in a disused Marmite factory in Vauxhall.",
+  "source": "Wikipedia: St Mungo's (charity)",
+  "url": "https://en.wikipedia.org/wiki/St_Mungo%27s_%28charity%29"
+ },
+ {
+  "id": "sun-in-the-sands",
+  "kind": "modern",
+  "score": 8,
+  "place": "Sun in the Sands, Blackheath",
+  "points": [
+   [
+    51.475,
+    0.025,
+    300
+   ]
+  ],
+  "line": "Did you know, the Sun in the Sands junction is named after sheep?",
+  "fact": "The Sun in the Sands pub is named after sunsets seen through dust kicked up by sheep driven from Kent to London. The junction took the pub's name.",
+  "source": "Wikipedia: Sun in the Sands",
+  "url": "https://en.wikipedia.org/wiki/Sun_in_the_Sands"
+ },
+ {
+  "id": "peter-the-great",
+  "kind": "modern",
+  "score": 8,
+  "place": "Deptford Dockyard",
+  "points": [
+   [
+    51.4865,
+    -0.0276,
+    400
+   ]
+  ],
+  "line": "Did you know, a Russian emperor came to Deptford in disguise to learn shipbuilding?",
+  "fact": "In 1698 Peter the Great, Russia's emperor, came to the royal dockyard at Deptford, officially in disguise, to learn how ships were built.",
+  "source": "Wikipedia: Deptford Dockyard",
+  "url": "https://en.wikipedia.org/wiki/Deptford_Dockyard"
+ },
+ {
+  "id": "george-iv-marble-arch",
+  "kind": "modern",
+  "score": 7,
+  "place": "Trafalgar Square",
+  "points": [
+   [
+    51.50838,
+    -0.12759,
+    200
+   ]
+  ],
+  "line": "Did you know, the statue of George IV in Trafalgar Square was meant to stand on top of Marble Arch?",
+  "fact": "The statue of George IV on horseback was made for the top of Marble Arch. After he died it went on an empty plinth in Trafalgar Square as a stopgap.",
+  "source": "Wikipedia: Equestrian statue of George IV, Trafalgar Square",
+  "url": "https://en.wikipedia.org/wiki/Equestrian_statue_of_George_IV%2C_Trafalgar_Square"
+ },
+ {
+  "id": "caxton-weddings",
+  "kind": "building",
+  "score": 7,
+  "place": "Caxton Hall, Westminster",
+  "points": [
+   [
+    51.49861,
+    -0.13514,
+    250
+   ]
+  ],
+  "line": "Did you know, Ringo Starr, Elizabeth Taylor and a future prime minister all married at Caxton Hall?",
+  "fact": "Caxton Hall in Westminster was a register office where many famous people married. They included Anthony Eden, a future prime minister, Elizabeth Taylor and Ringo Starr.",
+  "source": "Wikipedia: Caxton Hall",
+  "url": "https://en.wikipedia.org/wiki/Caxton_Hall"
+ },
+ {
+  "id": "churchill-honeymoon",
+  "kind": "modern",
+  "score": 7,
+  "place": "Highgrove House, Eastcote",
+  "points": [
+   [
+    51.58167,
+    -0.40778,
+    300
+   ]
+  ],
+  "line": "Did you know, Winston Churchill spent his honeymoon in Eastcote?",
+  "fact": "Winston Churchill spent his honeymoon at Highgrove House in Eastcote. The brother and sister who lived there were friends of his mother.",
+  "source": "Wikipedia: Highgrove House, Eastcote",
+  "url": "https://en.wikipedia.org/wiki/Highgrove_House%2C_Eastcote"
+ },
+ {
+  "id": "widows-son-buns",
+  "kind": "modern",
+  "score": 8,
+  "place": "Widow's Son, Bromley-by-Bow",
+  "points": [
+   [
+    51.52225,
+    -0.01801,
+    250
+   ]
+  ],
+  "line": "Did you know, a pub in Bromley-by-Bow hangs up a hot cross bun every Good Friday?",
+  "fact": "The Widow's Son is named after a widow who kept a hot cross bun for her sailor son, due home at Easter. Every Good Friday, the pub hangs up another.",
+  "source": "Wikipedia: The Widow's Son, London",
+  "url": "https://en.wikipedia.org/wiki/The_Widow%27s_Son%2C_London"
+ },
+ {
+  "id": "bears-grease",
+  "kind": "modern",
+  "score": 8,
+  "place": "Old Bond Street",
+  "points": [
+   [
+    51.5095,
+    -0.1412,
+    250
+   ]
+  ],
+  "line": "Did you know, a Bond Street perfumer made its name selling bear grease for your hair?",
+  "fact": "Atkinsons of London's first big seller was a hair cream made from bear grease. Bald men were told it would make their hair grow back.",
+  "source": "Wikipedia: Atkinsons of London",
+  "url": "https://en.wikipedia.org/wiki/Atkinsons_of_London"
+ },
+ {
+  "id": "plath-hughes",
+  "kind": "modern",
+  "score": 7,
+  "place": "Rugby Street, Bloomsbury",
+  "points": [
+   [
+    51.52179,
+    -0.11717,
+    200
+   ]
+  ],
+  "line": "Did you know, the poets Sylvia Plath and Ted Hughes spent their wedding night on Rugby Street?",
+  "fact": "The poets Ted Hughes and Sylvia Plath spent their wedding night in 1956 at his flat, 18 Rugby Street. He later wrote a poem named after it.",
+  "source": "Wikipedia: Rugby Street",
+  "url": "https://en.wikipedia.org/wiki/Rugby_Street"
+ },
+ {
+  "id": "kings-cross-1863",
+  "kind": "modern",
+  "score": 7,
+  "place": "King's Cross",
+  "points": [
+   [
+    51.5308,
+    -0.1202,
+    250
+   ]
+  ],
+  "line": "Did you know, a closed station at King's Cross was one of the first seven on London's first underground line?",
+  "fact": "King's Cross Thameslink opened in 1863 as one of the first seven stations on the Metropolitan Railway, London's first underground line. It closed in 2007.",
+  "source": "Wikipedia: King's Cross Thameslink railway station",
+  "url": "https://en.wikipedia.org/wiki/King%27s_Cross_Thameslink_railway_station"
+ },
+ {
+  "id": "cadiz-bum",
+  "kind": "modern",
+  "score": 8,
+  "place": "Horse Guards Parade",
+  "points": [
+   [
+    51.5042,
+    -0.1273,
+    250
+   ]
+  ],
+  "line": "Did you know, a French cannon on Horse Guards Parade was a running joke about the Prince Regent's bottom?",
+  "fact": "The French mortar, a kind of cannon, on Horse Guards Parade was nicknamed the Prince Regent's Bomb. Back then bomb was pronounced bum, and he was famously fat.",
+  "source": "Wikipedia: Cádiz Memorial",
+  "url": "https://en.wikipedia.org/wiki/C%C3%A1diz_Memorial"
+ },
+ {
+  "id": "rolls-skating-rink",
+  "kind": "modern",
+  "score": 8,
+  "place": "Seagrave Road, Fulham",
+  "points": [
+   [
+    51.4863,
+    -0.1953,
+    250
+   ]
+  ],
+  "line": "Did you know, Charles Rolls opened his first car showroom in an old skating rink in Fulham?",
+  "fact": "Around 1903, Charles Rolls turned Lillie Hall, a disused skating rink in Fulham, into his first car showroom. A few years later he co-founded Rolls-Royce.",
+  "source": "Wikipedia: Lillie Hall",
+  "url": "https://en.wikipedia.org/wiki/Lillie_Hall"
+ },
+ {
+  "id": "bomb-shop",
+  "kind": "modern",
+  "score": 7,
+  "place": "66 Charing Cross Road",
+  "points": [
+   [
+    51.5123,
+    -0.1284,
+    200
+   ]
+  ],
+  "line": "Did you know, a bookshop on Charing Cross Road was known as the Bomb Shop?",
+  "fact": "Henderson's, at 66 Charing Cross Road, sold radical and anarchist books. People called it the Bomb Shop, and the shop was so proud of the name it printed it on its adverts.",
+  "source": "Wikipedia: Henderson's",
+  "url": "https://en.wikipedia.org/wiki/Henderson%27s",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "franklin-chess",
+  "kind": "modern",
+  "score": 7,
+  "place": "St Martin's Lane",
+  "points": [
+   [
+    51.5116,
+    -0.12781,
+    250
+   ]
+  ],
+  "line": "Did you know, Benjamin Franklin played chess at a coffee house on St Martin's Lane?",
+  "fact": "Old Slaughter's Coffee House on St Martin's Lane was known for games like chess and draughts. Benjamin Franklin was one of its players.",
+  "source": "Wikipedia: Old Slaughter's Coffee House",
+  "url": "https://en.wikipedia.org/wiki/Old_Slaughter%27s_Coffee_House"
+ },
+ {
+  "id": "sex-pistols-denmark-st",
+  "kind": "modern",
+  "score": 8,
+  "place": "Denmark Street",
+  "points": [
+   [
+    51.51528,
+    -0.12944,
+    200
+   ]
+  ],
+  "line": "Did you know, the Sex Pistols lived on Denmark Street?",
+  "fact": "The Sex Pistols lived above number 6 Denmark Street. They rehearsed in the basement there and recorded their first demos in the building.",
+  "source": "Wikipedia: Denmark Street",
+  "url": "https://en.wikipedia.org/wiki/Denmark_Street",
+  "review": "rewritten to one fact per card (21 Nov), recheck in batch 7"
+ },
+ {
+  "id": "duck-island-bombs",
+  "kind": "landscape",
+  "score": 8,
+  "place": "Duck Island, St James's Park",
+  "points": [
+   [
+    51.50303,
+    -0.13014,
+    250
+   ]
+  ],
+  "line": "Did you know, an island in St James's Park was where bombs were made safe?",
+  "fact": "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.",
+  "source": "Wikipedia: Duck Island Cottage",
+  "url": "https://en.wikipedia.org/wiki/Duck_Island_Cottage"
+ }
+]

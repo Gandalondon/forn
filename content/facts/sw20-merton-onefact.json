@@ -1,0 +1,25 @@
+{
+ "note": "One-fact-per-card rewrites of SW20/Merton facts (21 Nov). These replace the fact field of the same ids in claude/facts/sw20-merton-draft.json; line, points and source stay as they are. Merge at the next push. To be reviewed as batch 8 on the Forn Review page. Checked against claude/facts/sources-sw20-merton.json.",
+ "cut": {
+  "perry-statue": "pointing at his statue to get in without a pass",
+  "caesars-camp": "the burial mounds; card no longer says it hides the fort while also saying it was destroyed",
+  "st-helier-alphabet": "roads named after abbeys and Westminster Abbey owning the land",
+  "hartley-fireproof": "the obelisk",
+  "putney-duel": "Pitt's 1798 duel",
+  "tutankhamun-putney": "Lady Evelyn Beauchamp",
+  "old-rectory": "oldest house in Wimbledon",
+  "selassie-cannizaro": "the bust, Rastafarian pilgrims and its destruction in 2020",
+  "snuff-mills": "Gilliat Hatfeild and the National Trust"
+ },
+ "fact": {
+  "perry-statue": "Late in life, on a trip to Russia, Fred Perry was shown a spy satellite photo of the Wimbledon grounds by an ex-KGB man. He pointed out Perry's own statue in it.",
+  "caesars-camp": "Under a golf course on Wimbledon Common lies Caesar's Camp, an Iron Age hill fort more than 2,000 years old. In 1875 the landowner had it flattened.",
+  "st-helier-alphabet": "The St Helier estate's roads run in alphabetical order, from one corner of the estate to Woburn Road at the other.",
+  "hartley-fireproof": "David Hartley invented fireproof plates and built a fireproof house on Putney Heath. Its lower floor was set on fire again and again, with George III and Queen Charlotte watching.",
+  "putney-duel": "In September 1809 two Cabinet ministers, George Canning and Lord Castlereagh, fought a duel on Putney Heath, near where the Telegraph pub is now.",
+  "tutankhamun-putney": "Howard Carter, the archaeologist who found Tutankhamun's tomb in Egypt, is buried at Putney Vale Cemetery.",
+  "old-rectory": "In December 1546, near the end of his life, Henry VIII was too ill to get back to Whitehall. He stopped at Wimbledon's Old Rectory and stayed three days.",
+  "selassie-cannizaro": "Haile Selassie, emperor of Ethiopia, stayed in Wimbledon in 1936 after Italy invaded his country and he was forced into exile.",
+  "snuff-mills": "The two old watermills in Morden Hall Park were used to grind tobacco into snuff, the powdered tobacco people sniffed."
+ }
+}

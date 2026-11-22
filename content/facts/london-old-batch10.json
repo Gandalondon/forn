@@ -1,0 +1,363 @@
+[
+ {
+  "id": "barts-jester",
+  "kind": "medieval",
+  "score": 8,
+  "place": "St Bartholomew's Hospital",
+  "points": [
+   [
+    51.5174,
+    -0.1003,
+    300
+   ]
+  ],
+  "line": "Did you know, Barts hospital was founded by the king's jester?",
+  "fact": "St Bartholomew's Hospital was founded in 1123 by Rahere, once jester to Henry I. He fell ill on a pilgrimage to Rome and vowed to found a hospital if he recovered.",
+  "source": "BHO: Old and New London vol 2; VCH London vol 1",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol2/pp359-363",
+  "year": 1123,
+  "topic": "people"
+ },
+ {
+  "id": "tower-white-bear",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Tower of London",
+  "points": [
+   [
+    51.5081,
+    -0.0759,
+    350
+   ]
+  ],
+  "line": "Did you know, Henry III kept a white bear that went fishing in the Thames?",
+  "fact": "In 1252, London's sheriffs were told to pay fourpence a day to feed the king's white bear at the Tower, and to give it a muzzle and chain for fishing in the Thames.",
+  "source": "BHO: Old and New London vol 2",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol2/pp77-95",
+  "year": 1252,
+  "topic": "animals"
+ },
+ {
+  "id": "moorfields-bone-skates",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Moorfields",
+  "points": [
+   [
+    51.5187,
+    -0.0883,
+    400
+   ]
+  ],
+  "line": "Did you know, medieval Londoners went skating at Moorfields on animal bones?",
+  "fact": "In the 1100s, when the marsh at Moorfields froze, young Londoners tied animal leg bones to their feet and pushed themselves across the ice with iron-tipped poles.",
+  "source": "BHO: Old and New London vol 2",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol2/pp196-208",
+  "year": 1174,
+  "topic": "sport"
+ },
+ {
+  "id": "bow-bridge",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Bow",
+  "points": [
+   [
+    51.53,
+    -0.013,
+    600
+   ]
+  ],
+  "line": "Did you know, Bow is named after a bridge shaped like a bow?",
+  "fact": "Queen Matilda got soaked crossing the River Lea, so around 1110 she had a bridge built. It was arched like a bow, a shape England hadn't seen before, and gave Bow its name.",
+  "source": "BHO: Lysons, Environs of London vol 3; VCH Essex vol 6",
+  "url": "https://www.british-history.ac.uk/london-environs/vol3/pp489-502",
+  "year": 1110,
+  "topic": "names"
+ },
+ {
+  "id": "harrow-temple",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Harrow on the Hill",
+  "points": [
+   [
+    51.5755,
+    -0.3369,
+    700
+   ]
+  ],
+  "line": "Did you know, Harrow is named after a pagan temple?",
+  "fact": "Harrow comes from the Saxon word for a heathen temple. St Mary's church, on top of Harrow Hill, may stand where that temple was.",
+  "source": "BHO: VCH Middlesex vols 1 and 4",
+  "url": "https://www.british-history.ac.uk/vch/middx/vol4/pp249-255",
+  "year": 767,
+  "topic": "names"
+ },
+ {
+  "id": "clerkenwell-plays",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Clerkenwell",
+  "points": [
+   [
+    51.5233,
+    -0.1055,
+    400
+   ]
+  ],
+  "line": "Did you know, Clerkenwell is named after a well where clergy put on plays?",
+  "fact": "Clerkenwell means the clerks' well. In the 1100s, London's clergy gathered around a well here to act out stories from the Bible, and the area took its name from it.",
+  "source": "BHO: Topographical Dictionary of England; Stow via Survey of London vol 46",
+  "url": "https://www.british-history.ac.uk/topographical-dict/england/pp626-632",
+  "year": 1174,
+  "topic": "names"
+ },
+ {
+  "id": "temple-church-round",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Temple Church",
+  "points": [
+   [
+    51.5133,
+    -0.11,
+    250
+   ]
+  ],
+  "line": "Did you know, Temple Church is round to copy a church in Jerusalem?",
+  "fact": "The Knights Templar built Temple Church round to copy the Church of the Holy Sepulchre in Jerusalem. The head of the church in Jerusalem came to London to dedicate it in 1185.",
+  "source": "BHO: Survey of London vol 46; RCHME London vol 4",
+  "url": "https://www.british-history.ac.uk/rchme/london/vol4/pp120-166",
+  "year": 1185,
+  "topic": "religion"
+ },
+ {
+  "id": "guildhall-arena",
+  "kind": "roman",
+  "score": 9,
+  "place": "Guildhall Yard",
+  "points": [
+   [
+    51.5157,
+    -0.0924,
+    250
+   ]
+  ],
+  "line": "Did you know, there's a Roman arena under Guildhall Yard?",
+  "fact": "London's Roman amphitheatre, where gladiators fought, lies under Guildhall Yard. It was only found in 1988, and a curve of dark stone in the yard marks its outer wall.",
+  "source": "London Museum: The Roman amphitheatre in central London; Wikipedia: Amphitheatre (London)",
+  "url": "https://www.londonmuseum.org.uk/collections/london-stories/roman-amphitheatre-central-london/",
+  "year": 70,
+  "topic": "ancient"
+ },
+ {
+  "id": "crosby-hall-moved",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Crosby Hall, Chelsea",
+  "points": [
+   [
+    51.4829,
+    -0.1712,
+    300
+   ]
+  ],
+  "line": "Did you know, Chelsea's oldest building was moved there from the City?",
+  "fact": "Crosby Hall was built in Bishopsgate in the 1400s. When it was due to be demolished, it was taken down and rebuilt in Chelsea in 1909 and 1910.",
+  "source": "BHO: VCH Middlesex vol 12; Dictionary of London",
+  "url": "https://www.british-history.ac.uk/vch/middx/vol12/pp79-90",
+  "year": 1466,
+  "topic": "buildings"
+ },
+ {
+  "id": "tabard-mp",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Talbot Yard, Borough High Street",
+  "points": [
+   [
+    51.5025,
+    -0.0911,
+    250
+   ]
+  ],
+  "line": "Did you know, the inn where Chaucer's pilgrims meet was run by Southwark's MP?",
+  "fact": "In The Canterbury Tales, the pilgrims meet at the Tabard, a real inn on Borough High Street. Its real host at the time, Henry Bailley, was also Southwark's MP in 1376 and 1379.",
+  "source": "BHO: Survey of London vol 22",
+  "url": "https://www.british-history.ac.uk/survey-london/vol22/pp9-30",
+  "year": 1376,
+  "topic": "books"
+ },
+ {
+  "id": "thorney-island",
+  "kind": "saxon",
+  "score": 8,
+  "place": "Westminster Abbey",
+  "points": [
+   [
+    51.4994,
+    -0.1273,
+    350
+   ]
+  ],
+  "line": "Did you know, Westminster Abbey was built on an island?",
+  "fact": "Westminster Abbey stands on what was Thorney Island, a patch of marshy ground in the Thames, cut off by streams flowing down from Hampstead and Kilburn.",
+  "source": "BHO: Old and New London vol 3; New History of London",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol3/pp5-10",
+  "year": 610,
+  "topic": "nature"
+ },
+ {
+  "id": "kingston-bridge-old",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Kingston Bridge",
+  "points": [
+   [
+    51.4115,
+    -0.3082,
+    400
+   ]
+  ],
+  "line": "Did you know, Kingston had the next bridge up the Thames from London Bridge?",
+  "fact": "In the 1200s, Kingston's bridge was the first bridge over the Thames upstream of London Bridge. That made Kingston one of the two main ways into Surrey from the north.",
+  "source": "BHO: VCH Surrey vol 3; Lysons, Environs of London vol 1",
+  "url": "https://www.british-history.ac.uk/vch/surrey/vol3/pp487-501",
+  "year": 1223,
+  "topic": "transport"
+ },
+ {
+  "id": "eltham-barn",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Eltham Palace",
+  "points": [
+   [
+    51.4475,
+    0.048,
+    350
+   ]
+  ],
+  "line": "Did you know, Eltham Palace's great hall, where Parliaments met, became a barn?",
+  "fact": "Edward IV finished the great hall at Eltham Palace around 1479, and Parliaments met there. By the 1790s, the royal hall was being used as a barn.",
+  "source": "BHO: RCHME London vol 5; Lysons, Environs of London vol 4",
+  "url": "https://www.british-history.ac.uk/london-environs/vol4/pp394-421",
+  "year": 1479,
+  "topic": "buildings"
+ },
+ {
+  "id": "cheapside-joust",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Cheapside",
+  "points": [
+   [
+    51.5143,
+    -0.0937,
+    300
+   ]
+  ],
+  "line": "Did you know, knights once held a jousting tournament in Cheapside?",
+  "fact": "In 1330, to celebrate the birth of the king's heir, thirteen knights a side jousted in Cheapside. The street was covered in sand so the horses wouldn't slip.",
+  "source": "BHO: Old and New London vol 1",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol1/pp315-332",
+  "year": 1330,
+  "topic": "sport"
+ },
+ {
+  "id": "bedlam-liverpool-st",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Liverpool Street station",
+  "points": [
+   [
+    51.5178,
+    -0.0817,
+    300
+   ]
+  ],
+  "line": "Did you know, the word bedlam comes from a hospital where Liverpool Street station is now?",
+  "fact": "Bethlem Hospital was founded in 1247 just outside Bishopsgate, where Liverpool Street station is now. Londoners shortened its name to Bedlam, which is where the word comes from.",
+  "source": "BHO: Survey of London vol 25; Stow",
+  "url": "https://www.british-history.ac.uk/survey-london/vol25/pp76-80",
+  "year": 1247,
+  "topic": "names"
+ },
+ {
+  "id": "caxton-almonry",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Westminster Abbey",
+  "points": [
+   [
+    51.499,
+    -0.131,
+    300
+   ]
+  ],
+  "line": "Did you know, England's first printing press was set up beside Westminster Abbey?",
+  "fact": "In the 1470s, William Caxton set up the first printing press in England in the Almonry, next to Westminster Abbey, where the abbey handed out alms to the poor.",
+  "source": "BHO: Old and New London vol 3; VCH Middlesex vol 2",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol3/pp483-491",
+  "year": 1476,
+  "topic": "invention"
+ },
+ {
+  "id": "london-bridge-chapel",
+  "kind": "medieval",
+  "score": 8,
+  "place": "London Bridge",
+  "points": [
+   [
+    51.5079,
+    -0.0877,
+    300
+   ]
+  ],
+  "line": "Did you know, old London Bridge had a chapel in the middle?",
+  "fact": "The stone London Bridge, begun in 1176, had a two-storey chapel on its central pier. You could reach the lower chapel from the one above, or by stone steps up from the river.",
+  "source": "BHO: Old and New London vol 2; Dictionary of London",
+  "url": "https://www.british-history.ac.uk/old-new-london/vol2/pp9-17",
+  "year": 1205,
+  "topic": "religion"
+ },
+ {
+  "id": "lundenwic-covent-garden",
+  "kind": "saxon",
+  "score": 9,
+  "place": "Covent Garden",
+  "points": [
+   [
+    51.5117,
+    -0.124,
+    600
+   ]
+  ],
+  "line": "Did you know, Saxon London was at Covent Garden, not in the City?",
+  "fact": "In the 600s, Saxon London sat outside the old Roman walls, stretching from today's National Gallery to Aldwych. When London moved back inside the walls, this became the old port: Aldwych.",
+  "source": "Wikipedia: Aldwych",
+  "url": "https://en.wikipedia.org/wiki/Aldwych",
+  "year": 650,
+  "topic": "names"
+ },
+ {
+  "id": "mithras-returned",
+  "kind": "roman",
+  "score": 8,
+  "place": "London Mithraeum, Walbrook",
+  "points": [
+   [
+    51.5124,
+    -0.0905,
+    250
+   ]
+  ],
+  "line": "Did you know, a Roman temple on Walbrook was moved away, then brought back?",
+  "fact": "A Roman temple to the god Mithras was found on Walbrook in 1954 and moved 100 metres for an office block. In 2017 it went back to its original site, underground.",
+  "source": "Wikipedia: London Mithraeum",
+  "url": "https://en.wikipedia.org/wiki/London_Mithraeum",
+  "year": 240,
+  "topic": "ancient"
+ }
+]

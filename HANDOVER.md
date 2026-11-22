@@ -11,7 +11,8 @@
 - Browser preview (branch dust-app-preview, never merge): https://forn-git-dust-app-preview-gandalondon.vercel.app/proto/app plays an example 9pm with a month of example rings; reload to replay.
 - 22 Nov 08:50, name sweep: every Stepback in copy, docs, comments, theme, Gradle project and release name is now Forn (README rewritten for the current app). Kept on purpose: package id, Stepback.apk, key alias stepback, keystore file. History below still says Stepback where it was the name at the time.
 - 22 Nov 08:40 to 08:45: cards show just the area (Enfield, Green Park); view eases back home after 6s untouched, double-tap goes now (builds 55, 56).
-- 22 Nov 08:55, tidy: Project instructions replaced (Tony pasted them: HANDOVER.md is the master, getforn.app, dust rules). Deleted from the Project: claude/pipeline/ (copies of tools/pipeline), both patches, look-test, review batch 1 page, HANDOVER-2026-11-21.md. Branches dust-copy, footer-last, proto-dust and rings-centre are merged or dead but could not be deleted from the cloud (GitHub blocks branch deletes from these sessions); harmless, delete from the GitHub branches page or from the Mac some time. Fact and source files still live in the Project (claude/facts/); moving them into the repo is still to do.
+- 22 Nov 08:55, tidy: Project instructions replaced (Tony pasted them: HANDOVER.md is the master, getforn.app, dust rules). Deleted from the Project: tools/pipeline/ (copies of tools/pipeline), both patches, look-test, review batch 1 page, HANDOVER-2026-11-21.md. Branches dust-copy, footer-last, proto-dust and rings-centre are merged or dead but could not be deleted from the cloud (GitHub blocks branch deletes from these sessions); harmless, delete from the GitHub branches page or from the Mac some time. Fact and source files still live in the Project (content/facts/); moving them into the repo is still to do.
+- 22 Nov 09:05, moved from the claude.ai Project into the repo, byte for byte: 20 fact and source files to content/facts/, 8 notes (review logs, GRADER, grader test, nightly mix, positioning, 20 Nov session) to notes/. Paths updated in CLAUDE.md, HANDOVER.md and the notes. Project copies deleted; the Project keeps only the batch 11 review page until its answers are in.
 - Known: passes after 9pm (and before noon the next day) don't show until today's ring rolls over at noon.
 
 
@@ -32,7 +33,7 @@
 - 22 Nov 01:17, Tony on the look: it works because dust is tiny balls, so a place you pass is a cloud of small balls and an uncovered find is one big readable ball pulled out of the mess. Keep that relationship: same round shape, only scale and gathering change.
 - App How it works copy, approved- App How it works copy, approved, ship WITH the app change (replaces Swipe and Keep): Dust: Every place you pass leaves dust on that day's ring: history you haven't uncovered yet. Lots of dust means you walked through lots of history. / Balls: Each night Forn uncovers up to five places, and they become black balls. Tap one to read it again. Pass the dusty places again to uncover more. One ring for each day, today in the middle. (Go about your day unchanged.)
 - Still to do:- Still to do:- Still to do:- Still to do: (3) ImprovMX for hello@ and feedback@: Tony adds getforn.app in ImprovMX, then Claude adds the MX and SPF records through Vercel. (4) The agreed page changes (real fact cards, footer only on the last step, city sign-up).
-- Content: batch 11 still has no answers. The fact files live in the claude.ai Forn Project (claude/facts); move them into this repo so any chat can reach them.
+- Content: batch 11 still has no answers. Fact files and notes are now in this repo (22 Nov 09:05): content/facts/ and notes/.
 
 ### Update, Sat 21 Nov 23:50: GitHub first (read this first)
 - Tony now works GitHub first so he can work away from the Mac; the Mac is a fallback. This repo's HANDOVER.md is the master handover. The Stepback Google Doc is retired: no need to copy into it.
@@ -47,7 +48,7 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
 
 ### Update, Sat 21 Nov 19:05: Monday items 1 to 3 done early (commit fc93a08, Build APK green)
 - spots.json: 163 spots (the 21 test spots plus 142 passed London and SW20 facts), every one with year and topic. Built from the latest reviewed text of each card (review pages for batches 1 to 10), points from the Project fact files. Left out: the dropped ids, kew-pagoda-dragons (waiting on batch 11), batch 11's new facts (waiting on review), and two SW20 facts never reviewed that break rule 3: putney-vale-bullet (a death) and nelson-merton (a mistress). The 21 test spots got years and topics by hand. The Project's fact files are unchanged; spots.json is now the shipped set.
-- Nightly mix in Night.pick, as specced in claude/nightly-mix.md. Era comes from year inside the app (Spot.era).
+- Nightly mix in Night.pick, as specced in notes/nightly-mix.md. Era comes from year inside the app (Spot.era).
 - Zone fix (Fences.kt): when zones are set (every app open, boot, after 9pm) and again at 9pm, the app asks for a location fix (fresh, else last known; ignored if older than 15 min or worse than 200m) and counts any untold zone you're standing in as passed, at the fix time. The 9pm receiver waits for this (goAsync).
 - New because London has more than 100 zones: the app watches the 99 nearest untold zones plus one exit ring centred where you are (half the distance to the furthest watched zone, 1 to 30km). Leaving the ring re-picks the nearest. Status line in Testing: "Watching N places, the nearest of M zones, re-picked after X km."
 - RULES.md: zones, mix, year/topic fields and topic list, the 13 writing rules, the night review process.
@@ -63,7 +64,7 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
 ### Update, Sat 21 Nov 18:05
 - Mac still off; nothing pushed. Monday list below, now with batch 11's merges added.
 - Batch 11 built as four nights on its own page, "Forn Review, batch 11", https://claude.ai/artifact/E58zFFfKfg1sbrWPYd1gWR (slug 69dab327-7329-4a9d-9ca1-abdf2d8a32c6). Answers in collection review-batch-11 on that artifact: card ids hold keep/reject, night-1 to night-4 hold Good night / Flat night. Waiting for Tony.
-- Line-ups, sources and what was dropped while writing: claude/review-log-3.md. New facts: claude/facts/london-old-batch11.json (8 pre-1500 + the kew-pagoda-dragons rewrite), sources-london-old-batch11.json, fact-tags-batch11.json. Page source: claude/review/forn-review-batch11.html.
+- Line-ups, sources and what was dropped while writing: notes/review-log-3.md. New facts: content/facts/london-old-batch11.json (8 pre-1500 + the kew-pagoda-dragons rewrite), sources-london-old-batch11.json, fact-tags-batch11.json. Page source: claude/review/forn-review-batch11.html.
 - After the answers: under 1 in 5 rejects and most nights good means the batch 10/11 shape ships; then the London coverage map.
 
 ### Update, Sat 21 Nov evening
@@ -73,11 +74,11 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
 - Dropped: perry-statue, clattern-goal (both second rejects), st-helier-alphabet, becontree-no-roads, barking-abbey (removed from london-old-batch10.json).
 - kew-pagoda-dragons rewritten (end line), text in review-log-2.md; now in batch 11.
 - Decision (Tony, 21 Nov): he can't check every fact; facts differ per person and place. He stops reviewing every card. Reviews become nights: four nights of five finds along a realistic day, mixing eras (medieval next to 1960s/90s), about half new and half already passed. He keeps or rejects each card and rates each night good or flat. One of these per new area or roughly every 60 new facts; under 1 in 5 rejects, the unseen facts ship.
-- Grader tested and NOT used as a gate: a separate blind agent agreed with Tony 27/40 and, after tuning, 24/36 (about 2 in 3; it's much stricter than him). Details: claude/grader-test-1.md. claude/GRADER.md stays as an optional editor pass (its notes catch weak endings or a missing "why"); it never drops a card on its own.
+- Grader tested and NOT used as a gate: a separate blind agent agreed with Tony 27/40 and, after tuning, 24/36 (about 2 in 3; it's much stricter than him). Details: notes/grader-test-1.md. notes/GRADER.md stays as an optional editor pass (its notes catch weak endings or a missing "why"); it never drops a card on its own.
 - This handover and the logs live in the Project, so content work can carry on while the Mac is asleep.
 
 ### Decisions
-- Release: Forn first. A paid app in January (£2.99 suggested), London only, once there's enough content. Details, positioning, competitors, Play policy and the landing page plan: claude/positioning-2026-11-21.md.
+- Release: Forn first. A paid app in January (£2.99 suggested), London only, once there's enough content. Details, positioning, competitors, Play policy and the landing page plan: notes/positioning-2026-11-21.md.
 - Domain getforn.app bought (Vercel, Ganda team). Setup Monday: holding page at the root, /beta full page, ImprovMX hello@ and feedback@, redirect gandalondon.com/forn.
 - Look: keep the flat black balls. claude/patches/look-switch.patch is NOT to be pushed.
 - Writing rules, confirmed by Tony 21 Nov 16:25 (put into RULES.md):
@@ -95,7 +96,7 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
   12. Reviews in batches of 20; an area ships under 1 in 5 rejects. (21 Nov: now reviewed as nights, see above.)
   13. Every fact keeps its source text.
   14. (21 Nov, from batch 9) A fact that needs local or background knowledge to land is out. A card rejected twice is dropped, not rewritten again.
-- Nightly mix (agreed, not built): highest score first, then minus 1.5 per already-picked find in the same era and per same topic; up to 5. Spec and test: claude/nightly-mix.md. Tags for all facts: claude/facts/fact-tags.json (tag new facts as they're written; batch 10 and 11 tags are in fact-tags-batch10.json and fact-tags-batch11.json, merge at the push).
+- Nightly mix (agreed, not built): highest score first, then minus 1.5 per already-picked find in the same era and per same topic; up to 5. Spec and test: notes/nightly-mix.md. Tags for all facts: content/facts/fact-tags.json (tag new facts as they're written; batch 10 and 11 tags are in fact-tags-batch10.json and fact-tags-batch11.json, merge at the push).
 
 ### Review state (answers in collections review-batch-N)
 - "Forn Review" artifact, https://claude.ai/artifact/2ZHGiKjzVxXHSBZ72Hmuvp: batches up to 9.
@@ -105,15 +106,15 @@ The master handover for the next Forn session. Pushed on 21 Nov evening from the
 - London DYK: batch 3 19/20, batch 4 13/20, batch 5 3/6, batch 6 17/20, batch 7 20/20, batch 9 spares mostly kept.
 - London place names: batch 8 16/20; all 4 rewrites kept in batch 9.
 - Older London: batch 10 19/20. Batch 11 waiting.
-- Logs: claude/review-log.md (batches 5 to 8), claude/review-log-2.md (batches 8 to 10, with results), claude/review-log-3.md (batch 11 onwards), claude/session-2026-11-20.md (everything up to batch 4, data check, pipeline), claude/grader-test-1.md (grader tests).
+- Logs: notes/review-log.md (batches 5 to 8), notes/review-log-2.md (batches 8 to 10, with results), notes/review-log-3.md (batch 11 onwards), notes/session-2026-11-20.md (everything up to batch 4, data check, pipeline), notes/grader-test-1.md (grader tests).
 
-### Where the facts are (Project, claude/facts/)
+### Where the facts are (Project, content/facts/)
 - sw20-merton-draft.json (40) plus sw20-merton-onefact.json (9 replacement fact texts; merge at the push).
 - london-dyk-draft.json (batch 3), london-dyk-batch4.json, london-dyk-batch6.json, london-names-batch8.json, london-old-batch10.json (19), london-old-batch11.json (8 new + kew rewrite). Use the current fact text; dropped ids: cavendish-time, great-turnstile-cattle, perry-statue, clattern-goal, st-helier-alphabet, becontree-no-roads, barking-abbey.
 - Batch 9 tweaks that live only on the page and in review-log-2.md: boulogne-mouth (new line and card), minchenden-oak (line says "oak tree"). kew-pagoda-dragons' new card text is now in london-old-batch11.json; replace the old text in london-dyk-batch4.json at the push.
 - Sources: sources-sw20-merton.json, sources-london.json, sources-london-batch4.json, sources-london-batch6.json, sources-london-names.json, sources-london-old-batch10.json, sources-london-old-batch11.json (BHO isn't reachable from the shell; WebFetch reaches it, so the text is quoted passages, not whole pages).
 - Hooks still to mine: dyk-london-hooks.json (376). Portlethen: portlethen-draft.json (Tony's trips only).
-- Pipeline scripts: claude/pipeline/ (gather, filter, check, dyk, raw). raw.py uses Wikipedia's action=raw route, which isn't rate-limited.
+- Pipeline scripts: tools/pipeline/ (gather, filter, check, dyk, raw). raw.py uses Wikipedia's action=raw route, which isn't rate-limited.
 
 ### Monday, Mac on
 1. Done 21 Nov (fc93a08): facts into spots.json, rules, pipeline scripts, HANDOVER.md, zone fix, nightly mix. Still open: this handover into the Google Doc; merging fact-tags-batch10/11 into the Project's fact-tags.json is moot now spots.json holds year and topic (batch 11's tags go in with its facts once they pass).
