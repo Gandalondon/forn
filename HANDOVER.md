@@ -9,6 +9,8 @@
 - How it works: Swipe and Keep replaced by the approved Dust and Balls copy. Tally: N uncovered. The rest is dust, for now. Tap a ball to read it again. Before any find: Dust from N places so far. Find out at 9pm.
 - first-atm in spots.json: You used -> People used (as the landing page).
 - Browser preview (branch dust-app-preview, never merge): https://forn-git-dust-app-preview-gandalondon.vercel.app/proto/app plays an example 9pm with a month of example rings; reload to replay.
+- 22 Nov 08:50, name sweep: every Stepback in copy, docs, comments, theme, Gradle project and release name is now Forn (README rewritten for the current app). Kept on purpose: package id, Stepback.apk, key alias stepback, keystore file. History below still says Stepback where it was the name at the time.
+- 22 Nov 08:40 to 08:45: cards show just the area (Enfield, Green Park); view eases back home after 6s untouched, double-tap goes now (builds 55, 56).
 - Known: passes after 9pm (and before noon the next day) don't show until today's ring rolls over at noon.
 
 

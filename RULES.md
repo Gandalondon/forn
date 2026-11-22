@@ -2,7 +2,7 @@
 
 The app is called Forn (Old Norse for ancient), from 18 Nov. The GitHub repo is Gandalondon/forn (renamed 18 Nov). The package id (com.gandalondon.stepback), APK file and signing key alias keep the Stepback name so updates keep installing over the top: never change them.
 
-How Stepback works: what it knows, what it tells you, and how it looks. Decisions and history live in HANDOVER.md. This file is the current rulebook: update it whenever a rule changes.
+How Forn works: what it knows, what it tells you, and how it looks. Decisions and history live in HANDOVER.md. This file is the current rulebook: update it whenever a rule changes.
 
 ## The idea
 
@@ -19,14 +19,14 @@ Go about your day. Forn quietly notes the old places you pass: each one leaves d
 
 ## What you're told
 
-- A Stepback day runs 9pm to 9pm. Anything passed after tonight's line counts towards tomorrow's.
+- A Forn day runs 9pm to 9pm. Anything passed after tonight's line counts towards tomorrow's.
 - The pick is the nightly mix (agreed 21 Nov): among places passed that day and never told before, the highest score first; each next pick loses 1.5 for every find already picked from the same era and 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one), but a night spreads across time. Each fact is told once, ever.
 - Ties go to whichever place was passed longest ago (22 Nov), so old dust gets its turn.
 - Unpicked places stay dust. Dust isn't final: pass a dusty place again on a later, quieter day and it can be uncovered then. Not being picked is the five-a-night limit, never a judgement (only reviewed facts ship).
 - No personalisation and no answers (22 Nov): the app never asks whether you liked a find.
 - Quiet day, no notification. Never padded.
 - Up to five finds each evening, most interesting first, never padded; a home day may be one card. The notification is the best one's line ("And 2 more."). The cards wait on top of the rings until paged through; until noon, last night's finds still count as today's ring.
-- Repeat routes run dry by design: walk to the post office twice and the second day only pings if there's something new. Stepback is weekly-ish, busier on days you move around.
+- Repeat routes run dry by design: walk to the post office twice and the second day only pings if there's something new. Forn is weekly-ish, busier on days you move around.
 
 ## The facts (spots.json)
 
@@ -122,6 +122,6 @@ One ask per screen, each with its own headline:
 
 ## Builds
 
-- Every push to main builds Stepback.apk into a GitHub release. Obtainium watches the repo.
+- Every push to main builds a release named Forn and its build number, with the APK file still called Stepback.apk (see the top of this file). Obtainium watches the repo.
 - Signed with the permanent key (repo secrets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD; keystore kept on Tony's Mac, never in git), so updates install over the top.
 - Docs-only pushes use [skip ci].

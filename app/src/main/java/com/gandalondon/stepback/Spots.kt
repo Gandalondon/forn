@@ -69,7 +69,7 @@ object Spots {
     }
 }
 
-/** A Stepback day runs 9pm to 9pm, so anything passed after tonight's line counts towards tomorrow's. */
+/** A Forn day runs 9pm to 9pm, so anything passed after tonight's line counts towards tomorrow's. */
 object Day {
     const val HOUR = 21
     fun key(now: LocalDateTime = LocalDateTime.now()): String =

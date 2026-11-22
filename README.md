@@ -1,23 +1,27 @@
-# Stepback
+# Forn
 
-Live your day. Find out tonight.
+Go about your day. Find out tonight.
 
-Stepback quietly notes the interesting places you pass. At 9pm, one line about the best of them. Tap it for the fact, then Interesting or Not for me.
+Forn quietly notes the old places you pass. Each one leaves dust on that day's ring. At 9pm it uncovers up to five of them, and their dust pulls together into black balls. One ring for each day, today in the middle.
 
-This is the v1 test: does a normal day produce a good 9pm line? It knows a hand-picked set of spots (home, the Heathrow run, Aberdeen and Portlethen, a few walks), in `app/src/main/assets/spots.json`.
+The rulebook is RULES.md, the latest state is HANDOVER.md, and the content pipeline is PIPELINE.md. The facts are in `app/src/main/assets/spots.json`. The landing page (getforn.app) is in `site/`.
 
 ## Install on the Pixel
 
-Add this repo to Obtainium (`https://github.com/Gandalondon/forn`), like Relay and Hlid. It picks up `Stepback.apk` from each release.
+Add this repo to Obtainium (`https://github.com/Gandalondon/forn`), like Relay and Hlid. Each push to main makes a release called Forn with its build number.
 
-On first open: Allow location, then Allow all the time, then the 9pm line.
+On first open: Allow location, then Allow all the time, then notifications for 9pm.
 
 ## How it works
 
-- Android geofences around each spot. When you cross one, Stepback notes the spot id for today. No GPS track, no internet permission: nothing leaves the phone.
-- At 9pm (give or take a few minutes) it picks the best spot passed that day and posts one line. Quiet day, no ping. Each fact once.
-- Interesting and Not for me are private taps. They tilt future picks towards or away from that type of fact (Roman, prehistory, geology...). Types fade, never vanish.
+- Android geofences around each place. Crossing one notes the place and the time. No GPS track, no internet permission: nothing leaves the phone.
+- At 9pm it picks up to five places passed that day: best first, then whichever was passed longest ago. Quiet day, no ping. Each fact once.
+- Tonight's cards just page through. Tap a ball any time to read it again.
 - A day runs 9pm to 9pm, so a place passed at 10pm counts towards tomorrow.
+
+## Kept as Stepback on purpose
+
+The package id (`com.gandalondon.stepback`), the APK file name (`Stepback.apk`) and the signing key alias (`stepback`) keep the old name so updates install over the top. Never change them.
 
 ## Signing
 

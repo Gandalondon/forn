@@ -15,7 +15,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 /**
- * The app screen once set up (18 Nov): the rings with tonight's cards on top, as in Stepback prototype 2.
+ * The app screen once set up (18 Nov): the rings with tonight's cards on top, as in the second browser prototype.
  * A WebView with the page, three.js and Instrument Sans bundled in assets/web, so it runs offline.
  * Like Hlid, Sniff and Relay, it's padded by the status and gesture bars.
  */

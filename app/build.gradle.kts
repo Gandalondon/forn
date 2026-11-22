@@ -17,7 +17,7 @@ android {
     }
 
     // Signing key comes from CI secrets (never committed). Same key on every
-    // build means updates install over the top and keep what Stepback found.
+    // build means updates install over the top and keep what Forn found.
     val ks = System.getenv("SIGNING_KEYSTORE_PATH")
     signingConfigs {
         create("personal") {

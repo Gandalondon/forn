@@ -16,7 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
         android:label="Forn"
-        android:theme="@style/Theme.Stepback">
+        android:theme="@style/Theme.Forn">
 
         <activity
             android:name=".MainActivity"

@@ -3,7 +3,7 @@ package com.gandalondon.stepback
 import android.content.Context
 import android.content.SharedPreferences
 
-/** Everything Stepback knows lives here, on the phone. Nothing is sent anywhere. */
+/** Everything Forn knows lives here, on the phone. Nothing is sent anywhere. */
 class Store(c: Context) {
     private val p: SharedPreferences = c.getSharedPreferences("stepback", Context.MODE_PRIVATE)
 
@@ -35,7 +35,7 @@ class Store(c: Context) {
     /** Newest first. */
     val history: List<String> get() = p.getString("history", "")!!.split(",").filter { it.isNotBlank() }
 
-    /** Which day a fact was told for (a Stepback day key). Older facts without one count as today. */
+    /** Which day a fact was told for (a Forn day key). Older facts without one count as today. */
     /**
      * The evening a find was told. Finds told before told_day existed (the v1 app) have none, and used to fall back
      * to Day.key(), so they floated onto today's ring every day (19 Nov, from Tony's exported data: sw20-clay).
