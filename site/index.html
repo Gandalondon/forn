@@ -61,10 +61,8 @@ body.dark .pips { opacity: 1; }
 .pips button i { display: block; width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.32); }
 .pips button[aria-current="true"] i { background: #FFFFFF; }
 /* The ending: a find from the past, then the city sign-up. Field label sits inside it. */
-.join { position: fixed; z-index: 4; left: var(--pad); right: var(--pad); bottom: calc(var(--pad) + 40px); max-width: 420px; margin-left: auto; display: flex; flex-direction: column; gap: 16px; opacity: 0; transition: opacity 500ms ease; }
-.join[hidden] { display: none; }
+.join { margin-top: 32px; max-width: 420px; pointer-events: auto; opacity: 0; transition: opacity 500ms ease; } /* under the heading, like Try it early */
 body.dark .join { opacity: 1; }
-.join .card { position: static; opacity: 1; }
 .join form { display: flex; gap: 8px; }
 .join input { flex: 1; min-width: 0; height: 64px; padding: 0 24px; border-radius: 999px; border: 0; background: #FFFFFF; color: var(--ink); font: 500 17px/1 var(--font); }
 .join input::placeholder { color: var(--soft); }
@@ -104,17 +102,13 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
   <section class="step" data-s="3" hidden><h2>At 9pm,<br>see what<br>you missed.</h2></section>
   <section class="step" data-s="4" hidden><h2>Keep it,<br>or let it go.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
-  <section class="step" data-s="6" hidden><h2>Grow yours.</h2></section>
-  <section class="step" data-s="7" hidden><h2>Coming to<br>London.</h2></section>
+  <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to London.</p><a class="btn" href="mailto:tony@gandalondon.com?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
+  <section class="step" data-s="7" hidden><h2>Want it in<br>your city?</h2><div class="join" id="join"><form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form></div></section>
 </main>
 
 <div class="shade" aria-hidden="true"></div>
 <div class="card" id="card" hidden aria-live="polite" aria-roledescription="card"><b></b><span></span></div>
 <div class="pips" id="pips" hidden></div>
-<div class="join" id="join" hidden>
-  <div class="card end"><b>In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.</b><span>Charing Cross Road, Tue 3 Nov, 16:20</span></div>
-  <form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form>
-</div>
 
 <div class="bar" hidden>
   <p>&copy; 2026 Forn<span class="who">, a concept by <a href="https://gandalondon.com" target="_blank" rel="noopener">Tony Goff-Yu</a></span>. <button type="button" class="link" id="privacy">Privacy</button></p>
@@ -249,9 +243,9 @@ const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { con
 let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
 // Today's three finds, all from reviewed facts, in the order they were passed (one per ball).
 const FINDS = [
-  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Barclays, Enfield, 08:40' },
-  { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "Duck Island, St James's Park, 13:12" },
-  { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park, 17:54' },
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Enfield' },
+  { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "St James's Park" },
+  { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park' },
 ];
 // The ending zooms into a kept ball from a few weeks back.
 const oldBall = (() => { for (let d = 18; d < DAYS; d++) { const m = days[d].children.find(o => o.isMesh && o.geometry === SPH); if (m) return m; } return todayBalls[0]; })();
@@ -305,7 +299,6 @@ function go(n) {
   document.querySelector('.bar').hidden = step !== last; // credit and Privacy only at the end
   steps.forEach(s => s.hidden = +s.dataset.s !== step);
   document.getElementById('card').hidden = step !== 3; document.getElementById('pips').hidden = step !== 3;
-  document.getElementById('join').hidden = step !== 7;
   if (step === 3) showFind(0, false);
   clearTimeout(darkT);
   document.body.classList.remove('dark');
