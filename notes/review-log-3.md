@@ -36,3 +36,12 @@
 - Rejected: beatles-rooftop, Confusing: "The Beatles definitely played in public again, so maybe the wording is a bit confusing here." The source says it was the final public performance of their career, but "They never played in public again" reads as if none of them ever did (solo careers). Rewritten to say it was the band's last public performance; line now says "as a band". Goes into the next batch for a second look.
 - The 12 other new facts are in spots.json (184 spots).
 - Direction holds: modern, crime, film and music land as well as the old history. Next: more of the same mix, plus the held-back Heddon Street and Brink's-Mat once there are reliable locations.
+
+## Batch 13 (built 22 Nov 10:38): more modern London, four nights, NOT yet reviewed
+- Page: "Forn Review, batch 13", slug 10582ebe-b835-458c-96bf-65baba8afa25, https://claude.ai/artifact/324WRsSff9kqxHBghdYAY4. Answers in review-batch-13 on that artifact. Nights data: content/review/batch13-nights.json.
+- 11 new (content/facts/london-modern-batch13.json, sources in sources-london-modern-batch13.json, all Wikipedia raw text): trident-hey-jude, hendrix-ronnie-scotts, carnaby-time, markov-umbrella, blind-beggar, spaghetti-house-siege, biba-kensington, withnail-west-house, punk-100-club, live-aid-wembley, clockwork-thamesmead.
+- 1 rewrite: beatles-rooftop ("the band's last public performance"; text in london-modern-batch12.json).
+- 8 passed: soho-charles-fountain, mithras-returned, syds-coffee-stall, widows-son-buns, python-basil-street, belgravia-fatberg, bowie-blackheath, sun-in-the-sands.
+- Tests the edge of rule 3 on purpose: blind-beggar (a famous gangland murder) and markov-umbrella (a Cold War assassination). Too grim is a reject reason.
+- Every card 35 words or under; names and numbers checked against the source sentences.
+- Held back, no coordinates in the sources: Marquee Club (Stones' first gig 1962), Hatton Garden burglary (2015), Knightsbridge Security Deposit robbery (1987), Notting Hill (1999 film), Heddon Street, Brink's-Mat. The Blind Beggar also has William Booth's first sermon (Salvation Army, 1865); one fact per spot, so it's a spare.

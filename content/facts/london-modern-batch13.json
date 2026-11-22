@@ -1,0 +1,200 @@
+[
+ {
+  "id": "trident-hey-jude",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Anne's Court, Soho",
+  "points": [
+   [
+    51.5144,
+    -0.1342,
+    250
+   ]
+  ],
+  "line": "Did you know, the Beatles recorded Hey Jude in a Soho side street, not at Abbey Road?",
+  "fact": "In 1968 the Beatles recorded Hey Jude at Trident Studios in St Anne's Court, Soho, because it had an eight-track machine. Abbey Road still only had four tracks.",
+  "source": "Wikipedia: Trident Studios",
+  "year": 1968,
+  "topic": "music"
+ },
+ {
+  "id": "hendrix-ronnie-scotts",
+  "kind": "modern",
+  "score": 8,
+  "place": "Ronnie Scott's, Frith Street",
+  "points": [
+   [
+    51.51346,
+    -0.13155,
+    250
+   ]
+  ],
+  "line": "Did you know, Jimi Hendrix's last ever public performance was at Ronnie Scott's in Soho?",
+  "fact": "Ronnie Scott's jazz club has been in Soho since 1959, and on Frith Street since 1965. Jimi Hendrix's last public performance was there, in 1970.",
+  "source": "Wikipedia: Ronnie Scott's Jazz Club",
+  "year": 1970,
+  "topic": "music"
+ },
+ {
+  "id": "carnaby-time",
+  "kind": "modern",
+  "score": 7,
+  "place": "Carnaby Street",
+  "points": [
+   [
+    51.51333,
+    -0.13889,
+    250
+   ]
+  ],
+  "line": "Did you know, a Time magazine cover story made Carnaby Street world famous in 1966?",
+  "fact": "On 15 April 1966 a Time magazine cover story made Carnaby Street internationally famous, as the heart of Swinging London, where bands like the Who and the Rolling Stones shopped.",
+  "source": "Wikipedia: Carnaby Street",
+  "year": 1966,
+  "topic": "design"
+ },
+ {
+  "id": "markov-umbrella",
+  "kind": "modern",
+  "score": 9,
+  "place": "Waterloo Bridge",
+  "points": [
+   [
+    51.50861,
+    -0.11694,
+    400
+   ]
+  ],
+  "line": "Did you know, a writer was assassinated with an umbrella on Waterloo Bridge?",
+  "fact": "In 1978 the Bulgarian writer Georgi Markov was waiting for a bus on Waterloo Bridge when a man used an umbrella to put a tiny pellet of poison into his leg.",
+  "source": "Wikipedia: Georgi Markov; Wikipedia: Waterloo Bridge",
+  "year": 1978,
+  "topic": "crime"
+ },
+ {
+  "id": "blind-beggar",
+  "kind": "modern",
+  "score": 8,
+  "place": "The Blind Beggar, Whitechapel",
+  "points": [
+   [
+    51.52,
+    -0.0569,
+    250
+   ]
+  ],
+  "line": "Did you know, Ronnie Kray shot a rival gangster at the bar of the Blind Beggar?",
+  "fact": "On 9 March 1966 Ronnie Kray walked into the Blind Beggar pub in Whitechapel and shot George Cornell, from the rival Richardson gang, as he sat at the bar, in front of witnesses.",
+  "source": "Wikipedia: The Blind Beggar",
+  "year": 1966,
+  "topic": "crime"
+ },
+ {
+  "id": "spaghetti-house-siege",
+  "kind": "modern",
+  "score": 8,
+  "place": "Knightsbridge",
+  "points": [
+   [
+    51.5021,
+    -0.1577,
+    250
+   ]
+  ],
+  "line": "Did you know, a robbery in Knightsbridge turned into a six-day siege?",
+  "fact": "In September 1975 a robbery at the Spaghetti House on Knightsbridge went wrong and the police arrived fast. It became a six-day siege, and every hostage was let go unharmed.",
+  "source": "Wikipedia: Spaghetti House siege",
+  "year": 1975,
+  "topic": "crime"
+ },
+ {
+  "id": "biba-kensington",
+  "kind": "modern",
+  "score": 7,
+  "place": "Kensington High Street",
+  "points": [
+   [
+    51.5013,
+    -0.1921,
+    250
+   ]
+  ],
+  "line": "Did you know, a fashion shop on Kensington High Street once drew a million customers a week?",
+  "fact": "In 1973 the fashion shop Biba moved into the seven-storey Derry & Toms building on Kensington High Street. Up to a million customers came every week, making it one of London's most visited sights.",
+  "source": "Wikipedia: Biba",
+  "year": 1973,
+  "topic": "shops"
+ },
+ {
+  "id": "withnail-west-house",
+  "kind": "modern",
+  "score": 7,
+  "place": "West House, Chelsea",
+  "points": [
+   [
+    51.4852,
+    -0.1711,
+    250
+   ]
+  ],
+  "line": "Did you know, Uncle Monty's house in Withnail and I is a real house in Chelsea?",
+  "fact": "In the 1987 film Withnail and I, West House in Chelsea is the London home of Withnail's Uncle Monty, played by Richard Griffiths.",
+  "source": "Wikipedia: West House, Chelsea",
+  "year": 1987,
+  "topic": "film"
+ },
+ {
+  "id": "punk-100-club",
+  "kind": "modern",
+  "score": 8,
+  "place": "100 Club, Oxford Street",
+  "points": [
+   [
+    51.51611,
+    -0.13536,
+    250
+   ]
+  ],
+  "line": "Did you know, the Sex Pistols, the Clash and the Damned all played one punk festival on Oxford Street?",
+  "fact": "On 20 and 21 September 1976 the 100 Club on Oxford Street held a two-night punk festival. The Sex Pistols headlined, with the Clash, Siouxsie and the Banshees, the Damned and Buzzcocks.",
+  "source": "Wikipedia: 100 Club Punk Special",
+  "year": 1976,
+  "topic": "music"
+ },
+ {
+  "id": "live-aid-wembley",
+  "kind": "modern",
+  "score": 8,
+  "place": "Wembley Stadium",
+  "points": [
+   [
+    51.55556,
+    -0.27972,
+    600
+   ]
+  ],
+  "line": "Did you know, the British half of Live Aid was played at Wembley in 1985?",
+  "fact": "On 13 July 1985 the old Wembley Stadium held the British part of Live Aid, with David Bowie, Queen, Paul McCartney, Elton John, the Who and U2.",
+  "source": "Wikipedia: Wembley Stadium (1923)",
+  "year": 1985,
+  "topic": "music"
+ },
+ {
+  "id": "clockwork-thamesmead",
+  "kind": "modern",
+  "score": 7,
+  "place": "Southmere Lake, Thamesmead",
+  "points": [
+   [
+    51.504,
+    0.1261,
+    800
+   ]
+  ],
+  "line": "Did you know, Thamesmead's concrete estate starred in A Clockwork Orange?",
+  "fact": "The Tavy Bridge area of Thamesmead, by Southmere Lake, was a setting for Stanley Kubrick's A Clockwork Orange in 1971. Its concrete blocks still turn up in films for their rough urban look.",
+  "source": "Wikipedia: Thamesmead",
+  "year": 1971,
+  "topic": "film"
+ }
+]

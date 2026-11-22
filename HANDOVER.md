@@ -17,6 +17,7 @@
 - 22 Nov 09:11, rule 14 (Tony): film, TV and music in when they've become history (about 25+ years: where bands formed or played, famous scenes filmed); recent filming trivia out. Batch 12 leans 1960 to 2000 and uses this plus the revised rule 3 (crime, gangs, scandals in).
 - 22 Nov 09:14, rule 3 again (Tony): grim but fascinating is in when it's history (Execution Dock at Wapping: pirates left hanging until three tides had washed over them). Out: recent tragedies with real victims, ghosts, gore, explicit. Film example he liked: the Old War Office on Whitehall played MI6 in 1980s Bond films (to verify with a second source).
 - 22 Nov 09:20, batch 12 built (13 new modern facts plus 7 passed, four nights): https://claude.ai/artifact/5GUwCdnc9tErfTjHpZTKJ7, reviewed 09:22: 19/20 kept, all nights good, nothing too grim; 12 new facts in spots.json (184), beatles-rooftop rewritten for the next batch. Details in notes/review-log-3.md. Review page is now a reusable template: tools/review/template.html plus build.py. Target agreed for launch: about 2,500 to 3,000 London facts (161 now); test with the go/no-go replay before January; clustering by area is fine (Soho should feel different from Westminster).
+- 22 Nov 10:38, batch 13 built (11 new modern facts, the Beatles rewrite, 8 passed): https://claude.ai/artifact/324WRsSff9kqxHBghdYAY4, waiting for Tony. Details in notes/review-log-3.md.
 - Known: passes after 9pm (and before noon the next day) don't show until today's ring rolls over at noon.
 
 
