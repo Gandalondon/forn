@@ -6,7 +6,7 @@ How Stepback works: what it knows, what it tells you, and how it looks. Decision
 
 ## The idea
 
-Go about your day. Stepback quietly notes the old places you pass. In the evening it tells you the best of them. What you keep builds into tree rings of everything you've learned.
+Go about your day. Forn quietly notes the old places you pass: each one leaves dust on that day's ring. At 9pm it uncovers the best of them, and their dust pulls together into black balls. Over time it builds into tree rings of where you've been and what you've learned.
 
 ## Noticing places
 
@@ -20,10 +20,12 @@ Go about your day. Stepback quietly notes the old places you pass. In the evenin
 ## What you're told
 
 - A Stepback day runs 9pm to 9pm. Anything passed after tonight's line counts towards tomorrow's.
-- The pick is the nightly mix (agreed 21 Nov): among places passed that day and never told before, the highest score first; each next pick loses 1.5 for every find already picked from the same era and 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one), but a night spreads across time. Unpicked places stay untold for another day. Each fact is told once, ever.
-- Answers never steer the pick (decided 18 Nov). Interesting or Not for me only decides ball or dust in the rings. Otherwise the dust would die out as the app learned your taste.
+- The pick is the nightly mix (agreed 21 Nov): among places passed that day and never told before, the highest score first; each next pick loses 1.5 for every find already picked from the same era and 1.5 for every one with the same topic. Interest still leads (a 9 from a picked era beats a 7 from a new one), but a night spreads across time. Each fact is told once, ever.
+- Ties go to whichever place was passed longest ago (22 Nov), so old dust gets its turn.
+- Unpicked places stay dust. Dust isn't final: pass a dusty place again on a later, quieter day and it can be uncovered then. Not being picked is the five-a-night limit, never a judgement (only reviewed facts ship).
+- No personalisation and no answers (22 Nov): the app never asks whether you liked a find.
 - Quiet day, no notification. Never padded.
-- Up to five finds each evening, most interesting first, never padded; a home day may be one card. The notification is the best one's line ("And 2 more."). The cards wait on top of the rings until answered; until noon, last night's finds still count as today's ring.
+- Up to five finds each evening, most interesting first, never padded; a home day may be one card. The notification is the best one's line ("And 2 more."). The cards wait on top of the rings until paged through; until noon, last night's finds still count as today's ring.
 - Repeat routes run dry by design: walk to the post office twice and the second day only pings if there's something new. Stepback is weekly-ish, busier on days you move around.
 
 ## The facts (spots.json)
@@ -63,22 +65,22 @@ Each spot has:
 - One review per new area or roughly every 60 new facts. Under 1 in 5 rejects and the area's unseen facts ship.
 - A blind grader agent agreed with Tony only about 2 in 3, so it's an optional editor pass, never a gate.
 
-## Answers
+## Cards (22 Nov)
 
-- Swipe right or tap Interesting: the find stays as a black ball.
-- Swipe left or tap Not for me: it bursts into dust.
-- No answer: stays as a ball.
-- Answers are private and stored on the phone.
+- No keep or Not for me. Tonight's cards just page: swipe left or tap for the next, swipe right for the one before, or tap a pip. Past the last card (or Android's back) they're done and don't come back.
+- No answers are stored. Answers from before 22 Nov were removed on the first open of the new build (a night already answered counts as seen).
 
 ## The rings (the 3D view)
 
-- The app is the 3D view. It opens on it, with tonight's cards on top under a dim scrim. Swipe them away and the rings are all that's left.
-- Tree rings, flat: one ring per day, today the outer ring, the past at the core. Distance from the centre is the only rule for time; angle means nothing.
+- The app is the 3D view. At 9pm it opens close on today's ring: the uncovered places' dust pulls together into balls, then tonight's cards fade in on top under a dim scrim. Page through them and it pulls back to the whole.
+- Tree rings, flat: one ring per day, today in the centre, older days rippling outwards (19 Nov). Distance from the centre is the only rule for time. Angle is the time of day you passed the place, like a clock face (midnight at the top), with a small nudge so nothing lines up.
 - The tree grows, it never squeezes: rings stay the same distance apart forever, so years become a bigger tree. Pinch out for the whole, in for a day.
 - Ring weights: day a dotted hairline, Monday a step heavier, the 1st of the month heavier, 1 January darkest. Each is one solid band. A Monday within two days of a month ring stays a day ring.
-- Kept finds are flat black balls, no outline, no highlight. Not for me bursts into grey dust where its ball sat.
+- Dust is what you pass (22 Nov): every place passed leaves a small pinch of round grey specks (70) on that day's ring, by the time you passed it. Today's ring appears with its first dust. Lots of dust means you walked through lots of history.
+- Balls are what you've uncovered: flat black, no outline, no highlight. At 9pm an uncovered place's pinch pulls together into its ball. Where a place was uncovered, its dust on that day became the ball; its dust on earlier days stays.
+- Dust and balls are one round shape at two scales: a place you pass is a cloud of tiny balls, an uncovered find is one big readable ball pulled out of the mess. Only scale and gathering change.
 - Tap a ball: its card comes back with the date and time, and a Tell me more button. That opens Android's share menu with a ready-made question about the place ("Tell me more about X in the UK. I learned that: ... What else is worth knowing about it, and about what's nearby?"), for an AI app, a search or notes. No setup, no AI connection, no internet permission. Only on reopened cards, so the evening stays quick.
-- On open: start on today's finds, play the bursts, then pull back to the whole; the slow spin starts after.
+- Any other open: the whole, with the slow spin.
 - Zoom stops before a ball fills the screen. The title and text sit over the rings with no panel.
 - Parked: tree trunk (height as the age of the thing), solar system, onion, stepped cone.
 
@@ -98,6 +100,11 @@ Each spot has:
 - Past a limit (very tall and thin, or a tiny strip) it gives way to the ring.
 - The story: everyone's rings differ, and the word takes the shape of wherever it lives. Precedent: the Whitney Museum's responsive W.
 
+## How it works copy (approved 22 Nov)
+
+- Dust: Every place you pass leaves dust on that day's ring: history you haven't uncovered yet. Lots of dust means you walked through lots of history.
+- Balls: Each night Forn uncovers up to five places, and they become black balls. Tap one to read it again. Pass the dusty places again to uncover more. One ring for each day, today in the middle.
+
 ## Setup
 
 One ask per screen, each with its own headline:
@@ -109,7 +116,7 @@ One ask per screen, each with its own headline:
 
 ## Test aids (remove before anyone else uses it)
 
-- On the How it works page, a Testing section: places passed today with times, Tell me now (runs tonight's finds early) and Record walk (GPX track and zone log to Downloads/Forn).
+- On the How it works page, a Testing section: zone status, Record walk (GPX track and zone log to Downloads/Forn), Show six months (example finds and dust, in memory only) and Send my data.
 - Crash recorder: shows the last crash on the next open.
 
 ## Builds

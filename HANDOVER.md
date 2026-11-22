@@ -1,6 +1,16 @@
 # Forn handover
 
-### Latest: Sat 21 Nov 2026, 23:58
+### Latest: Sun 22 Nov 2026, 01:40
+
+### Update, Sun 22 Nov 01:40: dust in the app (branch dust-app, merged to main)
+- Built as decided 22 Nov: dust is what you pass. Every place passed leaves a pinch (70 round specks, as the landing page) on that day's ring by the time passed; today's ring appears with its first dust. At 9pm the app opens close on today: the uncovered pinches pull together into balls (about 1.4s), then the cards fade in. Cards just page (swipe left or tap for next, right for back, pips are buttons); past the last card, or Android back, they're seen for good and the view pulls back.
+- Pick: best first, then whichever was passed longest ago (Store.firstPassed), inside the nightly mix. Unpicked places stay dust and can be uncovered when passed again.
+- Removed: swipe verdicts, Store verdict functions, the bridge verdict(). First open of the new build runs Store.dropAnswers(): answered nights count as seen, v_ keys deleted. New bridge seen(day); state() now sends dust (every passed place by day and time, minus the night it was uncovered).
+- How it works: Swipe and Keep replaced by the approved Dust and Balls copy. Tally: N uncovered. The rest is dust, for now. Tap a ball to read it again. Before any find: Dust from N places so far. Find out at 9pm.
+- first-atm in spots.json: You used -> People used (as the landing page).
+- Browser preview (branch dust-app-preview, never merge): https://forn-git-dust-app-preview-gandalondon.vercel.app/proto/app plays an example 9pm with a month of example rings; reload to replay.
+- Known: passes after 9pm (and before noon the next day) don't show until today's ring rolls over at noon.
+
 
 ### Update, Sat 21 Nov 23:58: getforn.app is live
 - Tony's call: no holding page. The Forn page as it was on gandalondon.com/forn (today still on the outside) is the home page of getforn.app. Kept out of search (meta noindex plus an X-Robots-Tag header in site/vercel.json) until launch.
