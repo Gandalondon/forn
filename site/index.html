@@ -134,10 +134,11 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
 const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 2000);
 const SPH = new THREE.SphereGeometry(1, 40, 28), INK = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
-const R_BALL = 0.16, STEP_W = 0.42, DAYS = 150, PARTS = 420;
+const R_BALL = 0.12, STEP_W = 0.48, DAYS = 150, PARTS = 420; // same sizes as the app (19 Nov)
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
-const ringR = d => 0.5 + (DAYS - 1 - d) * STEP_W;
+// Today in the centre, older days ripple outwards, as in the app (21 Nov; was newest outside like a real tree).
+const ringR = d => 0.5 + d * STEP_W, RT = ringR(DAYS - 1);
 const today = new Date();
 // Regular rings (19 Nov): every 7th day a week ring (Mondays), every 4th week a thicker one, every 13th of those
 // (52 weeks) the year ring. Counted from Monday 29 Dec 2025 (start of 2026's week 1), so the year ring lands at New Year.
@@ -180,28 +181,52 @@ function dust(pos, settled, into = group) {
   p.visible = settled; // solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov)
   into.add(p); return { p, start, end, drift };
 }
-for (let d = 1; d < DAYS; d++) {
-  if (r() > 0.5) continue;
-  const n = 1 + Math.floor(r() * 2);
-  for (let i = 0; i < n; i++) {
-    const th = r() * Math.PI * 2, R = ringR(d) + (r() - 0.5) * 0.1, pos = new THREE.Vector3(Math.cos(th) * R, (r() - 0.5) * 0.08, Math.sin(th) * R);
-    if (r() < 0.66) { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m); } else dust(pos, true, days[d]);
+// Where a ball sits on its ring (from the app, 19 Nov): its angle is the time of day you passed the place, like a
+// clock face with midnight at the top, plus a small nudge. Balls close in time fan out a gap apart, keeping order.
+const TAU = Math.PI * 2, GAP = 0.34;
+function placeDay(R, times, r) {
+  const items = times.map(h => ({ th: (((h / 24) * TAU - Math.PI / 2 + (r() - 0.5) * 0.12) % TAU + TAU) % TAU })).sort((a, b) => a.th - b.th);
+  const g = GAP / R, n = items.length;
+  if (n * g >= TAU) items.forEach((it, i) => { it.th = items[0].th + i * TAU / n; });
+  else if (n > 1) {
+    let cut = 0, widest = -1;
+    for (let i = 0; i < n; i++) { const gap = (i + 1 < n ? items[i + 1].th : items[0].th + TAU) - items[i].th; if (gap > widest) { widest = gap; cut = i + 1; } }
+    const seq = items.slice(cut).concat(items.slice(0, cut).map(it => ({ th: it.th + TAU, orig: it })));
+    const want = seq.map(it => it.th);
+    let blocks = seq.map((_, i) => ({ a: i, b: i }));
+    const mid = bl => { let m = 0; for (let i = bl.a; i <= bl.b; i++) m += want[i]; return m / (bl.b - bl.a + 1); };
+    const lo = bl => mid(bl) - (bl.b - bl.a) * g / 2, hi = bl => mid(bl) + (bl.b - bl.a) * g / 2;
+    for (let merged = true; merged;) {
+      merged = false;
+      for (let i = 0; i + 1 < blocks.length; i++) if (hi(blocks[i]) + g > lo(blocks[i + 1])) { blocks.splice(i, 2, { a: blocks[i].a, b: blocks[i + 1].b }); merged = true; break; }
+    }
+    if (blocks.length > 1 && hi(blocks[blocks.length - 1]) + g > lo(blocks[0]) + TAU) blocks = [{ a: 0, b: n - 1 }];
+    blocks.forEach(bl => { const s0 = lo(bl); for (let i = bl.a; i <= bl.b; i++) (seq[i].orig || seq[i]).th = s0 + (i - bl.a) * g; });
   }
+  return items.map(it => new THREE.Vector3(Math.cos(it.th) * R, 0, Math.sin(it.th) * R));
 }
-// Today: three finds on a short arc of the outer ring. The first is the station card; the second bursts on step 4.
-const RT = ringR(0), todayBalls = [0, 1, 2].map(i => {
-  const th = 0.6 + (i - 1) * (0.6 / RT), m = new THREE.Mesh(SPH, INK);
-  m.scale.setScalar(R_BALL); m.position.set(Math.cos(th) * RT, 0, Math.sin(th) * RT); group.add(m); return m;
-});
+// Example times, as in the app: mostly a morning and an evening commute plus a lunchtime walk, so lanes show.
+const exampleHour = () => { const k = r(); return k < 0.4 ? 8 + r() * 1.2 : k < 0.75 ? 17.5 + r() * 1.5 : k < 0.9 ? 12.5 + r() : 7 + r() * 15; };
+for (let d = 1; d < DAYS; d++) {
+  if (r() > 0.55) continue;
+  const n = 1 + Math.floor(r() * 2), times = Array.from({ length: n }, exampleHour);
+  placeDay(ringR(d), times, r).forEach(pos => {
+    pos.y = (r() - 0.5) * 0.08;
+    if (r() < 0.66) { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m); } else dust(pos, true, days[d]);
+  });
+}
+// Today: three finds on the centre ring, placed by the time they were passed. The first (10:42) is the Waterloo
+// card; the second bursts on step 4.
+const todayBalls = placeDay(ringR(0), [10.7, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
 let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
 
 /* ---------- Camera: where each step looks ---------- */
-const focus = todayBalls[0].position.clone();
+const focus = todayBalls[0].position.clone(), mid = new THREE.Vector3();
 const WHOLE = { target: new THREE.Vector3(), dist: null, elev: 0.95, az: 0.55 };
 const SHOTS = {
-  0: { target: focus.clone(), dist: 20, elev: 1.0, az: 0.6 }, 1: { target: focus.clone(), dist: 20, elev: 1.0, az: 0.6 }, 2: { target: focus.clone(), dist: 14, elev: 1.0, az: 0.6 },
-  3: { target: focus.clone(), dist: 6.5, elev: 0.7, az: 0.6 }, 4: { target: todayBalls[1].position.clone(), dist: 6, elev: 0.7, az: 0.6 },
-  5: { target: focus.clone(), dist: 26, elev: 1.0, az: 0.6 }, 6: { ...WHOLE },
+  0: { target: mid.clone(), dist: 7, elev: 1.0, az: 0.6 }, 1: { target: mid.clone(), dist: 7, elev: 1.0, az: 0.6 }, 2: { target: mid.clone(), dist: 5, elev: 1.0, az: 0.6 },
+  3: { target: focus.clone(), dist: 3.6, elev: 0.7, az: 0.6 }, 4: { target: todayBalls[1].position.clone(), dist: 3.6, elev: 0.7, az: 0.6 },
+  5: { target: mid.clone(), dist: 16, elev: 1.0, az: 0.6 }, 6: { ...WHOLE },
 };
 let cam = { target: new THREE.Vector3(), dist: 100, elev: 0.95, az: 0.55 }, from = null, to = null, t0 = 0, spin = 0;
 function wholeDist() {
@@ -345,8 +370,7 @@ function tick(now) {
   // Today's finds pop in on step 2; before that, today's ring is empty.
   const bk = step < 2 ? 0 : reduce ? 1 : Math.min(1, (now - ballsAt) / 500), be = 1 - Math.pow(1 - bk, 3);
   todayBalls.forEach((b, i) => { if (i === 1 && burst) return; b.visible = bk > 0; b.scale.setScalar(R_BALL * be); });
-  // Every day adds a ring: the past arrives from today inwards as the camera pulls back.
-  // Every day adds a ring: from today's ring, the days before it appear one by one, going back in time.
+  // Every day adds a ring: from today in the centre, the days before it ripple outwards one by one, going back in time.
   // Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / 6000)), shown = 1 + Math.floor((DAYS - 1) * gk * gk);
   days.forEach((g, d) => g.visible = d < shown);
