@@ -2937,5 +2937,167 @@
   "source": "Wikipedia: London Mithraeum",
   "year": 240,
   "topic": "ancient"
+ },
+ {
+  "id": "kingston-crowned",
+  "kind": "saxon",
+  "score": 9,
+  "place": "Coronation Stone, Kingston",
+  "points": [
+   [
+    51.4084,
+    -0.3068,
+    300
+   ]
+  ],
+  "line": "Did you know, six Saxon kings were crowned in Kingston?",
+  "fact": "In the 900s, six Saxon kings were crowned in Kingston. They're all said to have been crowned on a stone that now stands outside Kingston's Guildhall.",
+  "source": "BHO: VCH Surrey vol 3; Wikipedia: Coronation Stone, Kingston",
+  "year": 925,
+  "topic": "royals"
+ },
+ {
+  "id": "tooting-bec",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Tooting Bec",
+  "points": [
+   [
+    51.4357,
+    -0.1597,
+    600
+   ]
+  ],
+  "line": "Did you know, Tooting Bec is named after an abbey in Normandy?",
+  "fact": "After the Norman Conquest, a Norman lord gave land at Tooting to the abbey of Bec in Normandy. The abbey's name stuck, which is why it's Tooting Bec.",
+  "source": "BHO: VCH Surrey vol 2 (Priory of Tooting); VCH Surrey vol 4 (Streatham)",
+  "year": 1086,
+  "topic": "names"
+ },
+ {
+  "id": "chapter-house-commons",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Chapter House, Westminster Abbey",
+  "points": [
+   [
+    51.4991,
+    -0.1268,
+    200
+   ]
+  ],
+  "line": "Did you know, the House of Commons used to meet in Westminster Abbey?",
+  "fact": "For 170 years, until 1547, the House of Commons met in the Chapter House of Westminster Abbey, the room where the monks held their daily meetings.",
+  "source": "BHO: Old and New London vol 3; English Heritage: Chapter House",
+  "year": 1377,
+  "topic": "politics"
+ },
+ {
+  "id": "aldgate-chaucer",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Aldgate",
+  "points": [
+   [
+    51.5139,
+    -0.0775,
+    250
+   ]
+  ],
+  "line": "Did you know, Chaucer lived in the house over Aldgate?",
+  "fact": "In 1374 the City of London let Geoffrey Chaucer, the poet of The Canterbury Tales, the whole house built over Aldgate, one of the gates in the City wall. He lived there until 1386.",
+  "source": "BHO: Old and New London vol 2; Memorials of London Life; Wikipedia: Aldgate",
+  "year": 1374,
+  "topic": "books"
+ },
+ {
+  "id": "blackheath-emperor",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Blackheath",
+  "points": [
+   [
+    51.4683,
+    0.0045,
+    800
+   ]
+  ],
+  "line": "Did you know, an emperor from Constantinople was welcomed to England on Blackheath?",
+  "fact": "On 21 December 1400, Henry IV met the emperor of Constantinople, now Istanbul, on Blackheath. He'd come to ask for help against the Turks, the only emperor from there ever to visit England.",
+  "source": "Wikipedia: Manuel II Palaiologos",
+  "year": 1400,
+  "topic": "royals"
+ },
+ {
+  "id": "greenwich-castle-observatory",
+  "kind": "medieval",
+  "score": 8,
+  "place": "Royal Observatory, Greenwich",
+  "points": [
+   [
+    51.4769,
+    -0.0005,
+    250
+   ]
+  ],
+  "line": "Did you know, the Royal Observatory was built with the stones of an old castle?",
+  "fact": "The Royal Observatory stands where Greenwich Castle stood, a tower built by a royal duke in the 1400s. In 1675 the tower was pulled down and its stones used to build the observatory.",
+  "source": "BHO: Old and New London vol 6",
+  "year": 1437,
+  "topic": "buildings"
+ },
+ {
+  "id": "syon-nuns",
+  "kind": "medieval",
+  "score": 9,
+  "place": "Syon Park",
+  "points": [
+   [
+    51.4767,
+    -0.3119,
+    500
+   ]
+  ],
+  "line": "Did you know, Syon's nuns kept their abbey going abroad for 300 years?",
+  "fact": "Henry V founded Syon Abbey for nuns in 1415. When it was shut down in the 1500s, the nuns moved abroad together, to Flanders, France and Portugal, and came home to England in 1861.",
+  "source": "BHO: VCH Middlesex vol 1 (Syon Abbey)",
+  "year": 1415,
+  "topic": "religion"
+ },
+ {
+  "id": "kew-pagoda-dragons",
+  "kind": "building",
+  "score": 7,
+  "place": "Great Pagoda, Kew",
+  "points": [
+   [
+    51.4713,
+    -0.2957,
+    300
+   ]
+  ],
+  "line": "Did you know, Kew's Great Pagoda lost its 80 dragons and got them back?",
+  "fact": "Kew's Great Pagoda had 80 gilded dragons on its ten roofs, but all were gone by 1784. When the pagoda was restored in 2018, 80 dragons went back on.",
+  "source": "Wikipedia: Great Pagoda, Kew Gardens",
+  "year": 1762,
+  "topic": "buildings"
+ },
+ {
+  "id": "fulham-palace",
+  "kind": "saxon",
+  "score": 8,
+  "place": "Fulham Palace, Putney Bridge",
+  "points": [
+   [
+    51.47,
+    -0.2165,
+    400
+   ]
+  ],
+  "line": "Did you know, Fulham Palace was a bishop's home for almost 1,300 years?",
+  "fact": "Fulham was given to the Bishops of London around the year 691. Their manor house by the river, Fulham Palace, stayed a bishop's home until 1973.",
+  "source": "BHO: Lysons, Environs of London vol 2; Historic England: Fulham Palace",
+  "year": 691,
+  "topic": "religion"
  }
 ]
