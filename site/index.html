@@ -32,7 +32,8 @@ body.turning { cursor: grabbing; }
 .step[hidden] { display: none; }
 /* Lines are broken by hand, so each line is as big as the screen allows. */
 .step h1, .step h2 { margin: 0; font-weight: 600; font-size: min(15vw, 24vh); line-height: 0.92; letter-spacing: 0.005em; }
-@media (max-aspect-ratio: 1/1) { .step h1, .step h2 { font-size: min(16.5vw, 13vh); } } /* normal width, as in the app; only the word FORN narrows */
+@media (max-aspect-ratio: 1/1) { .step h1, .step h2 { font-size: min(15vw, 13vh); } }
+/* normal width, as in the app; only the word FORN narrows */
 .step .note { margin: 24px 0 0; font-size: 19px; line-height: 26px; color: var(--soft); }
 .step .btn { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; height: 64px; padding: 0 32px; margin-top: 32px; border-radius: 999px; background: var(--ink); color: #FFFFFF; font: 600 19px/1 var(--font); text-decoration: none; }
 .step .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -47,8 +48,26 @@ body.dark .shade { opacity: 1; }
 .card[hidden] { display: none; }
 .card { opacity: 0; transition: opacity 500ms ease; }
 body.dark .card { opacity: 1; }
-.card b { display: block; font-size: 26px; line-height: 32px; font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; }
+.card b { display: block; font-size: 26px; line-height: 32px; font-weight: 600; letter-spacing: 0.2px; text-wrap: pretty; } /* balance stops past six lines; pretty avoids a lone last word */
 .card span { display: block; margin-top: 12px; font-size: 15px; line-height: 20px; color: var(--soft); }
+/* 9pm: a plain stack of today's finds, as in the app (solid white, no fade, scale or bounce). Swipe or tap for the
+   next; the pips under it show which one. Pips are buttons too. */
+.card { cursor: pointer; touch-action: pan-y; user-select: none; }
+.card.end { cursor: default; }
+.pips { position: fixed; z-index: 4; left: var(--pad); right: var(--pad); bottom: calc(var(--pad) + 8px); max-width: 420px; margin-left: auto; display: flex; gap: 0; justify-content: center; opacity: 0; transition: opacity 500ms ease; }
+.pips[hidden] { display: none; }
+body.dark .pips { opacity: 1; }
+.pips button { width: 24px; height: 24px; padding: 8px; border: 0; background: none; cursor: pointer; }
+.pips button i { display: block; width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.32); }
+.pips button[aria-current="true"] i { background: #FFFFFF; }
+/* The ending: a find from the past, then the city sign-up. Field label sits inside it. */
+.join { margin-top: 32px; max-width: 420px; pointer-events: auto; opacity: 0; transition: opacity 500ms ease; } /* under the heading, like Try it early */
+body.dark .join { opacity: 1; }
+.join form { display: flex; gap: 8px; }
+.join input { flex: 1; min-width: 0; height: 64px; padding: 0 24px; border-radius: 999px; border: 0; background: #FFFFFF; color: var(--ink); font: 500 17px/1 var(--font); }
+.join input::placeholder { color: var(--soft); }
+.join button { height: 64px; padding: 0 28px; border-radius: 999px; border: 1px solid #FFFFFF; background: transparent; color: #FFFFFF; font: 600 17px/1 var(--font); cursor: pointer; }
+.join input:focus-visible, .join button:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
 
 /* Bottom bar: the credit and Privacy on the left, back and next on the right. */
 .bar { position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--pad) + 24px); padding: 0 var(--pad) var(--pad); align-items: flex-end; display: flex; align-items: center; justify-content: space-between; gap: 16px; z-index: 5; font-size: 13px; line-height: 18px; color: var(--soft); }
@@ -80,14 +99,16 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <main>
   <section class="step" data-s="1" hidden><h1>You pass<br>history<br>every day.</h1></section>
   <section class="step" data-s="2" hidden><h2>Forn<br>notices it<br>for you.</h2></section>
-  <section class="step" data-s="3" hidden><h2>At 9pm,<br>find out what<br>you passed.</h2></section>
+  <section class="step" data-s="3" hidden><h2>At 9pm,<br>see what<br>you missed.</h2></section>
   <section class="step" data-s="4" hidden><h2>Keep it,<br>or let it go.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
-  <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to Android.</p><a class="btn" href="mailto:tony@gandalondon.com?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
+  <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to London.</p><a class="btn" href="mailto:tony@gandalondon.com?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
+  <section class="step" data-s="7" hidden><h2>Want it in<br>your city?</h2><div class="join" id="join"><form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form></div></section>
 </main>
 
 <div class="shade" aria-hidden="true"></div>
-<div class="card" id="card" hidden aria-live="polite"><b>For 87 years, a train from Waterloo took coffins to a Surrey cemetery, each with a first, second or third class ticket.</b><span>Waterloo station, 10:42</span></div>
+<div class="card" id="card" hidden aria-live="polite" aria-roledescription="card"><b></b><span></span></div>
+<div class="pips" id="pips" hidden></div>
 
 <div class="bar" hidden>
   <p>&copy; 2026 Forn<span class="who">, a concept by <a href="https://gandalondon.com" target="_blank" rel="noopener">Tony Goff-Yu</a></span>. <button type="button" class="link" id="privacy">Privacy</button></p>
@@ -135,10 +156,11 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
 const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 2000);
 const SPH = new THREE.SphereGeometry(1, 40, 28), INK = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
-const R_BALL = 0.16, STEP_W = 0.42, DAYS = 150, PARTS = 420;
+const R_BALL = 0.12, STEP_W = 0.48, DAYS = 150, PARTS = 420; // same sizes as the app (19 Nov)
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
-const ringR = d => 0.5 + (DAYS - 1 - d) * STEP_W;
+// Today in the centre, older days ripple outwards, as in the app (21 Nov; was newest outside like a real tree).
+const ringR = d => 0.5 + d * STEP_W, RT = ringR(DAYS - 1);
 const today = new Date();
 // Regular rings (19 Nov): every 7th day a week ring (Mondays), every 4th week a thicker one, every 13th of those
 // (52 weeks) the year ring. Counted from Monday 29 Dec 2025 (start of 2026's week 1), so the year ring lands at New Year.
@@ -181,28 +203,60 @@ function dust(pos, settled, into = group) {
   p.visible = settled; // solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov)
   into.add(p); return { p, start, end, drift };
 }
-for (let d = 1; d < DAYS; d++) {
-  if (r() > 0.5) continue;
-  const n = 1 + Math.floor(r() * 2);
-  for (let i = 0; i < n; i++) {
-    const th = r() * Math.PI * 2, R = ringR(d) + (r() - 0.5) * 0.1, pos = new THREE.Vector3(Math.cos(th) * R, (r() - 0.5) * 0.08, Math.sin(th) * R);
-    if (r() < 0.66) { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m); } else dust(pos, true, days[d]);
+// Where a ball sits on its ring (from the app, 19 Nov): its angle is the time of day you passed the place, like a
+// clock face with midnight at the top, plus a small nudge. Balls close in time fan out a gap apart, keeping order.
+const TAU = Math.PI * 2, GAP = 0.34;
+function placeDay(R, times, r) {
+  const items = times.map(h => ({ th: (((h / 24) * TAU - Math.PI / 2 + (r() - 0.5) * 0.12) % TAU + TAU) % TAU })).sort((a, b) => a.th - b.th);
+  const g = GAP / R, n = items.length;
+  if (n * g >= TAU) items.forEach((it, i) => { it.th = items[0].th + i * TAU / n; });
+  else if (n > 1) {
+    let cut = 0, widest = -1;
+    for (let i = 0; i < n; i++) { const gap = (i + 1 < n ? items[i + 1].th : items[0].th + TAU) - items[i].th; if (gap > widest) { widest = gap; cut = i + 1; } }
+    const seq = items.slice(cut).concat(items.slice(0, cut).map(it => ({ th: it.th + TAU, orig: it })));
+    const want = seq.map(it => it.th);
+    let blocks = seq.map((_, i) => ({ a: i, b: i }));
+    const mid = bl => { let m = 0; for (let i = bl.a; i <= bl.b; i++) m += want[i]; return m / (bl.b - bl.a + 1); };
+    const lo = bl => mid(bl) - (bl.b - bl.a) * g / 2, hi = bl => mid(bl) + (bl.b - bl.a) * g / 2;
+    for (let merged = true; merged;) {
+      merged = false;
+      for (let i = 0; i + 1 < blocks.length; i++) if (hi(blocks[i]) + g > lo(blocks[i + 1])) { blocks.splice(i, 2, { a: blocks[i].a, b: blocks[i + 1].b }); merged = true; break; }
+    }
+    if (blocks.length > 1 && hi(blocks[blocks.length - 1]) + g > lo(blocks[0]) + TAU) blocks = [{ a: 0, b: n - 1 }];
+    blocks.forEach(bl => { const s0 = lo(bl); for (let i = bl.a; i <= bl.b; i++) (seq[i].orig || seq[i]).th = s0 + (i - bl.a) * g; });
   }
+  return items.map(it => new THREE.Vector3(Math.cos(it.th) * R, 0, Math.sin(it.th) * R));
 }
-// Today: three finds on a short arc of the outer ring. The first is the station card; the second bursts on step 4.
-const RT = ringR(0), todayBalls = [0, 1, 2].map(i => {
-  const th = 0.6 + (i - 1) * (0.6 / RT), m = new THREE.Mesh(SPH, INK);
-  m.scale.setScalar(R_BALL); m.position.set(Math.cos(th) * RT, 0, Math.sin(th) * RT); group.add(m); return m;
-});
+// Example times, as in the app: mostly a morning and an evening commute plus a lunchtime walk, so lanes show.
+const exampleHour = () => { const k = r(); return k < 0.4 ? 8 + r() * 1.2 : k < 0.75 ? 17.5 + r() * 1.5 : k < 0.9 ? 12.5 + r() : 7 + r() * 15; };
+for (let d = 1; d < DAYS; d++) {
+  if (r() > 0.55) continue;
+  const n = 1 + Math.floor(r() * 2), times = Array.from({ length: n }, exampleHour);
+  placeDay(ringR(d), times, r).forEach(pos => {
+    pos.y = (r() - 0.5) * 0.08;
+    if (r() < 0.66) { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m); } else dust(pos, true, days[d]);
+  });
+}
+// Today: three finds on the centre ring, placed by the time they were passed. The first (10:42) is the Waterloo
+// card; the second bursts on step 4.
+const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
 let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
+// Today's three finds, all from reviewed facts, in the order they were passed (one per ball).
+const FINDS = [
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Enfield' },
+  { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "St James's Park" },
+  { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park' },
+];
+// The ending zooms into a kept ball from a few weeks back.
+const oldBall = (() => { for (let d = 18; d < DAYS; d++) { const m = days[d].children.find(o => o.isMesh && o.geometry === SPH); if (m) return m; } return todayBalls[0]; })();
 
 /* ---------- Camera: where each step looks ---------- */
-const focus = todayBalls[0].position.clone();
+const focus = todayBalls[0].position.clone(), mid = new THREE.Vector3();
 const WHOLE = { target: new THREE.Vector3(), dist: null, elev: 0.95, az: 0.55 };
 const SHOTS = {
-  0: { target: focus.clone(), dist: 20, elev: 1.0, az: 0.6 }, 1: { target: focus.clone(), dist: 20, elev: 1.0, az: 0.6 }, 2: { target: focus.clone(), dist: 14, elev: 1.0, az: 0.6 },
-  3: { target: focus.clone(), dist: 6.5, elev: 0.7, az: 0.6 }, 4: { target: todayBalls[1].position.clone(), dist: 6, elev: 0.7, az: 0.6 },
-  5: { target: focus.clone(), dist: 26, elev: 1.0, az: 0.6 }, 6: { ...WHOLE },
+  0: { target: mid.clone(), dist: 5.5, elev: 1.0, az: 0.6 }, 1: { target: mid.clone(), dist: 5.5, elev: 1.0, az: 0.6 }, 2: { target: mid.clone(), dist: 4.5, elev: 1.0, az: 0.6 },
+  3: { target: focus.clone(), dist: 3.6, elev: 0.7, az: 0.6 }, 4: { target: todayBalls[1].position.clone(), dist: 3.6, elev: 0.7, az: 0.6 },
+  5: { target: mid.clone(), dist: 16, elev: 1.0, az: 0.6 }, 6: { ...WHOLE }, 7: { target: oldBall.position.clone(), dist: 3.6, elev: 0.7, az: 0.6 },
 };
 let cam = { target: new THREE.Vector3(), dist: 100, elev: 0.95, az: 0.55 }, from = null, to = null, t0 = 0, spin = 0;
 function wholeDist() {
@@ -221,10 +275,10 @@ function resize() {
   const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false);
   // Phones: the rings fill the screen and run under the words (Tony, 18 Nov: no box, overlap is fine).
   let low = 0;
-  steps.forEach(x => { if (+x.dataset.s === 3) return; const was = x.hidden; x.hidden = false; low = Math.max(low, x.getBoundingClientRect().bottom); x.hidden = was; });
+  steps.forEach(x => { if (+x.dataset.s === 3 || +x.dataset.s === 7) return; const was = x.hidden; x.hidden = false; low = Math.max(low, x.getBoundingClientRect().bottom); x.hidden = was; });
   const top = Math.round(low + 32), bottom = Math.round(document.querySelector('.bar').getBoundingClientRect().height);
   if (w > h * 1.1) { // wide: the words fill the screen, so the rings sit low and right behind them as before
-    area = { x: 0, y: 0, w, h }; camera.aspect = w / h; camera.setViewOffset(w, h, -w * 0.22, -h * 0.1, w, h); freeK = 0.8;
+    area = { x: 0, y: 0, w, h }; camera.aspect = w / h; camera.setViewOffset(w, h, -w * 0.3, -h * 0.2, w, h); freeK = 0.8; // today's small ring sits clear of the words (22 Nov)
   } else {
     area = { x: 0, y: 0, w, h }; camera.aspect = w / h; camera.setViewOffset(w, h, 0, -h * 0.17, w, h); freeK = 0.6; // full bleed: rings run under the words
   }
@@ -235,7 +289,7 @@ function resize() {
 addEventListener('resize', resize);
 
 /* ---------- Steps ---------- */
-const steps = [...document.querySelectorAll('.step')], last = 6;
+const steps = [...document.querySelectorAll('.step')], last = 7, WIDE = 6;
 let step = 0, lock = 0, darkT = 0;
 function go(n) {
   n = Math.max(0, Math.min(last, n));
@@ -244,11 +298,12 @@ function go(n) {
   document.getElementById('mark').hidden = step !== 0;
   document.querySelector('.bar').hidden = step !== last; // credit and Privacy only at the end
   steps.forEach(s => s.hidden = +s.dataset.s !== step);
-  document.getElementById('card').hidden = step !== 3;
+  document.getElementById('card').hidden = step !== 3; document.getElementById('pips').hidden = step !== 3;
+  if (step === 3) showFind(0, false);
   clearTimeout(darkT);
   document.body.classList.remove('dark');
   // At 9pm: the camera arrives first, then the overlay fades in and the find appears.
-  if (step === 3) darkT = setTimeout(() => { if (step === 3) document.body.classList.add('dark'); }, reduce ? 0 : 1700);
+  if (step === 3 || step === 7) { const at = step; darkT = setTimeout(() => { if (step === at) document.body.classList.add('dark'); }, reduce ? 0 : 1700); }
   const s = steps.find(x => +x.dataset.s === step);
   document.getElementById('live').textContent = s ? s.textContent : 'Forn';
   // Step 4: the middle ball bursts into dust. Going back puts it back.
@@ -261,6 +316,7 @@ function go(n) {
 }
 addEventListener('keydown', e => {
   if (document.getElementById('sheet').classList.contains('on')) { if (e.key === 'Escape') closeSheet(); return; }
+  if (e.target.closest('input')) return;
   const fwd = ['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key), back = ['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key);
   if (!fwd && !back) return;
   e.preventDefault();
@@ -270,7 +326,7 @@ addEventListener('keydown', e => {
 // Scroll and swipe step too: one step per gesture.
 addEventListener('wheel', e => {
   e.preventDefault();
-  if (step === last && Math.abs(e.deltaX) > Math.abs(e.deltaY)) { vel = 0; spin -= e.deltaX * 0.004; turnedAt = performance.now(); return; }
+  if (step === WIDE && Math.abs(e.deltaX) > Math.abs(e.deltaY)) { vel = 0; spin -= e.deltaX * 0.004; turnedAt = performance.now(); return; }
   if (performance.now() - lock < 900 || Math.abs(e.deltaY) + Math.abs(e.deltaX) < 12) return;
   go(step + ((e.deltaY || e.deltaX) > 0 ? 1 : -1));
 }, { passive: false });
@@ -280,14 +336,14 @@ addEventListener('touchend', e => {
   if (tx == null || document.getElementById('sheet').classList.contains('on')) return;
   const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty; tx = null;
   if (Math.max(Math.abs(dx), Math.abs(dy)) < 40) return;
-  if (step === last && Math.abs(dx) > Math.abs(dy)) return; // that was a spin
+  if (step === WIDE && Math.abs(dx) > Math.abs(dy)) return; // that was a spin
   go(step + ((Math.abs(dy) > Math.abs(dx) ? -dy : -dx) > 0 ? 1 : -1));
 });
 
 /* ---------- Last step: drag sideways to turn the tree (no zoom, no tilt) ---------- */
 let dragX = null, vel = 0, turnedAt = 0;
 addEventListener('pointerdown', e => {
-  if (step !== last || e.target.closest('a, button') || document.getElementById('sheet').classList.contains('on')) return;
+  if (step !== WIDE || e.target.closest('a, button') || document.getElementById('sheet').classList.contains('on')) return;
   dragX = e.clientX; vel = 0; document.body.classList.add('turning');
 });
 addEventListener('pointermove', e => {
@@ -296,6 +352,40 @@ addEventListener('pointermove', e => {
 });
 const endDrag = () => { if (dragX == null) return; dragX = null; document.body.classList.remove('turning'); };
 addEventListener('pointerup', endDrag); addEventListener('pointercancel', endDrag);
+
+/* ---------- 9pm cards: swipe or tap through today's finds; the rings glide to each ball ---------- */
+const cardEl = document.getElementById('card'), pipsEl = document.getElementById('pips');
+let find = 0;
+pipsEl.innerHTML = FINDS.map((_, i) => `<button type="button" aria-label="Find ${i + 1} of ${FINDS.length}"><i></i></button>`).join('');
+function showFind(i, glide = true) {
+  find = (i + FINDS.length) % FINDS.length;
+  cardEl.querySelector('b').textContent = FINDS[find].fact.replace(/-/g, '\u2011'); /* hyphenated words never break */ cardEl.querySelector('span').textContent = FINDS[find].at;
+  [...pipsEl.children].forEach((b, k) => b.setAttribute('aria-current', k === find));
+  if (glide && step === 3) { from = { ...cam, target: cam.target.clone() }; to = { ...shot(3), target: todayBalls[find].position.clone() }; t0 = performance.now(); if (reduce) { cam = to; to = null; } }
+}
+function lockCard() {
+  const was = cardEl.hidden; cardEl.hidden = false; cardEl.style.minHeight = '';
+  let tallest = 0; const b = cardEl.querySelector('b'), sp = cardEl.querySelector('span');
+  FINDS.forEach(f => { b.textContent = f.fact.replace(/-/g, '\u2011'); sp.textContent = f.at; tallest = Math.max(tallest, cardEl.offsetHeight); });
+  cardEl.style.minHeight = tallest + 'px'; showFind(find, false); cardEl.hidden = was;
+}
+document.fonts.ready.then(lockCard); addEventListener('resize', lockCard);
+pipsEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) showFind([...pipsEl.children].indexOf(b)); });
+cardEl.addEventListener('click', () => { if (!swiped) showFind(find + 1); swiped = false; });
+let cx = null, cy = 0, swiped = false;
+cardEl.addEventListener('touchstart', e => { cx = e.touches[0].clientX; cy = e.touches[0].clientY; e.stopPropagation(); }, { passive: true });
+cardEl.addEventListener('touchend', e => {
+  e.stopPropagation(); if (cx == null) return;
+  const dx = e.changedTouches[0].clientX - cx, dy = e.changedTouches[0].clientY - cy; cx = null;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { swiped = true; showFind(find + (dx < 0 ? 1 : -1)); }
+  else if (Math.abs(dy) > 40) go(step + (dy < 0 ? 1 : -1)); // an upward swipe on the card still moves the page on
+});
+document.getElementById('joinForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const city = document.getElementById('city').value.trim() || 'London';
+  location.href = `mailto:tony@gandalondon.com?subject=${encodeURIComponent('Forn in ' + city)}&body=${encodeURIComponent('Tell me when Forn comes to ' + city + '.')}`;
+});
+['touchstart', 'touchend', 'pointerdown'].forEach(t => document.getElementById('join').addEventListener(t, e => e.stopPropagation(), { passive: true }));
 
 /* ---------- Privacy ---------- */
 const sheet = document.getElementById('sheet');
@@ -325,7 +415,7 @@ function tick(now) {
   const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
   // Let go and it carries on a little, then the slow turn takes over again.
   if (dragX == null && vel) { spin += vel * dt; vel *= Math.pow(0.04, dt); if (Math.abs(vel) < 0.02) vel = 0; }
-  if (!reduce && dragX == null && !vel && (step === 0 || step === 1 || step >= 5)) spin += dt * 0.05; // the slow turn, only on the wide shots
+  if (!reduce && dragX == null && !vel && (step === 0 || step === 1 || step === 5 || step === 6)) spin += dt * 0.05; // the slow turn, only on the wide shots
   if (to) {
     const k = Math.min(1, (now - t0) / 2200), e = ease(k);
     cam = { target: from.target.clone().lerp(to.target, e), dist: from.dist * Math.pow(to.dist / from.dist, e), elev: from.elev + (to.elev - from.elev) * e, az: from.az + (to.az - from.az) * e };
@@ -347,8 +437,7 @@ function tick(now) {
   // Today's finds pop in on step 2; before that, today's ring is empty.
   const bk = step < 2 ? 0 : reduce ? 1 : Math.min(1, (now - ballsAt) / 500), be = 1 - Math.pow(1 - bk, 3);
   todayBalls.forEach((b, i) => { if (i === 1 && burst) return; b.visible = bk > 0; b.scale.setScalar(R_BALL * be); });
-  // Every day adds a ring: the past arrives from today inwards as the camera pulls back.
-  // Every day adds a ring: from today's ring, the days before it appear one by one, going back in time.
+  // Every day adds a ring: from today in the centre, the days before it ripple outwards one by one, going back in time.
   // Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / 6000)), shown = 1 + Math.floor((DAYS - 1) * gk * gk);
   days.forEach((g, d) => g.visible = d < shown);
