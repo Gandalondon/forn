@@ -100,7 +100,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
   <section class="step" data-s="1" hidden><h1>You pass<br>history<br>every day.</h1></section>
   <section class="step" data-s="2" hidden><h2>Forn<br>notices it<br>for you.</h2></section>
   <section class="step" data-s="3" hidden><h2>At 9pm,<br>see what<br>you missed.</h2></section>
-  <section class="step" data-s="4" hidden><h2>Keep it,<br>or let it go.</h2></section>
+  <section class="step" data-s="4" hidden><h2>The rest<br>is dust,<br>for now.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
   <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to London.</p><a class="btn" href="mailto:tony@gandalondon.com?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
   <section class="step" data-s="7" hidden><h2>Want it in<br>your city?</h2><div class="join" id="join"><form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form></div></section>
@@ -118,7 +118,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="pvH">
   <article>
     <h2 id="pvH">Privacy</h2>
-    <p>Forn keeps everything on your phone: the places you passed, when, and your answers. No account, no ads, and no track of where you went.</p>
+    <p>Forn keeps everything on your phone: the places you passed and when. No account, no ads, and no track of where you went.</p>
     <p>Nothing leaves your phone unless you choose Tell me more, which shares that one place with the app you pick.</p>
     <p>This page uses no cookies and no tracking.</p>
     <button type="button" id="sheetClose">Close</button>
@@ -184,22 +184,24 @@ for (let d = 0; d < DAYS; d++) {
   days[d].add(line);
   if (rank) { const m = new THREE.Mesh(new THREE.RingGeometry(R - RING_W[rank] / 2, R + RING_W[rank] / 2, segs), BAND_MAT[rank]); m.rotation.x = -Math.PI / 2; days[d].add(m); }
 }
-// Example past: finds on about half the days, two thirds kept, the rest settled dust.
+// Example past: finds on about half the days; every day you went out also leaves dust, the places passed but not told yet.
 const r = rng(11);
 // Round dust (18 Nov): points draw as squares by default, so each speck uses a small round sprite (same as the app).
 const DOT = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d');
   x.fillStyle = '#FFFFFF'; x.beginPath(); x.arc(32, 32, 30, 0, Math.PI * 2); x.fill(); return new THREE.CanvasTexture(c); })();
-function dust(pos, settled, into = group) {
-  const start = new Float32Array(PARTS * 3), end = new Float32Array(PARTS * 3);
-  for (let i = 0; i < PARTS; i++) {
-    const u = r() * 2 - 1, th = r() * Math.PI * 2, s = Math.sqrt(1 - u * u), d = 0.2 + Math.pow(r(), 0.7) * 0.6;
+// Dust (22 Nov): a place you passed but weren't told about yet leaves a small pinch, not a full burst.
+const PINCH = 70, REACH = 0.32;
+function dust(pos, settled, into = group, n = PINCH, reach = REACH) {
+  const start = new Float32Array(n * 3), end = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    const u = r() * 2 - 1, th = r() * Math.PI * 2, s = Math.sqrt(1 - u * u), d = reach * (0.25 + Math.pow(r(), 0.7) * 0.75);
     start.set([pos.x, pos.y, pos.z], i * 3); end.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3);
   }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(settled ? end.slice() : start.slice(), 3));
   const p = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022, map: DOT, alphaTest: 0.5 }));
   // Each speck gets its own slow drift, so a fresh burst floats like dust in still air.
-  const drift = new Float32Array(PARTS * 4);
-  for (let i = 0; i < PARTS; i++) drift.set([r() * Math.PI * 2, 0.25 + r() * 0.5, 0.03 + r() * 0.07, r() * Math.PI * 2], i * 4);
+  const drift = new Float32Array(n * 4);
+  for (let i = 0; i < n; i++) drift.set([r() * Math.PI * 2, 0.25 + r() * 0.5, 0.03 + r() * 0.07, r() * Math.PI * 2], i * 4);
   p.visible = settled; // solid light grey, no opacity: overlapping specks merge into one flat grey (19 Nov)
   into.add(p); return { p, start, end, drift };
 }
@@ -234,13 +236,19 @@ for (let d = 1; d < DAYS; d++) {
   const n = 1 + Math.floor(r() * 2), times = Array.from({ length: n }, exampleHour);
   placeDay(ringR(d), times, r).forEach(pos => {
     pos.y = (r() - 0.5) * 0.08;
-    if (r() < 0.66) { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m); } else dust(pos, true, days[d]);
+    const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m);
   });
+  const left = Math.floor(r() * 4); // places passed but not told that night
+  if (left) placeDay(ringR(d), Array.from({ length: left }, exampleHour), r).forEach(pos => dust(pos, true, days[d]));
 }
 // Today: three finds on the centre ring, placed by the time they were passed. The first (10:42) is the Waterloo
-// card; the second bursts on step 4.
+// card. They start as dust and are uncovered at 9pm.
 const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
-let burst = null, burstAt = 0, ballsAt = 0, pastAt = 0;
+let passedAt = 0, nineAt = 0, pastAt = 0;
+// Today's dust (22 Nov): every place you pass leaves a pinch of dust on today's ring. At 9pm three of them are
+// uncovered: their dust pulls together into a ball. The rest stays dust, for now.
+const todayDust = todayBalls.map((b, i) => ({ ...dust(b.position.clone(), false), ball: i }))
+  .concat([7.6, 9.4, 11.6, 15.4, 16.5, 19.6, 20.4].map(h => { const a = (h / 24) * TAU - Math.PI / 2, R = ringR(0); return dust(new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R), false); }));
 // Today's three finds, all from reviewed facts, in the order they were passed (one per ball).
 const FINDS = [
   { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Enfield' },
@@ -255,7 +263,7 @@ const focus = todayBalls[0].position.clone(), mid = new THREE.Vector3();
 const WHOLE = { target: new THREE.Vector3(), dist: null, elev: 0.95, az: 0.55 };
 const SHOTS = {
   0: { target: mid.clone(), dist: 5.5, elev: 1.0, az: 0.6 }, 1: { target: mid.clone(), dist: 5.5, elev: 1.0, az: 0.6 }, 2: { target: mid.clone(), dist: 4.5, elev: 1.0, az: 0.6 },
-  3: { target: focus.clone(), dist: 3.6, elev: 0.7, az: 0.6 }, 4: { target: todayBalls[1].position.clone(), dist: 3.6, elev: 0.7, az: 0.6 },
+  3: { target: focus.clone(), dist: 3.6, elev: 0.7, az: 0.6 }, 4: { target: mid.clone(), dist: 4.6, elev: 1.0, az: 0.6 },
   5: { target: mid.clone(), dist: 16, elev: 1.0, az: 0.6 }, 6: { ...WHOLE }, 7: { target: oldBall.position.clone(), dist: 3.6, elev: 0.7, az: 0.6 },
 };
 let cam = { target: new THREE.Vector3(), dist: 100, elev: 0.95, az: 0.55 }, from = null, to = null, t0 = 0, spin = 0;
@@ -306,10 +314,8 @@ function go(n) {
   if (step === 3 || step === 7) { const at = step; darkT = setTimeout(() => { if (step === at) document.body.classList.add('dark'); }, reduce ? 0 : 1700); }
   const s = steps.find(x => +x.dataset.s === step);
   document.getElementById('live').textContent = s ? s.textContent : 'Forn';
-  // Step 4: the middle ball bursts into dust. Going back puts it back.
-  if (step === 4 && !burst) { burst = dust(todayBalls[1].position.clone(), false); burstAt = performance.now(); }
-  if (step < 4 && burst) { group.remove(burst.p); burst.p.geometry.dispose(); burst = null; todayBalls[1].visible = true; todayBalls[1].scale.setScalar(R_BALL); }
-  if (step >= 2 && prev < 2) ballsAt = performance.now();
+  if (step >= 2 && prev < 2) passedAt = performance.now(); // places passed: dust appears
+  if (step >= 3 && prev < 3) nineAt = performance.now(); // 9pm: three are uncovered
   if (step === 5) pastAt = performance.now() + 900; // growth starts as the camera settles
   from = { ...cam, target: cam.target.clone() }; to = shot(step); t0 = performance.now();
   if (reduce) { cam = to; to = null; }
@@ -421,22 +427,23 @@ function tick(now) {
     cam = { target: from.target.clone().lerp(to.target, e), dist: from.dist * Math.pow(to.dist / from.dist, e), elev: from.elev + (to.elev - from.elev) * e, az: from.az + (to.az - from.az) * e };
     if (k >= 1) to = null;
   }
-  if (burst) {
-    // A pause, a slow eased burst (about 2.5s), then the dust keeps drifting.
-    const secs = (now - burstAt) / 1000, k = Math.max(0, Math.min(1, (secs - 0.6) / 1.3)), e = 1 - Math.pow(1 - k, 5);
-    todayBalls[1].scale.setScalar(R_BALL * Math.max(0, 1 - k * 3)); todayBalls[1].visible = k < 0.34;
+  // Dust appears place by place on step 2; on step 3 the uncovered ones pull together into balls.
+  const open = step < 2 ? 0 : reduce ? 9 : (now - passedAt) / 1000, gather = step < 3 ? 0 : reduce ? 1 : Math.max(0, Math.min(1, ((now - nineAt) / 1000 - 0.4) / 0.9));
+  const ge = gather * gather * (3 - 2 * gather);
+  todayDust.forEach((burst, n) => {
+    const secs = open - n * 0.12, k = Math.max(0, Math.min(1, secs / 1.1)), e = (1 - Math.pow(1 - k, 5)) * (burst.ball != null ? 1 - ge : 1);
     const a = burst.p.geometry.attributes.position.array, dr = burst.drift, f = e;
     for (let i = 0, j = 0; i < a.length; i += 3, j += 4) {
-      const ph = dr[j], sp = dr[j + 1], amp = dr[j + 2] * f, ph2 = dr[j + 3];
+      const ph = dr[j], sp = dr[j + 1], amp = dr[j + 2] * f * 0.5, ph2 = dr[j + 3];
       a[i] = burst.start[i] + (burst.end[i] - burst.start[i]) * e + Math.sin(secs * sp + ph) * amp;
-      a[i + 1] = burst.start[i + 1] + (burst.end[i + 1] - burst.start[i + 1]) * e + Math.sin(secs * sp * 0.8 + ph2) * amp + secs * 0.004 * f;
+      a[i + 1] = burst.start[i + 1] + (burst.end[i + 1] - burst.start[i + 1]) * e + Math.sin(secs * sp * 0.8 + ph2) * amp;
       a[i + 2] = burst.start[i + 2] + (burst.end[i + 2] - burst.start[i + 2]) * e + Math.cos(secs * sp * 0.9 + ph) * amp;
     }
-    burst.p.geometry.attributes.position.needsUpdate = true; burst.p.visible = k > 0;
-  }
+    burst.p.geometry.attributes.position.needsUpdate = true;
+    burst.p.visible = k > 0 && !(burst.ball != null && ge > 0.97);
+  });
   // Today's finds pop in on step 2; before that, today's ring is empty.
-  const bk = step < 2 ? 0 : reduce ? 1 : Math.min(1, (now - ballsAt) / 500), be = 1 - Math.pow(1 - bk, 3);
-  todayBalls.forEach((b, i) => { if (i === 1 && burst) return; b.visible = bk > 0; b.scale.setScalar(R_BALL * be); });
+  todayBalls.forEach(b => { b.visible = ge > 0; b.scale.setScalar(R_BALL * ge); });
   // Every day adds a ring: from today in the centre, the days before it ripple outwards one by one, going back in time.
   // Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / 6000)), shown = 1 + Math.floor((DAYS - 1) * gk * gk);
