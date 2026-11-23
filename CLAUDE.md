@@ -16,7 +16,7 @@ Forn is Tony's Android app that tells him at 9pm about old places he passed that
 - Content pipeline: PIPELINE.md and tools/pipeline. Fact drafts and their source text: content/facts/ (spots.json is the shipped set, built from them).
 - Notes: notes/ (review logs, grader, nightly mix, positioning, session notes).
 - The claude.ai Forn Project holds only the open review page (batch 11), whose answers are saved on its artifact.
-- Kept as stepback on purpose: package id, APK file name (Stepback.apk) and signing key alias. Never change them.
+- Kept as stepback on purpose: package id, APK file name (Stepback.apk) and signing key alias. Don't change them now (Tony's installed app would lose its data and Obtainium updates). Before the Play Store release, rename all three to Forn (Tony, 23 Nov): the store app is a fresh install anyway.
 
 ## Forn rules
 

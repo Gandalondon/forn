@@ -2,6 +2,9 @@
 
 ### Latest: Sun 22 Nov 2026, 23:20
 
+### Before the store release (Tony, 23 Nov)
+- Rename the stepback leftovers to Forn: package id, APK file name (Stepback.apk), signing key alias. Not before: it would break his installed app and Obtainium.
+
 ### Update, Mon 23 Nov 23:50: London dust map test for the landing page (not live)
 - Tony asked whether to add a styled London map. Agreed: not in the app (it turns Forn into a tracker, shows where people live, shows thin coverage); try it on the landing page.
 - Test: https://claude.ai/artifact/5pBSyAAGuZTTh2H6ckDGem (private). 90,000 grey dust points in Greater London's shape (boroughs geojson from github.com/radoi90/housequest-data), the Thames left empty (hand-placed centreline), dust standing a little taller towards the centre. One example day: pinches of darker dust where places were passed (no route line) and three black balls (Enfield, St James's Park, Green Park, the landing page's three finds). No real coverage dots (they'd show Tony's SW20 cluster and the gaps).
