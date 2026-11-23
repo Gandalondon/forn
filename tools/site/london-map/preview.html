@@ -24,7 +24,7 @@ const dust = un(D.dust);
   dust.forEach(([x, y], i) => { const k = Math.exp(-Math.hypot(x, y) / 6); a[i * 3] = x * S; a[i * 3 + 1] = Math.pow(r(), 3) * (0.03 + 0.45 * k); a[i * 3 + 2] = -y * S; });
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(a, 3));
   scene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.011, map: DOT, alphaTest: 0.5 }))); }
-cloud(un(D.edge), 0xA8A8A8, 0.014, 0.004);
+// No outline (Tony, 23 Nov): the dust just ends.
 // One example day (the same three finds as the rings): Enfield in the morning, then St James's Park and Green Park.
 const km = (lat, lng) => [(lng + 0.1278) * 111.32 * Math.cos(51.5 * Math.PI / 180), (lat - 51.5074) * 111.32];
 // Places passed that day leave a pinch of dust each (as in the app), not a route line: no tracker.
