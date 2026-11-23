@@ -2,6 +2,8 @@
 
 ### Latest: Sun 22 Nov 2026, 23:20
 
+### Play Store, 24 Nov (Tony, 23 Nov 23:58): get it into Play's testing tracks to check background location approval. Steps: notes/play-store.md
+
 ### Before the store release (Tony, 23 Nov)
 - Rename the stepback leftovers to Forn: package id, APK file name (Stepback.apk), signing key alias. Not before: it would break his installed app and Obtainium.
 
