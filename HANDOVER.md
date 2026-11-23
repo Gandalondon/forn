@@ -19,7 +19,7 @@
 - Now: getforn.app deploys only through the Site job (.github/workflows/site.yml, copied from Hlid's), on pushes to main touching site/, or by hand (Actions, Site, Run workflow). Skips at 95 deploys in 24 hours. Repo secret VERCEL_TOKEN (forn-github, expires 22 Nov 2027).
 - site/vercel.json: Git deploys for main off. Build APK ignores the Site workflow file.
 - Rule added to RULES.md (Builds): [skip ci] and batched pushes; site deploys via the Site job only.
-- The budget was used up until about 15:45 on 23 Nov, so the first Site run may fail with api-deployments-free-per-day: rerun it after that (status in the 16:05 entry below once checked).
+- The budget was used up until about 15:45 on 23 Nov, so the first Site run may fail with api-deployments-free-per-day: rerun it after that. Checked 23 Nov 16:06: Site job run by hand, 3 deploys in the last 24 hours, deployed forn to production (READY, aliased to getforn.app). The landing page re-timing from 22 Nov 23:15 is live.
 
 
 ### Update, Sun 22 Nov 13:45: all four 13:20 items done; sync with Tony at 11pm
