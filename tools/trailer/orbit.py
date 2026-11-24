@@ -4,7 +4,7 @@
 """
 import sys, os, subprocess, threading, functools, http.server, socketserver
 from playwright.sync_api import sync_playwright
-D = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(D + '/../..'); FPS = 30; LEN = 5.0
+D = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(D + '/../..'); FPS = 30; LEN = 6.5
 
 def serve():
     h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT); h.log_message = lambda *a: None

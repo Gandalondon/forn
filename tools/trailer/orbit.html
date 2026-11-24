@@ -12,12 +12,12 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100%; }
 svg.lead { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .tip { position: fixed; left: 0; top: 0; width: 280px; padding: 18px 20px 16px; border-radius: 18px; background: #1A1A1A; color: #FFFFFF; font-family: "Instrument Sans", sans-serif; opacity: 0; will-change: transform; }
 .tip b { display: block; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0.2px; text-wrap: pretty; }
-.tip span { display: block; margin-top: 10px; font-size: 12px; line-height: 16px; color: #B4B4B4; }
+.tip span { display: block; margin-top: 10px; font-size: 12px; line-height: 16px; color: #FFFFFF; }
 </style>
 </head>
 <body>
 <canvas id="gl"></canvas>
-<svg class="lead"><line id="ln" stroke="#1A1A1A" stroke-width="1.5" /></svg>
+<svg class="lead" style="z-index:1"><line id="ln" stroke="#1A1A1A" stroke-width="1.5" /></svg>
 <div class="tip" id="tip"><b></b><span></span></div>
 <script src="/site/three.js"></script>
 <script>
@@ -54,19 +54,15 @@ const balls = [at(ringR(0), 1.5), at(ringR(0), 7), at(ringR(0), 12)].map(p => { 
 [1, 2, 4, 6, 9].forEach(d => dust(at(ringR(d), r() * 24), 60));
 function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); }
 resize(); addEventListener('resize', resize);
-// The move: start wide, glide in to find A while orbiting; hold (still turning); swing to find B; hold.
-const ease = k => k < 0.5 ? 4 * k ** 3 : 1 - Math.pow(-2 * k + 2, 3) / 2, cl = v => Math.max(0, Math.min(1, v));
-const KEYS = [ // t (s), target, distance, elevation, azimuth
-  { t: 0.0, tg: new THREE.Vector3(0, 0, 0), dist: 20, elev: 1.0, az: 0.2 },
-  { t: 1.6, tg: balls[0].position, dist: 6.0, elev: 0.6, az: 0.9 },
-  { t: 2.8, tg: balls[0].position, dist: 5.6, elev: 0.55, az: 1.2 },
-  { t: 3.7, tg: balls[1].position, dist: 6.0, elev: 0.6, az: 1.8 },
-  { t: 5.0, tg: balls[1].position, dist: 5.6, elev: 0.55, az: 2.1 },
-];
+// The move (24 Nov, v2): never stops. The camera turns at one slow, constant speed the whole time; only where it looks
+// changes, with long gentle glides (sine in-out), so there are no starts and stops between the finds.
+const cl = v => Math.max(0, Math.min(1, v)), sine = k => (1 - Math.cos(Math.PI * cl(k))) / 2, outC = k => 1 - Math.pow(1 - cl(k), 3);
+const ORIGIN = new THREE.Vector3();
 function camAt(t) {
-  let i = 0; while (i < KEYS.length - 2 && t > KEYS[i + 1].t) i++;
-  const a = KEYS[i], b = KEYS[i + 1], hold = a.tg === b.tg, k = cl((t - a.t) / (b.t - a.t)), e = hold ? k : ease(k);
-  return { tg: a.tg.clone().lerp(b.tg, e), dist: a.dist * Math.pow(b.dist / a.dist, e), elev: a.elev + (b.elev - a.elev) * e, az: a.az + (b.az - a.az) * e };
+  const toA = sine(t / 2.0), toB = sine((t - 2.9) / 2.0);
+  const tg = ORIGIN.clone().lerp(balls[0].position, toA).lerp(balls[1].position, toB);
+  const swing = Math.sin(Math.PI * cl((t - 2.9) / 2.0)); // eases out a little while it travels, then back in
+  return { tg, dist: 20 * Math.pow(6 / 20, outC(t / 2.2)) * (1 + 0.12 * swing), elev: 1.0 + (0.58 - 1.0) * sine(t / 2.2), az: 0.2 + 0.34 * t };
 }
 const tip = document.getElementById('tip'), ln = document.getElementById('ln');
 function show(i) { tip.querySelector('b').textContent = FACTS[i].fact; tip.querySelector('span').textContent = FACTS[i].at; }
@@ -80,14 +76,14 @@ function frame(now) {
     D.g.attributes.position.needsUpdate = true; });
   renderer.render(scene, camera);
   // The card: attached to its ball, up and to the right, with a short leader line. 0.2 s fades.
-  const which = t < 3.0 ? 0 : 1, on = which === 0 ? cl((t - 1.2) / 0.2) * (1 - cl((t - 2.8) / 0.2)) : cl((t - 3.5) / 0.2);
+  const which = t < 3.0 ? 0 : 1, on = which === 0 ? cl((t - 1.5) / 0.2) * (1 - cl((t - 2.7) / 0.2)) : cl((t - 4.6) / 0.2);
   if (which === 1 && tip.dataset.i !== '1') { show(1); tip.dataset.i = '1'; }
   const P = balls[which].position, v = P.clone().project(camera), x = (v.x + 1) / 2 * innerWidth, y = (1 - v.y) / 2 * innerHeight;
   const right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0), e2 = P.clone().addScaledVector(right, R_BALL).project(camera);
   const rad = Math.abs((e2.x - v.x) / 2 * innerWidth), ex = x + rad * 0.72, ey = y - rad * 0.72; // the ball's top-right edge
-  const tx = ex + 40, ty = ey - 40 - tip.offsetHeight;
+  const tx = ex + 16, ty = ey - 40 - tip.offsetHeight;
   tip.style.transform = `translate(${tx}px, ${ty}px)`; tip.style.opacity = on;
-  ln.setAttribute('x1', ex); ln.setAttribute('y1', ey); ln.setAttribute('x2', tx); ln.setAttribute('y2', ty + tip.offsetHeight); ln.style.opacity = on;
+  ln.setAttribute('x1', ex); ln.setAttribute('y1', ey); ln.setAttribute('x2', tx + 24); ln.setAttribute('y2', ty + tip.offsetHeight - 1); ln.setAttribute('stroke-opacity', on); // the line runs into the card's straight bottom edge
 }
 requestAnimationFrame(frame);
 })();
