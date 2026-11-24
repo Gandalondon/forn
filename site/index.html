@@ -227,7 +227,7 @@ for (let d = 1; d < DAYS; d++) {
   const n = 1 + Math.floor(r() * 2), times = Array.from({ length: n }, exampleHour);
   placeDay(ringR(d), times, r).forEach(pos => {
     pos.y = (r() - 0.5) * 0.08;
-    const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m);
+    const m = new THREE.Mesh(SPH, window.__VIDEO ? INK.clone() : INK); if (window.__VIDEO) m.material.transparent = true; m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m);
   });
   const left = Math.floor(r() * 4); // places passed but not told that night
   if (left) placeDay(ringR(d), Array.from({ length: left }, exampleHour), r).forEach(pos => dust(pos, true, days[d]));
@@ -264,7 +264,7 @@ function wholeDist() {
   return (RT + 1) * 1.02 / Math.sin(Math.min(vf * freeK, hf));
 }
 // window.__NEAR (trailer only): brings the close shots (steps 0 to 2 and 4) nearer so today's ring reads bigger.
-function shot(s) { if (window.__VIDEO && s === 3) s = 2; if (window.__VIDEO && s === 5) return { target: new THREE.Vector3(), dist: wholeDist() * 0.16, elev: WHOLE.elev, az: WHOLE.az };
+function shot(s) { if (window.__VIDEO && s === 3) s = 2; if (window.__VIDEO && s === 6) s = 5; // video: no zoom at 9pm, and the huge rings stay for Grow yours (Tony, 20:40)
   const o = SHOTS[s], k = s !== 3 && s <= 4 ? (window.__NEAR || 1) : 1; return { target: o.target.clone(), dist: o.dist != null ? o.dist * LENS * k : wholeDist(), elev: o.elev, az: o.az }; }
 function place(c) {
   const ce = Math.cos(c.elev), se = Math.sin(c.elev), a = c.az + spin;
@@ -415,15 +415,11 @@ function tick(now) {
   const VID = window.__VIDEO;
   if (!reduce && dragX == null && !vel && (VID || step === 0 || step === 1 || step === 5 || step === 6)) spin += dt * (VID ? 0.06 : 0.05); // the slow turn, only on the wide shots
   if (VID) {
-    // Video framing (24 Nov): steps 1 to 4 share one shot (no zoom at 9pm, nothing jumps); on 5 and 6 the tree grows in
-    // the lower right and the camera pulls back with it, so its balls stay off the words. The offset glides between them.
-    const tx = step >= 5 ? -0.24 : (window.__WIDE || [0, 0])[0], ty = step >= 5 ? -0.22 : (window.__WIDE || [0, 0])[1], q = Math.min(1, dt * 1.5);
+    // Video framing (24 Nov): steps 1 to 4 share one shot (no zoom at 9pm, nothing jumps); on 5 and 6 the camera holds
+    // close with today low right, as on the site, and the rings grow out past the edges. The offset glides between them.
+    const tx = step >= 5 ? -0.3 : (window.__WIDE || [0, 0])[0], ty = step >= 5 ? -0.2 : (window.__WIDE || [0, 0])[1], q = Math.min(1, dt * 1.5);
     vo[0] += (tx - vo[0]) * q; vo[1] += (ty - vo[1]) * q;
     if (innerWidth > innerHeight * 1.1) { camera.setViewOffset(innerWidth, innerHeight, innerWidth * vo[0], innerHeight * vo[1], innerWidth, innerHeight); camera.updateProjectionMatrix(); }
-    if (step === 5) {
-      const g5 = Math.max(0, Math.min(1, (now - pastAt) / 4800)), want = wholeDist() * Math.max(0.16, (ringR((DAYS - 1) * ease(g5)) + 1) / (RT + 1));
-      if (to) to.dist = want; else cam.dist = want;
-    }
   }
   if (to) {
     const k = Math.min(1, (now - t0) / 2200), e = ease(k);
@@ -456,6 +452,16 @@ function tick(now) {
   const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / (VID ? 4800 : 6000))), shown = 1 + Math.floor((DAYS - 1) * (VID ? ease(gk) : gk * gk));
   const bare = !VID && !reduce && (step === 5 || (step === 6 && to != null)); // video: each ring arrives with its balls
   days.forEach((g, d) => { g.visible = d < shown; if (d) g.children.forEach(o => { if (o.isPoints || (o.isMesh && o.geometry === SPH)) o.visible = !bare; }); });
+  if (VID && step >= 5) {
+    // Balls never sit on the words (Tony, 20:33): a past ball fades out while it passes behind a line of the heading.
+    const h = steps.find(x => !x.hidden)?.querySelector('h1,h2'), rg = document.createRange(); let rects = [];
+    if (h) { rg.selectNodeContents(h); rects = [...rg.getClientRects()]; }
+    const v = new THREE.Vector3(), pad = 14, q = Math.min(1, dt * 8);
+    days.forEach((g, d) => { if (!d || !g.visible) return; g.children.forEach(o => { if (!(o.isMesh && o.geometry === SPH)) return;
+      o.getWorldPosition(v).project(camera); const x = (v.x + 1) / 2 * innerWidth, y = (1 - v.y) / 2 * innerHeight;
+      const hit = rects.some(r => x > r.left - pad && x < r.right + pad && y > r.top - pad && y < r.bottom + pad);
+      o.material.opacity += ((hit ? 0 : 1) - o.material.opacity) * q; }); });
+  }
   if (VID) window.__xy = () => todayBalls.map(b => { const v = b.getWorldPosition(new THREE.Vector3()).project(camera); return [Math.round((v.x + 1) / 2 * innerWidth), Math.round((1 - v.y) / 2 * innerHeight), b.visible]; });
   renderer.setScissorTest(true);
   renderer.setViewport(0, 0, innerWidth, innerHeight); renderer.setScissor(0, 0, innerWidth, innerHeight); renderer.clear();
