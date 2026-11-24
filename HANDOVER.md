@@ -1,6 +1,12 @@
 # Forn handover
 
-### Latest: Tue 24 Nov 2026, 19:30
+### Latest: Tue 24 Nov 2026, 19:50
+
+### Update, Tue 24 Nov 19:50
+- Play Console (Forn, Ganda London account): every setup task done except the store listing (needs art and copy). Nothing sent for review. Saved: privacy policy getforn.app/privacy; sign-in not needed; no ads; target audience 18+ only (minor-blocking option left off); content rating done (IARC, contact hello@getforn.app, All other app types; honest answers: realistic violence referred to, no gore; references to sexual activity without detail; alcohol and tobacco referenced rarely; educational yes; no online content). Result PEGI 3, ESRB Everyone 10+. Data safety: no data collected or shared (ONLY true once the store build drops Send my data and the test log). Government no, financial features none, health none, trader yes (inherited, no Terms URL). Category Travel and local, contact hello@getforn.app, site https://getforn.app. Price: £2.99 in the UK including VAT (set by hand; the bulk set made it £3.59), other countries converted from £2.99 before tax.
+- Privacy page rebuilt (Tony, 19:38): Hlid's layout (one centred 752px column, big title, small headings, body 20/32), Instrument Sans, a black ball top left linking home instead of the FORN wordmark, footer identical to the landing page's bar (13/18, Regular grey, link Medium ink). On branch privacy-hlid, preview https://forn-git-privacy-hlid-gandalondon.vercel.app/privacy. Not live until Tony says; then merge to main (Site job deploys).
+- Trailer stills rendered (tools/trailer/stills/, h-*.jpg). To fix before full renders: at 9.5s the balls sit on "missed."; at 12s the card covers the heading; at 19s a ball touches "ring." and the rings crop at the bottom; dust at 4s and on the end card (26s) is very faint; Coming soon to London. is tiny at 24s.
+- Next: store listing (short and full description, icon 512, feature graphic, 2+ screenshots), then the store build (target API 36, disclosure screen, no test tools, signed .aab), internal testing.
 
 ### Update, Tue 24 Nov 19:30 (end of session)
 - Play Console: Forn created in the Ganda London account (Chrome /u/1, tony@gandalondon.com): "Forn: London History Near You", app.getforn, English (UK), paid. Store build id via -Pstore in app/build.gradle.kts (Obtainium build keeps com.gandalondon.stepback). Setup tasks and proposed answers: notes/play-store.md.

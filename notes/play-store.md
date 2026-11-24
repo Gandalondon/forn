@@ -40,3 +40,6 @@ Goal: get Forn into Play's testing tracks early, mainly to find out whether back
 - Privacy policy: done 24 Nov, getforn.app/privacy (its own page; the landing page's Privacy link goes there, the pop-up is gone).
 - Category: Travel & Local. Contact email: hello@getforn.app (forwarding set up by Tony, 24 Nov; also on the privacy page and the landing page's email links).
 - Price: Tony to decide (merchant account exists).
+
+## Progress, 24 Nov 19:50
+- All app content and settings tasks saved (answers as in HANDOVER.md, 24 Nov 19:50). Price £2.99 UK incl. VAT. Left: store listing. Nothing sent for review.
