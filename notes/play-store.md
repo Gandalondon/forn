@@ -3,10 +3,10 @@
 Goal: get Forn into Play's testing tracks early, mainly to find out whether background location gets approved. Nothing public.
 
 ## Decide first (can't be undone in Play)
-1. Package id. Permanent once uploaded, so rename now, not later. Sniff is app.getsniff, Relay app.getarcrelay, so Forn: app.getforn (confirm). The store build installs beside his Obtainium one; his current app keeps its data.
+1. Package id. Permanent once uploaded, so rename now, not later. Sniff is app.getsniff, Relay app.getarcrelay, Hlid app.gethlid, so Forn: app.getforn (Tony agreed 24 Nov). Done in app/build.gradle.kts: the store build passes -Pstore; the Obtainium build keeps com.gandalondon.stepback. The store build installs beside his Obtainium one; his current app keeps its data.
    Also rename Stepback.apk and the signing key alias. Play App Signing holds the store key; we upload with an upload key (new keystore, secrets in GitHub).
 2. Paid or free. A free app can never become paid later. Forn is planned as paid, so set a price from the first upload (needs the payments profile; Sniff already has one).
-3. Account: company (organisation) account (Tony, 24 Nov), so no 12-tester closed test needed.
+3. Account: Ganda London organisation account (Play Console /u/1, tony@gandalondon.com; Sniff in production, Relay in open testing, Hlid draft) (Tony, 24 Nov), so no 12-tester closed test needed.
 
 ## Build changes before the first upload
 - Target API 36 (we're on 35): Play's current requirement for new apps.

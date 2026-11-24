@@ -9,7 +9,9 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.gandalondon.stepback"
+        // Play Store id (24 Nov, matches app.getsniff, app.getarcrelay, app.gethlid). Only the store build uses it (-Pstore),
+        // so Tony's Obtainium install (com.gandalondon.stepback) keeps its rings and keeps updating. The code's namespace stays.
+        applicationId = if (project.hasProperty("store")) "app.getforn" else "com.gandalondon.stepback"
         minSdk = 29
         targetSdk = 35
         versionCode = (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toInt()
