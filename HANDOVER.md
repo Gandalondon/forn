@@ -2,6 +2,11 @@
 
 ### Latest: Sun 22 Nov 2026, 23:20
 
+### Update, Tue 24 Nov 19:10
+- Trailer (Tony asked 24 Nov 09:47): the landing page played as a linear video, 16:9 and 9:16, copy taken from site/index.html so it stays in sync with the page. End card like Hlid's: white, the app icon's black ball pulls together from dust in the middle, getforn.app at the bottom. Files: tools/trailer/ (render.py, clock.js virtual clock, video.css). Written, NOT rendered or checked yet. Next: render stills (python3 tools/trailer/render.py h stills 1 4 7.5 9.5 12 15 19 24 26 28.5), fix, then full renders to marketing/.
+- Music: Tony is choosing on Pixabay Music (where Relay's came from: Jonas Blakewood synthwave, Pixabay 618632). Brief: airy, spacey, ambient electronic with a slow pulse; about 30 s tracks that build to the end card. He sends two or three, render one version per track.
+- Play Console: Chrome on his Mac is signed in as goff.tony@googlemail.com, which has no developer account (opens the sign-up page; don't create one). Forn goes in the Ganda/GetSniff company account under tony@gandalondon.com (where Sniff and Relay live): switch Chrome's Google account first. Sniff's package id pattern is app.getsniff, Relay's app.getarcrelay, so Forn's is app.getforn (confirm with Tony).
+
 ### Play Store, 24 Nov (Tony, 23 Nov 23:58): get it into Play's testing tracks to check background location approval. Steps: notes/play-store.md
 
 ### Before the store release (Tony, 23 Nov)

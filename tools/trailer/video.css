@@ -1,0 +1,6 @@
+/* Trailer: the landing page as it is, minus the bits you'd click. Hard cuts only. */
+*, *::before, *::after { transition: none !important; animation: none !important; }
+.bar, #pips, .step .btn, .join, .nav, button { display: none !important; }
+#endcard { position: fixed; inset: 0; z-index: 50; background: #FFFFFF; display: none; }
+#endcard canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#endcard .url { position: absolute; left: 0; right: 0; bottom: var(--ub); text-align: center; font: 600 var(--uf)/1 "Instrument Sans", sans-serif; color: #1A1A1A; }
