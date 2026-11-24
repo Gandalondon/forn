@@ -2,7 +2,11 @@
 *, *::before, *::after { transition: none !important; animation: none !important; }
 .bar, #pips, .step .btn, .join, .nav, button { display: none !important; }
 #endcard { position: fixed; inset: 0; z-index: 50; background: #FFFFFF; display: none; }
-#endcard .ring { position: absolute; left: 50%; top: 50%; width: var(--ring); height: var(--ring); transform: translate(-50%, -50%); }
-#endcard .url { position: absolute; left: 0; right: 0; bottom: var(--ub); text-align: center; font: 600 var(--uf)/1 "Instrument Sans", sans-serif; color: #1A1A1A; }
 /* Video only (24 Nov): the page's 19px note is unreadable next to the giant heading once it's a 1080p frame. */
 .step .note { font-size: 28px; line-height: 36px; }
+/* End card (24 Nov): sizes in 1080p frame pixels times --k (1 / device scale), Sniff's house style. */
+#endcard .lock { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: calc(24px * var(--k)); }
+#endcard .ring { display: block; width: calc(84px * var(--k)); height: calc(84px * var(--k)); }
+#endcard .url { font: 600 calc(40px * var(--k))/1 "Instrument Sans", sans-serif; color: #1A1A1A; letter-spacing: 0.005em; }
+#endcard .badge { position: absolute; right: calc(80px * var(--k)); bottom: calc(64px * var(--k)); height: calc(84px * var(--k)); }
+#endcard .legal { position: absolute; left: calc(80px * var(--k)); bottom: calc(82px * var(--k)); font: 400 calc(18px * var(--k))/1.4 "Instrument Sans", sans-serif; color: #8A8A8A; }

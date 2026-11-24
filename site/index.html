@@ -234,7 +234,8 @@ for (let d = 1; d < DAYS; d++) {
 }
 // Today: three finds on the centre ring, placed by the time they were passed. The first (10:42) is the Waterloo
 // card. They start as dust and are uncovered at 9pm.
-const todayBalls = placeDay(ringR(0), [8.67, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, INK); m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
+// window.__TODAY (trailer): today's pass times, chosen so the balls sit on the right of the ring, clear of the words.
+const todayBalls = placeDay(ringR(0), window.__TODAY || [8.67, 13.2, 17.9], rng(5)).map(p => { const m = new THREE.Mesh(SPH, window.__VIDEO ? INK.clone() : INK); if (window.__VIDEO) m.material.transparent = true; m.scale.setScalar(R_BALL); m.position.copy(p); group.add(m); return m; });
 let passedAt = 0, nineAt = 0, pastAt = 0;
 // Today's dust (22 Nov): every place you pass leaves a pinch of dust on today's ring. At 9pm three of them are
 // uncovered: their dust pulls together into a ball. The rest stays dust, for now.
@@ -263,7 +264,8 @@ function wholeDist() {
   return (RT + 1) * 1.02 / Math.sin(Math.min(vf * freeK, hf));
 }
 // window.__NEAR (trailer only): brings the close shots (steps 0 to 2 and 4) nearer so today's ring reads bigger.
-function shot(s) { const o = SHOTS[s], k = s !== 3 && s <= 4 ? (window.__NEAR || 1) : 1; return { target: o.target.clone(), dist: o.dist != null ? o.dist * LENS * k : wholeDist(), elev: o.elev, az: o.az }; }
+function shot(s) { if (window.__VIDEO && s === 3) s = 2; if (window.__VIDEO && s === 5) return { target: new THREE.Vector3(), dist: wholeDist() * 0.16, elev: WHOLE.elev, az: WHOLE.az };
+  const o = SHOTS[s], k = s !== 3 && s <= 4 ? (window.__NEAR || 1) : 1; return { target: o.target.clone(), dist: o.dist != null ? o.dist * LENS * k : wholeDist(), elev: o.elev, az: o.az }; }
 function place(c) {
   const ce = Math.cos(c.elev), se = Math.sin(c.elev), a = c.az + spin;
   camera.position.set(c.target.x + Math.cos(a) * ce * c.dist, c.target.y + se * c.dist, c.target.z + Math.sin(a) * ce * c.dist);
@@ -355,6 +357,7 @@ addEventListener('pointerup', endDrag); addEventListener('pointercancel', endDra
 const cardEl = document.getElementById('card'), pipsEl = document.getElementById('pips');
 let find = 0;
 pipsEl.innerHTML = FINDS.map((_, i) => `<button type="button" aria-label="Find ${i + 1} of ${FINDS.length}"><i></i></button>`).join('');
+if (window.__VIDEO) window.__find = i => showFind(i, false); // trailer: flick through the finds without moving the camera
 function showFind(i, glide = true) {
   find = (i + FINDS.length) % FINDS.length;
   cardEl.querySelector('b').textContent = FINDS[find].fact.replace(/-/g, '\u2011'); /* hyphenated words never break */ cardEl.querySelector('span').textContent = FINDS[find].at;
@@ -402,7 +405,7 @@ function lod() {
   }
 }
 const ease = k => k < 0.5 ? 16 * k ** 5 : 1 - Math.pow(-2 * k + 2, 5) / 2; // a slow start and a soft landing
-let lastT = performance.now();
+let lastT = performance.now(), vo = (window.__WIDE || [-0.3, -0.2]).slice();
 function tick(now) {
   requestAnimationFrame(tick);
   const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
@@ -411,6 +414,17 @@ function tick(now) {
   // window.__VIDEO (trailer, 24 Nov): everything keeps turning slowly on every step; the page will follow once it's right.
   const VID = window.__VIDEO;
   if (!reduce && dragX == null && !vel && (VID || step === 0 || step === 1 || step === 5 || step === 6)) spin += dt * (VID ? 0.06 : 0.05); // the slow turn, only on the wide shots
+  if (VID) {
+    // Video framing (24 Nov): steps 1 to 4 share one shot (no zoom at 9pm, nothing jumps); on 5 and 6 the tree grows in
+    // the lower right and the camera pulls back with it, so its balls stay off the words. The offset glides between them.
+    const tx = step >= 5 ? -0.24 : (window.__WIDE || [0, 0])[0], ty = step >= 5 ? -0.22 : (window.__WIDE || [0, 0])[1], q = Math.min(1, dt * 1.5);
+    vo[0] += (tx - vo[0]) * q; vo[1] += (ty - vo[1]) * q;
+    if (innerWidth > innerHeight * 1.1) { camera.setViewOffset(innerWidth, innerHeight, innerWidth * vo[0], innerHeight * vo[1], innerWidth, innerHeight); camera.updateProjectionMatrix(); }
+    if (step === 5) {
+      const g5 = Math.max(0, Math.min(1, (now - pastAt) / 4800)), want = wholeDist() * Math.max(0.16, (ringR((DAYS - 1) * ease(g5)) + 1) / (RT + 1));
+      if (to) to.dist = want; else cam.dist = want;
+    }
+  }
   if (to) {
     const k = Math.min(1, (now - t0) / 2200), e = ease(k);
     cam = { target: from.target.clone().lerp(to.target, e), dist: from.dist * Math.pow(to.dist / from.dist, e), elev: from.elev + (to.elev - from.elev) * e, az: from.az + (to.az - from.az) * e };
@@ -418,7 +432,7 @@ function tick(now) {
   }
   // Dust appears place by place on step 1; on step 2 the uncovered ones pull together into balls, one after another.
   const open = step < 1 ? 0 : reduce ? 9 : (now - passedAt) / 1000;
-  const geOf = i => { const g = step < 2 ? 0 : reduce ? 1 : Math.max(0, Math.min(1, ((now - nineAt) / 1000 - 0.5 - i * 0.7) / 0.9)); return g * g * (3 - 2 * g); };
+  const geOf = i => { const g = step < 2 ? 0 : reduce ? 1 : Math.max(0, Math.min(1, ((now - nineAt) / 1000 - 0.5 - i * 0.7) / (VID ? 0.4 : 0.9))); return g * g * (3 - 2 * g); };
   todayDust.forEach((burst, n) => {
     const secs = open - n * 0.12, k = Math.max(0, Math.min(1, secs / 1.1)), ge = burst.ball != null ? geOf(burst.ball) : 0, e = (1 - Math.pow(1 - k, 5)) * (VID ? 1 : 1 - ge); // video: the dust keeps floating, the ball just appears in it
     const a = burst.p.geometry.attributes.position.array, dr = burst.drift, f = e;
@@ -432,16 +446,17 @@ function tick(now) {
     burst.p.visible = k > 0 && (VID || !(burst.ball != null && ge > 0.97));
   });
   // Today's finds pull together on step 2, one after another; before that, today's ring is only dust.
-  todayBalls.forEach((b, i) => { const ge = geOf(i); b.visible = ge > 0; b.scale.setScalar(VID ? R_BALL : R_BALL * ge); }); // video: no growing, it's just there
+  todayBalls.forEach((b, i) => { const ge = geOf(i); b.visible = ge > 0; b.scale.setScalar(VID ? R_BALL : R_BALL * ge); if (VID) b.material.opacity = ge; }); // video: no growing, it eases in where it is
   // Every day adds a ring: from today in the centre, the days before it ripple outwards one by one, going back in time.
   // Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   // Every day adds a ring: from today in the centre, the days before it appear outwards one after another, going
   // back in time. Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   // While they appear, the rings are just rings: the past's balls and dust land with the whole tree once the camera
   // has pulled back on step 6, so nothing falls on the words (24 Nov).
-  const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / 6000)), shown = 1 + Math.floor((DAYS - 1) * gk * gk);
-  const bare = !reduce && (step === 5 || (step === 6 && to != null));
+  const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / (VID ? 4800 : 6000))), shown = 1 + Math.floor((DAYS - 1) * (VID ? ease(gk) : gk * gk));
+  const bare = !VID && !reduce && (step === 5 || (step === 6 && to != null)); // video: each ring arrives with its balls
   days.forEach((g, d) => { g.visible = d < shown; if (d) g.children.forEach(o => { if (o.isPoints || (o.isMesh && o.geometry === SPH)) o.visible = !bare; }); });
+  if (VID) window.__xy = () => todayBalls.map(b => { const v = b.getWorldPosition(new THREE.Vector3()).project(camera); return [Math.round((v.x + 1) / 2 * innerWidth), Math.round((1 - v.y) / 2 * innerHeight), b.visible]; });
   renderer.setScissorTest(true);
   renderer.setViewport(0, 0, innerWidth, innerHeight); renderer.setScissor(0, 0, innerWidth, innerHeight); renderer.clear();
   renderer.setViewport(area.x, area.y, area.w, area.h); renderer.setScissor(area.x, area.y, area.w, area.h);
