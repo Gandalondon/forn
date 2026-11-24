@@ -6,7 +6,7 @@ Goal: get Forn into Play's testing tracks early, mainly to find out whether back
 1. Package id. Permanent once uploaded, so rename now, not later: com.gandalondon.stepback becomes the store id (e.g. com.gandalondon.forn, or match Relay and Sniff's pattern). The store build installs beside his Obtainium one; his current app keeps its data.
    Also rename Stepback.apk and the signing key alias. Play App Signing holds the store key; we upload with an upload key (new keystore, secrets in GitHub).
 2. Paid or free. A free app can never become paid later. Forn is planned as paid, so set a price from the first upload (needs the payments profile; Sniff already has one).
-3. Which account. If it's a personal account created after 13 Nov 2023, production needs a closed test with 12+ testers for 14 days first. Check the account Relay and Sniff are on.
+3. Account: company (organisation) account (Tony, 24 Nov), so no 12-tester closed test needed.
 
 ## Build changes before the first upload
 - Target API 36 (we're on 35): Play's current requirement for new apps.
@@ -26,4 +26,3 @@ Goal: get Forn into Play's testing tracks early, mainly to find out whether back
 - Package id and paid or free (step 1 and 2 above).
 - Play Console access: he signs in, or I drive it in Chrome on his Mac.
 - Recording the disclosure video on his phone (I'll script it, about 60 seconds).
-- 12 testers if the account needs it (start the 14 days early).
