@@ -1,6 +1,14 @@
 # Forn handover
 
-### Latest: Sun 22 Nov 2026, 23:20
+### Latest: Tue 24 Nov 2026, 19:30
+
+### Update, Tue 24 Nov 19:30 (end of session)
+- Play Console: Forn created in the Ganda London account (Chrome /u/1, tony@gandalondon.com): "Forn: London History Near You", app.getforn, English (UK), paid. Store build id via -Pstore in app/build.gradle.kts (Obtainium build keeps com.gandalondon.stepback). Setup tasks and proposed answers: notes/play-store.md.
+- Privacy page live at getforn.app/privacy (pop-up removed; footer links to it). Contact everywhere is hello@getforn.app (Tony set up forwarding 24 Nov).
+- Waiting on Tony: yes/no to target audience 18+ and the honest content rating (crime mentions); the price. Then fill the Play setup forms (stop before anything is sent for review).
+- Still to build for the store: location disclosure screen, target API 36, store build without Send my data / Record walk / test log, signed .aab with an upload key, listing art, the declaration video script.
+- Trailer: tools/trailer/ written but not rendered; render stills first. Music: Tony picking on Pixabay.
+- Landing (24 Nov): longer lens (FOV 22) so balls don't stretch; city form clears the heading.
 
 ### Update, Tue 24 Nov 19:10
 - Trailer (Tony asked 24 Nov 09:47): the landing page played as a linear video, 16:9 and 9:16, copy taken from site/index.html so it stays in sync with the page. End card like Hlid's: white, the app icon's black ball pulls together from dust in the middle, getforn.app at the bottom. Files: tools/trailer/ (render.py, clock.js virtual clock, video.css). Written, NOT rendered or checked yet. Next: render stills (python3 tools/trailer/render.py h stills 1 4 7.5 9.5 12 15 19 24 26 28.5), fix, then full renders to marketing/.
