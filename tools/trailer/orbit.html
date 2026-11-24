@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Forn orbit test</title>
+<style>
+/* 5 s test (24 Nov): one continuous camera move; the fact is a card attached to its ball while the camera orbits.
+   If it works here it can replace the trailer's steps, and maybe the site's 9pm card. Sizes in CSS px (frame is 1.5x). */
+@font-face { font-family: "Instrument Sans"; src: url("/site/instrument-sans.ttf") format("truetype"); font-weight: 400 700; font-stretch: 75% 100%; }
+html, body { margin: 0; height: 100%; background: #FFFFFF; overflow: hidden; }
+canvas { position: fixed; inset: 0; width: 100%; height: 100%; }
+svg.lead { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.tip { position: fixed; left: 0; top: 0; width: 280px; padding: 18px 20px 16px; border-radius: 18px; background: #1A1A1A; color: #FFFFFF; font-family: "Instrument Sans", sans-serif; opacity: 0; will-change: transform; }
+.tip b { display: block; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0.2px; text-wrap: pretty; }
+.tip span { display: block; margin-top: 10px; font-size: 12px; line-height: 16px; color: #B4B4B4; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<svg class="lead"><line id="ln" stroke="#1A1A1A" stroke-width="1.5" /></svg>
+<div class="tip" id="tip"><b></b><span></span></div>
+<script src="/site/three.js"></script>
+<script>
+(() => {
+const FACTS = [
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967.", at: 'Enfield' },
+  { fact: "In 1894 Duck Island in St James's Park was chosen as a safe spot to defuse bombs.", at: "St James's Park" },
+];
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); renderer.setPixelRatio(devicePixelRatio);
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
+const camera = new THREE.PerspectiveCamera(22, 1, 0.05, 4000);
+function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+const r = rng(11), SPH = new THREE.SphereGeometry(1, 40, 28), R_BALL = 0.12, STEP_W = 0.48, ringR = d => 0.5 + d * STEP_W;
+// Rings: today and a few days back, dotted like the app.
+for (let d = 0; d < 14; d++) {
+  const R = ringR(d), pts = []; for (let i = 0; i <= 256; i++) { const a = i / 256 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R)); }
+  const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineDashedMaterial({ color: d % 7 === 3 ? 0xA8A8A8 : 0xC8C8C8, dashSize: 0.03, gapSize: 0.07 }));
+  l.computeLineDistances(); scene.add(l);
+}
+const DOT = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#FFF'; x.beginPath(); x.arc(32, 32, 30, 0, 7); x.fill(); return new THREE.CanvasTexture(c); })();
+const drifts = [];
+function dust(pos, n = 90, reach = 0.36) {
+  const a = new Float32Array(n * 3), base = new Float32Array(n * 3), dr = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) { const u = r() * 2 - 1, th = r() * 6.283, s = Math.sqrt(1 - u * u), d = reach * (0.25 + Math.pow(r(), 0.7) * 0.75);
+    base.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3); dr.set([r() * 6.283, 0.3 + r() * 0.5, 0.02 + r() * 0.05], i * 3); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(a, 3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0xB4B4B4, size: 0.04, map: DOT, alphaTest: 0.5 }))); drifts.push({ g, a, base, dr });
+}
+// Today's three finds on the right of today's ring, plus a few on older rings.
+const at = (R, h) => { const a = h / 24 * 6.283 - Math.PI / 2; return new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R); };
+const balls = [at(ringR(0), 1.5), at(ringR(0), 7), at(ringR(0), 12)].map(p => { const m = new THREE.Mesh(SPH, new THREE.MeshBasicMaterial({ color: 0x1A1A1A })); m.scale.setScalar(R_BALL); m.position.copy(p); scene.add(m); dust(p); return m; });
+[[3, 7], [5, 15], [8, 20], [11, 4]].forEach(([d, h]) => { const p = at(ringR(d), h); const m = new THREE.Mesh(SPH, new THREE.MeshBasicMaterial({ color: 0x1A1A1A })); m.scale.setScalar(R_BALL); m.position.copy(p); scene.add(m); dust(p, 50); });
+[1, 2, 4, 6, 9].forEach(d => dust(at(ringR(d), r() * 24), 60));
+function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); }
+resize(); addEventListener('resize', resize);
+// The move: start wide, glide in to find A while orbiting; hold (still turning); swing to find B; hold.
+const ease = k => k < 0.5 ? 4 * k ** 3 : 1 - Math.pow(-2 * k + 2, 3) / 2, cl = v => Math.max(0, Math.min(1, v));
+const KEYS = [ // t (s), target, distance, elevation, azimuth
+  { t: 0.0, tg: new THREE.Vector3(0, 0, 0), dist: 20, elev: 1.0, az: 0.2 },
+  { t: 1.6, tg: balls[0].position, dist: 6.0, elev: 0.6, az: 0.9 },
+  { t: 2.8, tg: balls[0].position, dist: 5.6, elev: 0.55, az: 1.2 },
+  { t: 3.7, tg: balls[1].position, dist: 6.0, elev: 0.6, az: 1.8 },
+  { t: 5.0, tg: balls[1].position, dist: 5.6, elev: 0.55, az: 2.1 },
+];
+function camAt(t) {
+  let i = 0; while (i < KEYS.length - 2 && t > KEYS[i + 1].t) i++;
+  const a = KEYS[i], b = KEYS[i + 1], hold = a.tg === b.tg, k = cl((t - a.t) / (b.t - a.t)), e = hold ? k : ease(k);
+  return { tg: a.tg.clone().lerp(b.tg, e), dist: a.dist * Math.pow(b.dist / a.dist, e), elev: a.elev + (b.elev - a.elev) * e, az: a.az + (b.az - a.az) * e };
+}
+const tip = document.getElementById('tip'), ln = document.getElementById('ln');
+function show(i) { tip.querySelector('b').textContent = FACTS[i].fact; tip.querySelector('span').textContent = FACTS[i].at; }
+show(0);
+function frame(now) {
+  requestAnimationFrame(frame);
+  const t = now / 1000, c = camAt(t), ce = Math.cos(c.elev);
+  camera.position.set(c.tg.x + Math.cos(c.az) * ce * c.dist, c.tg.y + Math.sin(c.elev) * c.dist, c.tg.z + Math.sin(c.az) * ce * c.dist); camera.lookAt(c.tg);
+  drifts.forEach(D => { for (let i = 0; i < D.a.length; i += 3) { const ph = D.dr[i], sp = D.dr[i + 1], am = D.dr[i + 2];
+    D.a[i] = D.base[i] + Math.sin(t * sp + ph) * am; D.a[i + 1] = D.base[i + 1] + Math.sin(t * sp * 0.8 + ph * 2) * am; D.a[i + 2] = D.base[i + 2] + Math.cos(t * sp * 0.9 + ph) * am; }
+    D.g.attributes.position.needsUpdate = true; });
+  renderer.render(scene, camera);
+  // The card: attached to its ball, up and to the right, with a short leader line. 0.2 s fades.
+  const which = t < 3.0 ? 0 : 1, on = which === 0 ? cl((t - 1.2) / 0.2) * (1 - cl((t - 2.8) / 0.2)) : cl((t - 3.5) / 0.2);
+  if (which === 1 && tip.dataset.i !== '1') { show(1); tip.dataset.i = '1'; }
+  const P = balls[which].position, v = P.clone().project(camera), x = (v.x + 1) / 2 * innerWidth, y = (1 - v.y) / 2 * innerHeight;
+  const right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0), e2 = P.clone().addScaledVector(right, R_BALL).project(camera);
+  const rad = Math.abs((e2.x - v.x) / 2 * innerWidth), ex = x + rad * 0.72, ey = y - rad * 0.72; // the ball's top-right edge
+  const tx = ex + 40, ty = ey - 40 - tip.offsetHeight;
+  tip.style.transform = `translate(${tx}px, ${ty}px)`; tip.style.opacity = on;
+  ln.setAttribute('x1', ex); ln.setAttribute('y1', ey); ln.setAttribute('x2', tx); ln.setAttribute('y2', ty + tip.offsetHeight); ln.style.opacity = on;
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
