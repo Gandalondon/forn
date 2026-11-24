@@ -227,7 +227,7 @@ for (let d = 1; d < DAYS; d++) {
   const n = 1 + Math.floor(r() * 2), times = Array.from({ length: n }, exampleHour);
   placeDay(ringR(d), times, r).forEach(pos => {
     pos.y = (r() - 0.5) * 0.08;
-    const m = new THREE.Mesh(SPH, window.__VIDEO ? INK.clone() : INK); if (window.__VIDEO) m.material.transparent = true; m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m);
+    const m = new THREE.Mesh(SPH, INK.clone()); m.material.transparent = true; m.scale.setScalar(R_BALL); m.position.copy(pos); days[d].add(m);
   });
   const left = Math.floor(r() * 4); // places passed but not told that night
   if (left) placeDay(ringR(d), Array.from({ length: left }, exampleHour), r).forEach(pos => dust(pos, true, days[d]));
@@ -413,7 +413,7 @@ function tick(now) {
   if (dragX == null && vel) { spin += vel * dt; vel *= Math.pow(0.04, dt); if (Math.abs(vel) < 0.02) vel = 0; }
   // window.__VIDEO (trailer, 24 Nov): everything keeps turning slowly on every step; the page will follow once it's right.
   const VID = window.__VIDEO;
-  if (!reduce && dragX == null && !vel && (VID || step === 0 || step === 1 || step === 5 || step === 6)) spin += dt * (VID ? 0.06 : 0.05); // the slow turn, only on the wide shots
+  if (!reduce && dragX == null && !vel) spin += dt * (VID ? 0.06 : 0.05); // the slow turn, on every step (24 Nov: always moving)
   if (VID) {
     // Video framing (24 Nov): steps 1 to 4 share one shot (no zoom at 9pm, nothing jumps); on 5 and 6 the camera holds
     // close with today low right, as on the site, and the rings grow out past the edges. The offset glides between them.
@@ -428,9 +428,9 @@ function tick(now) {
   }
   // Dust appears place by place on step 1; on step 2 the uncovered ones pull together into balls, one after another.
   const open = step < 1 ? 0 : reduce ? 9 : (now - passedAt) / 1000;
-  const geOf = i => { const g = step < 2 ? 0 : reduce ? 1 : Math.max(0, Math.min(1, ((now - nineAt) / 1000 - 0.5 - i * 0.7) / (VID ? 0.4 : 0.9))); return g * g * (3 - 2 * g); };
+  const geOf = i => { const g = step < 2 ? 0 : reduce ? 1 : Math.max(0, Math.min(1, ((now - nineAt) / 1000 - 0.5 - i * 0.7) / 0.4)); return g * g * (3 - 2 * g); }; // balls ease in where they are (24 Nov)
   todayDust.forEach((burst, n) => {
-    const secs = open - n * 0.12, k = Math.max(0, Math.min(1, secs / 1.1)), ge = burst.ball != null ? geOf(burst.ball) : 0, e = (1 - Math.pow(1 - k, 5)) * (VID ? 1 : 1 - ge); // video: the dust keeps floating, the ball just appears in it
+    const secs = open - n * 0.12, k = Math.max(0, Math.min(1, secs / 1.1)), ge = burst.ball != null ? geOf(burst.ball) : 0, e = 1 - Math.pow(1 - k, 5); // the dust keeps floating; the ball just appears in it (24 Nov)
     const a = burst.p.geometry.attributes.position.array, dr = burst.drift, f = e;
     for (let i = 0, j = 0; i < a.length; i += 3, j += 4) {
       const ph = dr[j], sp = dr[j + 1], amp = dr[j + 2] * f * 0.5, ph2 = dr[j + 3];
@@ -439,20 +439,18 @@ function tick(now) {
       a[i + 2] = burst.start[i + 2] + (burst.end[i + 2] - burst.start[i + 2]) * e + Math.cos(secs * sp * 0.9 + ph) * amp;
     }
     burst.p.geometry.attributes.position.needsUpdate = true;
-    burst.p.visible = k > 0 && (VID || !(burst.ball != null && ge > 0.97));
+    burst.p.visible = k > 0;
   });
   // Today's finds pull together on step 2, one after another; before that, today's ring is only dust.
-  todayBalls.forEach((b, i) => { const ge = geOf(i); b.visible = ge > 0; b.scale.setScalar(VID ? R_BALL : R_BALL * ge); if (VID) b.material.opacity = ge; }); // video: no growing, it eases in where it is
+  todayBalls.forEach((b, i) => { const ge = geOf(i); b.visible = ge > 0; b.material.opacity = ge; }); // no growing (24 Nov): it eases in where it is
   // Every day adds a ring: from today in the centre, the days before it ripple outwards one by one, going back in time.
   // Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
   // Every day adds a ring: from today in the centre, the days before it appear outwards one after another, going
   // back in time. Slow at first, so the first rings read one by one, then quicker. Only step 6 pulls out to see it all.
-  // While they appear, the rings are just rings: the past's balls and dust land with the whole tree once the camera
-  // has pulled back on step 6, so nothing falls on the words (24 Nov).
-  const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / (VID ? 4800 : 6000))), shown = 1 + Math.floor((DAYS - 1) * (VID ? ease(gk) : gk * gk));
-  const bare = !VID && !reduce && (step === 5 || (step === 6 && to != null)); // video: each ring arrives with its balls
-  days.forEach((g, d) => { g.visible = d < shown; if (d) g.children.forEach(o => { if (o.isPoints || (o.isMesh && o.geometry === SPH)) o.visible = !bare; }); });
-  if (VID && step >= 5) {
+  // Each ring arrives with its balls already on it (Tony, 24 Nov): they appear, they don't grow or fly in.
+  const gk = step < 5 ? 0 : step > 5 || reduce ? 1 : Math.max(0, Math.min(1, (now - pastAt) / (VID ? 4800 : 6000))), shown = 1 + Math.floor((DAYS - 1) * ease(gk)); // slow in, quick, slow out
+  days.forEach((g, d) => { g.visible = d < shown;  });
+  if (step >= 5) {
     // Balls never sit on the words (Tony, 20:33): a past ball fades out while it passes behind a line of the heading.
     const h = steps.find(x => !x.hidden)?.querySelector('h1,h2'), rg = document.createRange(); let rects = [];
     if (h) { rg.selectNodeContents(h); rects = [...rg.getClientRects()]; }
