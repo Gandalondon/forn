@@ -32,6 +32,8 @@ body.turning { cursor: grabbing; }
 .step[hidden] { display: none; }
 /* Lines are broken by hand, so each line is as big as the screen allows. */
 :root { --h: min(15vw, 24vh); }
+/* Wide screens (24 Nov): cap so the longest line (you missed.) ends before the 9pm card and clear of the rings. */
+@media (min-aspect-ratio: 11/10) { :root { --h: min(10.5vw, 24vh); } }
 @media (max-aspect-ratio: 1/1) { :root { --h: min(15vw, 13vh); } }
 .step h1, .step h2 { margin: 0; font-weight: 600; font-size: var(--h); line-height: 0.92; letter-spacing: 0.005em; }
 /* normal width, as in the app; only the word FORN narrows */
@@ -178,6 +180,8 @@ const DOT = (() => { const c = document.createElement('canvas'); c.width = c.hei
   x.fillStyle = '#FFFFFF'; x.beginPath(); x.arc(32, 32, 30, 0, Math.PI * 2); x.fill(); return new THREE.CanvasTexture(c); })();
 // Dust (22 Nov): a place you passed but weren't told about yet leaves a small pinch, not a full burst.
 const PINCH = 70, REACH = 0.32;
+// The trailer sets window.__DUST so specks survive video compression; the page leaves it at 1.
+const DUST_K = window.__DUST || 1;
 function dust(pos, settled, into = group, n = PINCH, reach = REACH) {
   const start = new Float32Array(n * 3), end = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) {
@@ -185,7 +189,7 @@ function dust(pos, settled, into = group, n = PINCH, reach = REACH) {
     start.set([pos.x, pos.y, pos.z], i * 3); end.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3);
   }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(settled ? end.slice() : start.slice(), 3));
-  const p = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022, map: DOT, alphaTest: 0.5 }));
+  const p = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022 * DUST_K, map: DOT, alphaTest: 0.5 }));
   // Each speck gets its own slow drift, so a fresh burst floats like dust in still air.
   const drift = new Float32Array(n * 4);
   for (let i = 0; i < n; i++) drift.set([r() * Math.PI * 2, 0.25 + r() * 0.5, 0.03 + r() * 0.07, r() * Math.PI * 2], i * 4);
@@ -442,7 +446,10 @@ function tick(now) {
       const e = 1 - Math.pow(1 - k, 3), s0 = ringR(0) / ringR(d); s = s0 + (1 - s0) * e;
     }
     g.scale.set(s, 1, s);
-    g.children.forEach(o => { if (o.isMesh && o.geometry === SPH) o.scale.set(R_BALL / s, R_BALL, R_BALL / s); });
+    // While they grow, the rings are just rings: the past's balls and dust land with the whole tree on the next step,
+    // so nothing falls on the words (24 Nov).
+    const bare = !reduce && (step === 5 || (step === 6 && to != null)); // and on 6 until the camera has pulled back
+    g.children.forEach(o => { if (o.isMesh && o.geometry === SPH) { o.scale.set(R_BALL / s, R_BALL, R_BALL / s); o.visible = !bare; } else if (o.isPoints) o.visible = !bare; });
   });
   renderer.setScissorTest(true);
   renderer.setViewport(0, 0, innerWidth, innerHeight); renderer.setScissor(0, 0, innerWidth, innerHeight); renderer.clear();

@@ -26,17 +26,19 @@ END_JS = r"""
   c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
   const cx = innerWidth / 2, cy = innerHeight / 2, R = BALL / 2;
   let s = 7; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  const P = Array.from({ length: 700 }, () => { const a = r() * 6.283, d = R * (1.4 + r() * 2.6), a2 = r() * 6.283, d2 = R * Math.sqrt(r()) * 0.9;
+  // The app icon's ring (24 Nov): 38 across with a stroke of 4 in the 108 grid. Dust pulls together into it.
+  const SW = BALL * 4 / 38, RM = BALL / 2 - SW / 2;
+  const P = Array.from({ length: 900 }, () => { const a = r() * 6.283, d = R * (1.4 + r() * 2.6), a2 = r() * 6.283, d2 = RM + (r() - 0.5) * SW * 0.8;
     return { x0: cx + Math.cos(a) * d, y0: cy + Math.sin(a) * d * 0.9, x1: cx + Math.cos(a2) * d2, y1: cy + Math.sin(a2) * d2, w: 0.08 + r() * 0.25 }; });
   const E = t => t * t * (3 - 2 * t), cl = v => Math.max(0, Math.min(1, v));
   window.__end = t => {   // t: seconds into the end card
     o.style.display = 'block'; x.clearRect(0, 0, innerWidth, innerHeight);
     const g = cl((t - 0.35) / 1.1);
     P.forEach(p => { const k = E(cl((g - p.w) / (1 - p.w))); if (k > 0.98) return;
-      x.fillStyle = k < 0.5 ? '#C8C8C8' : '#8A8A8A'; x.beginPath();
-      x.arc(p.x0 + (p.x1 - p.x0) * k, p.y0 + (p.y1 - p.y0) * k, 1.2, 0, 7); x.fill(); });
+      x.fillStyle = k < 0.5 ? '#B4B4B4' : '#8A8A8A'; x.beginPath();
+      x.arc(p.x0 + (p.x1 - p.x0) * k, p.y0 + (p.y1 - p.y0) * k, 1.8, 0, 7); x.fill(); });
     const b = E(cl((g - 0.45) / 0.55));
-    if (b > 0) { x.fillStyle = '#1A1A1A'; x.beginPath(); x.arc(cx, cy, R * b, 0, 7); x.fill(); }
+    if (b > 0) { x.strokeStyle = '#1A1A1A'; x.globalAlpha = b; x.lineWidth = SW; x.beginPath(); x.arc(cx, cy, RM, 0, 7); x.stroke(); x.globalAlpha = 1; }
   };
 })();
 """
@@ -54,6 +56,7 @@ def main():
         b = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = b.new_page(viewport={'width': f['vw'], 'height': f['vh']}, device_scale_factor=f['dsf'])
         pg.add_init_script(path=D + '/clock.js')
+        pg.add_init_script('window.__DUST = 1.8')  # bigger specks so dust survives compression (24 Nov)
         pg.goto(f'http://127.0.0.1:{port}/index.html')
         pg.add_style_tag(path=D + '/video.css')
         pg.evaluate(f"(() => {{ const BALL={f['ball']}, UF={f['uf']}, UB={f['ub']}; {END_JS} }})()")
