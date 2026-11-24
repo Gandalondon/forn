@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Forn trailer, one move</title>
+<style>
+/* Forn trailer v2 (24 Nov): one continuous camera move in the style of the approved orbit test.
+   The camera turns at one slow constant speed the whole time; only where it looks changes, in long sine glides.
+   Words cut in and out on the music's beats (no text animation). Finds are off-black cards attached to their balls.
+   Drawn frame by frame: film.py calls window.__at(t). Sizes in CSS px; the 16:9 frame is 1280 x 720 at 1.5x. */
+@font-face { font-family: "Instrument Sans"; src: url("/site/instrument-sans.ttf") format("truetype"); font-weight: 400 700; font-stretch: 75% 100%; }
+:root { --ink: #1A1A1A; --pad: 32px; --h: min(10.5vw, 24vh); }
+html, body { margin: 0; height: 100%; background: #FFFFFF; overflow: hidden; font-family: "Instrument Sans", sans-serif; color: var(--ink); }
+canvas { position: fixed; inset: 0; width: 100%; height: 100%; }
+/* Words: the landing page's step headings, same size and setting. */
+.words { position: fixed; left: var(--pad); top: var(--pad); z-index: 3; display: none; }
+.words h2 { margin: 0; font-weight: 600; font-size: var(--h); line-height: 0.92; letter-spacing: 0.005em; white-space: nowrap; }
+.words p { margin: 24px 0 0; font-size: 28px; line-height: 36px; color: #3A3A3A; }
+/* The find: attached to its ball, up and right, with a leader line into its bottom edge (orbit test v2). */
+svg.lead { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.tip { position: fixed; left: 0; top: 0; width: 300px; padding: 20px 22px 18px; border-radius: 18px; background: var(--ink); color: #FFFFFF; opacity: 0; z-index: 2; }
+.tip b { display: block; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0.2px; text-wrap: pretty; hyphens: none; }
+.tip span { display: block; margin-top: 10px; font-size: 13px; line-height: 18px; }
+/* End card: Sniff's house style, sizes in 1080p frame px times --k (1 / device scale). */
+#endcard { position: fixed; inset: 0; z-index: 9; background: #FFFFFF; opacity: 0; display: none; --k: 0.6667; }
+#endcard .lock { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: calc(24px * var(--k)); }
+#endcard .ring { display: block; width: calc(84px * var(--k)); height: calc(84px * var(--k)); }
+#endcard .url { font: 600 calc(40px * var(--k))/1 "Instrument Sans", sans-serif; color: var(--ink); letter-spacing: 0.005em; }
+#endcard .badge { position: absolute; right: calc(80px * var(--k)); bottom: calc(64px * var(--k)); height: calc(84px * var(--k)); }
+#endcard .legal { position: absolute; left: calc(80px * var(--k)); bottom: calc(82px * var(--k)); font: 400 calc(18px * var(--k))/1.4 "Instrument Sans", sans-serif; color: #8A8A8A; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<svg class="lead"><line id="ln" stroke="#1A1A1A" stroke-width="1.5" /></svg>
+<div class="tip" id="tip"><b></b><span></span></div>
+<div class="words" id="words"></div>
+<div id="endcard"><div class="lock"><svg class="ring" viewBox="35 35 38 38"><circle cx="54" cy="54" r="17" fill="none" stroke="#1A1A1A" stroke-width="4"/></svg><div class="url">getforn.app</div></div>
+  <img class="badge" src="/tools/trailer/google-play-badge.png" alt="Get it on Google Play"><div class="legal">Google Play and the Google Play logo are trademarks of Google LLC.</div></div>
+<script src="/site/three.js"></script>
+<script>
+(() => {
+// ---------- Timeline (s). Words cut on Black Veil's beats; set from the track by film.py (window.__BEATS) ----------
+const B = Object.assign({
+  // Black Veil (Universfield, Pixabay 386555, 30 s, 129 bpm): swells from silence to 7 s, strong hits at
+  // 7.36, 11.05, 14.28, 18.44, 21.66, 24.43, 25.82, fades out from 26.5. Every cut below sits on one of them.
+  w1: [0.5, 4.13],   // You pass / history / every day.     (dust drifts in as the track swells)
+  w2: [4.13, 7.36],  // Forn / notices it / for you.         (balls appear on the beat: 5.06, 5.52, 5.99)
+  balls: [5.06, 5.52, 5.99],
+  w3: [7.36, 9.4],   // At 9pm, / see what / you missed.     (hit; camera starts gliding in)
+  finds: [9.55, 12.78, 16.94],  // glide starts; each card lands 1.5 s later, on the hits 11.05, 14.28, 18.44
+  w5: [21.66, 24.43], // Every day / adds a ring.           (rings arrive, camera pulls back with them)
+  w6: [24.43, 25.82], // Grow yours. + Coming soon to London.
+  end: 25.82, len: 30,
+}, window.__BEATS || {});
+const WORDS = [
+  [B.w1, 'You pass<br>history<br>every day.'],
+  [B.w2, 'Forn<br>notices it<br>for you.'],
+  [B.w3, 'At 9pm,<br>see what<br>you missed.'],
+  [B.w5, 'Every day<br>adds a ring.'],
+  [B.w6, 'Grow yours.', 'Coming soon to London.'],
+];
+const FINDS = [
+  { fact: "The world's first cash machine opened at Barclays in Enfield in June 1967. People used a paper voucher bought in advance, and could take out £10 at most.", at: 'Enfield' },
+  { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "St James's Park" },
+  { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park' },
+];
+const CARD_IN = 1.5, CARD_ON = 2.0, GLIDE = 2.6;
+
+// ---------- The world: the site's sizes (R_BALL 0.12, rings 0.48 apart, FOV 22, dust pinches) ----------
+const canvas = document.getElementById('gl');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); renderer.setPixelRatio(devicePixelRatio);
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
+const camera = new THREE.PerspectiveCamera(22, 1, 0.05, 4000);
+function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+const r = rng(11), TAU = Math.PI * 2, SPH = new THREE.SphereGeometry(1, 40, 28);
+const R_BALL = 0.12, STEP_W = 0.48, DAYS = 150, ringR = d => 0.5 + d * STEP_W;
+const DUST_K = window.__DUST || 2.2, PINCH = 70, REACH = 0.32;
+const cl = v => Math.max(0, Math.min(1, v)), sine = k => (1 - Math.cos(Math.PI * cl(k))) / 2, outC = k => 1 - Math.pow(1 - cl(k), 3);
+// Week, month and year rings as the site, counted for a fixed date so every render matches.
+const TODAY = new Date(2026, 10, 24), EPOCH = new Date(2025, 11, 29);
+function rankOf(d) { const t = new Date(TODAY); t.setDate(t.getDate() - d); if (t.getDay() !== 1) return 0;
+  const w = Math.round((t - EPOCH) / 6048e5), m = ((w % 52) + 52) % 52; return m === 0 ? 3 : m % 4 === 0 ? 2 : 1; }
+const RING_COL = [0xC8C8C8, 0xA8A8A8, 0x6A6A6A, 0x1A1A1A], RING_W = [0, 0.015, 0.035, 0.08];
+const DOT = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#FFF'; x.beginPath(); x.arc(32, 32, 30, 0, TAU); x.fill(); return new THREE.CanvasTexture(c); })();
+const days = Array.from({ length: DAYS }, () => ({ group: new THREE.Group(), mats: [], balls: [], dust: [] }));
+days.forEach(d => scene.add(d.group));
+for (let d = 0; d < DAYS; d++) {
+  const rank = rankOf(d), R = ringR(d), segs = Math.min(1024, Math.max(128, Math.round(R * 8))), pts = [];
+  for (let i = 0; i <= segs; i++) { const a = i / segs * TAU; pts.push(new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R)); }
+  const mat = rank ? new THREE.LineBasicMaterial({ color: RING_COL[rank], transparent: true })
+    : new THREE.LineDashedMaterial({ color: d === 0 ? 0x8A8A8A : RING_COL[0], dashSize: 0.03, gapSize: 0.07, transparent: true });
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), mat); if (!rank) line.computeLineDistances();
+  days[d].group.add(line); days[d].mats.push(mat);
+  if (rank) { const bm = new THREE.MeshBasicMaterial({ color: RING_COL[rank], side: THREE.DoubleSide, transparent: true });
+    const m = new THREE.Mesh(new THREE.RingGeometry(R - RING_W[rank] / 2, R + RING_W[rank] / 2, segs), bm); m.rotation.x = -Math.PI / 2; days[d].group.add(m); days[d].mats.push(bm); }
+}
+function dust(pos, day, born = -1) {
+  const n = PINCH, a = new Float32Array(n * 3), end = new Float32Array(n * 3), dr = new Float32Array(n * 4);
+  for (let i = 0; i < n; i++) { const u = r() * 2 - 1, th = r() * TAU, s = Math.sqrt(1 - u * u), d = REACH * (0.25 + Math.pow(r(), 0.7) * 0.75);
+    end.set([pos.x + s * Math.cos(th) * d, pos.y + u * d, pos.z + s * Math.sin(th) * d], i * 3); dr.set([r() * TAU, 0.25 + r() * 0.5, 0.03 + r() * 0.07, r() * TAU], i * 4); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(a, 3));
+  const mat = new THREE.PointsMaterial({ color: 0xC8C8C8, size: 0.022 * DUST_K, map: DOT, alphaTest: 0.5, transparent: true });
+  days[day].group.add(new THREE.Points(g, mat));
+  const D = { g, a, end, dr, pos: pos.clone(), mat, born }; days[day].dust.push(D); return D;
+}
+function ball(pos, day) { const m = new THREE.Mesh(SPH, new THREE.MeshBasicMaterial({ color: 0x1A1A1A, transparent: true, depthTest: false })); m.renderOrder = 2; m.scale.setScalar(R_BALL); m.position.copy(pos); days[day].group.add(m); days[day].balls.push(m); return m; }
+const onRing = (R, h, y = 0) => { const a = h / 24 * TAU - Math.PI / 2; return new THREE.Vector3(Math.cos(a) * R, y, Math.sin(a) * R); };
+// Today: ten places passed (dust drifts in one by one, in the order passed), three of them uncovered at 9pm.
+const PASSES = [7.6, 8.9, 9.4, 11.6, 13.0, 15.4, 16.5, 17.8, 19.6, 20.4];
+const FIND_AT = [8.9, 13.0, 17.8];  // Enfield in the morning, St James's Park at lunch, Green Park on the way home
+const todayDust = PASSES.map((h, i) => dust(onRing(ringR(0), h), 0, B.w1[0] + 0.25 + i * (B.w1[1] - B.w1[0] - 0.6) / (PASSES.length - 1)));
+const todayBalls = FIND_AT.map(h => ball(onRing(ringR(0), h), 0));
+const BALL_ON = B.balls;
+// The past: finds on about half the days, dust on most, as the site.
+const hour = () => { const k = r(); return k < 0.4 ? 8 + r() * 1.2 : k < 0.75 ? 17.5 + r() * 1.5 : k < 0.9 ? 12.5 + r() : 7 + r() * 15; };
+for (let d = 1; d < DAYS; d++) {
+  const R = ringR(d), used = [];
+  const free = () => { for (let k = 0; k < 20; k++) { const h = hour(); if (used.every(u => Math.abs(u - h) * TAU / 24 * R > 0.34)) { used.push(h); return h; } } return null; };
+  if (r() <= 0.55) for (let n = 1 + Math.floor(r() * 2); n--;) { const h = free(); if (h != null) ball(onRing(R, h, (r() - 0.5) * 0.08), d); }
+  for (let n = Math.floor(r() * 4); n--;) { const h = free(); if (h != null) dust(onRing(R, h), d); }
+}
+// Rings arrive one after another from yesterday outwards during "Every day adds a ring", eased in and out.
+const ringOn = d => d === 0 ? 0 : B.w5[0] - 0.3 + (d <= 6 ? (d - 1) * 0.3 : 1.5 + (d - 6) / (DAYS - 6) * 3.2);
+
+// ---------- The move ----------
+// Camera: constant slow turn (az), long sine glides for target, distance, height and framing (view offset).
+// Each glide blends from wherever the camera is, so overlapping glides stay smooth.
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const P = i => todayBalls[i].position;
+const MOVES = [
+  { t: [0, 0], tg: V(0, 0, 0), dist: 6.4, elev: 1.0, fx: 0.72, fy: 0.56 },           // close on today's ring, right of the words
+  { t: [0.0, B.w3[0]], dist: 5.8, elev: 0.95 },                                        // drifts in a little while the dust lands
+  ...B.finds.map((t0, i) => ({ t: [t0, t0 + GLIDE], tg: P(i).clone(), dist: 5.8, elev: 0.62, fx: 0.40, fy: 0.68 })),  // to each find
+  { t: [B.finds[2] + GLIDE + 1.4, B.w5[0] + 0.6], tg: V(0, 0, 0), dist: 12, elev: 0.9, fx: 0.66, fy: 0.62 },  // out of the last card
+  { t: [B.w5[0] + 0.2, B.end + 0.6], dist: 30, elev: 0.82, fx: 0.62, fy: 0.72 },     // pulls back as the rings arrive: massive rings lower right
+];
+const AZ0 = 0.6, SPIN = 0.13; // rad/s, the one constant turn
+function camAt(t) {
+  const c = { tg: MOVES[0].tg.clone(), dist: MOVES[0].dist, elev: MOVES[0].elev, fx: MOVES[0].fx, fy: MOVES[0].fy };
+  for (const m of MOVES.slice(1)) { const k = sine((t - m.t[0]) / (m.t[1] - m.t[0])); if (!k) continue;
+    if (m.tg) c.tg.lerp(m.tg, k); if (m.dist) c.dist *= Math.pow(m.dist / c.dist, k);
+    for (const p of ['elev', 'fx', 'fy']) if (m[p] != null) c[p] += (m[p] - c[p]) * k; }
+  c.az = AZ0 + SPIN * t; return c;
+}
+
+// ---------- One frame ----------
+// Which side each card sits (up-right or up-left): the one that covers fewer of today's other balls over its time.
+function place(cam) { const ce = Math.cos(cam.elev); camera.position.set(cam.tg.x + Math.cos(cam.az) * ce * cam.dist, cam.tg.y + Math.sin(cam.elev) * cam.dist, cam.tg.z + Math.sin(cam.az) * ce * cam.dist);
+  camera.lookAt(cam.tg); camera.setViewOffset(W, H, (0.5 - cam.fx) * W, (0.5 - cam.fy) * H, W, H); camera.updateProjectionMatrix(); camera.updateMatrixWorld(); }
+let SIDE = null;
+function sides() { SIDE = B.finds.map((t0, i) => { let hit = [0, 0];
+  for (let s = 0; s <= 6; s++) { const t = t0 + CARD_IN + CARD_ON * s / 6; place(camAt(t)); const [x, y] = scr(P(i)), w = tip.offsetWidth, h = tip.offsetHeight;
+    [1, -1].forEach((dir, k) => { const L = dir > 0 ? x + 30 : x - 30 - w, T = y - 60 - h;
+      todayBalls.forEach((b, j) => { if (j === i) return; const [bx, by] = scr(b.position); if (bx > L - 40 && bx < L + w + 40 && by > T - 40 && by < T + h + 60) hit[k]++; }); }); }
+  return hit[1] < hit[0] ? -1 : 1; });
+  SIDE.forEach((sd, i) => { if (sd < 0) MOVES[2 + i].fx = 0.62; }); } // card on the left: the ball sits right of centre
+const words = document.getElementById('words'), tip = document.getElementById('tip'), ln = document.getElementById('ln'), endcard = document.getElementById('endcard');
+let shownWords = -1, shownTip = -1, W = 0, H = 0;
+function size() { W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; }
+size();
+const v3 = new THREE.Vector3();
+function scr(p) { v3.copy(p).project(camera); return [(v3.x + 1) / 2 * W, (1 - v3.y) / 2 * H, v3.z]; }
+window.__at = t => {
+  // words: hard cuts
+  const wi = WORDS.findIndex(([w]) => t >= w[0] && t < w[1]);
+  if (wi !== shownWords) { shownWords = wi; words.style.display = wi < 0 ? 'none' : 'block';
+    if (wi >= 0) words.innerHTML = `<h2>${WORDS[wi][1]}</h2>` + (WORDS[wi][2] ? `<p>${WORDS[wi][2]}</p>` : ''); }
+  const box = wi >= 0 ? words.getBoundingClientRect() : null;
+  // camera
+  if (!SIDE) { tip.querySelector('b').textContent = FINDS[0].fact; sides(); }
+  place(camAt(t));
+  // rings, dust, balls
+  days.forEach((D, d) => {
+    const on = d === 0 ? 1 : sine((t - ringOn(d)) / 0.7);
+    D.group.visible = on > 0; if (!on) return;
+    D.mats.forEach(m => { m.opacity = on; });
+    D.dust.forEach(P => {
+      const born = P.born < 0 ? -99 : P.born, op = d === 0 ? cl((t - born) / 0.3) : on, out = d === 0 ? outC((t - born) / 1.4) : 1;
+      P.mat.opacity = op; P.mat.visible = op > 0;
+      for (let i = 0, j = 0; i < P.a.length; i += 3, j += 4) { const ph = P.dr[j], sp = P.dr[j + 1], am = P.dr[j + 2], ph2 = P.dr[j + 3];
+        P.a[i] = P.pos.x + (P.end[i] - P.pos.x) * out + Math.sin(t * sp + ph) * am;
+        P.a[i + 1] = P.pos.y + (P.end[i + 1] - P.pos.y) * out + Math.sin(t * sp * 0.8 + ph2) * am;
+        P.a[i + 2] = P.pos.z + (P.end[i + 2] - P.pos.z) * out + Math.cos(t * sp * 0.9 + ph) * am; }
+      P.g.attributes.position.needsUpdate = true;
+    });
+    D.balls.forEach((m, k) => {
+      let op = d === 0 ? cl((t - BALL_ON[k]) / 0.4) : on;
+      if (box) { const [x, y] = scr(m.position), pad = 24, dx = Math.max(box.left - pad - x, x - box.right - pad, 0), dy = Math.max(box.top - pad - y, y - box.bottom - pad, 0);
+        op *= cl(Math.max(dx, dy) / 24); } // balls never on the words (rings and dust may be)
+      m.material.opacity = op; m.visible = op > 0;
+    });
+  });
+  renderer.render(scene, camera);
+  // the find card, attached to its ball
+  let fi = -1, fo = 0;
+  B.finds.forEach((t0, i) => { const a = t0 + CARD_IN, o = cl((t - a) / 0.2) * (1 - cl((t - a - CARD_ON) / 0.2)); if (o > 0) { fi = i; fo = o; } });
+  if (fi >= 0) {
+    if (fi !== shownTip) { shownTip = fi; tip.querySelector('b').textContent = FINDS[fi].fact; tip.querySelector('span').textContent = FINDS[fi].at; }
+    const Pp = todayBalls[fi].position, [x, y] = scr(Pp), right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
+    const sd = SIDE[fi], [x2] = scr(Pp.clone().addScaledVector(right, R_BALL)), rad = Math.abs(x2 - x), ex = x + sd * rad * 0.72, ey = y - rad * 0.72;
+    const tx = sd > 0 ? ex + 24 : ex - 24 - tip.offsetWidth, ty = ey - 48 - tip.offsetHeight;
+    tip.style.transform = `translate(${tx}px, ${ty}px)`;
+    ln.setAttribute('x1', ex); ln.setAttribute('y1', ey); ln.setAttribute('x2', sd > 0 ? tx + 28 : tx + tip.offsetWidth - 28); ln.setAttribute('y2', ty + tip.offsetHeight - 1);
+  }
+  tip.style.opacity = fo; ln.setAttribute('stroke-opacity', fo);
+  // end card: one 0.2 s fade
+  endcard.style.display = t >= B.end ? 'block' : 'none'; endcard.style.opacity = cl((t - B.end) / 0.2);
+};
+window.__len = B.len;
+// Live preview in a browser: play on the real clock.
+if (!window.__FRAMES) { const s = performance.now(); const loop = n => { window.__at(((n - s) / 1000) % B.len); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+})();
+</script>
+</body>
+</html>
