@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Forn</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
+<style>
+/* Forn privacy page (24 Nov 2026): plain, like the app. Linked from the landing page and the Play listing. */
+@font-face { font-family: "Instrument Sans"; src: url("/instrument-sans.ttf") format("truetype"); font-weight: 400 700; font-stretch: 75% 100%; font-display: swap; }
+:root { --ink: #1A1A1A; --soft: #3A3A3A; --font: "Instrument Sans", system-ui, sans-serif; --pad: 24px; }
+@media (min-width: 900px) { :root { --pad: 32px; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #FFFFFF; color: var(--ink); font-family: var(--font); }
+main { padding: var(--pad); max-width: 720px; }
+.home { display: inline-block; font-weight: 600; font-size: 17px; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+h1 { margin: 64px 0 0; font-size: clamp(56px, 12vw, 120px); line-height: 0.92; font-weight: 600; text-wrap: balance; }
+h2 { margin: 48px 0 0; font-size: 24px; line-height: 30px; font-weight: 600; text-wrap: balance; }
+h1 + p { margin-top: 24px !important; }
+p { margin: 12px 0 0; font-size: 17px; line-height: 26px; color: var(--soft); text-wrap: pretty; }
+p a { color: var(--ink); font-weight: 600; text-decoration: none; }
+footer { padding: 64px var(--pad) 40px; font-size: 13px; line-height: 18px; color: var(--soft); }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="home" href="/">FORN</a>
+  <h1>Privacy</h1>
+  <p>Forn keeps everything on your phone: the places you passed and when. No account, no ads, no tracking.</p>
+
+  <h2>Your location</h2>
+  <p>Forn uses your phone's location, including when the app is closed, so it can notice when you pass an old place. That happens on your phone, through Android's location service (Google Play services, which works under Google's own privacy policy). Your location isn't sent to us or to anyone else.</p>
+
+  <h2>What leaves your phone</h2>
+  <p>Nothing, unless you choose Tell me more. That shares the one place you're reading about with the app you pick.</p>
+
+  <h2>Deleting</h2>
+  <p>Uninstall Forn and everything it kept goes with it.</p>
+
+  <h2>This site</h2>
+  <p>No cookies and no tracking. If you email us, through Try it early or Tell me, we only use your email to reply.</p>
+
+  <h2>Questions</h2>
+  <p>Email <a href="mailto:tony@gandalondon.com">tony@gandalondon.com</a>.</p>
+  <p>Updated 24 November 2026.</p>
+</main>
+<footer>&copy; 2026 Forn, a concept by <a href="https://gandalondon.com" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;text-decoration:none">Tony Goff-Yu</a>.</footer>
+</body>
+</html>
