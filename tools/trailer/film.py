@@ -18,7 +18,7 @@ with sync_playwright() as p:
     b = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
     pg = b.new_page(viewport={'width': f['vw'], 'height': f['vh']}, device_scale_factor=f['dsf'])
     pg.add_init_script('window.__FRAMES = true; window.__BEATS = ' + os.environ.get('FORN_BEATS', '{}'))
-    pg.goto(f'http://127.0.0.1:{port}/tools/trailer/film.html'); pg.evaluate('document.fonts.ready'); pg.wait_for_load_state('networkidle')
+    pg.goto(f'http://127.0.0.1:{port}/tools/trailer/film.html'); pg.evaluate('''Promise.all([document.fonts.load('600 20px "Instrument Sans"'), document.fonts.load('400 13px "Instrument Sans"')])'''); pg.evaluate('document.fonts.ready'); pg.wait_for_load_state('networkidle')
     if stills:
         os.makedirs(D + '/stills', exist_ok=True)
         for s in sorted(float(v) for v in sys.argv[3:]):

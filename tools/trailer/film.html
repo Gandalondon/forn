@@ -48,7 +48,7 @@ const B = Object.assign({
   w2: [4.13, 7.36],  // Forn / notices it / for you.         (balls appear on the beat: 5.06, 5.52, 5.99)
   balls: [5.06, 5.52, 5.99],
   w3: [7.36, 9.4],   // At 9pm, / see what / you missed.     (hit; camera starts gliding in)
-  finds: [9.55, 12.78, 16.94],  // glide starts; each card lands 1.5 s later, on the hits 11.05, 14.28, 18.44
+  cards: [11.05, 14.28, 18.44], // each find's card comes out of its ball as the turning ring brings it to the front
   w5: [21.66, 24.43], // Every day / adds a ring.           (rings arrive, camera pulls back with them)
   w6: [24.43, 25.82], // Grow yours.
   end: 25.82, len: 30,
@@ -65,7 +65,7 @@ const FINDS = [
   { fact: "Duck Island in St James's Park was home to the park's bird keeper. In 1894 it was also chosen as a safe spot to defuse terrorist bombs found in Westminster.", at: "St James's Park" },
   { fact: "The roof of the Bomber Command Memorial in Green Park is made from a Halifax bomber that crashed in Belgium in 1944. It was pulled out of a swamp in 1997.", at: 'Green Park' },
 ];
-const CARD_IN = 1.5, CARD_ON = 2.0, GLIDE = 2.6;
+const CARD_ON = 2.0;
 
 // ---------- The world: the site's sizes (R_BALL 0.12, rings 0.48 apart, FOV 22, dust pinches) ----------
 const canvas = document.getElementById('gl');
@@ -107,8 +107,12 @@ function dust(pos, day, born = -1) {
 function ball(pos, day) { const m = new THREE.Mesh(SPH, new THREE.MeshBasicMaterial({ color: 0x1A1A1A, transparent: true, depthTest: false })); m.renderOrder = 2; m.scale.setScalar(R_BALL); m.position.copy(pos); days[day].group.add(m); days[day].balls.push(m); return m; }
 const onRing = (R, h, y = 0) => { const a = h / 24 * TAU - Math.PI / 2; return new THREE.Vector3(Math.cos(a) * R, y, Math.sin(a) * R); };
 // Today: ten places passed (dust drifts in one by one, in the order passed), three of them uncovered at 9pm.
-const PASSES = [7.6, 8.9, 9.4, 11.6, 13.0, 15.4, 16.5, 17.8, 19.6, 20.4];
-const FIND_AT = [8.9, 13.0, 17.8];  // Enfield in the morning, St James's Park at lunch, Green Park on the way home
+// 24 Nov (Tony): the ring sits in the middle and the camera keeps turning; each find's card comes out of its ball as it
+// reaches the front. So each ball is placed where the front of the ring will be at its card's time. The camera turns
+// clockwise, so all three are on the right of the ring while the words are up and none has to hide behind them.
+const AZ0 = 3.0, SPIN = -0.3, PRESENT = -0.15; // rad/s, the one constant turn
+const FIND_AT = B.cards.map(t => ((((AZ0 + SPIN * t + PRESENT) + Math.PI / 2) / TAU * 24) % 24 + 24) % 24);
+const PASSES = FIND_AT.concat([0, 3, 6, 9, 12, 15, 18, 21].map(h => h + 1.2).filter(h => FIND_AT.every(f => Math.min(Math.abs(f - h), 24 - Math.abs(f - h)) > 1.4)).slice(0, 7));
 const todayDust = PASSES.map((h, i) => dust(onRing(ringR(0), h), 0, B.w1[0] + 0.25 + i * (B.w1[1] - B.w1[0] - 0.6) / (PASSES.length - 1)));
 const todayBalls = FIND_AT.map(h => ball(onRing(ringR(0), h), 0));
 const BALL_ON = B.balls;
@@ -131,11 +135,10 @@ const P = i => todayBalls[i].position;
 const MOVES = [
   { t: [0, 0], tg: V(0, 0, 0), dist: 6.4, elev: 1.0, fx: 0.72, fy: 0.56 },           // close on today's ring, right of the words
   { t: [0.0, B.w3[0]], dist: 5.8, elev: 0.95 },                                        // drifts in a little while the dust lands
-  ...B.finds.map((t0, i) => ({ t: [t0, t0 + GLIDE], tg: P(i).clone(), dist: 5.8, elev: 0.62, fx: 0.40, fy: 0.68 })),  // to each find
-  { t: [B.finds[2] + GLIDE + 1.4, B.w5[0] + 0.6], tg: V(0, 0, 0), dist: 12, elev: 0.9, fx: 0.66, fy: 0.62 },  // out of the last card
+  { t: [B.w3[0] + 0.6, B.cards[0] - 0.3], dist: 5.6, elev: 0.72, fx: 0.5, fy: 0.68 },  // the ring glides to the middle, lower down: cards rise above it
+  { t: [B.cards[2] + CARD_ON + 0.1, B.w5[0] + 0.6], dist: 12, elev: 0.9, fx: 0.66, fy: 0.62 },  // out of the last card
   { t: [B.w5[0] + 0.2, B.end + 0.6], dist: 30, elev: 0.82, fx: 0.62, fy: 0.72 },     // pulls back as the rings arrive: massive rings lower right
 ];
-const AZ0 = 0.6, SPIN = 0.13; // rad/s, the one constant turn
 function camAt(t) {
   const c = { tg: MOVES[0].tg.clone(), dist: MOVES[0].dist, elev: MOVES[0].elev, fx: MOVES[0].fx, fy: MOVES[0].fy };
   for (const m of MOVES.slice(1)) { const k = sine((t - m.t[0]) / (m.t[1] - m.t[0])); if (!k) continue;
@@ -149,12 +152,12 @@ function camAt(t) {
 function place(cam) { const ce = Math.cos(cam.elev); camera.position.set(cam.tg.x + Math.cos(cam.az) * ce * cam.dist, cam.tg.y + Math.sin(cam.elev) * cam.dist, cam.tg.z + Math.sin(cam.az) * ce * cam.dist);
   camera.lookAt(cam.tg); camera.setViewOffset(W, H, (0.5 - cam.fx) * W, (0.5 - cam.fy) * H, W, H); camera.updateProjectionMatrix(); camera.updateMatrixWorld(); }
 let SIDE = null;
-function sides() { SIDE = B.finds.map((t0, i) => { let hit = [0, 0];
-  for (let s = 0; s <= 6; s++) { const t = t0 + CARD_IN + CARD_ON * s / 6; place(camAt(t)); const [x, y] = scr(P(i)), w = tip.offsetWidth, h = tip.offsetHeight;
+function sides() { SIDE = B.cards.map((a, i) => { let hit = [0, 0];
+  for (let s = 0; s <= 6; s++) { const t = a + CARD_ON * s / 6; place(camAt(t)); const [x, y] = scr(P(i)), w = tip.offsetWidth, h = tip.offsetHeight;
     [1, -1].forEach((dir, k) => { const L = dir > 0 ? x + 30 : x - 30 - w, T = y - 60 - h;
       todayBalls.forEach((b, j) => { if (j === i) return; const [bx, by] = scr(b.position); if (bx > L - 40 && bx < L + w + 40 && by > T - 40 && by < T + h + 60) hit[k]++; }); }); }
-  return hit[1] < hit[0] ? -1 : 1; });
-  SIDE.forEach((sd, i) => { if (sd < 0) MOVES[2 + i].fx = 0.62; }); } // card on the left: the ball sits right of centre
+  return 1; }); // cards now rise above the ring, so they always sit up and right
+}
 const words = document.getElementById('words'), tip = document.getElementById('tip'), ln = document.getElementById('ln'), endcard = document.getElementById('endcard');
 let shownWords = -1, shownTip = -1, W = 0, H = 0;
 function size() { W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; }
@@ -186,7 +189,7 @@ window.__at = t => {
     });
     D.balls.forEach((m, k) => {
       let op = d === 0 ? cl((t - BALL_ON[k]) / 0.4) : on;
-      if (box) { const [x, y] = scr(m.position), pad = 24, dx = Math.max(box.left - pad - x, x - box.right - pad, 0), dy = Math.max(box.top - pad - y, y - box.bottom - pad, 0);
+      if (box && d > 0) { const [x, y] = scr(m.position), pad = 24, dx = Math.max(box.left - pad - x, x - box.right - pad, 0), dy = Math.max(box.top - pad - y, y - box.bottom - pad, 0);
         op *= cl(Math.max(dx, dy) / 24); } // balls never on the words (rings and dust may be)
       m.material.opacity = op; m.visible = op > 0;
     });
@@ -194,18 +197,19 @@ window.__at = t => {
   renderer.render(scene, camera);
   // the find card, attached to its ball
   let fi = -1, fo = 0;
-  B.finds.forEach((t0, i) => { const a = t0 + CARD_IN, o = cl((t - a) / 0.2) * (1 - cl((t - a - CARD_ON) / 0.2)); if (o > 0) { fi = i; fo = o; } });
+  B.cards.forEach((a, i) => { const o = cl((t - a) / 0.2) * (1 - cl((t - a - CARD_ON) / 0.2)); if (o > 0) { fi = i; fo = o; } });
   if (fi >= 0) {
     if (fi !== shownTip) { shownTip = fi; tip.querySelector('b').textContent = FINDS[fi].fact; tip.querySelector('span').textContent = FINDS[fi].at; }
     const Pp = todayBalls[fi].position, [x, y] = scr(Pp), right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
     const sd = SIDE[fi], [x2] = scr(Pp.clone().addScaledVector(right, R_BALL)), rad = Math.abs(x2 - x), ex = x + sd * rad * 0.72, ey = y - rad * 0.72;
-    const tx = sd > 0 ? ex + 24 : ex - 24 - tip.offsetWidth, ty = ey - 48 - tip.offsetHeight;
+    const az = camAt(t).az, top = scr(V(-Math.cos(az), 0, -Math.sin(az)).multiplyScalar(ringR(0) + 0.1))[1]; // just past the far side of today's ring
+    const tx = sd > 0 ? ex + 24 : ex - 24 - tip.offsetWidth, ty = Math.min(ey - 48, top - 24) - tip.offsetHeight;
     tip.style.transform = `translate(${tx}px, ${ty}px)`;
     ln.setAttribute('x1', ex); ln.setAttribute('y1', ey); ln.setAttribute('x2', sd > 0 ? tx + 28 : tx + tip.offsetWidth - 28); ln.setAttribute('y2', ty + tip.offsetHeight - 1);
   }
   tip.style.opacity = fo; ln.setAttribute('stroke-opacity', fo);
   // end card: one 0.2 s fade
-  endcard.style.display = t >= B.end ? 'block' : 'none'; endcard.style.opacity = cl((t - B.end) / 0.2);
+  endcard.style.display = t >= B.end ? 'block' : 'none'; endcard.style.opacity = 1; // hard cut (Tony, 24 Nov)
 };
 window.__len = B.len;
 // Live preview in a browser: play on the real clock.
