@@ -26,3 +26,17 @@ Goal: get Forn into Play's testing tracks early, mainly to find out whether back
 - Package id and paid or free (step 1 and 2 above).
 - Play Console access: he signs in, or I drive it in Chrome on his Mac.
 - Recording the disclosure video on his phone (I'll script it, about 60 seconds).
+
+## Progress, 24 Nov 19:12
+- App created in Play Console (Ganda London account): "Forn: London History Near You" (30-character limit; "Around You" was 31), package app.getforn, English (UK), App, Paid. Tony ticked the two declarations himself. Console URL: play.google.com/console/u/1/developers/7361770906699679946/app/4975200459827088602/app-dashboard
+- Dashboard tasks: privacy policy, sign-in details, ads, content rating, target audience, data safety, government apps, financial features, health, trader status, category and contact details, store listing, price (merchant account already done via Sniff).
+
+## Proposed answers (for Tony to OK before entering)
+- Sign-in: none needed. Ads: none. Government apps: no. Financial features: none. Health: none.
+- Trader status: trader, same details as Sniff (the account is already declared).
+- Target audience: 18+ only (paid, background location; keeps it clear of the families policy).
+- Content rating: no violence, sex, gambling, drugs or user content; text facts mention historic crimes (murders, robberies) without detail, so answer the crime/violence references honestly (expect PEGI 12 or so).
+- Data safety: no data collected or shared. Location never leaves the phone; nothing is sent anywhere. Only true if the store build drops Send my data and the test log (planned anyway).
+- Privacy policy: needs getforn.app/privacy as its own page (today it's a pop-up card on the landing page). To build.
+- Category: Travel & Local. Contact email: needs a public address (hello@getforn.app needs forwarding set up; or use tony@gandalondon.com for now). Tony to choose.
+- Price: Tony to decide (merchant account exists).
