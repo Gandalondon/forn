@@ -31,8 +31,9 @@ body.turning { cursor: grabbing; }
 .step { position: fixed; left: var(--pad); right: var(--pad); top: var(--pad); z-index: 3; pointer-events: none; transition: color 400ms ease; }
 .step[hidden] { display: none; }
 /* Lines are broken by hand, so each line is as big as the screen allows. */
-.step h1, .step h2 { margin: 0; font-weight: 600; font-size: min(15vw, 24vh); line-height: 0.92; letter-spacing: 0.005em; }
-@media (max-aspect-ratio: 1/1) { .step h1, .step h2 { font-size: min(15vw, 13vh); } }
+:root { --h: min(15vw, 24vh); }
+@media (max-aspect-ratio: 1/1) { :root { --h: min(15vw, 13vh); } }
+.step h1, .step h2 { margin: 0; font-weight: 600; font-size: var(--h); line-height: 0.92; letter-spacing: 0.005em; }
 /* normal width, as in the app; only the word FORN narrows */
 .step .note { margin: 24px 0 0; font-size: 19px; line-height: 26px; color: var(--soft); }
 .step .btn { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; height: 64px; padding: 0 32px; margin-top: 32px; border-radius: 999px; background: var(--ink); color: #FFFFFF; font: 600 19px/1 var(--font); text-decoration: none; }
@@ -61,7 +62,7 @@ body.dark .pips { opacity: 1; }
 .pips button i { display: block; width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.32); }
 .pips button[aria-current="true"] i { background: #FFFFFF; }
 /* The ending: a find from the past, then the city sign-up. Field label sits inside it. */
-.join { margin-top: 32px; max-width: 420px; pointer-events: auto; opacity: 0; transition: opacity 500ms ease; } /* under the heading, like Try it early */
+.join { margin-top: calc(var(--h) * 0.24 + 24px); /* clear of the last line's descenders (24 Nov, Tony: sat beside 'your city?' on desktop) */ max-width: 420px; pointer-events: auto; opacity: 0; transition: opacity 500ms ease; } /* under the heading, like Try it early */
 body.dark .join { opacity: 1; }
 .join form { display: flex; gap: 8px; }
 .join input { flex: 1; min-width: 0; height: 64px; padding: 0 24px; border-radius: 999px; border: 0; background: #FFFFFF; color: var(--ink); font: 500 17px/1 var(--font); }
@@ -154,7 +155,9 @@ const canvas = document.getElementById('gl');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 const scene = new THREE.Scene(); scene.background = new THREE.Color('#FFFFFF');
-const camera = new THREE.PerspectiveCamera(35, 1, 0.05, 2000);
+// A longer lens (24 Nov, Tony: balls looked stretched at the edges on desktop). Fixed shot distances scale by LENS so framing stays the same.
+const FOV = 22, LENS = Math.tan(THREE.MathUtils.degToRad(35) / 2) / Math.tan(THREE.MathUtils.degToRad(FOV) / 2);
+const camera = new THREE.PerspectiveCamera(FOV, 1, 0.05, 4000);
 const SPH = new THREE.SphereGeometry(1, 40, 28), INK = new THREE.MeshBasicMaterial({ color: 0x1A1A1A });
 const R_BALL = 0.12, STEP_W = 0.48, DAYS = 150, PARTS = 420; // same sizes as the app (19 Nov)
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -271,7 +274,7 @@ function wholeDist() {
   const vf = THREE.MathUtils.degToRad(camera.fov) / 2, hf = Math.atan(Math.tan(vf) * camera.aspect);
   return (RT + 1) * 1.02 / Math.sin(Math.min(vf * freeK, hf));
 }
-function shot(s) { const o = SHOTS[s]; return { target: o.target.clone(), dist: o.dist ?? wholeDist(), elev: o.elev, az: o.az }; }
+function shot(s) { const o = SHOTS[s]; return { target: o.target.clone(), dist: o.dist != null ? o.dist * LENS : wholeDist(), elev: o.elev, az: o.az }; }
 function place(c) {
   const ce = Math.cos(c.elev), se = Math.sin(c.elev), a = c.az + spin;
   camera.position.set(c.target.x + Math.cos(a) * ce * c.dist, c.target.y + se * c.dist, c.target.z + Math.sin(a) * ce * c.dist);
