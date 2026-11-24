@@ -38,5 +38,5 @@ Goal: get Forn into Play's testing tracks early, mainly to find out whether back
 - Content rating: no violence, sex, gambling, drugs or user content; text facts mention historic crimes (murders, robberies) without detail, so answer the crime/violence references honestly (expect PEGI 12 or so).
 - Data safety: no data collected or shared. Location never leaves the phone; nothing is sent anywhere. Only true if the store build drops Send my data and the test log (planned anyway).
 - Privacy policy: done 24 Nov, getforn.app/privacy (its own page; the landing page's Privacy link goes there, the pop-up is gone).
-- Category: Travel & Local. Contact email: needs a public address (hello@getforn.app needs forwarding set up; or use tony@gandalondon.com for now). Tony to choose.
+- Category: Travel & Local. Contact email: hello@getforn.app (forwarding set up by Tony, 24 Nov; also on the privacy page and the landing page's email links).
 - Price: Tony to decide (merchant account exists).

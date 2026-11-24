@@ -96,7 +96,7 @@ body.dark .bar, body.dark .bar .link, body.dark .bar a { color: #FFFFFF; }
   <section class="step" data-s="3" hidden><h2>At 9pm,<br>see what<br>you missed.</h2></section>
   <section class="step" data-s="4" hidden><h2>The rest<br>is dust,<br>for now.</h2></section>
   <section class="step" data-s="5" hidden><h2>Every day<br>adds a ring.</h2></section>
-  <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to London.</p><a class="btn" href="mailto:tony@gandalondon.com?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
+  <section class="step" data-s="6" hidden><h2>Grow yours.</h2><p class="note">Coming soon to London.</p><a class="btn" href="mailto:hello@getforn.app?subject=Try%20Forn%20early" target="_blank" rel="noopener">Try it early</a></section>
   <section class="step" data-s="7" hidden><h2>Want it in<br>your city?</h2><div class="join" id="join"><form id="joinForm"><input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Your city" aria-label="Your city"><button type="submit">Tell me</button></form></div></section>
 </main>
 
@@ -376,7 +376,7 @@ cardEl.addEventListener('touchend', e => {
 document.getElementById('joinForm').addEventListener('submit', e => {
   e.preventDefault();
   const city = document.getElementById('city').value.trim() || 'London';
-  location.href = `mailto:tony@gandalondon.com?subject=${encodeURIComponent('Forn in ' + city)}&body=${encodeURIComponent('Tell me when Forn comes to ' + city + '.')}`;
+  location.href = `mailto:hello@getforn.app?subject=${encodeURIComponent('Forn in ' + city)}&body=${encodeURIComponent('Tell me when Forn comes to ' + city + '.')}`;
 });
 ['touchstart', 'touchend', 'pointerdown'].forEach(t => document.getElementById('join').addEventListener(t, e => e.stopPropagation(), { passive: true }));
 
