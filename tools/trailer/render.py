@@ -12,7 +12,7 @@ D = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(D + '/../
 FPS = 30
 # Beats (s): FORN, You pass history (dust), Forn notices it (balls), At 9pm (zoom, then the card),
 # The rest is dust, Every day adds a ring, Grow yours, then the end card. Hard cuts between.
-BEATS = [2.2, 3.0, 3.4, 5.0, 3.0, 5.4, 3.4]
+BEATS = [2.2, 3.0, 3.4, 5.0, 3.0, 6.2, 3.4]  # ring beat 6.2: rings grow out of today one by one (24 Nov)
 END = 4.6
 FMT = {'h': dict(vw=1280, vh=720, dsf=1.5, ball=150, uf=27, ub=43, name='forn-trailer-16x9'),   # 1920 x 1080
        'v': dict(vw=360, vh=640, dsf=3, ball=100, uf=14, ub=40, name='forn-trailer-9x16')}      # 1080 x 1920
