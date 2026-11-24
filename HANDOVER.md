@@ -1,8 +1,14 @@
 # Forn handover
 
-### Latest: Tue 24 Nov 2026, 20:55
+### Latest: Tue 24 Nov 2026, 23:45
 
-### Next session starts here (24 Nov, 20:55)
+### Next session starts here (24 Nov, 23:45)
+- Trailer v2 built (branch rings-grow): one continuous camera move, tools/trailer/film.html + film.py (python3 tools/trailer/film.py h stills 2.5 12 ... for stills; python3 tools/trailer/film.py h <black-veil.mp3> for the video, music laid under at -16 LUFS). Words cut on Black Veil's hits: You pass history every day. 0.5s, Forn notices it for you. 4.13s (balls 5.06, 5.52, 5.99), At 9pm, see what you missed. 7.36s, cards land 11.05, 14.28, 18.44 (2s each, flip left of the ball if they would cover another), Every day adds a ring. 21.66s (rings arrive, camera pulls back), Grow yours. 24.43s, end card 25.82s. Constant slow turn (0.13 rad/s), sine glides, past balls fade behind the words.
+- Dropped: The rest is dust, for now. (no room in 30s); Coming soon to London. (Tony 23:39: the app is out when the trailer is).
+- Render: marketing/forn-trailer-16x9.mp4 (not in git, sent in chat 23:45). Waiting for Tony's notes. Then 9:16 (film.html needs a portrait layout: words top, rings below). Uploads don't carry over: ask Tony to re-attach Black Veil.
+- Still open from 20:55: site preview rings-grow waiting for Tony to say live; Play store listing, then the store build.
+
+### Earlier: next steps as of 24 Nov, 20:55
 - Trailer: rebuild as one continuous camera move in the style of the approved orbit test (tools/trailer/orbit.html, orbit.py, branch rings-grow): dust drifts in, today's balls appear, glide to each find with its off-black card attached (line into the card, white place name), constant slow turn, long sine glides, pull back out to the massive rings, end card (ring, getforn.app under it, Google Play badge bottom right, trademark line bottom left, Sniff's sizes). Words only on Black Veil's beats (music: /mnt uploads are gone in a new chat; ask Tony to re-attach Black Veil, Universfield, Pixabay 386555). 16:9 first, then 9:16.
 - Site preview branch rings-grow (https://forn-git-rings-grow-gandalondon.vercel.app/): wide-screen heading cap, always turning, balls appear not grow, dust keeps floating, rings arrive with their balls, balls fade behind the words. Waiting for Tony to say live. Then maybe the attached card at 9pm on the site too, if the trailer version works.
 - Play: everything done except the store listing (descriptions, icon 512, feature graphic, screenshots), then the store build (target API 36, disclosure screen, no test tools, signed .aab) and internal testing.
