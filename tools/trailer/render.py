@@ -12,34 +12,20 @@ D = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(D + '/../
 FPS = 30
 # Beats (s): FORN, You pass history (dust), Forn notices it (balls), At 9pm (zoom, then the card),
 # The rest is dust, Every day adds a ring, Grow yours, then the end card. Hard cuts between.
-BEATS = [2.2, 3.0, 3.4, 5.0, 3.0, 6.2, 3.4]  # ring beat 6.2: rings grow out of today one by one (24 Nov)
+BEATS = [2.2, 3.0, 3.4, 5.0, 3.0, 6.2, 3.4]  # ring beat 6.2: rings appear one after another (24 Nov)
 END = 4.6
-FMT = {'h': dict(vw=1280, vh=720, dsf=1.5, ball=150, uf=27, ub=43, name='forn-trailer-16x9'),   # 1920 x 1080
-       'v': dict(vw=360, vh=640, dsf=3, ball=100, uf=14, ub=40, name='forn-trailer-9x16')}      # 1080 x 1920
+FMT = {'h': dict(vw=1280, vh=720, dsf=1.5, ball=56, uf=27, ub=43, name='forn-trailer-16x9'),   # 1920 x 1080
+       'v': dict(vw=360, vh=640, dsf=3, ball=28, uf=14, ub=40, name='forn-trailer-9x16')}      # 1080 x 1920
 
 END_JS = r"""
 (() => {
+  // End card (24 Nov, Tony): no dust, just the app icon's ring, the size of the Sniff and Relay end-card marks
+  // (about 84 px on a 1080 frame), one quick 0.2 s fade, getforn.app at the bottom.
   const o = document.createElement('div'); o.id = 'endcard';
-  o.style.setProperty('--uf', UF + 'px'); o.style.setProperty('--ub', UB + 'px');
-  o.innerHTML = '<canvas></canvas><div class="url">getforn.app</div>'; document.body.appendChild(o);
-  const c = o.querySelector('canvas'), x = c.getContext('2d'), dpr = devicePixelRatio;
-  c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
-  const cx = innerWidth / 2, cy = innerHeight / 2, R = BALL / 2;
-  let s = 7; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  // The app icon's ring (24 Nov): 38 across with a stroke of 4 in the 108 grid. Dust pulls together into it.
-  const SW = BALL * 4 / 38, RM = BALL / 2 - SW / 2;
-  const P = Array.from({ length: 900 }, () => { const a = r() * 6.283, d = R * (1.4 + r() * 2.6), a2 = r() * 6.283, d2 = RM + (r() - 0.5) * SW * 0.8;
-    return { x0: cx + Math.cos(a) * d, y0: cy + Math.sin(a) * d * 0.9, x1: cx + Math.cos(a2) * d2, y1: cy + Math.sin(a2) * d2, w: 0.08 + r() * 0.25 }; });
-  const E = t => t * t * (3 - 2 * t), cl = v => Math.max(0, Math.min(1, v));
-  window.__end = t => {   // t: seconds into the end card
-    o.style.display = 'block'; x.clearRect(0, 0, innerWidth, innerHeight);
-    const g = cl((t - 0.35) / 1.1);
-    P.forEach(p => { const k = E(cl((g - p.w) / (1 - p.w))); if (k > 0.98) return;
-      x.fillStyle = k < 0.5 ? '#B4B4B4' : '#8A8A8A'; x.beginPath();
-      x.arc(p.x0 + (p.x1 - p.x0) * k, p.y0 + (p.y1 - p.y0) * k, 1.8, 0, 7); x.fill(); });
-    const b = E(cl((g - 0.45) / 0.55));
-    if (b > 0) { x.strokeStyle = '#1A1A1A'; x.globalAlpha = b; x.lineWidth = SW; x.beginPath(); x.arc(cx, cy, RM, 0, 7); x.stroke(); x.globalAlpha = 1; }
-  };
+  o.style.setProperty('--uf', UF + 'px'); o.style.setProperty('--ub', UB + 'px'); o.style.setProperty('--ring', BALL + 'px');
+  o.innerHTML = '<svg class="ring" viewBox="35 35 38 38"><circle cx="54" cy="54" r="17" fill="none" stroke="#1A1A1A" stroke-width="4"/></svg><div class="url">getforn.app</div>';
+  document.body.appendChild(o);
+  window.__end = t => { o.style.display = 'block'; o.style.opacity = Math.min(1, t / 0.2); };
 })();
 """
 
@@ -56,7 +42,7 @@ def main():
         b = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = b.new_page(viewport={'width': f['vw'], 'height': f['vh']}, device_scale_factor=f['dsf'])
         pg.add_init_script(path=D + '/clock.js')
-        pg.add_init_script('window.__DUST = 1.8')  # bigger specks so dust survives compression (24 Nov)
+        pg.add_init_script('window.__VIDEO = true; window.__DUST = 1.8; window.__NEAR = 0.72; window.__WIDE = [-0.14, -0.06]')  # 24 Nov: bigger dust; today's ring nearer, up and left (overlap is fine)
         pg.goto(f'http://127.0.0.1:{port}/index.html')
         pg.add_style_tag(path=D + '/video.css')
         pg.evaluate(f"(() => {{ const BALL={f['ball']}, UF={f['uf']}, UB={f['ub']}; {END_JS} }})()")
