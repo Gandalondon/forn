@@ -109,6 +109,20 @@ class Web(private val a: MainActivity) {
         @JavascriptInterface
         fun tellNow() = Night.run(a)
 
+        /** Give feedback (25 Nov): an email to hello@getforn.app, with the build, phone and Android version filled in. */
+        @JavascriptInterface
+        fun feedback() = main.post {
+            val b = a.packageManager.getPackageInfo(a.packageName, 0).longVersionCode
+            val mail = Intent(Intent.ACTION_SENDTO, android.net.Uri.parse("mailto:hello@getforn.app"))
+                .putExtra(Intent.EXTRA_SUBJECT, "Forn feedback, Version 0.1 ($b)")
+                .putExtra(Intent.EXTRA_TEXT, "\n\n\nForn Version 0.1 ($b), ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}, Android ${android.os.Build.VERSION.RELEASE}")
+            runCatching { a.startActivity(mail) }.onFailure { TestLog.add(a, "Feedback: no email app (${it.message})") }
+        }
+
+        /** Privacy policy (25 Nov): getforn.app/privacy in the browser. */
+        @JavascriptInterface
+        fun privacy() = main.post { runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://getforn.app/privacy"))) } }
+
         /** Tell me more: hand a question to the app you pick (an AI, a search, notes). */
         @JavascriptInterface
         fun share(text: String) = main.post {
