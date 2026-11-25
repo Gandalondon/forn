@@ -7,6 +7,7 @@
 - v3 (Tony 23:47): today's balls placed on the right of the ring while words are up (no fading); after At 9pm the ring glides to the middle and the camera keeps turning (clockwise, 0.3 rad/s); each card rises above the ring from its ball as it reaches the front (11.05, 14.28, 18.44); hard cut Grow yours. to the end card at 25.82s. Re-rendered, sent 23:55.
 - Dropped: The rest is dust, for now. (no room in 30s); Coming soon to London. (Tony 23:39: the app is out when the trailer is).
 - Render: marketing/forn-trailer-16x9.mp4 (not in git, sent in chat 23:45). Waiting for Tony's notes. Then 9:16 (film.html needs a portrait layout: words top, rings below). Uploads don't carry over: ask Tony to re-attach Black Veil.
+- 25 Nov 00:44 data export (Drive, Forn data, saved outside the repo): phone is still on build 64; the re-pick loop fix is in build 65 (22 Nov 23:16), so the 4-minute loop is still running (397 re-picks in 21 hours). Tony to update in Obtainium; check the next export for "ignored" lines. Otherwise fine: hounslow-baseline passed 23 Nov 21:33 (after the 9pm line, so it counted for 24 Nov) and was told at 21:07 on the 24th.
 - Still open from 20:55: site preview rings-grow waiting for Tony to say live; Play store listing, then the store build.
 
 ### Earlier: next steps as of 24 Nov, 20:55
