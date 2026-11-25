@@ -15,6 +15,7 @@ Go about your day. Forn quietly notes the old places you pass: each one leaves d
 - Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under or passed, never "here".
 - A fact that has been told drops its circle.
 - Android allows 100 circles per app, and London alone has more. So the app watches the 99 nearest untold circles plus one ring around where you are; leave that ring (half the distance to the furthest watched circle, 1 to 30km) and it picks the nearest again (21 Nov).
+- Only trusted passes count (25 Nov): Android's enter is ignored when its fix is rougher than 200m or further than the circle's radius plus the fix's accuracy plus 100m from it (logged as passed? ... ignored). Tony was told Hounslow Heath on 24 Nov without going near it.
 - Already inside counts (zone fix, 21 Nov): when the circles are set up, and again at 9pm, any untold circle you're standing in counts as passed, at the time of that fix. Android's own "already inside" trigger doesn't always fire, which is how build 46 missed places.
 
 ## What you're told

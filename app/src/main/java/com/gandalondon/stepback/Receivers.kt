@@ -18,11 +18,27 @@ class PassedReceiver : BroadcastReceiver() {
             if (Fences.leftArea(c, event.triggeringLocation)) Fences.register(c)
         }
         if (event.geofenceTransition != Geofence.GEOFENCE_TRANSITION_ENTER) return
-        val ids = fences.filter { it.requestId != Fences.REFRESH }.map { Fences.spotId(it.requestId) }
+        val all = fences.filter { it.requestId != Fences.REFRESH }.map { Fences.spotId(it.requestId) }.distinct()
+        if (all.isEmpty()) return
+        val l = event.triggeringLocation
+        val at = if (l != null) "  at %.5f, %.5f (±%.0fm)".format(java.util.Locale.UK, l.latitude, l.longitude, l.accuracy) else ""
+        // Trust check (25 Nov): Tony was told Hounslow Heath on 24 Nov without going near it. Android can fire an
+        // enter from a rough network fix (and the re-pick loop re-armed every zone every 4 minutes, giving it hundreds
+        // of chances). Only count a spot when the fix is reasonably sharp and actually near one of its circles.
+        val ids = if (l == null) all else {
+            val spots = Spots.all(c).associateBy { it.id }
+            all.filter { id ->
+                val s = spots[id] ?: return@filter false
+                l.accuracy <= 200f && s.points.any { p ->
+                    val r = FloatArray(1); android.location.Location.distanceBetween(l.latitude, l.longitude, p.lat, p.lng, r)
+                    r[0] <= p.radius + l.accuracy + 100f
+                }
+            }
+        }
+        if (ids.size < all.size) TestLog.add(c, "passed? " + (all - ids.toSet()).joinToString(", ") + at + ", ignored (fix too rough or too far away)")
         if (ids.isEmpty()) return
         Store(c).addPassed(Day.key(), ids)
-        val l = event.triggeringLocation
-        TestLog.add(c, "passed " + ids.joinToString(", ") + (if (l != null) "  at %.5f, %.5f (±%.0fm)".format(java.util.Locale.UK, l.latitude, l.longitude, l.accuracy) else ""))
+        TestLog.add(c, "passed " + ids.joinToString(", ") + at)
     }
 }
 
