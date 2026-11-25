@@ -8,6 +8,7 @@
 - Dropped: The rest is dust, for now. (no room in 30s); Coming soon to London. (Tony 23:39: the app is out when the trailer is).
 - Render: marketing/forn-trailer-16x9.mp4 (not in git, sent in chat 23:45). Waiting for Tony's notes. Then 9:16 (film.html needs a portrait layout: words top, rings below). Uploads don't carry over: ask Tony to re-attach Black Veil.
 - 25 Nov 00:44 data export (Drive, Forn data, saved outside the repo): phone is still on build 64; the re-pick loop fix is in build 65 (22 Nov 23:16), so the 4-minute loop is still running (397 re-picks in 21 hours). Tony to update in Obtainium; check the next export for "ignored" lines. Otherwise fine: hounslow-baseline passed 23 Nov 21:33 (after the 9pm line, so it counted for 24 Nov) and was told at 21:07 on the 24th.
+- Tony 00:46: he didn't pass Hounslow Heath (nearest circle 51.4263, -0.3662, by Whitton, about 9 km from SW20). The pass itself fell off the 800-line log, so no fix to check. Likely a rough network fix firing an enter, with the 4-minute re-pick loop re-arming every zone. Build 66: enters only count with a fix of 200m or better within radius + accuracy + 100m of the circle (else logged passed? ... ignored). Rule in RULES.md.
 - Still open from 20:55: site preview rings-grow waiting for Tony to say live; Play store listing, then the store build.
 
 ### Earlier: next steps as of 24 Nov, 20:55
