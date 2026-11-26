@@ -12,7 +12,7 @@ Go about your day. Forn quietly notes the old places you pass: each one leaves d
 
 - Each place (a "spot") has one or more circles around it (a geofence). Crossing into one logs the spot and the time first passed. Nothing else is recorded: no GPS track.
 - No internet permission. Nothing leaves the phone.
-- Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under or passed, never "here".
+- Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under, over or passed, never "here" (How it works: near, under or over, for planes and trains).
 - A fact that has been told drops its circle.
 - Android allows 100 circles per app, and London alone has more. So the app watches the 99 nearest untold circles plus one ring around where you are; leave that ring (half the distance to the furthest watched circle, 1 to 30km) and it picks the nearest again (21 Nov).
 - Only trusted passes count (25 Nov): Android's enter is ignored when its fix is rougher than 200m or further than the circle's radius plus the fix's accuracy plus 100m from it (logged as passed? ... ignored). Tony was told Hounslow Heath on 24 Nov without going near it.

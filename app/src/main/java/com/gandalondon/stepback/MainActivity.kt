@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat
 class MainActivity : ComponentActivity() {
     private var tick by mutableIntStateOf(0)
     private var openSpot by mutableStateOf<String?>(null)
+    private var locationAsks = 0
     private var backgroundAsks = 0
     private var notifyAsks = 0
 
@@ -74,7 +75,7 @@ class MainActivity : ComponentActivity() {
             Night.schedule(this)
         }
         // Set up: from here the app is the rings (Web), with tonight's cards on top.
-        if (Fences.hasLocation(this) && Fences.hasBackground(this) && hasNotifications() && Crash.last(this) == null) {
+        if (Fences.hasLocation(this) && Fences.hasBackground(this) && hasNotifications() && (BuildConfig.STORE || Crash.last(this) == null)) {
             web?.refresh() ?: Web(this).also { web = it; setContentView(it.build()) }
         }
         tick++
@@ -109,7 +110,7 @@ class MainActivity : ComponentActivity() {
     @androidx.compose.runtime.Composable
     private fun Screen(@Suppress("UNUSED_PARAMETER") version: Int) {
         val store = Store(this)
-        val crash = Crash.last(this)
+        val crash = if (BuildConfig.STORE) null else Crash.last(this) // the crash page is a test aid
         when {
             // Test aid: if the app crashed, show what happened so Tony can screenshot it.
             crash != null -> Page(
@@ -119,11 +120,15 @@ class MainActivity : ComponentActivity() {
             )
 
             // Setup: one ask per screen, each with its own headline, so it's clear you've moved on.
+            // Play's prominent disclosure (26 Nov): before Android's prompt, say what's collected (location), that it's
+            // used while the app is closed, what for, and that it stays on the phone. Shown in both builds.
             !Fences.hasLocation(this) -> Page(
                 "Go about your day. Find out tonight.",
-                "Forn notices the old places you pass. At 9pm, it tells you the best of them. Your location never leaves your phone.",
+                "Forn uses your location, even when the app is closed or not in use, to notice the old places you pass. At 9pm it tells you the best of them. It keeps no track of where you went, and your location never leaves your phone.",
                 Choice("Allow location") {
-                    askLocation.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+                    // After two refusals Android stops asking, so go straight to the app's settings.
+                    if (locationAsks++ < 2) askLocation.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+                    else openAppSettings()
                 },
             )
 
@@ -157,8 +162,8 @@ class MainActivity : ComponentActivity() {
                         saved?.let { if (it.isBlank()) "Nothing was recorded." else "Saved to $it." } ?: if (n == 0) "You're all set. Forn will tell you what you passed at 9pm." else "You're all set. So far today: $n ${if (n == 1) "place" else "places"}. Find out what at 9pm.",
                         // Test aid (18 Nov): run tonight's 9pm line now, notification and all. Remove after testing.
                         // Test aids (18 Nov): Record walk saves a GPX track and the zone log to Downloads/Forn.
-                        Choice(if (TrackService.recording) "Stop and save" else "Record walk") { toggleWalk() },
-                        *(if (n > 0) arrayOf(Choice("Tell me now") { Night.run(this) { tick++ } }) else emptyArray()),
+                        *(if (BuildConfig.STORE) emptyArray<Choice>() else arrayOf(Choice(if (TrackService.recording) "Stop and save" else "Record walk") { toggleWalk() })),
+                        *(if (n > 0 && !BuildConfig.STORE) arrayOf(Choice("Tell me now") { Night.run(this) { tick++ } }) else emptyArray<Choice>()),
                     )
                 } else {
                     Page(spot.fact, spot.place)
