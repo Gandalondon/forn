@@ -1,8 +1,18 @@
 # Forn handover
 
-### Latest: Tue 24 Nov 2026, 23:45
 
-### Next session starts here (24 Nov, 23:45)
+### Latest: Thu 26 Nov 2026, 00:10
+
+### Next session starts here (26 Nov, 00:10)
+1. **Store build** (next, Tony agreed): package app.getforn (fresh install; rename stepback package id, APK name and signing key alias), target API 36, the location disclosure screen before Android's prompt, signed .aab for Play. Keep Send my data and the test log in the internal testing build, strip them for production (Tony still to confirm). See notes/play-store.md.
+2. **Location declaration video** (YouTube, for Play's background location form): needs the store build first (disclosure screen, prompt, then the feature). Tony doesn't want to walk out in the cold: plan is Android mock location (Developer options plus a fake GPS app) on the real store build, set to Cannon Hill Common, then the 9pm find. No special fake build (the video must show the build Google reviews). Walk him through it simply when the build exists.
+3. **Play listing draft, waiting for Tony's approval, nothing uploaded:** marketing/play-listing/ (5 screenshots 1080x1920, feature graphic 1024x500, icon 512, alt text, listing.md with short and full description). Made by tools/listing/capture.py (real app page, real facts, staged month of history) and make_listing.py. Open questions: a London only card first? Description says London, true only once content covers it.
+4. **Trailer v3** sent 24 Nov 23:55 (branch rings-grow, tools/trailer/film.html + film.py): waiting for Tony's notes, then 9:16. Music (Black Veil) must be re-attached in a new chat.
+5. Folio page task (after the store build): see below.
+- Email fixed 25 Nov 23:40 (ImprovMX MX and SPF records added in Vercel DNS); Tony confirmed hello@getforn.app works.
+- On the phone: build 67 (feedback and privacy buttons, trust check for rough location fixes, loop fix). Next export should show "passed? ... ignored" lines if any.
+
+### Earlier: 24 Nov, 23:45
 - Trailer v2 built (branch rings-grow): one continuous camera move, tools/trailer/film.html + film.py (python3 tools/trailer/film.py h stills 2.5 12 ... for stills; python3 tools/trailer/film.py h <black-veil.mp3> for the video, music laid under at -16 LUFS). Words cut on Black Veil's hits: You pass history every day. 0.5s, Forn notices it for you. 4.13s (balls 5.06, 5.52, 5.99), At 9pm, see what you missed. 7.36s, cards land 11.05, 14.28, 18.44 (2s each, flip left of the ball if they would cover another), Every day adds a ring. 21.66s (rings arrive, camera pulls back), Grow yours. 24.43s, end card 25.82s. Constant slow turn (0.13 rad/s), sine glides, past balls fade behind the words.
 - v3 (Tony 23:47): today's balls placed on the right of the ring while words are up (no fading); after At 9pm the ring glides to the middle and the camera keeps turning (clockwise, 0.3 rad/s); each card rises above the ring from its ball as it reaches the front (11.05, 14.28, 18.44); hard cut Grow yours. to the end card at 25.82s. Re-rendered, sent 23:55.
 - Dropped: The rest is dust, for now. (no room in 30s); Coming soon to London. (Tony 23:39: the app is out when the trailer is).
