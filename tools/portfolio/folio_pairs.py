@@ -14,6 +14,8 @@ for name,shots in PAIRS.items():
     for i,s in enumerate(shots):
         L=x0+i*STEP+SX
         box=(round(L),round(SY),round(L+SW),round(SY+SH)); w,h=box[2]-box[0],box[3]-box[1]
+        # Forn fix (26 Nov): paint the base's old screen in the frame colour first, so no white shows round the corners.
+        ImageDraw.Draw(im).rounded_rectangle((box[0]-4,box[1]-4,box[2]+4,box[3]+4),radius=R+4,fill=(47,48,53))
         shot=Image.open(os.path.join(SCR,s+".png")).convert("RGB").resize((w,h),Image.LANCZOS)
         m=Image.new("L",(w*S,h*S),0); ImageDraw.Draw(m).rounded_rectangle((0,0,w*S-1,h*S-1),radius=R*S,fill=255); m=m.resize((w,h),Image.LANCZOS)
         im.paste(shot,box[:2],m)
