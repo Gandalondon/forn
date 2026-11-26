@@ -17,7 +17,7 @@ No pings while you're out
 Nothing buzzes in your pocket. One moment at 9pm, then it leaves you alone.
 
 Nothing leaves your phone
-Forn needs your location all the time, so it knows what you passed with your phone in your pocket. It doesn't keep a track of where you went, only which places you passed and when. No account, no ads, nothing sent anywhere.
+Forn needs your location all the time, so it knows what you passed with your phone in your pocket. It doesn't keep a track of where you went, only which places you passed and when. No account, no ads. The only thing that ever leaves is what you choose to send with Tell me more.
 
 Tell me more
 Want to dig deeper? Tap Tell me more and Forn hands a question about that place to the app you pick: your AI, a search or your notes.

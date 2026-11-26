@@ -117,12 +117,17 @@ One ask per screen, each with its own headline:
 3. One quiet moment at 9pm. Allow notifications. (Once Android stops asking, the button opens the app's settings.)
 4. Enjoy your day. With the count of places passed.
 
-## Test aids (remove before anyone else uses it)
+## Test aids (Obtainium build only)
+
+The Play build (-Pstore, 26 Nov) has none of these: no Testing section, test log, crash page, Record walk (its service and foreground location permissions are removed from the manifest) or Tell me now. Tony keeps them in his Obtainium build while testing.
 
 - On the How it works page, a Testing section: zone status, Record walk (GPX track and zone log to Downloads/Forn), Show six months (example finds and dust, in memory only) and Send my data.
 - Crash recorder: shows the last crash on the next open.
 
 ## Builds
+
+- Version naming (same in every app): the version is set by hand in app/build.gradle.kts (1.0 at launch, 1.0.1 for fixes, 1.1 for features); the build is the GitHub run number. In the app: Version 1.0 (115). Release names: Forn 1.0 (115) on GitHub, 1.0 (115) on Play.
+- Two builds from one code base (26 Nov). Obtainium: com.gandalondon.stepback, Stepback.apk, key alias stepback, test aids in, every fact. Play: app.getforn, a signed .aab from the Play build job (.github/workflows/store.yml, run by hand or on pushes to the store-build branch, never publishes a release), upload key alias forn, no test aids, London facts only (the Scotland facts and their credit are left out). Target API 36 for both.
 
 - Every push to main builds a release named Forn and its build number, with the APK file still called Stepback.apk (see the top of this file). Obtainium watches the repo.
 - Signed with the permanent key (repo secrets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD; keystore kept on Tony's Mac, never in git), so updates install over the top.
