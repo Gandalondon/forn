@@ -1,14 +1,14 @@
 # Forn handover
 
 
-### Latest: Thu 26 Nov 2026, 00:10
+### Latest: Thu 26 Nov 2026, 21:10 (folio page drafted, see item 5)
 
 ### Next session starts here (26 Nov, 00:10)
 1. **Store build** (next, Tony agreed): package app.getforn (fresh install; rename stepback package id, APK name and signing key alias), target API 36, the location disclosure screen before Android's prompt, signed .aab for Play. Keep Send my data and the test log in the internal testing build, strip them for production (Tony still to confirm). See notes/play-store.md.
 2. **Location declaration video** (YouTube, for Play's background location form): needs the store build first (disclosure screen, prompt, then the feature). Tony doesn't want to walk out in the cold: plan is Android mock location (Developer options plus a fake GPS app) on the real store build, set to Cannon Hill Common, then the 9pm find. No special fake build (the video must show the build Google reviews). Walk him through it simply when the build exists.
 3. **Play listing draft, waiting for Tony's approval, nothing uploaded:** marketing/play-listing/ (5 screenshots 1080x1920, feature graphic 1024x500, icon 512, alt text, listing.md with short and full description). Made by tools/listing/capture.py (real app page, real facts, staged month of history) and make_listing.py. Open questions: a London only card first? Description says London, true only once content covers it.
 4. **Trailer v3** sent 24 Nov 23:55 (branch rings-grow, tools/trailer/film.html + film.py): waiting for Tony's notes, then 9:16. Music (Black Veil) must be re-attached in a new chat.
-5. Folio page task (after the store build): see below.
+5. **Folio page, drafted 26 Nov 21:10, NOT published** (Tony to review, then Publish in Storyblok): Storyblok story work/forn, duplicated from Hlid (same flow: intro + link + tall hero, then six text blocks each with an image). Draft preview: https://ganda-eta.vercel.app/api/draft?slug=work/forn. Images (Storyblok assets forn-home, forn_pair-notice, forn_pair-9pm, forn_pair-rings, forn_pair-again, forn-facts, forn-logo) are in marketing/folio/, made by tools/portfolio/ (hero.py: landing steps 0-6 stacked; pull.py: 9pm dust frames; setup.html: the Compose Allow location screen; folio_pairs.py: Hlid's pair script with the Hlid pair as frame base; facts.html: four shipped facts like Hlid's colours strip; marks.py: the site's own FORN fitting at three box shapes). Phone screens reuse tools/listing (Play listing renders). Known weak spot: the dust-only screen in pair 1 is faint. Copy says "218 London facts so far" and "In testing, London first": update when either changes.
 - Email fixed 25 Nov 23:40 (ImprovMX MX and SPF records added in Vercel DNS); Tony confirmed hello@getforn.app works.
 - On the phone: build 67 (feedback and privacy buttons, trust check for rough location fixes, loop fix). Next export should show "passed? ... ignored" lines if any.
 
