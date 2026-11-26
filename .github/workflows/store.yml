@@ -2,13 +2,13 @@ name: Play build
 
 # The Google Play build (26 Nov): app.getforn, no test tools, London facts only, signed with the Play upload key
 # (alias forn). Makes a signed .aab to download from the run's artifacts. It never publishes a release, so
-# Obtainium doesn't see it. Run by hand (Actions, Play build, Run workflow) or by pushing a tag play-*.
+# Obtainium doesn't see it. Run by hand (Actions, Play build, Run workflow) or by pushing to the store-build branch.
 # Secrets: UPLOAD_KEYSTORE_B64 and UPLOAD_PASSWORD. Without them it still builds, with a debug key, as a check only.
 
 on:
   workflow_dispatch:
   push:
-    tags: ['play-*']
+    branches: [store-build]  # while the Play build is being set up (26 Nov); main stays the Obtainium build
 
 jobs:
   bundle:
