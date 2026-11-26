@@ -1,0 +1,19 @@
+<!doctype html><meta charset=utf-8>
+<!-- Forn folio: four shipped facts from four eras, laid out like Hlid's colours strip (3560 x 1716 at 2x). -->
+<style>
+@font-face{font-family:I;src:url(../../app/src/main/res/font/instrument_sans.ttf)}
+html,body{margin:0;width:1780px;height:858px;background:#fff;font-family:I}
+.row{display:flex;gap:56px;justify-content:center;padding-top:80px}
+.c{width:300px}
+.card{box-sizing:border-box;height:651px;border-radius:32px;background:#1A1A1A;color:#fff;padding:32px;font-weight:600;font-size:28px;line-height:35px;text-wrap:pretty;hyphens:none}
+.l{margin-top:24px;font-size:20px;line-height:24px;color:#1A1A1A}
+</style>
+<div class=row id=r></div>
+<script>
+const F=[
+["Under Leadenhall Market lies Roman London's basilica, the largest north of the Alps. One of its piers survives in a barber's basement.","Leadenhall Market, AD 100"],
+["Dick Whittington paid for a public toilet by the Thames with 128 seats, 64 for men and 64 for women. The tide washed it out twice a day.","Bell Wharf Lane, 1420"],
+["In the Blitz, Foyles bookshop covered its roof with copies of Hitler's Mein Kampf instead of sandbags. Newsreels showed a clerk stacking them up.","Charing Cross Road, 1940"],
+["On 30 January 1969 the Beatles played on the roof of their Apple offices at 3 Savile Row. After 42 minutes, police told them to turn it down.","Savile Row, 1969"]];
+document.getElementById('r').innerHTML=F.map(([f,l])=>`<div class=c><div class=card>${f}</div><div class=l>${l}</div></div>`).join('');
+</script>
