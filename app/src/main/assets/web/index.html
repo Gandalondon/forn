@@ -83,16 +83,16 @@ body.carded .tally { opacity: 0; }
 
 <div class="page" id="sheet" role="dialog" aria-label="How it works">
   <div class="head"><button type="button" class="back" id="sheetClose" aria-label="Back"><svg viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="m274-450 227 227q9 9 9 21t-9 21q-9 9-21 9t-21-9L181-459q-5-5-7-10t-2-11q0-6 2-11t7-10l278-278q9-9 21-9t21 9q9 9 9 21t-9 21L274-510h496q13 0 21.5 8.5T800-480q0 13-8.5 21.5T770-450H274Z"/></svg></button><h2>How it works</h2></div>
-  <section><h3>Go about your day</h3><p>Forn notices the places you pass: near, under or over. At 9pm it tells you the best of them. Up to five, fewer on a quiet day.</p></section>
+  <section><h3>Go about your day</h3><p>Forn notices the places you pass: near, under or over. At 9pm it tells you the best of them. Up to five, fewer on a quiet day. Anything you pass after 9pm counts towards tomorrow.</p></section>
   <section><h3>Dust</h3><p>Every place you pass leaves dust on that day's ring: history you haven't uncovered yet. Lots of dust means you walked through lots of history.</p></section>
   <section><h3>Balls</h3><p>Each night Forn uncovers up to five places, and they become black balls. Tap one to read it again. Pass the dusty places again to uncover more. One ring for each day, today in the middle.</p></section>
   <section><h3>What it needs</h3><p>Your location, all the time, so it knows what you passed with your phone in your pocket. Notifications, for 9pm.</p></section>
   <section><h3>Tell me more</h3><p>Tap a ball, then Tell me more. It hands a question about that place to the app you pick: your AI, a search or your notes.</p></section>
   <section><h3>Privacy</h3><p>No track of where you went. It only notes the places you passed and when. Nothing leaves your phone, unless you share a place with Tell me more.</p></section>
-  <section><h3>Testing</h3><p id="testInfo"></p>
+  <section id="testing"><h3>Testing</h3><p id="testInfo"></p>
     <div class="pills"><button type="button" class="pill" id="walkBtn"></button><button type="button" class="pill" id="sixBtn"></button><button type="button" class="pill" id="dataBtn">Send my data</button></div>
   </section>
-  <section><h3>About</h3><p>Facts written from Historic England, Historic Environment Scotland and local history sources. Font: Instrument Sans (SIL OFL). Back icon: Material Symbols (Apache 2.0).<span id="buildNo"></span></p>
+  <section><h3>About</h3><p>Facts written from Historic England<span id="hes">, Historic Environment Scotland</span> and local history sources. Font: Instrument Sans (SIL OFL). Back icon: Material Symbols (Apache 2.0).<span id="buildNo"></span></p>
     <div class="pills"><button type="button" class="pill" id="feedbackBtn">Give feedback</button><button type="button" class="pill" id="privacyBtn">Privacy policy</button></div>
   </section>
 </div>
@@ -564,7 +564,8 @@ function tick(now) {
 const sheet = document.getElementById('sheet');
 function renderTest() {
   const p = S.passed || [];
-  try { const n = window.Forn && Forn.build && Forn.build(); if (n) document.getElementById('buildNo').textContent = ' Version 0.1 (' + n + ').'; } catch (e) {}  // 25 Nov: end of the About text, as Sniff; Version x (build) as every app
+  try { const n = window.Forn && Forn.build && Forn.build(); const v = (Forn.version && Forn.version()) || '1.0'; if (n) document.getElementById('buildNo').textContent = ' Version ' + v + ' (' + n + ').'; } catch (e) {}
+  if (S.store) { document.getElementById('testing').hidden = true; document.getElementById('hes').hidden = true; }  // Play build (26 Nov): no test tools, London facts only  // 25 Nov: end of the About text, as Sniff; Version x (build) as every app
   document.getElementById('testInfo').textContent = (S.fences ? S.fences + ' ' : '') + (S.recording ? 'Recording your walk. ' : '') + (S.saved ? `Saved to ${S.saved}.` : '');  // no list of today's passes: 9pm stays a surprise
   document.getElementById('walkBtn').textContent = S.recording ? 'Stop and save walk' : 'Record walk';
   document.getElementById('sixBtn').textContent = demo ? 'Back to my rings' : 'Show six months';

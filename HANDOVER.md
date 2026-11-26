@@ -1,7 +1,18 @@
 # Forn handover
 
 
-### Latest: Thu 26 Nov 2026, 23:40 (folio hero open, share idea to knock-on check, see items 5 and 6)
+### Latest: Thu 26 Nov 2026, 23:55 (Play build done, needs the upload key secrets; folio hero TBC)
+- Knock-on checks run on the share idea (still 1.1, not decided: the fact itself can show where you were, so the card says Uncovered, not Walked past, and today isn't highlighted by default) and on the app as it is. Tony: fix everything; keep Send my data in the Obtainium build, never in the Play build.
+- **Play build built (branch store-build, Play build job green, run 45913234973):** app.getforn, versionName 1.0, target API 36 (AGP 8.7.3 with android.suppressUnsupportedCompileSdk=36; AGP 8.10.1 failed on a missing kotlin-stdlib-jdk8 2.1.0), no Testing section, test log, crash page, Record walk or Tell me now, TrackService and FOREGROUND_SERVICE(_LOCATION) removed from its manifest, 209 of 218 facts (the 9 Scotland facts and the Historic Environment Scotland credit left out). The .aab is the run's artifact (Forn-1.0-N.aab).
+- **Needs Tony's Chrome (Mac on), cloud can't reach Actions secrets:** add repo secrets UPLOAD_KEYSTORE_B64 and UPLOAD_PASSWORD. The upload keystore (alias forn, RSA 4096, SHA-256 5B:FE:13:49:DF:6F:CA:61:92:5C:86:A7:D6:0D:72:07:33:5F:3D:0F:7E:2E:87:AA:9D:12:6F:32:85:63:20:DD) and its password were made on 26 Nov and live only in that chat's workspace (/home/claude/keys); copy both to the Mac next to the stepback keystore. If that workspace is gone before then, make a new one: nothing has been uploaded, so no key is lost. Until the secrets exist the .aab is debug-signed and Play refuses it.
+- Both builds: the location disclosure on the first setup screen (location used even when the app is closed or not in use, what for, no track, never leaves the phone); after two refusals Allow location opens the app's settings; Version 1.0 (build) under About; GitHub releases named Forn 1.0 (N); How it works says anything passed after 9pm counts towards tomorrow. RULES.md: the two builds, version naming, near/under/over/passed.
+- Listing draft (still waiting for approval, nothing uploaded): privacy line now The only thing that ever leaves is what you choose to send with Tell me more.
+- **To do in Play Console (Chrome):** availability UK only (price currently converted for other countries; a London app sold abroad means refunds). Then internal testing with the signed .aab, then the location declaration video (item 2 below).
+- Merged to main: yes, so Tony's Obtainium build gets the disclosure copy and the new version naming.
+- **Backlog at launch (visuals):** the site's Grow yours. step still says Coming soon to London. with Try it early: swap for the Play badge. Play screenshots, trailer and folio draft are fine.
+- **Folio hero: TBC (Tony).** Draft stays unpublished.
+
+### Earlier: Thu 26 Nov 2026, 23:40 (folio hero open, share idea to knock-on check, see items 5 and 6)
 
 ### Next session starts here (26 Nov, 00:10)
 1. **Store build** (next, Tony agreed): package app.getforn (fresh install; rename stepback package id, APK name and signing key alias), target API 36, the location disclosure screen before Android's prompt, signed .aab for Play. Keep Send my data and the test log in the internal testing build, strip them for production (Tony still to confirm). See notes/play-store.md.

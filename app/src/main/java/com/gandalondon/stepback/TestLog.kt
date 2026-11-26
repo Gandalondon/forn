@@ -14,7 +14,8 @@ object TestLog {
     private fun file(c: Context) = File(c.filesDir, "events.log")
     private val stamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK)
 
-    fun add(c: Context, line: String) = runCatching { file(c).appendText(stamp.format(Date()) + "  " + line + "\n") }
+    // The Play build keeps no test log (26 Nov), so nothing about passes is written beyond what the rings need.
+    fun add(c: Context, line: String) = if (BuildConfig.STORE) Unit else runCatching { file(c).appendText(stamp.format(Date()) + "  " + line + "\n") }.let { }
 
     fun read(c: Context): String = runCatching { file(c).readText() }.getOrDefault("")
 

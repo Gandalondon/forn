@@ -62,6 +62,10 @@ class Web(private val a: MainActivity) {
 
     inner class Bridge {
         /** The build number (GitHub run number = versionCode), shown under About in How it works (22 Nov). */
+        /** The hand-set version (1.0), shown as Version 1.0 (build). */
+        @JavascriptInterface
+        fun version(): String = a.packageManager.getPackageInfo(a.packageName, 0).versionName ?: ""
+
         @JavascriptInterface
         fun build(): Long = a.packageManager.getPackageInfo(a.packageName, 0).longVersionCode
 
@@ -99,6 +103,7 @@ class Web(private val a: MainActivity) {
             return JSONObject()
                 .put("today", today).put("finds", finds).put("cards", cards).put("dust", dust).put("passed", passed)
                 .put("recording", TrackService.recording).put("saved", saved).put("fences", Fences.status(a))
+                .put("store", BuildConfig.STORE) // Play build: no Testing section
                 .toString()
         }
 
@@ -136,7 +141,9 @@ class Web(private val a: MainActivity) {
          * crash notes and the last of the events log. No recorded GPX routes.
          */
         @JavascriptInterface
-        fun exportData() = main.post {
+        fun exportData() {
+            if (BuildConfig.STORE) return
+            main.post {
             runCatching {
                 fun dump(name: String) = JSONObject().also { o ->
                     a.getSharedPreferences(name, android.content.Context.MODE_PRIVATE).all.forEach { (k, v) ->
@@ -163,11 +170,13 @@ class Web(private val a: MainActivity) {
                     .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 a.startActivity(Intent.createChooser(send, "Send my data"))
             }.onFailure { TestLog.add(a, "Export failed: ${it.message}") }
+            }
         }
 
         /** Test aid: start or stop recording a walk. */
         @JavascriptInterface
         fun record(): String {
+            if (BuildConfig.STORE) return ""
             // Run on the main thread but wait for it, so the page reads the new state straight after (a second
             // tap used to stop the walk, because the label hadn't changed yet).
             val done = java.util.concurrent.CountDownLatch(1)

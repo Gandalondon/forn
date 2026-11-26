@@ -12,7 +12,7 @@ Go about your day. Forn quietly notes the old places you pass: each one leaves d
 
 - Each place (a "spot") has one or more circles around it (a geofence). Crossing into one logs the spot and the time first passed. Nothing else is recorded: no GPS track.
 - No internet permission. Nothing leaves the phone.
-- Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under or passed, never "here".
+- Circles match how a place is experienced: about 250 to 600m for something you'd walk past, 1 to 3.5km for landscape seen from a car, train or plane. The copy says near, under, over or passed, never "here" (How it works: near, under or over, for planes and trains).
 - A fact that has been told drops its circle.
 - Android allows 100 circles per app, and London alone has more. So the app watches the 99 nearest untold circles plus one ring around where you are; leave that ring (half the distance to the furthest watched circle, 1 to 30km) and it picks the nearest again (21 Nov).
 - Only trusted passes count (25 Nov): Android's enter is ignored when its fix is rougher than 200m or further than the circle's radius plus the fix's accuracy plus 100m from it (logged as passed? ... ignored). Tony was told Hounslow Heath on 24 Nov without going near it.
@@ -117,12 +117,17 @@ One ask per screen, each with its own headline:
 3. One quiet moment at 9pm. Allow notifications. (Once Android stops asking, the button opens the app's settings.)
 4. Enjoy your day. With the count of places passed.
 
-## Test aids (remove before anyone else uses it)
+## Test aids (Obtainium build only)
+
+The Play build (-Pstore, 26 Nov) has none of these: no Testing section, test log, crash page, Record walk (its service and foreground location permissions are removed from the manifest) or Tell me now. Tony keeps them in his Obtainium build while testing.
 
 - On the How it works page, a Testing section: zone status, Record walk (GPX track and zone log to Downloads/Forn), Show six months (example finds and dust, in memory only) and Send my data.
 - Crash recorder: shows the last crash on the next open.
 
 ## Builds
+
+- Version naming (same in every app): the version is set by hand in app/build.gradle.kts (1.0 at launch, 1.0.1 for fixes, 1.1 for features); the build is the GitHub run number. In the app: Version 1.0 (115). Release names: Forn 1.0 (115) on GitHub, 1.0 (115) on Play.
+- Two builds from one code base (26 Nov). Obtainium: com.gandalondon.stepback, Stepback.apk, key alias stepback, test aids in, every fact. Play: app.getforn, a signed .aab from the Play build job (.github/workflows/store.yml, run by hand or on pushes to the store-build branch, never publishes a release), upload key alias forn, no test aids, London facts only (the Scotland facts and their credit are left out). Target API 36 for both.
 
 - Every push to main builds a release named Forn and its build number, with the APK file still called Stepback.apk (see the top of this file). Obtainium watches the repo.
 - Signed with the permanent key (repo secrets SIGNING_KEYSTORE_B64 and SIGNING_PASSWORD; keystore kept on Tony's Mac, never in git), so updates install over the top.
