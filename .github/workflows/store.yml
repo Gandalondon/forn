@@ -44,6 +44,12 @@ jobs:
           set -o pipefail
           gradle :app:bundleRelease -Pstore --no-daemon --stacktrace 2>&1 | tee build.log
 
+      - name: Show what ships
+        run: |
+          m=$(find app/build/intermediates -path '*release*' -name AndroidManifest.xml | grep -i merged | head -1)
+          grep -oE 'package="[^"]+"|targetSdkVersion="[0-9]+"|versionName="[^"]+"|uses-permission android:name="[^"]+"|service android:name="[^"]+"' "$m" | sed 's/^/::notice::/'
+          unzip -p app/build/outputs/bundle/release/app-release.aab base/assets/spots.json | python3 -c "import json,sys; print('::notice::spots', len(json.load(sys.stdin)))"
+
       # A check that Tony's Obtainium build still compiles with the same code (not published from here).
       - name: Check the Obtainium build
         env:
