@@ -12,3 +12,14 @@ Forn is paid, so every source needs commercial use allowed. Facts are always rew
 | Old Bailey Online | Trials 1674 to 1913 | Non-commercial only: leads at most, never the source | n/a |
 
 Use order per area run: NHLE and Wikidata for points and dates, Wikipedia for the story (as now), Open Plaques and OSM for music, film and people, London Remembers only to find leads.
+
+## Shell test and first pull (27 Nov 2026, 00:52 to 01:05, scheduled data dig)
+| Source | From the shell, 27 Nov | Pulled for Greater London |
+|---|---|---|
+| NHLE via services-eu1.arcgis.com (National_Heritage_List_for_England_NHLE_v02_VIEW, layers 0 listed points, 6 scheduled monuments) | Works. Paged at 2,000; listed points are multipoint (no centroid), scheduled monuments are polygons (returnCentroid) | 19,176 listed buildings (24,453 in the box, 196 skipped as shipped), 161 scheduled monuments (12 skipped) |
+| Wikidata SPARQL | Works | 2,561 heritage places with an English Wikipedia article, 218 filming locations, 762 music, film and crime places (studios, venues, clubs, cinemas, theatres, prisons, courts) |
+| openplaques.org | Not usable: the site answers, but every bulk and area endpoint (plaques.json, places/gb/areas/london, data.json, geojson box) returns 503 or 500, and by 00:59 even single plaques (plaques/1.json) returned 503. Their server, not our allowlist. Try again another night | Nothing. Wikidata items with an Open Plaques id in London: only 12, dropped |
+| overpass-api.de | Not usable: connection reset on every request (GET and POST), three tries | Nothing |
+| londonremembers.com | Blocked: the bare domain redirects to www.londonremembers.com, which the proxy refuses (403). Allow www.londonremembers.com too | Nothing |
+
+Files: content/candidates/ (README has licences and credits), scripts tools/candidates/. Ranking for area order: content/candidates/ranked.json.
