@@ -46,6 +46,8 @@ Each spot has:
 
 ## Writing rules (confirmed by Tony, 21 Nov)
 
+Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell you: what's under it, what used to be there, what happened there that nothing on the street shows. A famous place is fine when the fact is the hidden part (Piccadilly Circus closed to film crews for 15 years). If a plaque or a sign already says it, the fact has to go beyond it.
+
 1. The single most interesting, surprising fact about the place. Aim for whoa, not merely amusing.
 2. Every claim in the notification and the card is in the source.
 3. History, not horror (revised 22 Nov). Crime, robberies, gangs, scandals (sex scandals included), executions, a famous person's death or murder are all in: grim but fascinating is fine when it's history (Execution Dock, the coffin trains). Out: recent tragedies with real victims (fatal crashes, disasters, terror attacks), ghosts of victims, gore and anything explicit. Still out: restaurants and "described as" quotes.
@@ -66,6 +68,10 @@ Each spot has:
 Shipped facts over a limit (Tony, 27 Nov: shorten them, shorter is better): every shipped card over 150 characters (164 of 218 on 27 Nov), plus the copy runs (crystal-palace-dinner, werewolf-piccadilly) and long lines (pepys-barnet-well, werewolf-piccadilly). The nightly runs rewrite them in spare capacity, 20 or so a night, and also split or cut any card that carries two facts (rule 6: keep the one the line promises). They go to Tony as a sampled review page like an area (12 random rewrites; 0 or 1 reject ships the batch).
 
 18. Tone (27 Nov, agreed by Tony): plain, confident and curious, like a well-read friend, not a guidebook. Lead with the surprise, then the one detail that makes it land. Contractions are fine (it's, wasn't), never 'd. UK spelling. Digits for numbers, rounded. No jokes, puns, exclamation marks or rhetorical questions; the fact does the work. No superlatives unless the source states them (first, oldest), and never two in one card.
+19. Firsts need two sources (27 Nov): any first, oldest, only or biggest needs two independent sources (Wikipedia counts once). Otherwise say one of the first, or drop it.
+20. Nothing that goes stale (27 Nov): past tense by default. Still only for things that can't easily vanish (a church, a stone circle, a bridge); never for shops, pubs, clubs, plaques or anything privately owned.
+21. Honest scores (27 Nov): in each area, at most 1 in 5 facts scored 9 or 10. Review pages show the score so Tony can call out inflation.
+22. Whose stories (27 Nov): each area run looks for women's, migrants' and working people's stories as well as the famous men and royals the sources lean to. A nudge, no quotas.
 
 15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
 16. Own words: facts are rewritten, never copied. At most 9 words in a row from any source, checked by lint.py; a famous quote in quotation marks (Churchill's so few) is the only exception. Wikipedia is CC BY-SA, list entries are Crown copyright text. Facts themselves aren't owned; the wording is.
