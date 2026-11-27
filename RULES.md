@@ -56,7 +56,7 @@ Each spot has:
 8. Don't name people who'd need explaining.
 9. No jargon, odd phrasing, old or foreign words, or places locals wouldn't know. Round numbers.
 10. Give the cause if the source has it.
-11. Lengths (hard limits from 27 Nov, checked by tools/pipeline/lint.py): the notification line at most 20 words and 120 characters; the card at most 35 words.
+11. Lengths (hard limits from 27 Nov, checked by tools/pipeline/lint.py): the notification line at most 20 words and 120 characters; the card at most 150 characters and 35 words (Tony, 27 Nov: shorter is nicer; the Tyrebagger card, 146 characters, is the benchmark: eight lines on his Pixel, clear of the buttons).
 12. A fact that needs local or background knowledge to land is out. A card rejected twice is dropped, not rewritten again.
 13. Every fact keeps its source text (in the content pipeline's files).
 14. Film, TV and music count when they've become history (22 Nov): where a band formed or played its first gig, a famous scene filmed on a street you'd walk past, from about 25 years ago or more (the 1989 Batman, not the 2022 one). Recent filming trivia is out. Aim for a modern mix: some 1960s to 1990s finds dotted among the older ones.

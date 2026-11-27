@@ -27,7 +27,7 @@ for path in sys.argv[1:]:
     for f in json.load(open(path)):
         p = []
         w = len(f["fact"].split())
-        if w > 35: p.append(f"card {w} words (max 35)")
+        if w > 35 or len(f["fact"]) > 150: p.append(f"card {w} words, {len(f['fact'])} characters (max 35 and 150)")
         lw, lc = len(f["line"].split()), len(f["line"])
         if lw > 20 or lc > 120: p.append(f"line {lw} words, {lc} characters (max 20 and 120)")
         src = f.get("source_text") or SRC.get(f["id"])
