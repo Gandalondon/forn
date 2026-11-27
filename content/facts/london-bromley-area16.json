@@ -1,0 +1,1845 @@
+[
+ {
+  "id": "bromley-palace-bishops",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Bromley Palace, Bromley",
+  "points": [
+   [
+    51.40342,
+    0.02145,
+    350
+   ]
+  ],
+  "line": "Did you know, Bromley's council offices were once a bishops' palace for about 700 years?",
+  "fact": "The house Bromley council moved into in 1982 was the palace of the bishops of Rochester from the 1100s until 1845, when a local merchant bought it.",
+  "source": "Wikipedia: Bromley Palace",
+  "year": 1185,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "wells-freedom",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Market Square, Bromley",
+  "points": [
+   [
+    51.4058,
+    0.0143,
+    300
+   ]
+  ],
+  "line": "Did you know, H.G. Wells turned down the freedom of Bromley, the town he was born in?",
+  "fact": "Offered the freedom of his home town, Wells said no: \"Bromley has not been particularly gracious to me nor I to Bromley\".",
+  "source": "Wikipedia: Bromley",
+  "year": 1911,
+  "topic": "politics",
+  "area": "bromley"
+ },
+ {
+  "id": "wells-father-four-balls",
+  "kind": "victorian",
+  "score": 7,
+  "place": "High Street, Bromley",
+  "points": [
+   [
+    51.40595,
+    0.01412,
+    300
+   ]
+  ],
+  "line": "Did you know, H.G. Wells's father once took 4 wickets in 4 balls for Kent?",
+  "fact": "Joseph Wells ran a struggling china and sports shop in Bromley. He also bowled for Kent, and in 1862 took 4 Sussex wickets in 4 balls.",
+  "source": "Wikipedia: Joseph Wells (cricketer); Bromley",
+  "year": 1862,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "royal-bell-austen",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Royal Bell Hotel, Bromley",
+  "points": [
+   [
+    51.40584,
+    0.01433,
+    250
+   ]
+  ],
+  "line": "Did you know, a Bromley coaching inn gets a mention in Jane Austen's Pride and Prejudice?",
+  "fact": "Bromley was a key coaching stop on the road from London to Hastings, and Jane Austen named its Royal Bell inn in Pride and Prejudice.",
+  "source": "Wikipedia: Bromley",
+  "year": 1813,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "bromley-broom",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Martin's Hill, Bromley",
+  "points": [
+   [
+    51.40492,
+    0.01108,
+    300
+   ]
+  ],
+  "line": "Did you know, Bromley is named after broom, a yellow shrub that once grew all over the area?",
+  "fact": "Bromley means a clearing where broom grows. In the 1800s Martin's Hill, now the war memorial garden, was one of the last places it still flowered.",
+  "source": "Wikipedia: Bromley War Memorial; Bromley",
+  "year": 1850,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "johnson-tetty-grave",
+  "kind": "georgian",
+  "score": 7,
+  "place": "St Peter and St Paul, Bromley",
+  "points": [
+   [
+    51.4049,
+    0.01312,
+    250
+   ]
+  ],
+  "line": "Did you know, Samuel Johnson came to Bromley's church in 1753 to say goodbye to his late wife?",
+  "fact": "The writer's wife Tetty was buried here. He came to take leave of her, and was relieved to find his wish to marry again had cooled.",
+  "source": "Wikipedia: St Peter and St Paul, Bromley",
+  "year": 1753,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "bromley-church-bomb",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "St Peter and St Paul, Bromley",
+  "points": [
+   [
+    51.4049,
+    0.01312,
+    300
+   ]
+  ],
+  "line": "Did you know, a bomb in 1941 left only the tower of Bromley's parish church standing?",
+  "fact": "On the night of 16 April 1941 a bomb destroyed almost all of St Peter and St Paul but its medieval tower. The church was rebuilt around it.",
+  "source": "Wikipedia: St Peter and St Paul, Bromley",
+  "year": 1941,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "downham-wall",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "Valeswood Road, Plaistow",
+  "points": [
+   [
+    51.4185,
+    0.01,
+    600
+   ]
+  ],
+  "line": "Did you know, in 1926 Plaistow residents had a wall built to keep out working-class neighbours?",
+  "fact": "Locals complained that 'vulgar' working-class people from the Downham estate were cutting through to Bromley. A wall went up and stood about 10 years.",
+  "source": "Wikipedia: Plaistow, Bromley",
+  "year": 1926,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "sundridge-corn",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Sundridge Park, Bromley",
+  "points": [
+   [
+    51.417,
+    0.03767,
+    400
+   ]
+  ],
+  "line": "Did you know, the Sundridge Park mansion was paid for by corn bought abroad when England ran short?",
+  "fact": "John Nash designed it in about 1797 for Claude Scott, a corn merchant who grew rich helping the government buy foreign corn in times of scarcity.",
+  "source": "Wikipedia: Sundridge Park Mansion, London",
+  "year": 1797,
+  "topic": "work",
+  "area": "bromley"
+ },
+ {
+  "id": "pearson-cox-steam",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Shortlands",
+  "points": [
+   [
+    51.3983,
+    0.0039,
+    500
+   ]
+  ],
+  "line": "Did you know, steam-powered cars were made in Shortlands in the 1910s?",
+  "fact": "From 1908 to 1916 Shortlands had its own car maker, Pearson & Cox. In 1913 it built steam-powered cars and bicycles as well as small petrol cyclecars.",
+  "source": "Wikipedia: Shortlands",
+  "year": 1913,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "hayes-lane-nigeria",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Hayes Lane, Bromley",
+  "points": [
+   [
+    51.39,
+    0.0211,
+    350
+   ]
+  ],
+  "line": "Did you know, Bromley FC's ground had its record crowd for a game against a team from Nigeria?",
+  "fact": "In 1948 almost 11,000 people packed Hayes Lane for a friendly between Bromley and a Nigeria XI, the ground's record attendance.",
+  "source": "Wikipedia: Hayes Lane",
+  "year": 1948,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "evelyn-highwaymen",
+  "kind": "stuart",
+  "score": 6,
+  "place": "Bromley Common",
+  "points": [
+   [
+    51.3841,
+    0.0349,
+    500
+   ]
+  ],
+  "line": "Did you know, the diarist John Evelyn was robbed by highwaymen on Bromley Common?",
+  "fact": "Bromley Common lay on the main road from Hastings to London and was a profitable haunt for highwaymen. In 1652 they robbed John Evelyn here.",
+  "source": "Wikipedia: Bromley Common",
+  "year": 1652,
+  "topic": "crime",
+  "area": "bromley"
+ },
+ {
+  "id": "crompton-glebe",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Oakley Road, Bromley Common",
+  "points": [
+   [
+    51.38011,
+    0.04259,
+    500
+   ]
+  ],
+  "line": "Did you know, the Just William books paid for a Bromley Common house for their author and her mother?",
+  "fact": "The Just William stories did so well that Richmal Crompton, once a Classics teacher, built The Glebe on Oakley Road for herself and her mother.",
+  "source": "Wikipedia: Richmal Crompton; Bromley Common",
+  "year": 1926,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "bowie-frampton-art",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Ravens Wood School, Keston",
+  "points": [
+   [
+    51.36889,
+    0.03639,
+    400
+   ]
+  ],
+  "line": "Did you know, David Bowie and Peter Frampton were taught art by Frampton's dad?",
+  "fact": "In the early 1960s Bromley Technical High School's art teacher was Owen Frampton. His pupils included David Bowie and his own son Peter.",
+  "source": "Wikipedia: Ravens Wood School",
+  "year": 1962,
+  "topic": "music",
+  "area": "bromley"
+ },
+ {
+  "id": "kureishi-buddha",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Ravens Wood School, Keston",
+  "points": [
+   [
+    51.36889,
+    0.03639,
+    400
+   ]
+  ],
+  "line": "Did you know, the novel The Buddha of Suburbia drew on its author's years at a Bromley school?",
+  "fact": "Hanif Kureishi said he was \"literally the only brown person\" at Bromley Technical High School. Those years fed his 1990 novel.",
+  "source": "Wikipedia: Hanif Kureishi; The Buddha of Suburbia (novel)",
+  "year": 1990,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "wilberforce-oak",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Holwood, Keston",
+  "points": [
+   [
+    51.34793,
+    0.04307,
+    500
+   ]
+  ],
+  "line": "Did you know, William Wilberforce decided to take on the slave trade under an oak tree at Keston?",
+  "fact": "Visiting Pitt the Younger at Holwood, William Wilberforce resolved by an oak above the Keston valley to ask Parliament to end the slave trade.",
+  "source": "Wikipedia: Holwood House; Keston",
+  "year": 1788,
+  "topic": "politics",
+  "area": "bromley"
+ },
+ {
+  "id": "holwood-fort-levelled",
+  "kind": "prehistory",
+  "score": 7,
+  "place": "Holwood, Keston",
+  "points": [
+   [
+    51.34793,
+    0.04307,
+    500
+   ]
+  ],
+  "line": "Did you know, Pitt the Younger is thought to have flattened part of an Iron Age fort for his garden?",
+  "fact": "Holwood's grounds hold an Iron Age fort called Caesar's Camp. Pitt the Younger is thought to have flattened parts of it to landscape his gardens.",
+  "source": "Wikipedia: Holwood House",
+  "year": -100,
+  "topic": "ancient",
+  "area": "bromley"
+ },
+ {
+  "id": "keston-marke",
+  "kind": "stuart",
+  "score": 6,
+  "place": "Keston Church, Keston",
+  "points": [
+   [
+    51.3484,
+    0.03537,
+    300
+   ]
+  ],
+  "line": "Did you know, Keston's medieval church has no saint, just a cross called the Keston Marke?",
+  "fact": "Keston's medieval church, unusually, isn't named after a saint. Its symbol instead is an ornate cross inlaid in its 17th-century altar top.",
+  "source": "Wikipedia: Keston",
+  "year": 1650,
+  "topic": "religion",
+  "area": "bromley"
+ },
+ {
+  "id": "keston-common-darwin",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Keston Common",
+  "points": [
+   [
+    51.3584,
+    0.0348,
+    400
+   ]
+  ],
+  "line": "Did you know, Charles Darwin studied plants and animals on Keston Common for his books?",
+  "fact": "Darwin's home at Down House was 2 miles away, and he often came to study the common's wildlife for his books on earthworms and meat-eating plants.",
+  "source": "Wikipedia: Keston Common",
+  "year": 1870,
+  "topic": "science",
+  "area": "bromley"
+ },
+ {
+  "id": "hayes-pitts-roads",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Hayes Place, Hayes",
+  "points": [
+   [
+    51.37837,
+    0.01806,
+    350
+   ]
+  ],
+  "line": "Did you know, 2 prime ministers, father and son, lived in a Hayes house that was knocked down in 1933?",
+  "fact": "Pitt the Elder and Pitt the Younger both lived at Hayes Place, a house from the 1400s. A developer knocked it down in 1933; 2 road names recall them.",
+  "source": "Wikipedia: Hayes, Bromley",
+  "year": 1933,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "john-panis-hayes",
+  "kind": "georgian",
+  "score": 7,
+  "place": "St Mary the Virgin, Hayes",
+  "points": [
+   [
+    51.37837,
+    0.01806,
+    300
+   ]
+  ],
+  "line": "Did you know, an enslaved Native American man is buried in Hayes churchyard?",
+  "fact": "John Panis was brought to England as a slave and died in 1763. Panis was the general word for an enslaved Native American.",
+  "source": "Wikipedia: St Mary the Virgin, Hayes, Bromley",
+  "year": 1763,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "hayes-common-saved",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Hayes Common",
+  "points": [
+   [
+    51.369,
+    0.02,
+    500
+   ]
+  ],
+  "line": "Did you know, local commoners stopped Hayes Common being sold off for housing in 1869?",
+  "fact": "When nearby West Wickham Common was sold off for houses in the 1860s, Hayes commoners fought back. In 1869 their common won legal protection.",
+  "source": "Wikipedia: Hayes Common",
+  "year": 1869,
+  "topic": "law",
+  "area": "bromley"
+ },
+ {
+  "id": "hayes-canadian-guns",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Hayes Common",
+  "points": [
+   [
+    51.369,
+    0.02,
+    500
+   ]
+  ],
+  "line": "Did you know, Canadian soldiers crewed anti-aircraft guns on Hayes Common in the Second World War?",
+  "fact": "During the Second World War the anti-aircraft battery on Hayes Common was manned by soldiers of the 1st Canadian Division, who lodged in local homes.",
+  "source": "Wikipedia: Hayes, Bromley",
+  "year": 1940,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "bowie-free-festival",
+  "kind": "modern",
+  "score": 8,
+  "place": "Croydon Road Recreation Ground, Beckenham",
+  "points": [
+   [
+    51.40354,
+    -0.03463,
+    350
+   ]
+  ],
+  "line": "Did you know, David Bowie put on a free festival at a Beckenham bandstand, then wrote a song about it?",
+  "fact": "In August 1969 David Bowie helped run and played a free one-day festival at this bandstand. His song Memory of a Free Festival is about it.",
+  "source": "Wikipedia: Croydon Road Recreation Ground; Memory of a Free Festival",
+  "year": 1969,
+  "topic": "music",
+  "area": "bromley"
+ },
+ {
+  "id": "beckenham-balloon-post",
+  "kind": "modern",
+  "score": 7,
+  "place": "Croydon Road Recreation Ground, Beckenham",
+  "points": [
+   [
+    51.4037,
+    -0.0329,
+    350
+   ]
+  ],
+  "line": "Did you know, a balloon carrying the post took off from a Beckenham park and landed in France?",
+  "fact": "In 1902, for Edward VII's coronation, a hot air balloon left this park with mail. It dropped letters in Kent, then crossed the Channel to near Calais.",
+  "source": "Wikipedia: Croydon Road Recreation Ground",
+  "year": 1902,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "chinese-garage-japanese",
+  "kind": "modern",
+  "score": 6,
+  "place": "Chinese Garage, Beckenham",
+  "points": [
+   [
+    51.39888,
+    -0.01875,
+    300
+   ]
+  ],
+  "line": "Did you know, Beckenham's Chinese Garage was actually designed to look Japanese?",
+  "fact": "The roundabout's petrol station was built in 1928 as a Japanese pagoda. Locals called it the Chinese Garage; its real name was Langley Park Garage.",
+  "source": "Wikipedia: Chinese Garage",
+  "year": 1928,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "name-beck",
+  "kind": "saxon",
+  "score": 6,
+  "place": "River Beck, Kelsey Park, Beckenham",
+  "points": [
+   [
+    51.402,
+    -0.023,
+    400
+   ]
+  ],
+  "line": "Did you know, the River Beck most likely took its name from Beckenham, not the other way round?",
+  "fact": "Beckenham is thought to mean Beohha's homestead and was recorded in 862. Its stream, the Beck, was most likely named after the village.",
+  "source": "Wikipedia: Beckenham",
+  "year": 862,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "beckenham-lychgate",
+  "kind": "medieval",
+  "score": 7,
+  "place": "St George's Church, Beckenham",
+  "points": [
+   [
+    51.4092,
+    -0.02471,
+    300
+   ]
+  ],
+  "line": "Did you know, the gate into Beckenham's churchyard is about 600 years older than the church behind it?",
+  "fact": "The roofed timber gate into St George's churchyard dates from the 1200s. The church behind it was rebuilt in the 1880s, about 600 years later.",
+  "source": "Wikipedia: St George's Church, Beckenham",
+  "year": 1250,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "blyton-waste-of-time",
+  "kind": "modern",
+  "score": 7,
+  "place": "Beckenham",
+  "points": [
+   [
+    51.4077,
+    -0.022,
+    600
+   ]
+  ],
+  "line": "Did you know, Enid Blyton's mother thought her writing was a waste of time and money?",
+  "fact": "Enid Blyton grew up in Beckenham. As a schoolgirl she was offered the chance to print her poems, but her mother called it a waste of time and money.",
+  "source": "Wikipedia: Enid Blyton",
+  "year": 1911,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "beckenham-wimbledon-rehearsal",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Foxgrove Road, Beckenham",
+  "points": [
+   [
+    51.4138,
+    -0.02099,
+    300
+   ]
+  ],
+  "line": "Did you know, for 110 years a Beckenham sports ground was where tennis stars warmed up for Wimbledon?",
+  "fact": "From 1886 to 1996 a grass-court tournament here was a dress rehearsal for Wimbledon. 33 of its winners went on to win Wimbledon the same year.",
+  "source": "Wikipedia: Foxgrove Road, Beckenham",
+  "year": 1886,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "bedlam-monks-orchard",
+  "kind": "modern",
+  "score": 9,
+  "place": "Bethlem Royal Hospital, Monks Orchard",
+  "points": [
+   [
+    51.38083,
+    -0.02944,
+    500
+   ]
+  ],
+  "line": "Did you know, the hospital that gave English the word bedlam moved to Monks Orchard in 1930?",
+  "fact": "Bethlem hospital, nicknamed Bedlam, was founded in the City of London in 1247; its nickname became the word for chaos. In 1930 it moved out here.",
+  "source": "Wikipedia: Bethlem Royal Hospital",
+  "year": 1930,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "crystal-palace-fire-crystal",
+  "kind": "modern",
+  "score": 8,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.42229,
+    -0.07579,
+    400
+   ]
+  ],
+  "line": "Did you know, the Crystal Palace fire was spotted by its manager while out with his daughter, Crystal?",
+  "fact": "The Crystal Palace burned down in 1936. Its manager saw the first glow while out walking the dog with his daughter Crystal, named after the building.",
+  "source": "Wikipedia: The Crystal Palace",
+  "year": 1936,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "girl-guides-crystal-palace",
+  "kind": "modern",
+  "score": 8,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.4223,
+    -0.0758,
+    400
+   ]
+  ],
+  "line": "Did you know, the Girl Guides began after girls turned up at a Scout meeting in Crystal Palace Park?",
+  "fact": "At a Boy Scout meeting at the Crystal Palace in 1909, Robert Baden-Powell saw how keen girls were on Scouting. It led to the Girl Guides.",
+  "source": "Wikipedia: The Crystal Palace",
+  "year": 1909,
+  "topic": "traditions",
+  "area": "bromley"
+ },
+ {
+  "id": "hms-crystal-palace",
+  "kind": "modern",
+  "score": 8,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.4222,
+    -0.0757,
+    400
+   ]
+  ],
+  "line": "Did you know, during the First World War the Crystal Palace was a navy base called HMS Crystal Palace?",
+  "fact": "In the First World War the glass palace became a navy training base, known as HMS Crystal Palace. Over 125,000 men trained for war there.",
+  "source": "Wikipedia: The Crystal Palace",
+  "year": 1914,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "crystal-palace-circuit",
+  "kind": "modern",
+  "score": 9,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.4214,
+    -0.06944,
+    400
+   ]
+  ],
+  "line": "Did you know, Formula One cars once raced around the paths of Crystal Palace Park?",
+  "fact": "From 1927 a motor racing track ran along the park's paths, and Formula One cars raced here. It shut in 1974, once racing in a park was judged unsafe.",
+  "source": "Wikipedia: Crystal Palace Circuit",
+  "year": 1927,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "crystal-palace-air-railway",
+  "kind": "victorian",
+  "score": 9,
+  "place": "Crystal Palace Park",
+  "points": [
+   [
+    51.4203,
+    -0.0705,
+    450
+   ]
+  ],
+  "line": "Did you know, an 1864 railway in Crystal Palace Park sucked its carriage through a tunnel with a giant fan?",
+  "fact": "In 1864 a huge fan sucked a test railway's carriage along an airtight tunnel here, and back again. Rides cost sixpence and took 50 seconds.",
+  "source": "Wikipedia: Crystal Palace pneumatic railway",
+  "year": 1864,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "keith-moon-pirate",
+  "kind": "modern",
+  "score": 7,
+  "place": "Crystal Palace Bowl, Crystal Palace Park",
+  "points": [
+   [
+    51.424,
+    -0.0691,
+    350
+   ]
+  ],
+  "line": "Did you know, the Who's drummer once served tea and cake from a rowing boat in Crystal Palace Park?",
+  "fact": "Hosting a 1972 concert at the park's stage, the Who's drummer Keith Moon flew in by helicopter, then rowed the lake dressed as a pirate, serving tea.",
+  "source": "Wikipedia: Crystal Palace Bowl",
+  "year": 1972,
+  "topic": "music",
+  "area": "bromley"
+ },
+ {
+  "id": "guy-the-gorilla",
+  "kind": "modern",
+  "score": 6,
+  "place": "Lower Lake, Crystal Palace Park",
+  "points": [
+   [
+    51.41877,
+    -0.06464,
+    300
+   ]
+  ],
+  "line": "Did you know, the marble gorilla by Crystal Palace's lake is a portrait of London Zoo's Guy?",
+  "fact": "The black marble gorilla by the lake is Guy, a London Zoo favourite. He reached the zoo on Guy Fawkes Day 1947, which is how he got his name.",
+  "source": "Wikipedia: Gorilla (sculpture)",
+  "year": 1961,
+  "topic": "animals",
+  "area": "bromley"
+ },
+ {
+  "id": "name-anerley",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Anerley Station, Anerley",
+  "points": [
+   [
+    51.41247,
+    -0.06568,
+    350
+   ]
+  ],
+  "line": "Did you know, Anerley is named after a Scotsman's house called Anerly, Scots for solitary?",
+  "fact": "In 1827 a Scottish merchant built the first house on old Penge Common and called it Anerly, Scots for solitary. The road and the area took its name.",
+  "source": "Wikipedia: Anerley; Anerley railway station",
+  "year": 1827,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "anerley-pleasure-gardens",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Anerley Arms, Anerley",
+  "points": [
+   [
+    51.41247,
+    -0.06568,
+    300
+   ]
+  ],
+  "line": "Did you know, Anerley once had pleasure gardens with a boating lake and a maze?",
+  "fact": "From 1841 rail travellers came to Anerley's pleasure gardens for dances, a boating lake and a maze. They shut in 1868, beaten by the Crystal Palace.",
+  "source": "Wikipedia: Anerley",
+  "year": 1841,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "naoroji-anerley-oath",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Anerley Park, Anerley",
+  "points": [
+   [
+    51.4147,
+    -0.067,
+    400
+   ]
+  ],
+  "line": "Did you know, an Indian MP who lived in Anerley swore his oath to Parliament on a Zoroastrian holy book?",
+  "fact": "Dadabhai Naoroji lived on Anerley Park from 1897. Elected an MP in 1892 by just 5 votes, he swore his oath on a Zoroastrian holy book, not the Bible.",
+  "source": "Wikipedia: Dadabhai Naoroji; Anerley",
+  "year": 1892,
+  "topic": "politics",
+  "area": "bromley"
+ },
+ {
+  "id": "name-penge",
+  "kind": "saxon",
+  "score": 7,
+  "place": "Penge",
+  "points": [
+   [
+    51.4174,
+    -0.0648,
+    600
+   ]
+  ],
+  "line": "Did you know, Penge's name comes from the language that later became Welsh?",
+  "fact": "Penge's name is Brittonic, the language that became Welsh, and means head of the wood. A charter of 957 mentions the wood called Penge.",
+  "source": "Wikipedia: Penge",
+  "year": 957,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "penge-harriet-staunton",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Mosslea Road, Penge",
+  "points": [
+   [
+    51.4174,
+    -0.0648,
+    600
+   ]
+  ],
+  "line": "Did you know, a Penge street was renamed because of its link to an 1877 murder?",
+  "fact": "In 1877 an heiress, Harriet Staunton, and her baby son were starved to death by her husband and others. Forbes Road, tied to the case, was renamed.",
+  "source": "Wikipedia: Penge",
+  "year": 1877,
+  "topic": "crime",
+  "area": "bromley"
+ },
+ {
+  "id": "penge-watermen",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Watermen's Almshouses, Penge",
+  "points": [
+   [
+    51.41661,
+    -0.05373,
+    300
+   ]
+  ],
+  "line": "Did you know, the almshouses on Penge High Street were built for retired Thames boatmen?",
+  "fact": "These almshouses were built in 1840 by the Thames watermen's company for its retired boatmen and their widows. They lived here until 1973.",
+  "source": "Wikipedia: Free Watermen and Lightermen's Almshouses; Penge",
+  "year": 1840,
+  "topic": "work",
+  "area": "bromley"
+ },
+ {
+  "id": "croydon-canal-penge",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Penge West Station, Penge",
+  "points": [
+   [
+    51.41767,
+    -0.06048,
+    350
+   ]
+  ],
+  "line": "Did you know, the railway through Penge West was once a canal?",
+  "fact": "The line through Penge West follows the Croydon Canal of 1809. It lost money and lasted only 27 years before a railway company bought it.",
+  "source": "Wikipedia: Anerley; Penge",
+  "year": 1809,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "name-kent-house",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Kent House Station, Beckenham",
+  "points": [
+   [
+    51.4123,
+    -0.0453,
+    350
+   ]
+  ],
+  "line": "Did you know, Kent House station is named after the first house over the old Surrey border into Kent?",
+  "fact": "Kent House station, opened in 1884, took its name from Kent House farm, the first house on the Kent side of the old county line with Surrey.",
+  "source": "Wikipedia: Kent House railway station",
+  "year": 1884,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "wickham-court-boleyn",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Wickham Court, West Wickham",
+  "points": [
+   [
+    51.3649,
+    -0.00487,
+    400
+   ]
+  ],
+  "line": "Did you know, West Wickham's old manor house was built for a man who married an Anne Boleyn?",
+  "fact": "Wickham Court was built in 1469 for Sir Henry Heydon, whose wife was Anne Boleyn. Not the queen, but her great-aunt of the same name.",
+  "source": "Wikipedia: West Wickham; Wickham Court",
+  "year": 1469,
+  "topic": "royals",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-caves-shelter",
+  "kind": "modern",
+  "score": 9,
+  "place": "Chislehurst Caves, Chislehurst",
+  "points": [
+   [
+    51.4074,
+    0.0575,
+    400
+   ]
+  ],
+  "line": "Did you know, up to 15,000 people sheltered in the Chislehurst Caves in the Second World War?",
+  "fact": "From 1940 the old chalk mines became an underground town where each person paid a penny to enter. It had lighting, toilets, a chapel and a hospital.",
+  "source": "Wikipedia: Chislehurst Caves",
+  "year": 1940,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-caves-cavena",
+  "kind": "modern",
+  "score": 7,
+  "place": "Chislehurst Caves, Chislehurst",
+  "points": [
+   [
+    51.4074,
+    0.0575,
+    400
+   ]
+  ],
+  "line": "Did you know, the one baby born in the Chislehurst Caves shelter was named Cavena?",
+  "fact": "She was christened in the cave chapel during the Second World War. At 18 she changed her first name to Rose, keeping Cavena as her middle name.",
+  "source": "Wikipedia: Chislehurst Caves",
+  "year": 1940,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-caves-druids",
+  "kind": "modern",
+  "score": 7,
+  "place": "Chislehurst Caves, Chislehurst",
+  "points": [
+   [
+    51.4074,
+    0.0575,
+    400
+   ]
+  ],
+  "line": "Did you know, the Druid altars in Chislehurst Caves come from a theory nobody ever proved?",
+  "fact": "In 1903 an archaeologist claimed Druids, Romans and Saxons dug the caves, and the three parts were named after them. In fact they were chalk mines.",
+  "source": "Wikipedia: Chislehurst Caves",
+  "year": 1903,
+  "topic": "secrets",
+  "area": "bromley"
+ },
+ {
+  "id": "camden-place-rowles",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Camden Place, Chislehurst",
+  "points": [
+   [
+    51.4112,
+    0.0654,
+    350
+   ]
+  ],
+  "line": "Did you know, Napoleon III courted the daughter of Camden Place decades before he died there?",
+  "fact": "In the 1830s the exile often visited Emily Rowles, whose father owned the house. She later helped him escape a French jail. He died here in 1873.",
+  "source": "Wikipedia: Napoleon III; Camden Place",
+  "year": 1846,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "camden-place-stove",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Camden Place, Chislehurst",
+  "points": [
+   [
+    51.4112,
+    0.0654,
+    350
+   ]
+  ],
+  "line": "Did you know, Napoleon III spent his exile in Chislehurst designing a more efficient stove?",
+  "fact": "Deposed after the war of 1870, the French emperor settled at Camden Place. He filled his time writing and designing a stove that used less energy.",
+  "source": "Wikipedia: Napoleon III; Camden Place",
+  "year": 1872,
+  "topic": "invention",
+  "area": "bromley"
+ },
+ {
+  "id": "camden-town-chislehurst",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Camden Place, Chislehurst",
+  "points": [
+   [
+    51.4112,
+    0.0654,
+    350
+   ]
+  ],
+  "line": "Did you know, Camden Town's name comes from a house in Chislehurst?",
+  "fact": "Camden Town is named after Earl Camden, whose title came from his estate here, Camden Place. The house was named after historian William Camden.",
+  "source": "Wikipedia: Camden Town; Camden Place",
+  "year": 1791,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-imp-code",
+  "kind": "modern",
+  "score": 8,
+  "place": "Prince Imperial Monument, Chislehurst",
+  "points": [
+   [
+    51.41074,
+    0.06712,
+    350
+   ]
+  ],
+  "line": "Did you know, Chislehurst's old phone code spelled IMP, for a French prince?",
+  "fact": "Until 1966 Chislehurst and Bickley numbers began 467, which spells IMP, for the Prince Imperial. Napoleon III's son had lived at nearby Camden Place.",
+  "source": "Wikipedia: Napoléon, Prince Imperial",
+  "year": 1960,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-prince-imperial",
+  "kind": "victorian",
+  "score": 8,
+  "place": "St Mary's Church, Chislehurst",
+  "points": [
+   [
+    51.40778,
+    0.07222,
+    350
+   ]
+  ],
+  "line": "Did you know, a French prince killed fighting for the British Army was buried in Chislehurst?",
+  "fact": "Napoleon III's son trained at Woolwich and was killed in the Zulu War in 1879. Queen Victoria was among 10,000 people at his funeral here.",
+  "source": "Wikipedia: St Mary's Church, Chislehurst; Napoléon, Prince Imperial",
+  "year": 1879,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "chislehurst-common-cricket",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Chislehurst Common, Chislehurst",
+  "points": [
+   [
+    51.41,
+    0.0667,
+    400
+   ]
+  ],
+  "line": "Did you know, Chislehurst took on London at cricket on its common in 1738?",
+  "fact": "The July 1738 match swung several times before London won. The two sides met on the common again in 1740, and London won that one too.",
+  "source": "Wikipedia: Chislehurst Common",
+  "year": 1738,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "scadbury-marlowe",
+  "kind": "tudor",
+  "score": 9,
+  "place": "Scadbury Park, Chislehurst",
+  "points": [
+   [
+    51.413,
+    0.094,
+    500
+   ]
+  ],
+  "line": "Did you know, Christopher Marlowe was staying at Scadbury, in Chislehurst, just before he was killed?",
+  "fact": "In 1593 the playwright was a guest at Scadbury Manor, home of his patron Thomas Walsingham. The man who killed him was Walsingham's business agent.",
+  "source": "Wikipedia: Scadbury Park; Thomas Walsingham (literary patron)",
+  "year": 1593,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "scadbury-sydney",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Scadbury Park, Chislehurst",
+  "points": [
+   [
+    51.413,
+    0.094,
+    500
+   ]
+  ],
+  "line": "Did you know, Sydney in Australia is named after a man who owned Scadbury in Chislehurst?",
+  "fact": "In 1742 the Scadbury estate passed to Thomas Townshend, 1st Viscount Sydney. The Australian city of Sydney was named after him.",
+  "source": "Wikipedia: Scadbury Park",
+  "year": 1742,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "petts-wood-willett",
+  "kind": "modern",
+  "score": 8,
+  "place": "Petts Wood",
+  "points": [
+   [
+    51.3885,
+    0.076,
+    600
+   ]
+  ],
+  "line": "Did you know, the story goes that summer time was dreamed up on a ride in Petts Wood?",
+  "fact": "The story goes that builder William Willett got the idea seeing blinds still down one summer morning. His memorial is a sundial set to summer time.",
+  "source": "Wikipedia: William Willett",
+  "year": 1907,
+  "topic": "science",
+  "area": "bromley"
+ },
+ {
+  "id": "daylight-inn-one-pub",
+  "kind": "modern",
+  "score": 6,
+  "place": "The Daylight Inn, Petts Wood",
+  "points": [
+   [
+    51.38941,
+    0.07514,
+    300
+   ]
+  ],
+  "line": "Did you know, old legal limits barred any other pub within a mile of Petts Wood's Daylight Inn?",
+  "fact": "Built in 1935 and named after summer time campaigner William Willett, the Daylight was Petts Wood's only pub until a Wetherspoons opened.",
+  "source": "Wikipedia: The Daylight Inn",
+  "year": 1935,
+  "topic": "shops",
+  "area": "bromley"
+ },
+ {
+  "id": "willett-coldplay",
+  "kind": "modern",
+  "score": 7,
+  "place": "St Nicholas' Church, Chislehurst",
+  "points": [
+   [
+    51.40991,
+    0.07514,
+    350
+   ]
+  ],
+  "line": "Did you know, the campaigner for British Summer Time was an ancestor of Coldplay's singer?",
+  "fact": "William Willett, who pushed for summer time, was buried at St Nicholas' in 1915. His great-great-grandson is Chris Martin of the band Coldplay.",
+  "source": "Wikipedia: William Willett",
+  "year": 1915,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "petts-wood-name",
+  "kind": "tudor",
+  "score": 7,
+  "place": "Petts Wood station, Petts Wood",
+  "points": [
+   [
+    51.3889,
+    0.0742,
+    400
+   ]
+  ],
+  "line": "Did you know, Petts Wood is named after a family of shipbuilders?",
+  "fact": "The name first appeared in 1577, as the wood of the Pett family. They were shipbuilders, and leased the wood for its timber.",
+  "source": "Wikipedia: Petts Wood",
+  "year": 1577,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "petts-wood-station",
+  "kind": "modern",
+  "score": 7,
+  "place": "Petts Wood station, Petts Wood",
+  "points": [
+   [
+    51.3889,
+    0.0742,
+    400
+   ]
+  ],
+  "line": "Did you know, Petts Wood station was paid for by the developer building the suburb around it?",
+  "fact": "The developer gave the Southern Railway £6,000 to build a station for his new suburb. It opened in 1928, and the houses spread out from there.",
+  "source": "Wikipedia: Petts Wood; Petts Wood railway station",
+  "year": 1928,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "petts-wood-fleet-street",
+  "kind": "modern",
+  "score": 6,
+  "place": "Petts Wood station, Petts Wood",
+  "points": [
+   [
+    51.3889,
+    0.0742,
+    400
+   ]
+  ],
+  "line": "Did you know, Petts Wood was popular with Fleet Street journalists in the 1950s?",
+  "fact": "Its all-night trains suited reporters and sub-editors coming off late shifts. One writer said it gave them a heaven-sent excuse for one more drink.",
+  "source": "Wikipedia: Petts Wood",
+  "year": 1950,
+  "topic": "work",
+  "area": "bromley"
+ },
+ {
+  "id": "mottingham-almshouses",
+  "kind": "modern",
+  "score": 6,
+  "place": "Geffrye's Almshouses, Mottingham",
+  "points": [
+   [
+    51.43249,
+    0.0487,
+    300
+   ]
+  ],
+  "line": "Did you know, Mottingham's almshouses replaced the Hoxton ones that became the Museum of the Home?",
+  "fact": "The Ironmongers' Company built Sir Robert Geffrye's almshouses here in 1912, to replace its old ones in Hoxton. Those became the Museum of the Home.",
+  "source": "Wikipedia: Mottingham",
+  "year": 1912,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "grace-zeppelins",
+  "kind": "modern",
+  "score": 8,
+  "place": "Fairmount, Mottingham",
+  "points": [
+   [
+    51.4403,
+    0.03338,
+    300
+   ]
+  ],
+  "line": "Did you know, W. G. Grace shook his fist at German Zeppelins over his Mottingham home?",
+  "fact": "Told that fast bowlers never unsettled him, the old cricketer replied: \"I could see those beggars; I can't see these.\" He died here in 1915.",
+  "source": "Wikipedia: W. G. Grace",
+  "year": 1915,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "mottingham-sinkhole",
+  "kind": "tudor",
+  "score": 8,
+  "place": "Mottingham",
+  "points": [
+   [
+    51.4337,
+    0.0365,
+    600
+   ]
+  ],
+  "line": "Did you know, in 1585 the ground in Mottingham opened up and swallowed three elm trees?",
+  "fact": "One August morning a field sank so fast that three great elms vanished into a pit full of water. It was likely a sinkhole; nobody now knows where.",
+  "source": "Wikipedia: Mottingham",
+  "year": 1585,
+  "topic": "nature",
+  "area": "bromley"
+ },
+ {
+  "id": "st-pauls-cray-name",
+  "kind": "saxon",
+  "score": 7,
+  "place": "St Paulinus Church, St Paul's Cray",
+  "points": [
+   [
+    51.40166,
+    0.11755,
+    350
+   ]
+  ],
+  "line": "Did you know, St Paul's Cray is not named after St Paul?",
+  "fact": "The name is short for St Paulinus Cray, after an early Christian missionary who became Archbishop of York. His church here is 11th century.",
+  "source": "Wikipedia: St Paul's Cray",
+  "year": 1050,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "st-mary-cray-bells",
+  "kind": "stuart",
+  "score": 7,
+  "place": "St Mary Cray",
+  "points": [
+   [
+    51.392,
+    0.108,
+    500
+   ]
+  ],
+  "line": "Did you know, bells for Canterbury Cathedral were cast in St Mary Cray?",
+  "fact": "In the 1600s St Mary Cray had bell foundries. One founder, Christopher Hodson, made bells for Canterbury Cathedral and for Oxford.",
+  "source": "Wikipedia: St Mary Cray",
+  "year": 1650,
+  "topic": "work",
+  "area": "bromley"
+ },
+ {
+  "id": "cray-wanderers-railway",
+  "kind": "victorian",
+  "score": 7,
+  "place": "St Mary Cray station, St Mary Cray",
+  "points": [
+   [
+    51.394,
+    0.106,
+    400
+   ]
+  ],
+  "line": "Did you know, one of London's oldest football clubs began with railway builders in St Mary Cray?",
+  "fact": "Cray Wanderers trace their start to 1860, when migrant workers came to build the railway here. They first played at Star Lane, now a cemetery.",
+  "source": "Wikipedia: St Mary Cray",
+  "year": 1860,
+  "topic": "sport",
+  "area": "bromley"
+ },
+ {
+  "id": "st-mary-cray-teddy-boys",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Mary Cray station, St Mary Cray",
+  "points": [
+   [
+    51.394,
+    0.106,
+    400
+   ]
+  ],
+  "line": "Did you know, rival Teddy Boy gangs fought at St Mary Cray station in 1954?",
+  "fact": "It began at a dance, where the MC had the band play calming music, no quicksteps. A fight then broke out at the station and 40 youths were held.",
+  "source": "Wikipedia: St Mary Cray",
+  "year": 1954,
+  "topic": "crime",
+  "area": "bromley"
+ },
+ {
+  "id": "ruxley-church-barn",
+  "kind": "tudor",
+  "score": 8,
+  "place": "St Botolph's Church, Ruxley",
+  "points": [
+   [
+    51.411773,
+    0.134317,
+    300
+   ]
+  ],
+  "line": "Did you know, a 13th-century church at Ruxley was used as a farm building for 400 years?",
+  "fact": "St Botolph's was closed in 1557, when its parish was folded into North Cray. Farmers then kept their tools in it for over 400 years.",
+  "source": "Wikipedia: St Botolph's Church, Ruxley",
+  "year": 1557,
+  "topic": "religion",
+  "area": "bromley"
+ },
+ {
+  "id": "elmstead-pit-sharks",
+  "kind": "prehistory",
+  "score": 7,
+  "place": "Elmstead Pit, Elmstead",
+  "points": [
+   [
+    51.4171,
+    0.0453,
+    300
+   ]
+  ],
+  "line": "Did you know, 50 million year old sharks' teeth lie in a pit opposite Elmstead Woods station?",
+  "fact": "The pit across from the station shows a layer laid down in an estuary 50 million years ago. It holds fossil sharks' teeth, shells and fish scales.",
+  "source": "Wikipedia: Elmstead Pit",
+  "year": -50000000,
+  "topic": "ancient",
+  "area": "bromley"
+ },
+ {
+  "id": "frognal-house-faces",
+  "kind": "modern",
+  "score": 9,
+  "place": "Frognal House, Sidcup",
+  "points": [
+   [
+    51.4178,
+    0.105,
+    400
+   ]
+  ],
+  "line": "Did you know, Frognal House became a major First World War centre for rebuilding soldiers' faces?",
+  "fact": "In 1917 the mansion became the first home of Queen's Hospital, the war's major centre for facial and plastic surgery. It admitted 5,000 men by 1921.",
+  "source": "Wikipedia: Frognal House",
+  "year": 1917,
+  "topic": "science",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-black-chicken",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Orpington",
+  "points": [
+   [
+    51.3741,
+    0.0986,
+    500
+   ]
+  ],
+  "line": "Did you know, the Orpington chicken was bred black so London's soot wouldn't show?",
+  "fact": "In the 1880s a local breeder crossed three breeds into a new chicken for eggs and meat. He picked black so city soot and grime wouldn't show.",
+  "source": "Wikipedia: Orpington chicken",
+  "year": 1886,
+  "topic": "animals",
+  "area": "bromley"
+ },
+ {
+  "id": "crofton-roman-villa",
+  "kind": "roman",
+  "score": 7,
+  "place": "Crofton Roman Villa, Orpington",
+  "points": [
+   [
+    51.3729,
+    0.0878,
+    300
+   ]
+  ],
+  "line": "Did you know, a Roman farmhouse was found beside Orpington station by workmen making a driveway?",
+  "fact": "The villa, with underfloor heating, was lived in from about 140 AD for 260 years. Workmen laying a driveway for new council offices found it in 1926.",
+  "source": "Wikipedia: Crofton Roman Villa",
+  "year": 140,
+  "topic": "ancient",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-romani-union",
+  "kind": "modern",
+  "score": 8,
+  "place": "Orpington",
+  "points": [
+   [
+    51.3741,
+    0.0986,
+    500
+   ]
+  ],
+  "line": "Did you know, the International Romani Union was founded at a meeting in Orpington?",
+  "fact": "Romani families came to camps round Orpington each year to pick hops and fruit. In 1971 an international Romani meeting here founded the union.",
+  "source": "Wikipedia: Orpington",
+  "year": 1971,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-canadian-hospital",
+  "kind": "modern",
+  "score": 7,
+  "place": "Orpington Hospital, Orpington",
+  "points": [
+   [
+    51.3622,
+    0.095,
+    400
+   ]
+  ],
+  "line": "Did you know, the Canadian province of Ontario paid for a war hospital in Orpington?",
+  "fact": "Built in the First World War for about 1,000 patients, it treated over 25,000 wounded soldiers by 1919. Its prefab buildings lasted 80 years.",
+  "source": "Wikipedia: Orpington",
+  "year": 1917,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-canadian-corner",
+  "kind": "modern",
+  "score": 7,
+  "place": "All Saints churchyard, Orpington",
+  "points": [
+   [
+    51.3778,
+    0.1059,
+    300
+   ]
+  ],
+  "line": "Did you know, a war cross in Orpington was unveiled with the plunger George V used at the Cenotaph?",
+  "fact": "Canadian Corner holds 182 soldiers who died at the town's war hospital, 88 of them Canadian. Its cross was unveiled in 1921 using the same plunger.",
+  "source": "Wikipedia: Orpington",
+  "year": 1921,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-man",
+  "kind": "modern",
+  "score": 7,
+  "place": "Orpington High Street, Orpington",
+  "points": [
+   [
+    51.3732,
+    0.0975,
+    400
+   ]
+  ],
+  "line": "Did you know, a 1962 by-election turned Orpington man into the press's word for suburban voters?",
+  "fact": "In 1962 the Liberal Party won Orpington, a safe Conservative seat, on a huge swing. The press invented Orpington man to explain the suburban revolt.",
+  "source": "Wikipedia: 1962 Orpington by-election",
+  "year": 1962,
+  "topic": "politics",
+  "area": "bromley"
+ },
+ {
+  "id": "orpington-lightning-steeple",
+  "kind": "georgian",
+  "score": 6,
+  "place": "All Saints Church, Orpington",
+  "points": [
+   [
+    51.3778,
+    0.1059,
+    300
+   ]
+  ],
+  "line": "Did you know, Orpington's old parish church lost its steeple to lightning in 1809?",
+  "fact": "A storm damaged the tower and steeple of All Saints in 1771. The rebuilt steeple was then struck by lightning in 1809, and it was never put back.",
+  "source": "Wikipedia: Orpington",
+  "year": 1809,
+  "topic": "buildings",
+  "area": "bromley"
+ },
+ {
+  "id": "farnborough-romany-queen",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Giles the Abbot, Farnborough",
+  "points": [
+   [
+    51.3579,
+    0.0723,
+    350
+   ]
+  ],
+  "line": "Did you know, a 1933 newsreel filmed the funeral of the last Queen of the Kent Gypsies in Farnborough?",
+  "fact": "British Pathé filmed the funeral of Urania Boswell, the last Queen of the Kent Gypsies, as her coffin was carried into St Giles church in 1933.",
+  "source": "Wikipedia: Farnborough, London",
+  "year": 1933,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "locksbottom-workhouse",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Princess Royal University Hospital, Locksbottom",
+  "points": [
+   [
+    51.3653,
+    0.0536,
+    400
+   ]
+  ],
+  "line": "Did you know, the Princess Royal University Hospital began as a Victorian workhouse?",
+  "fact": "A workhouse opened at Locksbottom in 1845. By the 1920s it had turned into Farnborough Hospital, rebuilt and renamed the Princess Royal in 2003.",
+  "source": "Wikipedia: Locksbottom",
+  "year": 1845,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "green-street-green-cyclists",
+  "kind": "modern",
+  "score": 6,
+  "place": "Sevenoaks Road, Green Street Green",
+  "points": [
+   [
+    51.352,
+    0.0894,
+    400
+   ]
+  ],
+  "line": "Did you know, Green Street Green filled with tea rooms for weekend cyclists from London?",
+  "fact": "From the 1920s to the 1960s, crowds of weekend cyclists rode out from London's suburbs and met here. Several tea rooms opened to serve them.",
+  "source": "Wikipedia: Green Street Green",
+  "year": 1925,
+  "topic": "everyday",
+  "area": "bromley"
+ },
+ {
+  "id": "chelsfield-railway-children",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Chelsfield station, Chelsfield",
+  "points": [
+   [
+    51.3565,
+    0.1076,
+    400
+   ]
+  ],
+  "line": "Did you know, the line through Chelsfield is one of the places linked to The Railway Children?",
+  "fact": "The line here climbs steadily into Chelsfield Tunnel. The story goes that this stretch inspired the writer E. Nesbit's book The Railway Children.",
+  "source": "Wikipedia: Chelsfield railway station",
+  "year": 1868,
+  "topic": "books",
+  "area": "bromley"
+ },
+ {
+  "id": "pratts-bottom-name",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Rushmore Hill, Pratt's Bottom",
+  "points": [
+   [
+    51.3397,
+    0.1128,
+    400
+   ]
+  ],
+  "line": "Did you know, Pratt's Bottom is named after a valley and a noble family?",
+  "fact": "In old place names a bottom is a valley or hollow. The Pratts were a noble family who once had their seat here, so the village became Pratt's Bottom.",
+  "source": "Wikipedia: Pratt's Bottom",
+  "year": 1400,
+  "topic": "names",
+  "area": "bromley"
+ },
+ {
+  "id": "knockholt-station-name",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Knockholt station, Knockholt",
+  "points": [
+   [
+    51.3459,
+    0.1307,
+    350
+   ]
+  ],
+  "line": "Did you know, Knockholt station first opened as Halstead, the village it's actually nearer?",
+  "fact": "It opened in 1876 as Halstead for Knockholt. In 1900 a railway boss who lived in Knockholt got it renamed, after mix-ups with Halstead in Essex.",
+  "source": "Wikipedia: Knockholt railway station",
+  "year": 1876,
+  "topic": "transport",
+  "area": "bromley"
+ },
+ {
+  "id": "knockholt-left-london",
+  "kind": "modern",
+  "score": 8,
+  "place": "Knockholt",
+  "points": [
+   [
+    51.31,
+    0.105,
+    600
+   ]
+  ],
+  "line": "Did you know, Knockholt campaigned its way back out of London four years after joining?",
+  "fact": "Knockholt was put into the new London Borough of Bromley in 1965. After a determined campaign by its villagers, it was handed back to Kent in 1969.",
+  "source": "Wikipedia: Knockholt",
+  "year": 1969,
+  "topic": "politics",
+  "area": "bromley"
+ },
+ {
+  "id": "downe-church-creed",
+  "kind": "victorian",
+  "score": 7,
+  "place": "St Mary's Church, Downe",
+  "points": [
+   [
+    51.3359,
+    0.0544,
+    300
+   ]
+  ],
+  "line": "Did you know, Darwin's family turned their backs during one creed at Downe church?",
+  "fact": "Charles Darwin's wife Emma was a Unitarian. So whenever the church's Trinity creed was read at St Mary's, the family turned to face away.",
+  "source": "Wikipedia: St Mary's Church, Downe",
+  "year": 1850,
+  "topic": "religion",
+  "area": "bromley"
+ },
+ {
+  "id": "downe-bank-orchids",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Downe Bank, Downe",
+  "points": [
+   [
+    51.331,
+    0.064,
+    400
+   ]
+  ],
+  "line": "Did you know, a slope near Downe gave Darwin the evidence for his book on orchids?",
+  "fact": "Darwin called this chalk bank Orchis Bank for its wild orchids. Watching them and their insect pollinators gave him the evidence for his 1862 book.",
+  "source": "Wikipedia: Downe Bank",
+  "year": 1862,
+  "topic": "nature",
+  "area": "bromley"
+ },
+ {
+  "id": "high-elms-bank-holidays",
+  "kind": "victorian",
+  "score": 9,
+  "place": "High Elms, Farnborough",
+  "points": [
+   [
+    51.351,
+    0.075,
+    450
+   ]
+  ],
+  "line": "Did you know, the man who gave Britain its bank holidays grew up at High Elms?",
+  "fact": "John Lubbock, a banker and MP raised on the High Elms estate, brought in the 1871 law that created bank holidays. Some called them St Lubbock's Days.",
+  "source": "Wikipedia: Bank Holidays Act 1871",
+  "year": 1871,
+  "topic": "traditions",
+  "area": "bromley"
+ },
+ {
+  "id": "high-elms-pony",
+  "kind": "victorian",
+  "score": 7,
+  "place": "High Elms Country Park, Farnborough",
+  "points": [
+   [
+    51.3502,
+    0.0747,
+    350
+   ]
+  ],
+  "line": "Did you know, a boy at High Elms was let down when 1842's big news was Darwin, not a pony?",
+  "fact": "Young John Lubbock hoped his father's big news was a new pony. It was only Charles Darwin moving to Downe. The boy became a close friend of Darwin's.",
+  "source": "Wikipedia: John Lubbock, 1st Baron Avebury",
+  "year": 1842,
+  "topic": "people",
+  "area": "bromley"
+ },
+ {
+  "id": "biggin-hill-zeppelins",
+  "kind": "modern",
+  "score": 7,
+  "place": "Biggin Hill Airport, Biggin Hill",
+  "points": [
+   [
+    51.3308,
+    0.0325,
+    600
+   ]
+  ],
+  "line": "Did you know, Biggin Hill airfield started out defending London from Zeppelins?",
+  "fact": "Long before the Battle of Britain, the Royal Flying Corps came here in 1917 for one huge open field. Its job was to fight off Zeppelins and bombers.",
+  "source": "Wikipedia: RAF Biggin Hill",
+  "year": 1917,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "biggin-hill-moving-church",
+  "kind": "modern",
+  "score": 8,
+  "place": "St Mark's Church, Biggin Hill",
+  "points": [
+   [
+    51.3119,
+    0.0354,
+    350
+   ]
+  ],
+  "line": "Did you know, Biggin Hill's St Mark's church was built from a taken-apart church in Peckham?",
+  "fact": "Known as the moving church, it went up in the 1950s from the taken-apart materials of All Saints, North Peckham. Volunteers did much of the work.",
+  "source": "Wikipedia: Biggin Hill",
+  "year": 1955,
+  "topic": "religion",
+  "area": "bromley"
+ },
+ {
+  "id": "old-jail-prisoners",
+  "kind": "georgian",
+  "score": 6,
+  "place": "The Old Jail, Biggin Hill",
+  "points": [
+   [
+    51.3152,
+    0.0563,
+    300
+   ]
+  ],
+  "line": "Did you know, local historians say Biggin Hill's Old Jail pub held French prisoners of war?",
+  "fact": "Two local history groups say the 1700s building was used to hold French prisoners overnight in Napoleon's time, on their way to Maidstone.",
+  "source": "Wikipedia: Old Jail, Biggin Hill",
+  "year": 1805,
+  "topic": "war",
+  "area": "bromley"
+ },
+ {
+  "id": "leaves-green-coal-post",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Leaves Green",
+  "points": [
+   [
+    51.337,
+    0.0305,
+    300
+   ]
+  ],
+  "line": "Did you know, a post on Leaves Green marked where the City of London could tax coal?",
+  "fact": "Coal tax post number 186, on the village green, marked the edge of the area where the City of London Corporation was allowed to charge a duty on coal.",
+  "source": "Wikipedia: Leaves Green",
+  "year": 1861,
+  "topic": "law",
+  "area": "bromley"
+ },
+ {
+  "id": "westerham-hill-climb",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Westerham Hill",
+  "points": [
+   [
+    51.2882,
+    0.0572,
+    600
+   ]
+  ],
+  "line": "Did you know, cyclists raced up Westerham Hill on penny-farthings in 1887?",
+  "fact": "A Catford cycling club held one of the earliest cycle hill climbs here in 1887, on a steep road with no hard surface. Half of the 24 riders made it.",
+  "source": "Wikipedia: Betsom's Hill",
+  "year": 1887,
+  "topic": "sport",
+  "area": "bromley"
+ }
+]

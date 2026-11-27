@@ -22,7 +22,19 @@ After launch
 
 
 
-### Latest: Fri 27 Nov 2026, 01:05 (data dig for the area runs, scheduled session)
+## Open area review pages (nightly run reads these first)
+- Batch 16, Bromley area run: https://claude.ai/artifact/17vuahQaZFrR4Raa6naJQC (answers in collection review-batch-16; empty at 27 Nov night). 0 or 1 reject of the 12 new ships all 97 facts.
+
+### Latest: Fri 27 Nov 2026, night (first nightly area run: Bromley, scheduled session)
+- **Nothing shipped tonight** (no review page was open before this run). spots.json unchanged at 218.
+- **Area picked: Bromley** (ranked.json's go-bar value 175.6, far ahead of Lambeth 27.2; the commuter's central bar barely moves for any one borough yet). Next runs: Lambeth plus Wandsworth (Clapham, Brixton), then the City, as the 27 Nov data dig said.
+- **97 facts written** across the borough: content/facts/london-bromley-area16.json, source sentences in sources-london-bromley-area16.json (Wikipedia raw text only; BHO is unreachable from the shell, www.wikidata.org is refused by the proxy but query.wikidata.org works). Patches: Bromley town, Hayes and Keston; Beckenham, Penge, Anerley, Crystal Palace Park, West Wickham, Monks Orchard; Chislehurst, Petts Wood, Mottingham, the Crays; Orpington, Farnborough, Downe, Biggin Hill, Knockholt. 7 of 97 at 9 (cap is 1 in 5). lint.py: 0 notes. Gate: numbers and names checked against saved source sentences; no same-topic pair within 300m (area or shipped); 4 weak ones dropped (Downe spelling, Sheppard's College, Beckenham railway growth, the BIG beacon, which was present tense); 5 lines or cards fixed (Wells's freedom card now says he refused it, Johnson, Bromley broom, Guy the gorilla, Beckenham lychgate).
+- Firsts with one source were written as plain facts or "one of the" (rule 19). Rough points (600m circles on a district centre): downham-wall, blyton-waste-of-time, penge-harriet-staunton, petts-wood-willett, orpington-black-chicken, orpington-romani-union, knockholt-left-london. frognal-house-faces sits on the Sidcup side (Bexley). Knockholt is in Kent now (the fact is that it left London in 1969).
+- **Replay with the 97 added (not shipped yet):** outer Londoner's days out with a find 26% to 49% (bar 50%), finds a week 1.8 to 3.3 (bar 5); commuter unchanged at 23% (bar 75%); Tony 29% to 30%. Shipped set as is: 29% / 23% / 26%.
+- Review page batch 16 (link above): content/review/batch16-nights.json, four nights (Crystal Palace and Anerley; Croydon, West Wickham, Keston, Downe; Chislehurst, Petts Wood, Elmstead, Sidcup; Penge, Hayes, Keston, Eltham, Blackheath), 12 random new (seed 1616) plus 8 shipped.
+- Not done tonight: the 20 or so rewrites of long shipped cards (no spare capacity after the area).
+
+### Earlier: Fri 27 Nov 2026, 01:05 (data dig for the area runs, scheduled session)
 - **Candidates pulled, no facts written, nothing shipped.** content/candidates/ (README: licences, credits, caveats), scripts tools/candidates/ (nhle.py, wikidata.py, wikidata_types.py, rank.py; run in that order from the repo root, about two minutes). 22,878 rows: NHLE 19,176 listed buildings and 161 scheduled monuments; Wikidata 2,561 heritage places with Wikipedia articles, 218 filming locations, 762 music, film and crime places. Places already in spots.json (within 100m, same story) left out.
 - **Sources (notes/sources.md):** NHLE (arcgis) and Wikidata work. Open Plaques is down at their end (503 on all bulk endpoints, then on single plaques too): retry another night. Overpass resets every connection. London Remembers redirects to www.londonremembers.com, which isn't on the allowed list (Tony: add the www host if wanted; leads only anyway).
 - **What the area run should use first:** content/candidates/ranked.json. Its meta lists boroughs by how much they'd add to the replay go bar: Bromley far ahead (the outer Londoner's routes pass almost nothing shipped), then Lambeth, City of London, Greenwich, Croydon, Wandsworth, Camden, Southwark. So: Bromley first, then a Lambeth plus Wandsworth run (the commuter's Clapham and Brixton), then the City. Within an area take ranked.json's top 40 in order, then leads.json for the modern mix.
