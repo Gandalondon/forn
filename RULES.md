@@ -52,7 +52,7 @@ Each spot has:
 4. Drop anything that makes you ask "why does it matter?"
 5. The notification states the fact ("Did you know, ...").
 6. One fact per card: the card explains the notification's fact more fully; never a second fact.
-7. Name the kind of thing plainly (the band, a Camden pub, an oak tree, an English army).
+7. Name the kind of thing plainly (the band, a Camden pub, an oak tree, an English army). Always, even when it's famous (27 Nov): the band the Who, the film Withnail and I, the song Electric Avenue. Two words cost nothing and the card has to land for someone who's never heard of it. The only exception is a person almost everyone in the UK knows by name (Churchill, Shakespeare, Henry VIII).
 8. Don't name people who'd need explaining.
 9. No jargon, odd phrasing, old or foreign words, or places locals wouldn't know. Round numbers.
 10. Give the cause if the source has it.
@@ -65,7 +65,7 @@ Each spot has:
 
 Shipped facts over a limit (Tony, 27 Nov: shorten them, shorter is better): every shipped card over 150 characters (164 of 218 on 27 Nov), plus the copy runs (crystal-palace-dinner, werewolf-piccadilly) and long lines (pepys-barnet-well, werewolf-piccadilly). The nightly runs rewrite them in spare capacity, 20 or so a night, and also split or cut any card that carries two facts (rule 6: keep the one the line promises). They go to Tony as a sampled review page like an area (12 random rewrites; 0 or 1 reject ships the batch).
 
-18. Tone (27 Nov, Claude's proposal, Tony to confirm): plain, confident and curious, like a well-read friend, not a guidebook. Lead with the surprise, then the one detail that makes it land. Contractions are fine (it's, wasn't), never 'd. UK spelling. Digits for numbers, rounded. No jokes, puns, exclamation marks or rhetorical questions; the fact does the work. No superlatives unless the source states them (first, oldest), and never two in one card.
+18. Tone (27 Nov, agreed by Tony): plain, confident and curious, like a well-read friend, not a guidebook. Lead with the surprise, then the one detail that makes it land. Contractions are fine (it's, wasn't), never 'd. UK spelling. Digits for numbers, rounded. No jokes, puns, exclamation marks or rhetorical questions; the fact does the work. No superlatives unless the source states them (first, oldest), and never two in one card.
 
 15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
 16. Own words: facts are rewritten, never copied. At most 9 words in a row from any source, checked by lint.py; a famous quote in quotation marks (Churchill's so few) is the only exception. Wikipedia is CC BY-SA, list entries are Crown copyright text. Facts themselves aren't owned; the wording is.
