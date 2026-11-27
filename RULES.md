@@ -52,7 +52,7 @@ Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell yo
 2. Every claim in the notification and the card is in the source.
 3. History, not horror (revised 22 Nov). Crime, robberies, gangs, scandals (sex scandals included), executions, a famous person's death or murder are all in: grim but fascinating is fine when it's history (Execution Dock, the coffin trains). Out: recent tragedies with real victims (fatal crashes, disasters, terror attacks), ghosts of victims, gore and anything explicit. Still out: restaurants and "described as" quotes.
 4. Drop anything that makes you ask "why does it matter?"
-5. The notification states the fact ("Did you know, ..."), ending in a full stop. It's the one fixed form, not a question (rule 18).
+5. The notification states the fact ("Did you know, ...?"). Its question mark is the one fixed form; rule 18's no rhetorical questions applies everywhere else.
 6. One fact per card: the card explains the notification's fact more fully; never a second fact.
 7. Name the kind of thing plainly (the band, a Camden pub, an oak tree, an English army). Always, even when it's famous (27 Nov): the band the Who, the film Withnail and I, the song Electric Avenue. Two words cost nothing and the card has to land for someone who's never heard of it. The only exception is a person almost everyone in the UK knows by name (Churchill, Shakespeare, Henry VIII).
 8. Don't name people who'd need explaining.
