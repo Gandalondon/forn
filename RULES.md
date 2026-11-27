@@ -61,6 +61,12 @@ Each spot has:
 13. Every fact keeps its source text (in the content pipeline's files).
 14. Film, TV and music count when they've become history (22 Nov): where a band formed or played its first gig, a famous scene filmed on a street you'd walk past, from about 25 years ago or more (the 1989 Batman, not the 2022 one). Recent filming trivia is out. Aim for a modern mix: some 1960s to 1990s finds dotted among the older ones.
 
+## Data rules for area runs (27 Nov, added by Claude before the first runs; Tony to confirm)
+
+15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
+16. Own words: facts are rewritten, never copied. No more than a short phrase from any source (Wikipedia is CC BY-SA, list entries are Crown copyright text).
+17. Credits follow the data: when facts from a source ship, its credit goes in How it works > About and the privacy page. Historic England list data: Contains public sector information licensed under the Open Government Licence v3.0. OpenStreetMap: © OpenStreetMap contributors. Open Plaques: credited, though not required. Non-commercial sources (Old Bailey) are never a source.
+
 ## Reviews (21 Nov)
 
 - Tony can't check every fact. Reviews are nights: four nights of five finds along a realistic day, mixing eras, about half new and half already passed. He keeps or rejects each card and rates each night good or flat.
