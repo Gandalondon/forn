@@ -64,7 +64,8 @@ Each spot has:
 ## Reviews (21 Nov)
 
 - Tony can't check every fact. Reviews are nights: four nights of five finds along a realistic day, mixing eras, about half new and half already passed. He keeps or rejects each card and rates each night good or flat.
-- One review per new area or roughly every 60 new facts. Under 1 in 5 rejects and the area's unseen facts ship.
+- Area runs (agreed 27 Nov): about 100 facts per area, written overnight. Each area gets one review page of four nights: 12 random new cards plus 8 already passed. 0 or 1 reject of the 12 new and the whole area ships; 2 or more and Claude finds the pattern, fixes it across the area and samples again. Nothing ships without a passed sample. The replay test picks the next area (central first, then outer London, then Surrey).
+- Launch gate (go bar, agreed 27 Nov): 75% of central days out and 50% of outer days out get a find, 5+ finds a week (notes/replay-test.md).
 - A blind grader agent agreed with Tony only about 2 in 3, so it's an optional editor pass, never a gate.
 
 ## Cards (22 Nov)

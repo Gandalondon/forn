@@ -31,6 +31,7 @@
 - British History Online for anything pre-1700 (WebFetch only).
 
 ## Decisions for Tony
+AGREED by Tony 27 Nov 00:19: yes to all three.
 1. Agree sampled review (12 new cards, ship at 0 or 1 rejects)?
 2. Agree scheduled overnight area runs (nothing ships without a passed sample)?
 3. Agree the go bar in notes/replay-test.md?

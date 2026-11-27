@@ -31,7 +31,7 @@ With batches 13 and 14: Tony 23/29%/7.0, commuter 9/18%/1.7, Bromley 6/26%/1.8.
 - Outer London lags at every size, because history and the made-up spread both cluster in the centre. It needs its own coverage push, not just more facts.
 - Tony's own numbers cap at about half his days out, because his country walks are in Surrey, outside London. Surrey Hills content matters for him, not for London buyers.
 
-## Proposed go bar (for Tony to agree)
+## Go bar (agreed by Tony 27 Nov 00:19)
 In weeks 3 to 8: at least 75% of a central commuter's days out and 50% of an outer Londoner's get a find, with 5+ finds a week for both. Today: 18% and 26%. Re-run after every batch: python3 tools/replay/replay.py app/src/main/assets/spots.json
 
 ## Density by distance from Charing Cross (22 Nov, shipped plus batches 13 to 15, 207 London-area spots)
