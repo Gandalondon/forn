@@ -1,5 +1,26 @@
 # Forn handover
 
+## To fix before launch (master list, 27 Nov 01:05; tick off here)
+Play Store (needs Tony's Mac and Chrome on)
+- [ ] Availability: UK only (the price is set for other countries too; a London app sold abroad means refunds)
+- [ ] Repo secrets UPLOAD_KEYSTORE_B64 and UPLOAD_PASSWORD (upload key made 26 Nov, alias forn), copy the keystore and password to the Mac
+- [ ] Data safety: re-check the wording once the signed store build is in
+- [ ] Internal testing with the signed .aab, then the location declaration video (item 2 below)
+- [ ] Listing: Tony to approve marketing/play-listing (privacy line fixed 26 Nov); maybe hidden history in the copy
+Content
+- [ ] Go bar: 75% central, 50% outer, 5+ finds a week (nightly area runs)
+- [ ] Shorten the 164 shipped cards over 150 characters, cut any second fact (nightly, sampled review)
+- [ ] Six facts over the new limits: crystal-palace-dinner, werewolf-piccadilly (copying), pepys-barnet-well (line), laddie-station, laetitia (length)
+- [ ] Credits in About and the privacy page once Historic England list data or OpenStreetMap facts ship (rule 17)
+Site and marketing
+- [ ] At launch: getforn.app's Grow yours. step swaps Coming soon to London. and Try it early for the Play badge
+- [ ] Site preview rings-grow waiting for Tony to say live (since 24 Nov)
+- [ ] Trailer v3 waiting for Tony's notes, then 9:16 (re-attach Black Veil)
+- [ ] Folio hero: TBC (Tony); Storyblok draft stays unpublished
+After launch
+- [ ] Share today's ring (1.1, not decided): card says Uncovered, not Walked past; image share needs a FileProvider; privacy copy and Data safety to update
+
+
 
 ### Latest: Fri 27 Nov 2026, 01:05 (data dig for the area runs, scheduled session)
 - **Candidates pulled, no facts written, nothing shipped.** content/candidates/ (README: licences, credits, caveats), scripts tools/candidates/ (nhle.py, wikidata.py, wikidata_types.py, rank.py; run in that order from the repo root, about two minutes). 22,878 rows: NHLE 19,176 listed buildings and 161 scheduled monuments; Wikidata 2,561 heritage places with Wikipedia articles, 218 filming locations, 762 music, film and crime places. Places already in spots.json (within 100m, same story) left out.
