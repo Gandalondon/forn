@@ -46,7 +46,7 @@ Each spot has:
 
 ## Writing rules (confirmed by Tony, 21 Nov)
 
-Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell you: what's under it, what used to be there, what happened there that nothing on the street shows. A famous place is fine when the fact is the hidden part (Piccadilly Circus closed to film crews for 15 years). If a plaque or a sign already says it, the fact has to go beyond it.
+Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell you: what's under it, what used to be there, what happened there that nothing on the street shows. A famous place is fine when the fact is the hidden part (Piccadilly Circus closed to film crews for 15 years). If a plaque or a sign already says it, the fact has to go beyond it. The best shape for famous places (Tony's example, 27 Nov): the everyday life behind the landmark, with its cause, like how much MPs once drank in Westminster and why. Not the tour-guide headline.
 
 1. The single most interesting, surprising fact about the place. Aim for whoa, not merely amusing.
 2. Every claim in the notification and the card is in the source.
