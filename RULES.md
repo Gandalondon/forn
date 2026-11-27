@@ -34,12 +34,12 @@ Go about your day. Forn quietly notes the old places you pass: each one leaves d
 Each spot has:
 
 - id: short, unique, kebab-case.
-- kind: the type of thing. One of geology, prehistory, roman, pictish, medieval, building, landscape. Add a kind only if none fits.
+- kind: a legacy label from before year and topic (21 Nov). The app doesn't use it; new facts copy their era name (modern for anything after 1901).
 - score: 1 to 10, how surprising it is. 9 is a "well I never", 7 a good fact, 4 or below rarely worth telling.
 - place: shown small under the fact, never above it (that would be an eyebrow). Cards show only the area (22 Nov): the part after the last comma, without a house number (Barclays, Enfield shows as Enfield; 145 Piccadilly as Piccadilly). Tell me more still uses the full place.
 - points: [lat, lng, radius in metres], one or more.
 - line: the notification, one sentence starting "Did you know, ".
-- fact: the card. Two or three short sentences, plain and specific, written for someone who has never heard of it. Lead with the surprise.
+- fact: the card. One or two short sentences (150 characters at most, rule 11), plain and specific, written for someone who has never heard of it. Lead with the surprise.
 - source: where it was checked. Every fact is checked against a published source before it goes in; nothing from memory.
 - year: when the thing in the fact happened (rough is fine; negative for BC). Era comes from it: prehistory (before 43), roman, saxon (410), medieval (1066), tudor (1485), stuart (1603), georgian (1714), victorian (1837), early-20c (1901), late-20c (1945), 21c (2000).
 - topic: one word from war, transport, music, film, comedy, sport, royals, people, politics, law, science, invention, design, buildings, art, books, religion, names, traditions, everyday, work, shops, animals, nature, secrets, ancient, crime (added 22 Nov).
@@ -52,7 +52,7 @@ Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell yo
 2. Every claim in the notification and the card is in the source.
 3. History, not horror (revised 22 Nov). Crime, robberies, gangs, scandals (sex scandals included), executions, a famous person's death or murder are all in: grim but fascinating is fine when it's history (Execution Dock, the coffin trains). Out: recent tragedies with real victims (fatal crashes, disasters, terror attacks), ghosts of victims, gore and anything explicit. Still out: restaurants and "described as" quotes.
 4. Drop anything that makes you ask "why does it matter?"
-5. The notification states the fact ("Did you know, ...").
+5. The notification states the fact ("Did you know, ..."), ending in a full stop. It's the one fixed form, not a question (rule 18).
 6. One fact per card: the card explains the notification's fact more fully; never a second fact.
 7. Name the kind of thing plainly (the band, a Camden pub, an oak tree, an English army). Always, even when it's famous (27 Nov): the band the Who, the film Withnail and I, the song Electric Avenue. Two words cost nothing and the card has to land for someone who's never heard of it. The only exception is a person almost everyone in the UK knows by name (Churchill, Shakespeare, Henry VIII).
 8. Don't name people who'd need explaining.
@@ -65,17 +65,16 @@ Core principle (Tony, 27 Nov): hidden history. The story a place doesn't tell yo
 
 ## Data rules for area runs (27 Nov, confirmed by Tony)
 
-Shipped facts over a limit (Tony, 27 Nov: shorten them, shorter is better): every shipped card over 150 characters (164 of 218 on 27 Nov), plus the copy runs (crystal-palace-dinner, werewolf-piccadilly) and long lines (pepys-barnet-well, werewolf-piccadilly). The nightly runs rewrite them in spare capacity, 20 or so a night, and also split or cut any card that carries two facts (rule 6: keep the one the line promises). They go to Tony as a sampled review page like an area (12 random rewrites; 0 or 1 reject ships the batch).
-
+15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
+16. Own words: facts are rewritten, never copied. At most 9 words in a row from any source, checked by lint.py; a famous quote in quotation marks (Churchill's so few) is the only exception. Wikipedia is CC BY-SA, list entries are Crown copyright text. Facts themselves aren't owned; the wording is.
+17. Credits follow the data: when facts from a source ship, its credit goes in How it works > About and the privacy page. Historic England list data: Contains public sector information licensed under the Open Government Licence v3.0. OpenStreetMap: © OpenStreetMap contributors. Open Plaques: credited, though not required. Non-commercial sources (Old Bailey) are never a source.
 18. Tone (27 Nov, agreed by Tony): plain, confident and curious, like a well-read friend, not a guidebook. Lead with the surprise, then the one detail that makes it land. Contractions are fine (it's, wasn't), never 'd. UK spelling. Digits for numbers, rounded. No jokes, puns, exclamation marks or rhetorical questions; the fact does the work. No superlatives unless the source states them (first, oldest), and never two in one card.
 19. Firsts need two sources (27 Nov): any first, oldest, only or biggest needs two independent sources (Wikipedia counts once). Otherwise say one of the first, or drop it.
 20. Nothing that goes stale (27 Nov): past tense by default. Still only for things that can't easily vanish (a church, a stone circle, a bridge); never for shops, pubs, clubs, plaques or anything privately owned.
 21. Honest scores (27 Nov): in each area, at most 1 in 5 facts scored 9 or 10. Review pages show the score so Tony can call out inflation.
 22. Whose stories (27 Nov): each area run looks for women's, migrants' and working people's stories as well as the famous men and royals the sources lean to. A nudge, no quotas.
 
-15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
-16. Own words: facts are rewritten, never copied. At most 9 words in a row from any source, checked by lint.py; a famous quote in quotation marks (Churchill's so few) is the only exception. Wikipedia is CC BY-SA, list entries are Crown copyright text. Facts themselves aren't owned; the wording is.
-17. Credits follow the data: when facts from a source ship, its credit goes in How it works > About and the privacy page. Historic England list data: Contains public sector information licensed under the Open Government Licence v3.0. OpenStreetMap: © OpenStreetMap contributors. Open Plaques: credited, though not required. Non-commercial sources (Old Bailey) are never a source.
+Shipped facts over a limit (Tony, 27 Nov: shorten them, shorter is better): every shipped card over 150 characters (164 of 218 on 27 Nov), plus the copy runs (crystal-palace-dinner, werewolf-piccadilly) and long lines (pepys-barnet-well, werewolf-piccadilly). The nightly runs rewrite them in spare capacity, 20 or so a night, and also split or cut any card that carries two facts (rule 6: keep the one the line promises). They go to Tony as a sampled review page like an area (12 random rewrites; 0 or 1 reject ships the batch).
 
 ## Reviews (21 Nov)
 
