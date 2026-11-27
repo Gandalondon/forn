@@ -63,7 +63,9 @@ Each spot has:
 
 ## Data rules for area runs (27 Nov, confirmed by Tony)
 
-Shipped facts over a limit (light rewording, next area run, via a review page like any change): crystal-palace-dinner and werewolf-piccadilly (copy run), pepys-barnet-well and werewolf-piccadilly (line length), laddie-station and laetitia (36 words).
+Shipped facts over a limit (Tony, 27 Nov: shorten them, shorter is better): every shipped card over 150 characters (164 of 218 on 27 Nov), plus the copy runs (crystal-palace-dinner, werewolf-piccadilly) and long lines (pepys-barnet-well, werewolf-piccadilly). The nightly runs rewrite them in spare capacity, 20 or so a night, and also split or cut any card that carries two facts (rule 6: keep the one the line promises). They go to Tony as a sampled review page like an area (12 random rewrites; 0 or 1 reject ships the batch).
+
+18. Tone (27 Nov, Claude's proposal, Tony to confirm): plain, confident and curious, like a well-read friend, not a guidebook. Lead with the surprise, then the one detail that makes it land. Contractions are fine (it's, wasn't), never 'd. UK spelling. Digits for numbers, rounded. No jokes, puns, exclamation marks or rhetorical questions; the fact does the work. No superlatives unless the source states them (first, oldest), and never two in one card.
 
 15. Living people: in crime and scandal facts, never name a living private person, and only state convictions and court findings, never allegations. Famous people are fine for what's on the public record.
 16. Own words: facts are rewritten, never copied. At most 9 words in a row from any source, checked by lint.py; a famous quote in quotation marks (Churchill's so few) is the only exception. Wikipedia is CC BY-SA, list entries are Crown copyright text. Facts themselves aren't owned; the wording is.

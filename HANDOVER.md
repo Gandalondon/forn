@@ -11,7 +11,7 @@
 - Merged to main: yes, so Tony's Obtainium build gets the disclosure copy and the new version naming.
 - **Backlog at launch (visuals):** the site's Grow yours. step still says Coming soon to London. with Try it early: swap for the Play badge. Play screenshots, trailer and folio draft are fine.
 - **Folio hero: TBC (Tony).** Draft stays unpublished.
-- 27 Nov 00:35, cards shorter (Tony, with a Tyrebagger vs Hounslow screenshot): new facts max 150 characters (lint). 164 of 218 shipped facts are longer: Tony to say whether the nightly runs rewrite them (sampled review like an area). Card CSS: 24px minimum gap above the buttons (the Hounslow card's place line touched Tell me more).
+- 27 Nov 00:35, cards shorter (Tony, with a Tyrebagger vs Hounslow screenshot): new facts max 150 characters (lint). 164 of 218 shipped facts are longer: Tony 00:34: shorten them (and cut any second fact): the nightly runs rewrite about 20 a night in spare capacity, sampled review like an area (RULES.md). Rule 18 tone proposed, waiting for Tony. Card CSS: 24px minimum gap above the buttons (the Hounslow card's place line touched Tell me more).
 - 27 Nov 00:15, new fact sources: notes/sources.md (Wikidata works now; Tony added services-eu1.arcgis.com, openplaques.org, overpass-api.de and londonremembers.com to the allowed sites 27 Nov 00:18, live from the next chat: test each first). Tony can sense-check now and then but can't promise quick replies by day, so area runs must not wait on him. Tony said yes to all three pipeline decisions (00:19): sampled review, overnight area runs, go bar. A nightly scheduled task runs the area runs (see RULES.md Reviews).
 
 ### Earlier: Thu 26 Nov 2026, 23:40 (folio hero open, share idea to knock-on check, see items 5 and 6)
