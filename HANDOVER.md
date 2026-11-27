@@ -11,6 +11,7 @@
 - Merged to main: yes, so Tony's Obtainium build gets the disclosure copy and the new version naming.
 - **Backlog at launch (visuals):** the site's Grow yours. step still says Coming soon to London. with Try it early: swap for the Play badge. Play screenshots, trailer and folio draft are fine.
 - **Folio hero: TBC (Tony).** Draft stays unpublished.
+- 27 Nov 00:15, new fact sources: notes/sources.md (Wikidata works now; NHLE, Open Plaques, Overpass and London Remembers need Tony to allow their domains). Tony can sense-check now and then but can't promise quick replies by day, so area runs must not wait on him. Still waiting: his yes to the three pipeline decisions (notes/faster-pipeline.md).
 
 ### Earlier: Thu 26 Nov 2026, 23:40 (folio hero open, share idea to knock-on check, see items 5 and 6)
 
