@@ -1,0 +1,2189 @@
+[
+ {
+  "id": "barrier-block-motorway",
+  "kind": "late-20c",
+  "score": 9,
+  "place": "Southwyck House, Brixton",
+  "points": [
+   [
+    51.4605,
+    -0.1095,
+    350
+   ]
+  ],
+  "line": "Did you know, Brixton's Barrier Block was shaped as a wall against a motorway that was never built?",
+  "fact": "Southwyck House on Coldharbour Lane curves round in a 176-flat horseshoe to shield its estate from Ringway 1, an inner London motorway later dropped.",
+  "source": "Wikipedia: Brixton",
+  "year": 1975,
+  "topic": "buildings",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "windrush-labour-exchange",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Coldharbour Lane, Brixton",
+  "points": [
+   [
+    51.4615,
+    -0.1135,
+    350
+   ]
+  ],
+  "line": "Did you know, many Windrush arrivals settled in Brixton because the nearest job centre to their shelter was there?",
+  "fact": "In 1948, 236 Windrush passengers with nowhere to go slept in a shelter under Clapham Common. The nearest labour exchange was on Coldharbour Lane.",
+  "source": "Wikipedia: Windrush Square; Brixton",
+  "year": 1948,
+  "topic": "people",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "camberwell-beauty",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Coldharbour Lane, Brixton",
+  "points": [
+   [
+    51.4659,
+    -0.1024,
+    500
+   ]
+  ],
+  "line": "Did you know, the butterfly called the Camberwell beauty is named after two found on Coldharbour Lane in 1748?",
+  "fact": "The rare butterfly is named after 2 found on Coldharbour Lane in 1748. They had probably stowed away on timber ships from Scandinavia.",
+  "source": "Wikipedia: Coldharbour Lane",
+  "year": 1748,
+  "topic": "animals",
+  "area": "lambeth"
+ },
+ {
+  "id": "john-major-coldharbour",
+  "kind": "late-20c",
+  "score": 6,
+  "place": "Coldharbour Lane, Brixton",
+  "points": [
+   [
+    51.463,
+    -0.108,
+    400
+   ]
+  ],
+  "line": "Did you know, the future Prime Minister John Major spent part of his childhood in a flat on Coldharbour Lane?",
+  "fact": "As a boy, the future Prime Minister John Major lived in a flat on Coldharbour Lane, Brixton, from 1955 to 1959.",
+  "source": "Wikipedia: Coldharbour Lane; Brixton",
+  "year": 1955,
+  "topic": "politics",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "fridge-dead-cats",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Brixton Road, Brixton",
+  "points": [
+   [
+    51.4602,
+    -0.1169,
+    350
+   ]
+  ],
+  "line": "Did you know, the Brixton nightclub the Fridge opened above a frozen food shop?",
+  "fact": "In 1982 the club the Fridge moved in above Iceland on Brixton Road, decorated with battered ice boxes and fake dead cats hung from the ceiling.",
+  "source": "Wikipedia: The Fridge (nightclub)",
+  "year": 1982,
+  "topic": "music",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "empress-laurel-hardy",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Empress Theatre, Brixton",
+  "points": [
+   [
+    51.46216,
+    -0.11637,
+    300
+   ]
+  ],
+  "line": "Did you know, Laurel and Hardy once played a Brixton music hall that's now housing?",
+  "fact": "The Empress opened in 1898 and later hosted Marie Lloyd, Vera Lynn and Laurel and Hardy. It became a cinema, then bingo, and was knocked down in 1992.",
+  "source": "Wikipedia: Empress Theatre (Brixton)",
+  "year": 1898,
+  "topic": "comedy",
+  "area": "lambeth"
+ },
+ {
+  "id": "george-iv-basement-jaxx",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Brixton Hill, Brixton",
+  "points": [
+   [
+    51.4522,
+    -0.12167,
+    300
+   ]
+  ],
+  "line": "Did you know, the band Basement Jaxx found their sound in the back room of a Brixton Hill pub?",
+  "fact": "From 1994 the band Basement Jaxx ran a club night at the back of the George IV pub. They said its chaos shaped their music. It became a Tesco in 2013.",
+  "source": "Wikipedia: George IV, Brixton",
+  "year": 1994,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "windmill-west-end-flour",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Ashby's Mill, Brixton",
+  "points": [
+   [
+    51.4532,
+    -0.12383,
+    300
+   ]
+  ],
+  "line": "Did you know, a windmill off Brixton Hill was still making flour for West End hotels in the 1930s?",
+  "fact": "Ashby's Mill was built in 1816. It lost its sails in 1862 but kept grinding by steam, then gas, sending flour to West End hotels until 1934.",
+  "source": "Wikipedia: Ashby's Mill; Brixton",
+  "year": 1816,
+  "topic": "work",
+  "area": "lambeth"
+ },
+ {
+  "id": "brixton-prison-treadmill",
+  "kind": "georgian",
+  "score": 7,
+  "place": "HM Prison Brixton, Brixton",
+  "points": [
+   [
+    51.4516,
+    -0.12525,
+    350
+   ]
+  ],
+  "line": "Did you know, Brixton prison was one of the first to put prisoners on a treadmill?",
+  "fact": "In 1821 Brixton prison, then the Surrey House of Correction, was one of the first to bring in a treadmill. Prisoners trod it to grind corn.",
+  "source": "Wikipedia: HM Prison Brixton",
+  "year": 1821,
+  "topic": "crime",
+  "area": "lambeth"
+ },
+ {
+  "id": "brixton-prison-women",
+  "kind": "victorian",
+  "score": 9,
+  "place": "HM Prison Brixton, Brixton",
+  "points": [
+   [
+    51.4516,
+    -0.12525,
+    350
+   ]
+  ],
+  "line": "Did you know, Brixton prison became a women's jail because Tasmania stopped taking England's women convicts?",
+  "fact": "In 1852 Van Diemen's Land, now Tasmania, became the last colony to refuse women convicts from England, so Brixton prison was turned over to women.",
+  "source": "Wikipedia: HM Prison Brixton",
+  "year": 1852,
+  "topic": "law",
+  "area": "lambeth"
+ },
+ {
+  "id": "brixton-prison-gallows-gym",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "HM Prison Brixton, Brixton",
+  "points": [
+   [
+    51.4516,
+    -0.12525,
+    350
+   ]
+  ],
+  "line": "Did you know, Brixton prison's execution shed was never used and became a gym for the staff?",
+  "fact": "Brixton prison built an execution shed in 1902. Nobody was ever hanged in it, and it was turned into a gym for the staff.",
+  "source": "Wikipedia: HM Prison Brixton",
+  "year": 1902,
+  "topic": "secrets",
+  "area": "lambeth"
+ },
+ {
+  "id": "rush-common-set-back",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Brixton Road, Brixton",
+  "points": [
+   [
+    51.46107,
+    -0.11481,
+    400
+   ]
+  ],
+  "line": "Did you know, an 1806 law is why so much of Brixton Road sits back behind gardens?",
+  "fact": "An 1806 Act banned building within 150 feet of the road across Rush Common. So Brixton Road's houses were set back, and Windrush Square stayed open.",
+  "source": "Wikipedia: Brixton Library; Brixton; Windrush Square",
+  "year": 1806,
+  "topic": "law",
+  "area": "lambeth"
+ },
+ {
+  "id": "windrush-square-amy-tate",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Windrush Square, Brixton",
+  "points": [
+   [
+    51.4606,
+    -0.1152,
+    300
+   ]
+  ],
+  "line": "Did you know, Windrush Square began as a garden bought by Henry Tate's wife when the council wouldn't pay?",
+  "fact": "In 1901 Lambeth thought £3,000 too much for the land by Brixton's library. In 1904 Amy Tate paid £3,250 for it and gave it to the council as a garden.",
+  "source": "Wikipedia: Windrush Square; Brixton Library",
+  "year": 1904,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "platforms-piece-locals",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Brixton station, Brixton",
+  "points": [
+   [
+    51.4631,
+    -0.114,
+    300
+   ]
+  ],
+  "line": "Did you know, the bronze commuters on Brixton station's platforms were cast from real locals?",
+  "fact": "For the 1986 statues the artist chose 3 locals, 2 of them staff at the leisure centre opposite, and made their moulds in a disused ticket office.",
+  "source": "Wikipedia: Platforms Piece",
+  "year": 1986,
+  "topic": "art",
+  "area": "lambeth"
+ },
+ {
+  "id": "st-matthews-waterloo",
+  "kind": "georgian",
+  "score": 6,
+  "place": "St Matthew's Church, Brixton",
+  "points": [
+   [
+    51.4597,
+    -0.11611,
+    300
+   ]
+  ],
+  "line": "Did you know, St Matthew's church in Brixton was one of the churches built to celebrate victory at Waterloo?",
+  "fact": "St Matthew's, finished in 1824 on land taken from Rush Common, was one of the Waterloo churches, built to celebrate Britain's win at Waterloo.",
+  "source": "Wikipedia: St Matthew's Church, Brixton; Brixton",
+  "year": 1824,
+  "topic": "religion",
+  "area": "lambeth"
+ },
+ {
+  "id": "academy-one-pound",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Brixton Academy, Brixton",
+  "points": [
+   [
+    51.4651,
+    -0.11492,
+    300
+   ]
+  ],
+  "line": "Did you know, Brixton Academy was bought for £1 in 1983?",
+  "fact": "The 1929 Astoria cinema on Stockwell Road had failed as a disco and then a rock venue when a buyer paid £1 for it in 1983 and opened Brixton Academy.",
+  "source": "Wikipedia: Brixton Academy",
+  "year": 1983,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "academy-leftfield-ceiling",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Brixton Academy, Brixton",
+  "points": [
+   [
+    51.4651,
+    -0.11492,
+    300
+   ]
+  ],
+  "line": "Did you know, the band Leftfield once played Brixton Academy so loud that the ceiling started to fall?",
+  "fact": "In 1996 the dance band Leftfield hit 137 decibels at Brixton Academy. The bass brought dust and plaster down from the ceiling, and the rig was banned.",
+  "source": "Wikipedia: Brixton Academy",
+  "year": 1996,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "brockwell-opening-death",
+  "kind": "victorian",
+  "score": 9,
+  "place": "Brockwell Hall, Herne Hill",
+  "points": [
+   [
+    51.4508,
+    -0.1075,
+    600
+   ]
+  ],
+  "line": "Did you know, the MP who opened Brockwell Park died on the steps of its hall that day?",
+  "fact": "Brockwell Park opened to the public in 1892, led by the local MP. During the ceremony he had a heart attack and died on the steps of Brockwell Hall.",
+  "source": "Wikipedia: Brockwell Park",
+  "year": 1892,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "brockwell-rock-against-racism",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Brockwell Park, Herne Hill",
+  "points": [
+   [
+    51.4508,
+    -0.1075,
+    600
+   ]
+  ],
+  "line": "Did you know, about 150,000 people filled Brockwell Park for a Rock Against Racism concert in 1978?",
+  "fact": "In 1978 about 150,000 came to a Rock Against Racism carnival in Brockwell Park, headlined by the singer Elvis Costello. Some watched from trees.",
+  "source": "Wikipedia: Brockwell Park",
+  "year": 1978,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "brockwell-lido-staff",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Brockwell Lido, Herne Hill",
+  "points": [
+   [
+    51.4531,
+    -0.10639,
+    300
+   ]
+  ],
+  "line": "Did you know, Brockwell Lido was saved by two former council workers after Lambeth shut it?",
+  "fact": "Lambeth closed the 1937 lido in 1990 to save money. Two former council workers then won the contract to run it and reopened it in 1994.",
+  "source": "Wikipedia: Brockwell Lido",
+  "year": 1990,
+  "topic": "work",
+  "area": "lambeth"
+ },
+ {
+  "id": "effra-washway",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Brixton Road, Brixton",
+  "points": [
+   [
+    51.4665,
+    -0.1135,
+    400
+   ]
+  ],
+  "line": "Did you know, Brixton Road was once called the Washway, after the stream that ran beside it?",
+  "fact": "Until about 1850 Brixton Road was the Washway, after the River Effra flowing beside it. The river was covered over in 1847 and runs in a sewer below.",
+  "source": "Wikipedia: River Effra",
+  "year": 1847,
+  "topic": "nature",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "effra-heathrow",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Effra Road, Brixton",
+  "points": [
+   [
+    51.4597,
+    -0.11611,
+    400
+   ]
+  ],
+  "line": "Did you know, Brixton's buried River Effra may take its name from a lost local manor called Heathrow?",
+  "fact": "The Effra had no known name before the late 1700s. Lambeth's archivist thinks it came from Effra Farm, once the manor of Heathrow, by Effra Road.",
+  "source": "Wikipedia: River Effra",
+  "year": 1790,
+  "topic": "names",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "railton-road-panthers-squat",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Railton Road, Brixton",
+  "points": [
+   [
+    51.4571,
+    -0.10719,
+    500
+   ]
+  ],
+  "line": "Did you know, two Black Panthers squatted on Railton Road in 1972 and fought off eviction?",
+  "fact": "In 1972 two women from the British Black Panthers took over a flat above a Railton Road launderette, then opened number 121, squatted until 1999.",
+  "source": "Wikipedia: Railton Road",
+  "year": 1972,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "railton-road-pearl-alcock",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Railton Road, Brixton",
+  "points": [
+   [
+    51.4571,
+    -0.10719,
+    500
+   ]
+  ],
+  "line": "Did you know, a Railton Road dress shop hid an unlicensed bar for Caribbean gay men in the 1970s?",
+  "fact": "Under her dress shop at 103 Railton Road, the artist Pearl Alcock ran an unlicensed bar for Caribbean gay men, until police closed it in 1979.",
+  "source": "Wikipedia: Railton Road",
+  "year": 1979,
+  "topic": "secrets",
+  "area": "lambeth"
+ },
+ {
+  "id": "herne-hill-velodrome",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Herne Hill Velodrome, Herne Hill",
+  "points": [
+   [
+    51.4544,
+    -0.0936,
+    600
+   ]
+  ],
+  "line": "Did you know, a cycle track in a Herne Hill park held Olympic races in 1948?",
+  "fact": "Herne Hill Velodrome, a shallow concrete bowl built in 1891 in a park off Burbage Road, hosted the track cycling at the 1948 Olympics.",
+  "source": "Wikipedia: Herne Hill",
+  "year": 1948,
+  "topic": "sport",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "brixton-pound-bowie",
+  "kind": "21c",
+  "score": 7,
+  "place": "Brixton",
+  "points": [
+   [
+    51.4575,
+    -0.1175,
+    500
+   ]
+  ],
+  "line": "Did you know, Brixton had its own money, with David Bowie on the 10 pound note?",
+  "fact": "From 2009 Brixton shops took the Brixton pound. Later notes showed David Bowie on the B£10 and the wartime secret agent Violette Szabo on the B£20.",
+  "source": "Wikipedia: Brixton",
+  "year": 2011,
+  "topic": "everyday",
+  "area": "lambeth"
+ },
+ {
+  "id": "brixton-tube-ton-of-bricks",
+  "kind": "late-20c",
+  "score": 6,
+  "place": "Brixton tube station, Brixton",
+  "points": [
+   [
+    51.46278,
+    -0.11444,
+    250
+   ]
+  ],
+  "line": "Did you know, the tiles in Brixton tube station's seat alcoves are a pun on its name?",
+  "fact": "Every Victoria line station got its own tile design in the seat alcoves. Brixton's, from 1971, shows a ton of bricks.",
+  "source": "Wikipedia: Brixton tube station",
+  "year": 1971,
+  "topic": "design",
+  "area": "lambeth"
+ },
+ {
+  "id": "brixton-swamp-81",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Atlantic Road, Brixton",
+  "points": [
+   [
+    51.4575,
+    -0.1175,
+    500
+   ]
+  ],
+  "line": "Did you know, police stopped almost 1,000 people in Brixton in 5 days just before the 1981 riot?",
+  "fact": "In April 1981 plain-clothes police were sent into Brixton. In 5 days they stopped almost 1,000 people, mostly young black men. Rioting followed.",
+  "source": "Wikipedia: Brixton",
+  "year": 1981,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "granville-arcade-saved",
+  "kind": "21c",
+  "score": 6,
+  "place": "Brixton Village, Brixton",
+  "points": [
+   [
+    51.462,
+    -0.114,
+    300
+   ]
+  ],
+  "line": "Did you know, Brixton Village market was nearly replaced by a 10-storey tower in 2008?",
+  "fact": "In 2008 new owners planned to replace the 1937 Granville Arcade with a 10-storey tower. Traders and locals fought it off, and it was listed in 2010.",
+  "source": "Wikipedia: Brixton Market",
+  "year": 2008,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "clapham-south-shelter",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Clapham South station, Clapham",
+  "points": [
+   [
+    51.45271,
+    -0.14787,
+    350
+   ]
+  ],
+  "line": "Did you know, Jamaican arrivals in 1948 were housed in an air-raid shelter under Clapham South station?",
+  "fact": "In 1948 a ship brought 492 people from Jamaica to fill London's jobs. With nowhere else to house them, many slept in the shelter under Clapham South.",
+  "source": "Wikipedia: Clapham South tube station",
+  "year": 1948,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "franklin-oil-pond",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Clapham Common, Clapham",
+  "points": [
+   [
+    51.4578,
+    -0.1494,
+    600
+   ]
+  ],
+  "line": "Did you know, Benjamin Franklin calmed a pond on Clapham Common with a teaspoon of oil?",
+  "fact": "In the early 1770s the American statesman Benjamin Franklin poured a teaspoon of oil on a Clapham Common pond and calmed the water for yards around.",
+  "source": "Wikipedia: Clapham Common",
+  "year": 1772,
+  "topic": "science",
+  "area": "lambeth"
+ },
+ {
+  "id": "pepys-clapham",
+  "kind": "stuart",
+  "score": 6,
+  "place": "Clapham Common, Clapham",
+  "points": [
+   [
+    51.4625,
+    -0.144,
+    500
+   ]
+  ],
+  "line": "Did you know, Samuel Pepys spent his last years in Clapham, in the house of his old servant?",
+  "fact": "The diarist Samuel Pepys spent his last 2 years in Clapham, in the house of his old servant and friend William Hewer. He died there in 1703.",
+  "source": "Wikipedia: Clapham",
+  "year": 1703,
+  "topic": "people",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "cook-widow-clapham",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Clapham High Street, Clapham",
+  "points": [
+   [
+    51.46323,
+    -0.13394,
+    350
+   ]
+  ],
+  "line": "Did you know, Captain Cook's widow lived on Clapham High Street for many years?",
+  "fact": "After the explorer Captain James Cook was killed, his widow Elizabeth lived for many years in a house at 136 Clapham High Street.",
+  "source": "Wikipedia: Clapham",
+  "year": 1780,
+  "topic": "people",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "clapham-roman-stone",
+  "kind": "roman",
+  "score": 7,
+  "place": "Old Town, Clapham",
+  "points": [
+   [
+    51.46413,
+    -0.14089,
+    300
+   ]
+  ],
+  "line": "Did you know, a first-century Roman stone was placed by the old library in Clapham Old Town?",
+  "fact": "Clapham High Street follows a Roman road. A 1st-century stone recording it was dug up nearby in 1912 and placed by the old Clapham Library.",
+  "source": "Wikipedia: Clapham",
+  "year": 100,
+  "topic": "ancient",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "venn-clapham",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Holy Trinity Church, Clapham",
+  "points": [
+   [
+    51.4625,
+    -0.14207,
+    300
+   ]
+  ],
+  "line": "Did you know, the founder of the Clapham Sect was the great-grandfather of the man behind the Venn diagram?",
+  "fact": "Henry Venn, the Holy Trinity curate who started the anti-slavery Clapham Sect, was great-grandfather to John Venn, who came up with the Venn diagram.",
+  "source": "Wikipedia: Clapham Sect",
+  "year": 1754,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "hibbert-holy-trinity",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Holy Trinity Church, Clapham",
+  "points": [
+   [
+    51.4625,
+    -0.14207,
+    300
+   ]
+  ],
+  "line": "Did you know, a slave trader worshipped in the same Clapham church as the anti-slavery campaigners?",
+  "fact": "Wilberforce's anti-slavery circle prayed at Holy Trinity on Clapham Common. So did George Hibbert, a merchant and slave trader who opposed him.",
+  "source": "Wikipedia: Clapham",
+  "year": 1800,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "clapham-common-guns",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Battersea Rise, Clapham Common",
+  "points": [
+   [
+    51.459,
+    -0.156,
+    450
+   ]
+  ],
+  "line": "Did you know, two mounds on Clapham Common are left over from a Second World War gun site?",
+  "fact": "In the Second World War Clapham Common had a heavy anti-aircraft gun site. Two mounds on the Battersea Rise side are left from its storage bunkers.",
+  "source": "Wikipedia: Clapham Common",
+  "year": 1940,
+  "topic": "war",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "clapham-junction-name",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Clapham Junction station, Battersea",
+  "points": [
+   [
+    51.46417,
+    -0.17139,
+    400
+   ]
+  ],
+  "line": "Did you know, Clapham Junction isn't in Clapham, and was named that to sound posher?",
+  "fact": "Clapham Junction is in Battersea and was first called Battersea Junction. The railways took Clapham's name to attract a richer class of passenger.",
+  "source": "Wikipedia: Clapham Junction railway station; Clapham",
+  "year": 1863,
+  "topic": "names",
+  "area": "lambeth"
+ },
+ {
+  "id": "russell-battersea",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Battersea Arts Centre, Battersea",
+  "points": [
+   [
+    51.4648,
+    -0.1607,
+    300
+   ]
+  ],
+  "line": "Did you know, Bertrand Russell first gave his talk Why I Am Not a Christian at Battersea Town Hall?",
+  "fact": "The philosopher Bertrand Russell first gave Why I Am Not a Christian as a talk in 1927, at Battersea Town Hall, which is now Battersea Arts Centre.",
+  "source": "Wikipedia: Battersea Arts Centre",
+  "year": 1927,
+  "topic": "religion",
+  "area": "lambeth"
+ },
+ {
+  "id": "archer-mayor",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "Battersea Town Hall, Battersea",
+  "points": [
+   [
+    51.4648,
+    -0.1607,
+    300
+   ]
+  ],
+  "line": "Did you know, Battersea chose a Black mayor in 1913?",
+  "fact": "In 1913 Battersea made John Archer, a Black councillor for Latchmere, its mayor. He was elected at the town hall on Lavender Hill.",
+  "source": "Wikipedia: Lavender Hill",
+  "year": 1913,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "lavender-hill-name",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Lavender Hill, Battersea",
+  "points": [
+   [
+    51.46508,
+    -0.15802,
+    450
+   ]
+  ],
+  "line": "Did you know, Lavender Hill is named after the lavender once grown on its slopes for sale?",
+  "fact": "Lavender Hill is named after lavender grown on it for sale. By 1774 the name was known: a man offered a reward for a pony lost from a field there.",
+  "source": "Wikipedia: Lavender Hill",
+  "year": 1774,
+  "topic": "names",
+  "area": "lambeth"
+ },
+ {
+  "id": "lavender-laundresses",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Wandsworth Road, Battersea",
+  "points": [
+   [
+    51.4675,
+    -0.1495,
+    350
+   ]
+  ],
+  "line": "Did you know, laundresses once bleached linen on the grass at the east end of Lavender Hill?",
+  "fact": "In the early 1800s a row of cottages at the east end of Lavender Hill housed laundresses, who bleached and dried linen on the grass behind them.",
+  "source": "Wikipedia: Lavender Hill",
+  "year": 1830,
+  "topic": "work",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "lavender-hill-mob-bank",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Lavender Hill, Battersea",
+  "points": [
+   [
+    51.46508,
+    -0.15802,
+    450
+   ]
+  ],
+  "line": "Did you know, the Bank of England helped plan the gold robbery in the film The Lavender Hill Mob?",
+  "fact": "For the 1951 comedy The Lavender Hill Mob, about a Lavender Hill clerk who robs his own bank of gold, the Bank of England set up a committee to help.",
+  "source": "Wikipedia: The Lavender Hill Mob",
+  "year": 1951,
+  "topic": "film",
+  "area": "lambeth"
+ },
+ {
+  "id": "northcote-falconbrook",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Northcote Road, Battersea",
+  "points": [
+   [
+    51.457,
+    -0.165,
+    450
+   ]
+  ],
+  "line": "Did you know, Northcote Road runs over a buried stream?",
+  "fact": "Northcote Road sits low between Clapham and Wandsworth commons because it lies over the Falconbrook, a stream now hidden in a culvert.",
+  "source": "Wikipedia: Northcote Road",
+  "year": 1860,
+  "topic": "nature",
+  "area": "lambeth"
+ },
+ {
+  "id": "ramport-who",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Thessaly Road, Battersea",
+  "points": [
+   [
+    51.47683,
+    -0.13866,
+    300
+   ]
+  ],
+  "line": "Did you know, the Who built their own studio in a Battersea church hall to make Quadrophenia?",
+  "fact": "In 1973 the band the Who turned a church hall on Thessaly Road into a studio to record their album Quadrophenia. It later became a doctors' surgery.",
+  "source": "Wikipedia: Ramport Studios",
+  "year": 1973,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "dogs-home-tealby",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Battersea Dogs & Cats Home, Battersea",
+  "points": [
+   [
+    51.47872,
+    -0.14486,
+    350
+   ]
+  ],
+  "line": "Did you know, Battersea Dogs Home began in a woman's scullery in Holloway?",
+  "fact": "Mary Tealby started a home for lost and starving dogs in her scullery in Holloway in 1860. The Times mocked her. It moved to Battersea in 1871.",
+  "source": "Wikipedia: Battersea Dogs & Cats Home",
+  "year": 1860,
+  "topic": "animals",
+  "area": "lambeth"
+ },
+ {
+  "id": "dogs-home-war",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Battersea Dogs & Cats Home, Battersea",
+  "points": [
+   [
+    51.47872,
+    -0.14486,
+    350
+   ]
+  ],
+  "line": "Did you know, Battersea Dogs Home looked after 145,000 dogs during the Second World War?",
+  "fact": "In the Second World War Battersea's manager urged owners not to put pets down for fear of food shortages. It fed and cared for over 145,000 dogs.",
+  "source": "Wikipedia: Battersea Dogs & Cats Home",
+  "year": 1940,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "arnold-battersea",
+  "kind": "georgian",
+  "score": 7,
+  "place": "St Mary's Church, Battersea",
+  "points": [
+   [
+    51.4767,
+    -0.17556,
+    300
+   ]
+  ],
+  "line": "Did you know, Benedict Arnold, the American who changed sides, is buried in a Battersea church?",
+  "fact": "Benedict Arnold fought for George Washington, then changed sides and became a British officer. He lies in the crypt of St Mary's, Battersea.",
+  "source": "Wikipedia: St Mary's Church, Battersea",
+  "year": 1801,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "biggs-wandsworth",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Wandsworth Prison, Wandsworth",
+  "points": [
+   [
+    51.45015,
+    -0.17765,
+    400
+   ]
+  ],
+  "line": "Did you know, Ronnie Biggs of the Great Train Robbery escaped from Wandsworth prison?",
+  "fact": "In 1965 Ronnie Biggs escaped from Wandsworth prison, partway through 30 years for the Great Train Robbery. He fled to Brazil, on the run until 2001.",
+  "source": "Wikipedia: HM Prison Wandsworth",
+  "year": 1965,
+  "topic": "crime",
+  "area": "lambeth"
+ },
+ {
+  "id": "wandsworth-gallows",
+  "kind": "late-20c",
+  "score": 9,
+  "place": "Wandsworth Prison, Wandsworth",
+  "points": [
+   [
+    51.45015,
+    -0.17765,
+    400
+   ]
+  ],
+  "line": "Did you know, Wandsworth prison kept its gallows working until 1993, decades after the last hanging?",
+  "fact": "The last hanging at Wandsworth was in 1961, yet its gallows were tested every 6 months until 1993. The condemned cells became an officers' tea room.",
+  "source": "Wikipedia: HM Prison Wandsworth",
+  "year": 1993,
+  "topic": "law",
+  "area": "lambeth"
+ },
+ {
+  "id": "patriotic-spies",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "Royal Victoria Patriotic Building, Wandsworth",
+  "points": [
+   [
+    51.4532,
+    -0.1748,
+    300
+   ]
+  ],
+  "line": "Did you know, 34,000 people from occupied Europe were questioned for spies in a Wandsworth orphanage?",
+  "fact": "In the Second World War, 34,000 people from occupied Europe were questioned for spies in this old Wandsworth orphanage. 50 were confirmed as agents.",
+  "source": "Wikipedia: Royal Victoria Patriotic Building",
+  "year": 1940,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "patriotic-orphans",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Royal Victoria Patriotic Building, Wandsworth",
+  "points": [
+   [
+    51.4532,
+    -0.1748,
+    300
+   ]
+  ],
+  "line": "Did you know, the girls in Wandsworth's Crimean War orphanage had to pump water up its towers?",
+  "fact": "Crimean War orphan girls at the Royal Victoria Patriotic School pumped water up to its towers, did the washing and were washed outside in cold water.",
+  "source": "Wikipedia: Royal Victoria Patriotic Building",
+  "year": 1860,
+  "topic": "everyday",
+  "area": "lambeth"
+ },
+ {
+  "id": "chelsea-bridge-renamed",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Chelsea Bridge, Battersea",
+  "points": [
+   [
+    51.48472,
+    -0.15,
+    400
+   ]
+  ],
+  "line": "Did you know, Chelsea Bridge was first called Victoria Bridge, until it seemed it might fall down?",
+  "fact": "Chelsea Bridge opened in 1858 as Victoria Bridge. Doubts over its safety led the government to rename it, so a collapse wouldn't be tied to the Queen.",
+  "source": "Wikipedia: Chelsea Bridge",
+  "year": 1861,
+  "topic": "royals",
+  "area": "lambeth"
+ },
+ {
+  "id": "battersea-shield",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Chelsea Bridge, Battersea",
+  "points": [
+   [
+    51.48472,
+    -0.15,
+    400
+   ]
+  ],
+  "line": "Did you know, the Celtic Battersea Shield was dredged from the Thames while Chelsea Bridge was built?",
+  "fact": "Digging the riverbed for Chelsea Bridge's piers in the 1850s turned up Roman and Celtic weapons, skeletons and the bronze and enamel Battersea Shield.",
+  "source": "Wikipedia: Chelsea Bridge",
+  "year": 1855,
+  "topic": "ancient",
+  "area": "lambeth"
+ },
+ {
+  "id": "wellington-duel",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Battersea Park, Battersea",
+  "points": [
+   [
+    51.4793,
+    -0.1573,
+    700
+   ]
+  ],
+  "line": "Did you know, the Duke of Wellington fought a duel as prime minister on what's now Battersea Park?",
+  "fact": "In 1829 the prime minister, the Duke of Wellington, fought a duel with an earl on Battersea fields. The duke aimed wide; the earl fired into the air.",
+  "source": "Wikipedia: Battersea Park",
+  "year": 1829,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "ram-brewery-nano",
+  "kind": "21c",
+  "score": 8,
+  "place": "Ram Brewery, Wandsworth",
+  "points": [
+   [
+    51.45708,
+    -0.19293,
+    300
+   ]
+  ],
+  "line": "Did you know, a brewer kept brewing weekly at the closed Ram Brewery to keep its oldest-brewery claim?",
+  "fact": "After the Ram Brewery closed in 2006, a former Young's brewer kept a tiny brewery there going weekly, to keep its claim as Britain's oldest brewery.",
+  "source": "Wikipedia: Ram Brewery",
+  "year": 2006,
+  "topic": "work",
+  "area": "lambeth"
+ },
+ {
+  "id": "clapham-omnibus",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Clapham High Street, Clapham",
+  "points": [
+   [
+    51.464,
+    -0.133,
+    400
+   ]
+  ],
+  "line": "Did you know, Clapham was once so ordinary that its bus passenger came to stand for everyone?",
+  "fact": "In the early 1900s Clapham was such a plain commuter suburb that the man on the Clapham omnibus came to mean any ordinary person.",
+  "source": "Wikipedia: Clapham",
+  "year": 1905,
+  "topic": "names",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "stockwell-depot-winch",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Stockwell station, Stockwell",
+  "points": [
+   [
+    51.4725,
+    -0.12222,
+    300
+   ]
+  ],
+  "line": "Did you know, Stockwell's first tube carriages were winched up a steep tunnel to their depot on a wire rope?",
+  "fact": "Stockwell's first tube carriages reached their depot up a tunnel so steep, 1 in 3.5, that they were winched up on a wire rope until 1907.",
+  "source": "Wikipedia: Stockwell tube station",
+  "year": 1890,
+  "topic": "transport",
+  "area": "lambeth"
+ },
+ {
+  "id": "stockwell-deep-shelter",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Stockwell deep shelter, Stockwell",
+  "points": [
+   [
+    51.4721,
+    -0.1229,
+    300
+   ]
+  ],
+  "line": "Did you know, 2 wartime tunnels under Stockwell station could shelter about 4,000 people?",
+  "fact": "Two tunnels under Stockwell station, finished in 1942, could shelter about 4,000 people. One entrance, brightly painted, is now a local landmark.",
+  "source": "Wikipedia: Stockwell tube station",
+  "year": 1942,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "stockwell-bus-garage",
+  "kind": "late-20c",
+  "score": 6,
+  "place": "Stockwell bus garage, Stockwell",
+  "points": [
+   [
+    51.4745,
+    -0.1255,
+    300
+   ]
+  ],
+  "line": "Did you know, Stockwell's huge bus garage was built of concrete because steel was short after the war?",
+  "fact": "Steel was short when Stockwell bus garage was built for 200 buses in 1952, so its roof was made of concrete: 10 shallow arches with no pillars.",
+  "source": "Wikipedia: Stockwell bus garage",
+  "year": 1952,
+  "topic": "buildings",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "van-gogh-hackford",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Hackford Road, Stockwell",
+  "points": [
+   [
+    51.4759,
+    -0.11505,
+    250
+   ]
+  ],
+  "line": "Did you know, before he became a painter, Vincent van Gogh lodged on Hackford Road while selling art?",
+  "fact": "In 1873, at 20, Vincent van Gogh came to London to work for an art dealer. He rented a room at 87 Hackford Road from a mother and daughter.",
+  "source": "Wikipedia: Hackford Road",
+  "year": 1873,
+  "topic": "art",
+  "area": "lambeth"
+ },
+ {
+  "id": "kennington-palace-whitehall",
+  "kind": "tudor",
+  "score": 8,
+  "place": "Kennington Cross, Kennington",
+  "points": [
+   [
+    51.48889,
+    -0.11022,
+    300
+   ]
+  ],
+  "line": "Did you know, Kennington had a royal palace until Henry VIII took it apart to build Whitehall?",
+  "fact": "The Black Prince built a royal palace near Kennington Cross after 1337. In 1531 Henry VIII had most of it taken down and reused at Whitehall Palace.",
+  "source": "Wikipedia: Kennington",
+  "year": 1531,
+  "topic": "royals",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "st-marks-gallows",
+  "kind": "georgian",
+  "score": 8,
+  "place": "St Mark's Church, Kennington",
+  "points": [
+   [
+    51.48194,
+    -0.1125,
+    250
+   ]
+  ],
+  "line": "Did you know, St Mark's Church opposite Oval station was built on the site of Kennington Common's gallows?",
+  "fact": "Kennington Common was south London's hanging ground until its last hanging in 1799. In 1824 St Mark's church went up where the gallows had stood.",
+  "source": "Wikipedia: Kennington; Kennington Park",
+  "year": 1824,
+  "topic": "crime",
+  "area": "lambeth"
+ },
+ {
+  "id": "chartists-cuffay",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Kennington Park, Kennington",
+  "points": [
+   [
+    51.48417,
+    -0.10889,
+    450
+   ]
+  ],
+  "line": "Did you know, the Chartists' great 1848 rally on Kennington Common was organised by a Black Londoner?",
+  "fact": "In 1848 the Chartists, a working-class movement for the vote, held their biggest rally on Kennington Common. Its organiser, William Cuffay, was Black.",
+  "source": "Wikipedia: Kennington Park",
+  "year": 1848,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "kennington-park-shelter",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "Kennington Park, Kennington",
+  "points": [
+   [
+    51.48267,
+    -0.10889,
+    350
+   ]
+  ],
+  "line": "Did you know, people killed in a 1940 air raid still lie under Kennington Park?",
+  "fact": "In October 1940 a bomb hit a trench shelter in Kennington Park, killing about 100. The wet walls kept caving in, so up to 54 more were left buried.",
+  "source": "Wikipedia: Kennington Park",
+  "year": 1940,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "marley-st-agnes",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "St Agnes Place, Kennington",
+  "points": [
+   [
+    51.48417,
+    -0.10589,
+    300
+   ]
+  ],
+  "line": "Did you know, Bob Marley often visited a Rastafarian temple in a squatted street by Kennington Park?",
+  "fact": "From 1969 squatters took over St Agnes Place, built for Buckingham Palace servants, and set up a Rastafarian temple. Bob Marley often went in 1977.",
+  "source": "Wikipedia: Kennington Park; Kennington",
+  "year": 1977,
+  "topic": "music",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "cinema-museum-chaplin",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Cinema Museum, Kennington",
+  "points": [
+   [
+    51.4923,
+    -0.1053,
+    300
+   ]
+  ],
+  "line": "Did you know, Kennington's Cinema Museum is in the old workhouse young Charlie Chaplin was sent to?",
+  "fact": "At 7, Charlie Chaplin was sent to the Lambeth Workhouse when his family ran out of money. Its master's house and chapel now hold the Cinema Museum.",
+  "source": "Wikipedia: Lambeth Workhouse",
+  "year": 1896,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "oval-cabbage-patch",
+  "kind": "victorian",
+  "score": 7,
+  "place": "The Oval, Kennington",
+  "points": [
+   [
+    51.48372,
+    -0.11498,
+    400
+   ]
+  ],
+  "line": "Did you know, the Oval cricket ground was a cabbage patch until 1845?",
+  "fact": "In 1844 the Oval was a Duchy of Cornwall cabbage patch. In spring 1845, 10,000 turfs from Tooting Common were laid, and cricket began that May.",
+  "source": "Wikipedia: The Oval",
+  "year": 1845,
+  "topic": "sport",
+  "area": "lambeth"
+ },
+ {
+  "id": "oval-pow-camp",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "The Oval, Kennington",
+  "points": [
+   [
+    51.48372,
+    -0.11498,
+    400
+   ]
+  ],
+  "line": "Did you know, in the Second World War the Oval was made a camp for enemy parachutists?",
+  "fact": "In the Second World War the Oval cricket ground became a prisoner-of-war camp for enemy parachutists. None ever landed, so it was never used.",
+  "source": "Wikipedia: The Oval",
+  "year": 1940,
+  "topic": "war",
+  "area": "lambeth"
+ },
+ {
+  "id": "cleaver-square-landlord",
+  "kind": "georgian",
+  "score": 6,
+  "place": "Cleaver Square, Kennington",
+  "points": [
+   [
+    51.48768,
+    -0.10866,
+    250
+   ]
+  ],
+  "line": "Did you know, Cleaver Square was built by a pub landlord on a pasture called White Bear Field?",
+  "fact": "Cleaver Square was a pasture called White Bear Field. In 1780 Mary Cleaver leased it to a Kennington pub landlord, who built the square.",
+  "source": "Wikipedia: Cleaver Square",
+  "year": 1789,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "iwm-bethlem",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Imperial War Museum, Lambeth",
+  "points": [
+   [
+    51.49583,
+    -0.10861,
+    350
+   ]
+  ],
+  "line": "Did you know, the Imperial War Museum's home was the Bethlem asylum, and its dome housed the chapel?",
+  "fact": "The Imperial War Museum moved in 1936 into what had been Bethlem, London's old asylum. Its 2 long wings were knocked down to make a park.",
+  "source": "Wikipedia: Imperial War Museum",
+  "year": 1936,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "vauxhall-russian-station",
+  "kind": "georgian",
+  "score": 9,
+  "place": "Vauxhall Pleasure Gardens, Vauxhall",
+  "points": [
+   [
+    51.48667,
+    -0.12183,
+    300
+   ]
+  ],
+  "line": "Did you know, the Russian word for a railway station comes from Vauxhall's pleasure gardens?",
+  "fact": "Russians named their pleasure gardens after Vauxhall's. So many stood near railway stations that the Russian word for Vauxhall came to mean station.",
+  "source": "Wikipedia: Vauxhall Gardens",
+  "year": 1800,
+  "topic": "traditions",
+  "area": "lambeth"
+ },
+ {
+  "id": "vauxhall-dark-walks",
+  "kind": "georgian",
+  "score": 7,
+  "place": "Vauxhall Pleasure Gardens, Vauxhall",
+  "points": [
+   [
+    51.48817,
+    -0.12183,
+    300
+   ]
+  ],
+  "line": "Did you know, Vauxhall's old pleasure gardens kept unlit dark walks for lovers?",
+  "fact": "Vauxhall's pleasure gardens, open until 1859, were lit by thousands of lamps. Their unlit dark walks were known as the place for secret romance.",
+  "source": "Wikipedia: Vauxhall Gardens",
+  "year": 1750,
+  "topic": "everyday",
+  "area": "lambeth"
+ },
+ {
+  "id": "rvt-rubber-gloves",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Royal Vauxhall Tavern, Vauxhall",
+  "points": [
+   [
+    51.4864,
+    -0.1219,
+    250
+   ]
+  ],
+  "line": "Did you know, police who raided the Royal Vauxhall Tavern in 1987 wore rubber gloves?",
+  "fact": "Police raided the gay pub the Royal Vauxhall Tavern in 1987 in rubber gloves, against AIDS, a minister said. The drag act Lily Savage was arrested.",
+  "source": "Wikipedia: Royal Vauxhall Tavern",
+  "year": 1987,
+  "topic": "law",
+  "area": "lambeth"
+ },
+ {
+  "id": "vauxhall-bridge-statues",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "Vauxhall Bridge, Vauxhall",
+  "points": [
+   [
+    51.4875,
+    -0.12694,
+    350
+   ]
+  ],
+  "line": "Did you know, Vauxhall Bridge has 8 huge bronze statues that can't be seen from the bridge?",
+  "fact": "In 1907, 8 bronze statues of about 2 tons each were fixed above Vauxhall Bridge's piers. They can only be seen from the banks or from boats.",
+  "source": "Wikipedia: Vauxhall Bridge",
+  "year": 1907,
+  "topic": "art",
+  "area": "lambeth"
+ },
+ {
+  "id": "vauxhall-bridge-clown",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Vauxhall Bridge, Vauxhall",
+  "points": [
+   [
+    51.4875,
+    -0.12694,
+    350
+   ]
+  ],
+  "line": "Did you know, in 1844 a clown sailed from Vauxhall Bridge to Westminster in a washtub pulled by geese?",
+  "fact": "In September 1844 crowds packed Vauxhall Bridge to watch a clown from Astley's circus sail to Westminster Bridge in a washtub, towed by geese.",
+  "source": "Wikipedia: Vauxhall Bridge",
+  "year": 1844,
+  "topic": "animals",
+  "area": "lambeth"
+ },
+ {
+  "id": "sis-moats",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "MI6 building, Vauxhall",
+  "points": [
+   [
+    51.48722,
+    -0.12417,
+    250
+   ]
+  ],
+  "line": "Did you know, the MI6 building at Vauxhall has 2 moats?",
+  "fact": "The MI6 building at Vauxhall, opened in 1994, has triple-glazed windows, 2 moats, and much of the building below street level.",
+  "source": "Wikipedia: SIS Building",
+  "year": 1994,
+  "topic": "secrets",
+  "area": "lambeth"
+ },
+ {
+  "id": "century-house-taxi",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Century House, Lambeth",
+  "points": [
+   [
+    51.4985,
+    -0.112,
+    300
+   ]
+  ],
+  "line": "Did you know, MI6's secret headquarters from 1964 was an office block on Westminster Bridge Road?",
+  "fact": "From 1964 MI6 was based at Century House on Westminster Bridge Road. Its address was officially secret, yet a paper said every taxi driver knew it.",
+  "source": "Wikipedia: SIS Building",
+  "year": 1964,
+  "topic": "secrets",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "lambeth-bridge-red",
+  "kind": "early-20c",
+  "score": 7,
+  "place": "Lambeth Bridge, Lambeth",
+  "points": [
+   [
+    51.49464,
+    -0.12388,
+    350
+   ]
+  ],
+  "line": "Did you know, Lambeth Bridge is red, the colour of the benches in the House of Lords?",
+  "fact": "The Lords sit at the end of Parliament nearest Lambeth Bridge. Westminster Bridge, by the Commons end, is green like the Commons benches.",
+  "source": "Wikipedia: Lambeth Bridge",
+  "year": 1932,
+  "topic": "design",
+  "area": "lambeth"
+ },
+ {
+  "id": "lambeth-palace-prison",
+  "kind": "medieval",
+  "score": 7,
+  "place": "Lambeth Palace, Lambeth",
+  "points": [
+   [
+    51.49556,
+    -0.11972,
+    300
+   ]
+  ],
+  "line": "Did you know, Lambeth Palace had its own prison at the top of a tower?",
+  "fact": "The archbishops of Canterbury kept a prison room at the top of the stairs in the palace's Lollards' Tower, built in the 1430s.",
+  "source": "Wikipedia: Lambeth Palace",
+  "year": 1435,
+  "topic": "law",
+  "area": "lambeth"
+ },
+ {
+  "id": "garden-museum-nicholson",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Garden Museum, Lambeth",
+  "points": [
+   [
+    51.4942,
+    -0.1202,
+    250
+   ]
+  ],
+  "line": "Did you know, the Garden Museum began when a visitor found Lambeth's old church boarded up for demolition?",
+  "fact": "In 1976 Rosemary Nicholson came to see the tomb of 2 royal gardeners and found St Mary's shut. She saved it and opened a museum of garden history.",
+  "source": "Wikipedia: Garden Museum",
+  "year": 1977,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "doulton-clean-air",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Black Prince Road, Lambeth",
+  "points": [
+   [
+    51.4925,
+    -0.1195,
+    300
+   ]
+  ],
+  "line": "Did you know, Royal Doulton's Lambeth pottery was closed in 1956 by clean air rules?",
+  "fact": "From 1815 Doulton made stoneware jars and drainpipes in Lambeth. The pottery closed in 1956, when clean air rules stopped salt glazing in cities.",
+  "source": "Wikipedia: Royal Doulton",
+  "year": 1956,
+  "topic": "work",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "doulton-barlow-sisters",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Black Prince Road, Lambeth",
+  "points": [
+   [
+    51.4931,
+    -0.1187,
+    300
+   ]
+  ],
+  "line": "Did you know, Doulton's Lambeth pottery was unusual in letting its artists sign their work?",
+  "fact": "From 1871 Doulton's Lambeth pottery hired artists from the local art school, Hannah Barlow among them. Unusually, they signed their own pieces.",
+  "source": "Wikipedia: Royal Doulton",
+  "year": 1871,
+  "topic": "art",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "st-thomas-railway",
+  "kind": "victorian",
+  "score": 7,
+  "place": "St Thomas' Hospital, Lambeth",
+  "points": [
+   [
+    51.4991,
+    -0.11891,
+    350
+   ]
+  ],
+  "line": "Did you know, St Thomas' Hospital moved to Lambeth because a railway was built over its old site?",
+  "fact": "St Thomas' Hospital was in Southwark from the Middle Ages until 1862, when a railway took its land. It reopened opposite Parliament in 1871.",
+  "source": "Wikipedia: St Thomas' Hospital",
+  "year": 1871,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "nightingale-owl",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Florence Nightingale Museum, Lambeth",
+  "points": [
+   [
+    51.5003,
+    -0.1175,
+    250
+   ]
+  ],
+  "line": "Did you know, Florence Nightingale kept a pet owl that travelled in her pocket?",
+  "fact": "Florence Nightingale rescued an owl in Athens, raised it by hand and called it Athena. It went everywhere in her pocket, and is now in her museum.",
+  "source": "Wikipedia: Florence Nightingale Museum",
+  "year": 1850,
+  "topic": "animals",
+  "area": "lambeth"
+ },
+ {
+  "id": "necropolis-coffin-class",
+  "kind": "victorian",
+  "score": 9,
+  "place": "London Necropolis Railway, Waterloo",
+  "points": [
+   [
+    51.4991,
+    -0.1134,
+    300
+   ]
+  ],
+  "line": "Did you know, coffins leaving Waterloo for the cemetery travelled first, second or third class?",
+  "fact": "From 1854 a private line ran the dead from Waterloo to a Surrey cemetery. Coffins had class tickets too, and first class cost £1.",
+  "source": "Wikipedia: London Necropolis Railway",
+  "year": 1854,
+  "topic": "transport",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "necropolis-golfers",
+  "kind": "early-20c",
+  "score": 8,
+  "place": "London Necropolis Railway, Waterloo",
+  "points": [
+   [
+    51.5009,
+    -0.1135,
+    300
+   ]
+  ],
+  "line": "Did you know, golfers dressed as mourners to ride the cheap funeral train out of Waterloo?",
+  "fact": "Fares on the coffin train never changed for 85 years. Golfers posed as mourners to reach a golf course on the cemetery company's spare land.",
+  "source": "Wikipedia: London Necropolis Railway",
+  "year": 1902,
+  "topic": "sport",
+  "area": "lambeth",
+  "rough": true
+ },
+ {
+  "id": "waterloo-khartoum",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Waterloo station, Waterloo",
+  "points": [
+   [
+    51.5031,
+    -0.1132,
+    350
+   ]
+  ],
+  "line": "Did you know, parts of Waterloo station were once nicknamed Cyprus and Khartoum?",
+  "fact": "Waterloo grew in bolt-on sections, each with its own entrance and booking office. One, from 1878, was called Cyprus, and one from 1885 Khartoum.",
+  "source": "Wikipedia: London Waterloo station",
+  "year": 1885,
+  "topic": "transport",
+  "area": "lambeth"
+ },
+ {
+  "id": "waterloo-french-rename",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Waterloo station, Waterloo",
+  "points": [
+   [
+    51.5031,
+    -0.1132,
+    350
+   ]
+  ],
+  "line": "Did you know, a Paris councillor asked Tony Blair to rename Waterloo station?",
+  "fact": "When Eurostar came to Waterloo, a Paris councillor asked Tony Blair to rename it. A station named after Napoleon's defeat upset the French, he said.",
+  "source": "Wikipedia: London Waterloo station",
+  "year": 1994,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "waterloo-sunset-liverpool",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Waterloo station, Waterloo",
+  "points": [
+   [
+    51.5031,
+    -0.1132,
+    350
+   ]
+  ],
+  "line": "Did you know, the Kinks' song Waterloo Sunset was first called Liverpool Sunset?",
+  "fact": "The Kinks' 1967 song Waterloo Sunset began as Liverpool Sunset. The band changed it as there were already too many songs about Liverpool.",
+  "source": "Wikipedia: London Waterloo station",
+  "year": 1967,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "old-vic-kean-brutes",
+  "kind": "georgian",
+  "score": 7,
+  "place": "The Old Vic, Waterloo",
+  "points": [
+   [
+    51.502,
+    -0.10931,
+    300
+   ]
+  ],
+  "line": "Did you know, a star actor at the Old Vic told his audience they were ignorant brutes?",
+  "fact": "In 1824 the actor Edmund Kean played six Shakespeare plays in six nights there, then said he had never acted to such \"ignorant, unmitigated brutes\".",
+  "source": "Wikipedia: The Old Vic",
+  "year": 1824,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "old-vic-ira-aldridge",
+  "kind": "georgian",
+  "score": 8,
+  "place": "The Old Vic, Waterloo",
+  "points": [
+   [
+    51.502,
+    -0.10931,
+    300
+   ]
+  ],
+  "line": "Did you know, an 18-year-old black American actor played at the Old Vic in 1825?",
+  "fact": "In 1825 Ira Aldridge, a black American actor of 18, played the Old Vic in a play against slavery. He became one of the great stars of his day.",
+  "source": "Wikipedia: The Old Vic",
+  "year": 1825,
+  "topic": "art",
+  "area": "lambeth"
+ },
+ {
+  "id": "morley-college-dressing-rooms",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Morley College, Waterloo",
+  "points": [
+   [
+    51.49805,
+    -0.10977,
+    300
+   ]
+  ],
+  "line": "Did you know, Morley College began in the Old Vic's dressing rooms?",
+  "fact": "Emma Cons turned the rowdy Old Vic into a coffee hall with penny lectures. They led to Morley College, taught in its dressing rooms until the 1920s.",
+  "source": "Wikipedia: Morley College",
+  "year": 1889,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "canterbury-aquarium-tunnel",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Canterbury Music Hall, Lambeth",
+  "points": [
+   [
+    51.4991,
+    -0.1134,
+    300
+   ]
+  ],
+  "line": "Did you know, a Lambeth music hall's crowd reached their seats through a tunnel with an aquarium?",
+  "fact": "In 1859 the railway into Waterloo cut the Canterbury music hall off from its entrance. Crowds got in by a tunnel under the tracks with an aquarium.",
+  "source": "Wikipedia: Canterbury Music Hall",
+  "year": 1859,
+  "topic": "music",
+  "area": "lambeth"
+ },
+ {
+  "id": "canterbury-smoke-roof",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Canterbury Music Hall, Lambeth",
+  "points": [
+   [
+    51.4991,
+    -0.1134,
+    300
+   ]
+  ],
+  "line": "Did you know, a Lambeth music hall had a glass roof that slid back to let the cigar smoke out?",
+  "fact": "The Canterbury, rebuilt for 1,500 in 1856, was a pub music hall where waiters served at tables. Its glazed roof could open to clear the smoke.",
+  "source": "Wikipedia: Canterbury Music Hall",
+  "year": 1856,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "astley-circus-ring",
+  "kind": "georgian",
+  "score": 9,
+  "place": "Astley's Amphitheatre, Lambeth",
+  "points": [
+   [
+    51.5002,
+    -0.1183,
+    300
+   ]
+  ],
+  "line": "Did you know, the size of circus rings around the world was set by a Lambeth showman?",
+  "fact": "Philip Astley opened his ring on Westminster Bridge Road in 1773. He settled on 42 feet across, about 13m, still the circus standard.",
+  "source": "Wikipedia: Astley's Amphitheatre",
+  "year": 1773,
+  "topic": "traditions",
+  "area": "lambeth"
+ },
+ {
+  "id": "astley-pablo-fanque",
+  "kind": "victorian",
+  "score": 6,
+  "place": "Astley's Amphitheatre, Lambeth",
+  "points": [
+   [
+    51.5002,
+    -0.1183,
+    300
+   ]
+  ],
+  "line": "Did you know, the black circus rider Pablo Fanque first performed in London at a Lambeth circus?",
+  "fact": "Pablo Fanque, a black horse rider and circus owner, made his London debut in 1847 at Astley's, a circus on Westminster Bridge Road.",
+  "source": "Wikipedia: Astley's Amphitheatre",
+  "year": 1847,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "south-bank-lion-red",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "South Bank Lion, Westminster Bridge",
+  "points": [
+   [
+    51.5009,
+    -0.11985,
+    250
+   ]
+  ],
+  "line": "Did you know, the stone lion by Westminster Bridge was painted red for 15 years?",
+  "fact": "The 1837 lion came off a brewery knocked down for the Festival Hall. Painted red as British Rail's symbol, it was stripped when moved in 1966.",
+  "source": "Wikipedia: South Bank Lion",
+  "year": 1951,
+  "topic": "design",
+  "area": "lambeth"
+ },
+ {
+  "id": "south-bank-lion-paw",
+  "kind": "victorian",
+  "score": 7,
+  "place": "South Bank Lion, Westminster Bridge",
+  "points": [
+   [
+    51.5009,
+    -0.11985,
+    250
+   ]
+  ],
+  "line": "Did you know, the South Bank Lion had its maker's initials and a date hidden under a paw?",
+  "fact": "When the lion came down from the old Lion Brewery, the sculptor's initials and the date 24 May 1837 were found under one of its paws.",
+  "source": "Wikipedia: South Bank Lion",
+  "year": 1837,
+  "topic": "secrets",
+  "area": "lambeth"
+ },
+ {
+  "id": "coade-stone-works",
+  "kind": "georgian",
+  "score": 8,
+  "place": "Royal Festival Hall, South Bank",
+  "points": [
+   [
+    51.50584,
+    -0.11679,
+    300
+   ]
+  ],
+  "line": "Did you know, the Royal Festival Hall stands where a woman ran a factory making artificial stone for royal palaces?",
+  "fact": "Where the Royal Festival Hall stands, Eleanor Coade made a weatherproof artificial stone from 1769 to 1821. Kings used it in their palaces.",
+  "source": "Wikipedia: Coade stone",
+  "year": 1769,
+  "topic": "work",
+  "area": "lambeth"
+ },
+ {
+  "id": "festival-hall-speakers",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Royal Festival Hall, South Bank",
+  "points": [
+   [
+    51.50584,
+    -0.11679,
+    300
+   ]
+  ],
+  "line": "Did you know, the Royal Festival Hall once used hidden microphones and speakers to fix its dry sound?",
+  "fact": "Microphones in the ceiling fed lost sound back through speakers. As the system aged it made odd noises during concerts, and was switched off in 1998.",
+  "source": "Wikipedia: Royal Festival Hall",
+  "year": 1962,
+  "topic": "science",
+  "area": "lambeth"
+ },
+ {
+  "id": "skylon-student-scarf",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Skylon site, South Bank",
+  "points": [
+   [
+    51.5047,
+    -0.11861,
+    300
+   ]
+  ],
+  "line": "Did you know, a student climbed the Skylon at midnight and tied a scarf near the top?",
+  "fact": "In 1951, days before the King's visit, a student climbed the 90m Skylon at midnight and tied a scarf near the top. A policeman went up for it.",
+  "source": "Wikipedia: Skylon (Festival of Britain)",
+  "year": 1951,
+  "topic": "people",
+  "area": "lambeth"
+ },
+ {
+  "id": "skylon-paper-knives",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "Skylon site, South Bank",
+  "points": [
+   [
+    51.5047,
+    -0.11861,
+    300
+   ]
+  ],
+  "line": "Did you know, bits of the Festival of Britain's Skylon tower were made into paper knives?",
+  "fact": "Churchill had the Skylon taken down in 1952, seeing it as a symbol of Labour's Britain. It was sold for scrap, and some became paper knives.",
+  "source": "Wikipedia: Skylon (Festival of Britain)",
+  "year": 1952,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "telecinema-3d",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "BFI Southbank, South Bank",
+  "points": [
+   [
+    51.5072,
+    -0.1157,
+    300
+   ]
+  ],
+  "line": "Did you know, the Festival of Britain had a cinema showing 3D films and the new invention of television?",
+  "fact": "The Festival of Britain's Telecinema showed 3D films and television to about 460,000 people in 1951. Afterwards it became BFI Southbank.",
+  "source": "Wikipedia: Festival of Britain; BFI Southbank",
+  "year": 1951,
+  "topic": "film",
+  "area": "lambeth"
+ },
+ {
+  "id": "county-hall-slogans",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "County Hall, South Bank",
+  "points": [
+   [
+    51.50194,
+    -0.11889,
+    300
+   ]
+  ],
+  "line": "Did you know, London's council hung slogans on County Hall for MPs to read across the river?",
+  "fact": "In the 1980s the Labour-run Greater London Council, at war with Thatcher's government, hung opposition slogans on County Hall, facing Parliament.",
+  "source": "Wikipedia: County Hall, London",
+  "year": 1984,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "shell-pneumatic-railway",
+  "kind": "victorian",
+  "score": 8,
+  "place": "Shell Centre, South Bank",
+  "points": [
+   [
+    51.50383,
+    -0.11689,
+    300
+   ]
+  ],
+  "line": "Did you know, builders of the Shell Centre dug into an abandoned air-powered railway?",
+  "fact": "Builders of the Shell Centre found an abandoned air-powered railway, dug from 1865 to run under the Thames to Charing Cross until the money ran out.",
+  "source": "Wikipedia: Shell Centre",
+  "year": 1865,
+  "topic": "transport",
+  "area": "lambeth"
+ },
+ {
+  "id": "shell-basement-rifle-range",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "Shell Centre, South Bank",
+  "points": [
+   [
+    51.50383,
+    -0.11689,
+    300
+   ]
+  ],
+  "line": "Did you know, the Shell Centre was built with a rifle range and a swimming pool in its basement?",
+  "fact": "Finished in 1962, the oil firm's tower gave staff a full-size pool, a gym, a rifle range, a snooker room and their own supermarket underground.",
+  "source": "Wikipedia: Shell Centre",
+  "year": 1962,
+  "topic": "work",
+  "area": "lambeth"
+ },
+ {
+  "id": "hayward-wind-light",
+  "kind": "late-20c",
+  "score": 6,
+  "place": "Hayward Gallery, South Bank",
+  "points": [
+   [
+    51.5061,
+    -0.11556,
+    250
+   ]
+  ],
+  "line": "Did you know, a light sculpture on the Hayward Gallery's roof changed with the wind for 36 years?",
+  "fact": "From 1972 to 2008 a neon sculpture on the Hayward Gallery's lift tower changed with the wind. Taken down to be fitted with LEDs, it never went back.",
+  "source": "Wikipedia: Hayward Gallery",
+  "year": 1972,
+  "topic": "design",
+  "area": "lambeth"
+ },
+ {
+  "id": "london-eye-no-winner",
+  "kind": "late-20c",
+  "score": 8,
+  "place": "London Eye, South Bank",
+  "points": [
+   [
+    51.50333,
+    -0.11972,
+    300
+   ]
+  ],
+  "line": "Did you know, the London Eye began as an entry in a newspaper contest that nobody won?",
+  "fact": "In 1993 two architects, a married couple, entered a design for a millennium landmark. The judges chose no winner, so they remortgaged their home.",
+  "source": "Wikipedia: London Eye",
+  "year": 1993,
+  "topic": "design",
+  "area": "lambeth"
+ },
+ {
+  "id": "london-eye-built-flat",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "London Eye, South Bank",
+  "points": [
+   [
+    51.50333,
+    -0.11972,
+    300
+   ]
+  ],
+  "line": "Did you know, the London Eye was built lying flat on the river and then hauled upright?",
+  "fact": "The London Eye came up the Thames on barges and was assembled lying flat on platforms in the river. Then it was raised at 2 degrees an hour.",
+  "source": "Wikipedia: London Eye",
+  "year": 1999,
+  "topic": "buildings",
+  "area": "lambeth"
+ },
+ {
+  "id": "lower-marsh-waterloo-name",
+  "kind": "victorian",
+  "score": 7,
+  "place": "Lower Marsh, Waterloo",
+  "points": [
+   [
+    51.5009,
+    -0.1127,
+    300
+   ]
+  ],
+  "line": "Did you know, Waterloo was called Lambeth Marsh until the station came?",
+  "fact": "Waterloo was the village of Lambeth Marsh, on a raised road across the marshes. The name Waterloo only took over after the station opened in 1848.",
+  "source": "Wikipedia: Lower Marsh",
+  "year": 1848,
+  "topic": "names",
+  "area": "lambeth"
+ },
+ {
+  "id": "lambeth-north-four-names",
+  "kind": "early-20c",
+  "score": 6,
+  "place": "Lambeth North station, Lambeth",
+  "points": [
+   [
+    51.49889,
+    -0.11167,
+    250
+   ]
+  ],
+  "line": "Did you know, Lambeth North station has had four names?",
+  "fact": "It opened in 1906 as Kennington Road, became Westminster Bridge Road that July, Lambeth (North) in 1917 and Lambeth North in 1928.",
+  "source": "Wikipedia: Lambeth North tube station",
+  "year": 1906,
+  "topic": "names",
+  "area": "lambeth"
+ },
+ {
+  "id": "national-theatre-stone-1951",
+  "kind": "late-20c",
+  "score": 7,
+  "place": "National Theatre, South Bank",
+  "points": [
+   [
+    51.5071,
+    -0.1141,
+    300
+   ]
+  ],
+  "line": "Did you know, the National Theatre's foundation stone was laid 25 years before it opened?",
+  "fact": "The stone went down in 1951, but 10 years on the government said the nation couldn't afford a national theatre. It opened in 1976.",
+  "source": "Wikipedia: Royal National Theatre; The Old Vic",
+  "year": 1951,
+  "topic": "politics",
+  "area": "lambeth"
+ },
+ {
+  "id": "leake-street-cans",
+  "kind": "21c",
+  "score": 6,
+  "place": "Leake Street, Waterloo",
+  "points": [
+   [
+    51.502,
+    -0.1157,
+    250
+   ]
+  ],
+  "line": "Did you know, the graffiti tunnel under Waterloo station began with a street art festival run by Banksy?",
+  "fact": "Leake Street, a 300m road tunnel under the tracks, was first painted at the Cans Festival that Banksy organised in May 2008.",
+  "source": "Wikipedia: Leake Street",
+  "year": 2008,
+  "topic": "art",
+  "area": "lambeth"
+ }
+]
